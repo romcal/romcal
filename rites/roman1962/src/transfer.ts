@@ -22,9 +22,18 @@ export function isTransferTarget(primary: LiturgicalDay1962): boolean {
  * `src/rubrics/commemoration.ts#selectCommemorations` in the legacy
  * tree, factored here so `Calendar1962#postReduceDay` and
  * `generateCalendar` share a single source of truth.
+ *
+ * Also drops 1969 bleed-through: entries that the underlying 1969
+ * engine pushed in (e.g. `adalbert_of_prague_bishop` on Apr 23)
+ * carry no `kind1962`/`classOf1962` stamping because they never pass
+ * through the 1962 metadata pipeline. They are not part of the 1962
+ * sanctoral and must not appear as commemorations.
  */
 export function filterCommemorations(losers: LiturgicalDay1962[]): LiturgicalDay1962[] {
-  return losers.filter((loser) => !((loser.kind1962 ?? 'sancti') === 'tempora' && (loser.classOf1962 ?? 4) === 4));
+  return losers.filter((loser) => {
+    if (loser.kind1962 === undefined || loser.classOf1962 === undefined) return false;
+    return !(loser.kind1962 === 'tempora' && loser.classOf1962 === 4);
+  });
 }
 
 export const CAP_LIMITS: Record<CommemorationCapMode, number> = {
