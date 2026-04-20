@@ -19,10 +19,19 @@ import {
 } from '@internal/rite-roman1969';
 import type { BundleInputs, Id } from '@internal/rite-roman1969';
 
+import { Seasons1962 } from './constants/seasons-1962';
 import { setMeta1962 } from './meta-1962';
 import { derivePrecedence1962 } from './precedence-1962-derive';
 import { stationsForId } from './stations';
 import { classifyTempora } from './tempora-class';
+
+/**
+ * 1962-specific season strings emitted into the `seasons` array. The 1969
+ * `Season` enum has no slot for `EpiphanyTide`/`Septuagesima`/
+ * `TimeAfterPentecost`, so we cast — `seasons` is a plain string array at
+ * runtime and the 1962 rite owns the interpretation downstream.
+ */
+const S1962 = Seasons1962 as unknown as Record<keyof typeof Seasons1962, Season>;
 
 // Narrow subset matching 1969's LiturgicalDayProperOfTimeInput shape, spelled
 // locally so we don't depend on a non-public type alias.
@@ -290,7 +299,7 @@ export class ProperOfTime1962 extends CalendarDef {
         precedence: dow === 0 ? Precedences.UnprivilegedSunday_6 : Precedences.Weekday_13,
         dateDef: { dateFn: 'dateOfOrdinaryTime', dateArgs: [dow, week], yearOffset },
         isHolyDayOfObligation: dow === 0,
-        seasons: [Season.OrdinaryTime],
+        seasons: [S1962.EpiphanyTide],
         periods: [Period.EarlyOrdinaryTime],
         calendarMetadata: { weekOfSeason: week, dayOfWeek: dow },
         colors: [Colors.Green],
@@ -318,8 +327,7 @@ export class ProperOfTime1962 extends CalendarDef {
           precedence: dow === 0 ? Precedences.PrivilegedSunday_2 : Precedences.Weekday_13,
           dateDef: { dateFn: 'ashWednesday', addDay, yearOffset },
           isHolyDayOfObligation: dow === 0,
-          // Map Septuagesima → OrdinaryTime (1969 lossy); real 1962 season via postReduceDay.
-          seasons: [Season.OrdinaryTime],
+          seasons: [S1962.Septuagesima],
           periods: [Period.EarlyOrdinaryTime],
           calendarMetadata: { weekOfSeason: w + 1, dayOfWeek: dow },
           colors: [Colors.Purple],
