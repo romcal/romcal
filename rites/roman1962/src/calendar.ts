@@ -5,10 +5,13 @@ import {
   LiturgicalDayConfig,
   LiturgicalDayDef,
   RomcalCalendarMetadata,
+  Season,
+  computeAnchors,
 } from '@internal/rite-roman1969';
 
 import { RomcalConfig1962, type CommemorationCapMode } from './config-1962';
 import { PRECEDENCES_1962 } from './constants/precedences-1962';
+import { Seasons1962 } from './constants/seasons-1962';
 import { LiturgicalDay1962 } from './liturgical-day';
 import type { Kind1962 } from './meta-1962';
 import { applyCap, filterCommemorations, isTransferTarget } from './transfer';
@@ -40,6 +43,13 @@ function kindOf(d: LiturgicalDay1962): Kind1962 {
  */
 function modeOf(config: unknown): CommemorationCapMode {
   return config instanceof RomcalConfig1962 ? config.commemorationMode : 'all';
+}
+
+function isoOf(d: Date): string {
+  const y = d.getUTCFullYear();
+  const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(d.getUTCDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
 }
 
 /**
@@ -79,6 +89,17 @@ export class Calendar1962 extends Calendar<LiturgicalDay1962> {
    * into candidates.
    */
   private readonly candidatesByDate: Map<string, LiturgicalDay1962[]> = new Map();
+
+  /**
+   * Per civil-year cache of the pre-Lent boundary ISO dates, used by
+   * `postReduceDay` to overwrite `day.seasons` with the 1962 season in
+   * the [Jan 7, Septuagesima) and [Septuagesima, Ash Wednesday) windows.
+   * The 1969 `Season` enum has no `EpiphanyTide`/`Septuagesima` slots,
+   * so the proper-of-time emission can't distinguish the two ranges
+   * from sancti that inherit `seasons` via baseData. Date-range rewrite
+   * is the single source of truth for 1962 days in this window.
+   */
+  private readonly preLentBoundariesByYear: Map<number, { septuagesima: string; ashWednesday: string }> = new Map();
 
   protected override createLiturgicalDay(
     def: LiturgicalDayDef,
@@ -142,6 +163,8 @@ export class Calendar1962 extends Calendar<LiturgicalDay1962> {
 
     day.commemorations = capped.map((c) => ({ id: c.id, name: c.name }));
 
+    this.overwritePreLentSeason(day);
+
     // Stash for potential vigil rebuild. Use `day.date` (ISO YYYY-MM-DD
     // set by the base LiturgicalDay ctor) as the key; the same string
     // keys the `LiturgicalCalendar` the caller produces.
@@ -155,6 +178,42 @@ export class Calendar1962 extends Calendar<LiturgicalDay1962> {
     }
 
     return day;
+  }
+
+  /**
+   * Overwrite `day.seasons` to the 1962 season for dates in the two
+   * pre-Lent ranges:
+   *
+   *   - [Jan 7, Septuagesima Sunday)        → `EpiphanyTide`
+   *   - [Septuagesima Sunday, Ash Wednesday) → `Septuagesima`
+   *
+   * Handles both tempora primaries (whose `seasons` was emitted by
+   * `ProperOfTime1962`) and sancti primaries that inherit `seasons`
+   * from underlying tempora via `baseData` — both surface on the final
+   * day object, both need the rewrite. The day-object field is typed
+   * `readonly Season[]` (1969 enum, no 1962 slots), so we mutate via a
+   * one-shot cast; the values are plain strings at runtime.
+   */
+  private overwritePreLentSeason(day: LiturgicalDay1962): void {
+    const iso = day.date;
+    const year = Number(iso.slice(0, 4));
+    let bounds = this.preLentBoundariesByYear.get(year);
+    if (!bounds) {
+      const { septuagesima, ashWednesday } = computeAnchors(year);
+      bounds = { septuagesima: isoOf(septuagesima), ashWednesday: isoOf(ashWednesday) };
+      this.preLentBoundariesByYear.set(year, bounds);
+    }
+    // String comparison works because all three are ISO YYYY-MM-DD.
+    const afterEpiphany = `${year}-01-07`;
+    let season: Season | undefined;
+    if (iso >= afterEpiphany && iso < bounds.septuagesima) {
+      season = Seasons1962.EpiphanyTide as unknown as Season;
+    } else if (iso >= bounds.septuagesima && iso < bounds.ashWednesday) {
+      season = Seasons1962.Septuagesima as unknown as Season;
+    }
+    if (season !== undefined) {
+      (day as unknown as { seasons: Season[] }).seasons = [season];
+    }
   }
 
   /**
