@@ -1,0 +1,500 @@
+{
+  "4th_day_in_the_octave_of_christmas_rubrica1960": [
+    {
+      "key": "saint_paul_outside_the_walls"
+    }
+  ],
+  "advent_1_sunday": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "advent_2_sunday": [
+    {
+      "key": "holy_cross_in_jerusalem"
+    }
+  ],
+  "advent_3_friday": [
+    {
+      "key": "santi_apostoli"
+    }
+  ],
+  "advent_3_saturday": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "advent_3_sunday": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "advent_3_wednesday": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "advent_4_sunday": [
+    {
+      "key": "santi_apostoli"
+    }
+  ],
+  "advent_december_18": [
+    {
+      "key": "santi_apostoli"
+    }
+  ],
+  "advent_december_19": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "after_pentecost_16_friday": [
+    {
+      "key": "santi_apostoli"
+    }
+  ],
+  "after_pentecost_16_saturday": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "after_pentecost_16_wednesday": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "all_saints": [
+    {
+      "key": "santa_maria_ad_martyres"
+    }
+  ],
+  "annunciation_of_the_blessed_virgin_mary": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "ascension_of_the_lord": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "ash_wednesday": [
+    {
+      "key": "saint_sabina"
+    }
+  ],
+  "christmas_eve": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "christmas_octave_day_2": [
+    {
+      "key": "saint_stephen_on_the_caelian"
+    }
+  ],
+  "christmas_octave_day_4": [
+    {
+      "key": "saint_paul_outside_the_walls"
+    }
+  ],
+  "circumcision_of_the_lord": [
+    {
+      "key": "santa_maria_in_trastevere"
+    }
+  ],
+  "easter_friday": [
+    {
+      "key": "santa_maria_ad_martyres"
+    }
+  ],
+  "easter_monday": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "easter_saturday": [
+    {
+      "key": "saint_john_lateran"
+    }
+  ],
+  "easter_sunday": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "easter_thursday": [
+    {
+      "key": "santi_apostoli"
+    }
+  ],
+  "easter_time_1_sunday": [
+    {
+      "key": "saint_pancras"
+    }
+  ],
+  "easter_tuesday": [
+    {
+      "key": "saint_paul_outside_the_walls"
+    }
+  ],
+  "easter_wednesday": [
+    {
+      "key": "saint_lawrence_outside_the_walls"
+    }
+  ],
+  "epiphany_of_the_lord": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "exaltation_of_the_holy_cross": [
+    {
+      "key": "holy_cross_in_jerusalem"
+    }
+  ],
+  "friday_after_ash_wednesday": [
+    {
+      "key": "saints_john_and_paul"
+    }
+  ],
+  "friday_of_the_passion_of_the_lord": [
+    {
+      "key": "holy_cross_in_jerusalem"
+    }
+  ],
+  "holy_monday": [
+    {
+      "key": "saint_praxedes"
+    }
+  ],
+  "holy_saturday": [
+    {
+      "key": "saint_john_lateran"
+    }
+  ],
+  "holy_tuesday": [
+    {
+      "key": "saint_prisca"
+    }
+  ],
+  "holy_wednesday": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "lent_1_friday": [
+    {
+      "key": "santi_apostoli"
+    }
+  ],
+  "lent_1_monday": [
+    {
+      "key": "saint_peter_in_chains"
+    }
+  ],
+  "lent_1_saturday": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "lent_1_sunday": [
+    {
+      "key": "saint_john_lateran"
+    }
+  ],
+  "lent_1_thursday": [
+    {
+      "key": "saint_lawrence_in_panisperna"
+    }
+  ],
+  "lent_1_tuesday": [
+    {
+      "key": "saint_anastasia"
+    }
+  ],
+  "lent_1_wednesday": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "lent_2_friday": [
+    {
+      "key": "saint_vitalis"
+    }
+  ],
+  "lent_2_monday": [
+    {
+      "key": "saint_clement"
+    }
+  ],
+  "lent_2_saturday": [
+    {
+      "key": "saints_marcellinus_and_peter"
+    }
+  ],
+  "lent_2_sunday": [
+    {
+      "key": "santa_maria_in_domnica"
+    }
+  ],
+  "lent_2_thursday": [
+    {
+      "key": "santa_maria_in_trastevere"
+    }
+  ],
+  "lent_2_tuesday": [
+    {
+      "key": "saint_balbina"
+    }
+  ],
+  "lent_2_wednesday": [
+    {
+      "key": "saint_cecilia"
+    }
+  ],
+  "lent_3_friday": [
+    {
+      "key": "saint_lawrence_in_lucina"
+    }
+  ],
+  "lent_3_monday": [
+    {
+      "key": "saint_mark"
+    }
+  ],
+  "lent_3_saturday": [
+    {
+      "key": "saint_susanna"
+    }
+  ],
+  "lent_3_sunday": [
+    {
+      "key": "saint_lawrence_outside_the_walls"
+    }
+  ],
+  "lent_3_thursday": [
+    {
+      "key": "saints_cosmas_and_damian"
+    }
+  ],
+  "lent_3_tuesday": [
+    {
+      "key": "saint_pudentiana"
+    }
+  ],
+  "lent_3_wednesday": [
+    {
+      "key": "saint_sixtus"
+    }
+  ],
+  "lent_4_friday": [
+    {
+      "key": "saint_eusebius"
+    }
+  ],
+  "lent_4_monday": [
+    {
+      "key": "four_holy_crowned_martyrs"
+    }
+  ],
+  "lent_4_saturday": [
+    {
+      "key": "saint_nicholas_in_carcere"
+    }
+  ],
+  "lent_4_sunday": [
+    {
+      "key": "holy_cross_in_jerusalem"
+    }
+  ],
+  "lent_4_thursday": [
+    {
+      "key": "saints_silvester_and_martin"
+    }
+  ],
+  "lent_4_tuesday": [
+    {
+      "key": "saint_lawrence_in_damaso"
+    }
+  ],
+  "lent_4_wednesday": [
+    {
+      "key": "saint_paul_outside_the_walls"
+    }
+  ],
+  "nativity_of_our_lord_jesus_christ": [
+    {
+      "mass": "in_nocte",
+      "key": "santa_maria_maggiore_ad_praesepe"
+    },
+    {
+      "mass": "in_aurora",
+      "key": "saint_anastasia"
+    },
+    {
+      "mass": "in_die",
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "nativity_of_saint_john_the_baptist": [
+    {
+      "key": "saint_john_lateran"
+    }
+  ],
+  "nativity_of_the_lord": [
+    {
+      "mass": "in_nocte",
+      "key": "santa_maria_maggiore_ad_praesepe"
+    },
+    {
+      "mass": "in_aurora",
+      "key": "saint_anastasia"
+    },
+    {
+      "mass": "in_die",
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "palm_sunday_of_the_passion_of_the_lord": [
+    {
+      "key": "saint_john_lateran"
+    }
+  ],
+  "passion_sunday": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "passion_week_friday": [
+    {
+      "key": "saint_stephen_on_the_caelian"
+    }
+  ],
+  "passion_week_monday": [
+    {
+      "key": "saint_chrysogonus"
+    }
+  ],
+  "passion_week_saturday": [
+    {
+      "key": "saint_john_before_the_latin_gate"
+    }
+  ],
+  "passion_week_thursday": [
+    {
+      "key": "saint_apollinaris"
+    }
+  ],
+  "passion_week_tuesday": [
+    {
+      "key": "santa_maria_in_via_lata"
+    }
+  ],
+  "passion_week_wednesday": [
+    {
+      "key": "saint_marcellus"
+    }
+  ],
+  "pentecost_octave_friday": [
+    {
+      "key": "santi_apostoli"
+    }
+  ],
+  "pentecost_octave_monday": [
+    {
+      "key": "saint_peter_in_chains"
+    }
+  ],
+  "pentecost_octave_saturday": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "pentecost_octave_thursday": [
+    {
+      "key": "saint_lawrence_outside_the_walls"
+    }
+  ],
+  "pentecost_octave_tuesday": [
+    {
+      "key": "saint_anastasia"
+    }
+  ],
+  "pentecost_octave_wednesday": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "pentecost_sunday": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "quinquagesima_sunday": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "saint_john_the_apostle_evangelist": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "saint_mark_the_evangelist": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "saint_stephen_the_first_martyr": [
+    {
+      "key": "saint_stephen_on_the_caelian"
+    }
+  ],
+  "saints_peter_and_paul_apostles": [
+    {
+      "key": "saint_peter"
+    }
+  ],
+  "saturday_after_ash_wednesday": [
+    {
+      "key": "saint_augustine"
+    }
+  ],
+  "septuagesima_sunday": [
+    {
+      "key": "saint_lawrence_outside_the_walls"
+    }
+  ],
+  "sexagesima_sunday": [
+    {
+      "key": "saint_paul_outside_the_walls"
+    }
+  ],
+  "the_circumcision_of_the_lord": [
+    {
+      "key": "santa_maria_in_trastevere"
+    }
+  ],
+  "the_purification_of_the_blessed_virgin_mary_candlemas": [
+    {
+      "key": "santa_maria_maggiore"
+    }
+  ],
+  "thursday_after_ash_wednesday": [
+    {
+      "key": "saint_george_in_velabro"
+    }
+  ],
+  "thursday_of_the_lords_supper": [
+    {
+      "key": "saint_john_lateran"
+    }
+  ],
+  "vigil_of_pentecost": [
+    {
+      "key": "saint_john_lateran"
+    }
+  ]
+}

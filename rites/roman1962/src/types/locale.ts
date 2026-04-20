@@ -6,6 +6,14 @@ export type LocaleId = string;
 
 export type LocaleNames = Record<string, string>;
 
+/**
+ * Roman station-church (`Statio ad …`) name per locale, keyed by a
+ * stable slug (e.g. `santa_sabina`, `san_giovanni_in_laterano`). The
+ * mapping from a `LiturgicalDay1962.id` to a station-key lives in
+ * `data/stations.json`; this map turns the key into a localized name.
+ */
+export type LocaleStationChurches = Record<string, string>;
+
 export type LocaleColors = Partial<Record<Color, string>>;
 
 export type LocaleRanks = {
@@ -42,4 +50,5 @@ export interface Locale1962 {
   seasons?: LocaleSeasons;
   months?: LocaleMonths;
   weekdays?: LocaleWeekdays;
+  stationChurches?: LocaleStationChurches;
 }

@@ -21,6 +21,7 @@ import type { BundleInputs, Id } from '@internal/rite-roman1969';
 
 import { setMeta1962 } from './meta-1962';
 import { derivePrecedence1962 } from './precedence-1962-derive';
+import { stationsForId } from './stations';
 import { classifyTempora } from './tempora-class';
 
 // Narrow subset matching 1969's LiturgicalDayProperOfTimeInput shape, spelled
@@ -92,11 +93,13 @@ export class ProperOfTime1962 extends CalendarDef {
     // overridden `Calendar1962#resolveOccurrence` can sort by the
     // Rubricae 1960 §91 slot.
     const classOf1962 = classifyTempora(id);
+    const stationChurches = stationsForId(id);
     setMeta1962(id, {
       classOf1962,
       kind1962: 'tempora',
       key1962: id,
       precedence1962: derivePrecedence1962(classOf1962, id, 'tempora'),
+      ...(stationChurches ? { stationChurches } : {}),
     });
     return new LiturgicalDayDef(
       id,

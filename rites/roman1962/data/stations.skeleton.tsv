@@ -1,0 +1,111 @@
+date	id	rank	name	mass	station_de
+2026-01-01	circumcision_of_the_lord	primary	circumcision_of_the_lord		St. Maria jenseits des Tibers
+2026-01-01	the_circumcision_of_the_lord	commemoration	the_circumcision_of_the_lord		St. Maria jenseits des Tibers
+2026-01-06	epiphany_of_the_lord	primary	epiphany_of_the_lord		St. Peter
+2026-02-01	septuagesima_sunday	primary	septuagesima.sunday		St. Laurentius vor den Mauern
+2026-02-02	the_purification_of_the_blessed_virgin_mary_candlemas	primary	the_purification_of_the_blessed_virgin_mary_candlemas		Groß St. Marien
+2026-02-08	sexagesima_sunday	primary	sexagesima.sunday		St. Paul vor den Mauern
+2026-02-15	quinquagesima_sunday	primary	quinquagesima.sunday		St. Peter
+2026-02-18	ash_wednesday	primary	ash_wednesday		St. Sabina
+2026-02-19	thursday_after_ash_wednesday	primary	lent.day_after_ash_wed		St. Georg in Velabro
+2026-02-20	friday_after_ash_wednesday	primary	lent.day_after_ash_wed		St. Johannes und Paulus
+2026-02-21	saturday_after_ash_wednesday	primary	lent.day_after_ash_wed		St. Augustin
+2026-02-22	lent_1_sunday	primary	lent.sunday		St. Johann im Lateran
+2026-02-23	lent_1_monday	primary	lent.weekday		St. Peter in Ketten
+2026-02-24	lent_1_tuesday	commemoration	lent.weekday		St. Anastasia
+2026-02-25	lent_1_wednesday	primary	lent.weekday		Groß St. Marien
+2026-02-26	lent_1_thursday	primary	lent.weekday		St. Laurentius in Panisperna
+2026-02-27	lent_1_friday	primary	lent.weekday		Zu den heiligen Zwölf Aposteln
+2026-02-28	lent_1_saturday	primary	lent.weekday		St. Peter
+2026-03-01	lent_2_sunday	primary	lent.sunday		St. Maria in Domnica
+2026-03-02	lent_2_monday	primary	lent.weekday		St. Klemens
+2026-03-03	lent_2_tuesday	primary	lent.weekday		St. Balbina
+2026-03-04	lent_2_wednesday	primary	lent.weekday		St. Cäcilia
+2026-03-05	lent_2_thursday	primary	lent.weekday		St. Maria jenseits des Tibers
+2026-03-06	lent_2_friday	primary	lent.weekday		St. Vitalis
+2026-03-07	lent_2_saturday	primary	lent.weekday		St. Marcellinus und Petrus
+2026-03-08	lent_3_sunday	primary	lent.sunday		St. Laurentius vor den Mauern
+2026-03-09	lent_3_monday	primary	lent.weekday		St. Markus
+2026-03-10	lent_3_tuesday	primary	lent.weekday		St. Pudentiana
+2026-03-11	lent_3_wednesday	primary	lent.weekday		St. Xystus
+2026-03-12	lent_3_thursday	primary	lent.weekday		St. Kosmas und Damian
+2026-03-13	lent_3_friday	primary	lent.weekday		St. Laurentius in Lucina
+2026-03-14	lent_3_saturday	primary	lent.weekday		St. Susanna
+2026-03-15	lent_4_sunday	primary	lent.sunday		Zum hl. Kreuz in Jerusalem
+2026-03-16	lent_4_monday	primary	lent.weekday		Zu den heiligen Vier Gekrönten
+2026-03-17	lent_4_tuesday	primary	lent.weekday		St. Laurentius in Damaso
+2026-03-18	lent_4_wednesday	primary	lent.weekday		St. Paul vor den Mauern
+2026-03-19	lent_4_thursday	commemoration	lent.weekday		St. Silvester und Martinus
+2026-03-20	lent_4_friday	primary	lent.weekday		St. Eusebius
+2026-03-21	lent_4_saturday	primary	lent.weekday		St. Nikolaus im Kerker
+2026-03-22	passion_sunday	primary	passion_sunday		St. Peter
+2026-03-23	passion_week_monday	primary	passiontide.weekday		St. Chrysogonus
+2026-03-24	passion_week_tuesday	primary	passiontide.weekday		St. Maria in Via Lata
+2026-03-25	annunciation_of_the_blessed_virgin_mary	primary	annunciation_of_the_blessed_virgin_mary		Groß St. Marien
+2026-03-25	passion_week_wednesday	commemoration	passiontide.weekday		St. Marcellus
+2026-03-26	passion_week_thursday	primary	passiontide.weekday		St. Apollinaris
+2026-03-27	passion_week_friday	primary	passiontide.weekday		St. Stephanus auf dem Mons Cælius
+2026-03-28	passion_week_saturday	primary	passiontide.weekday		St. Johannes vor der Lateinischen Pforte
+2026-03-29	palm_sunday_of_the_passion_of_the_lord	primary	palm_sunday_of_the_passion_of_the_lord		St. Johann im Lateran
+2026-03-30	holy_monday	primary	lent.holy_week_day		St. Praxedis
+2026-03-31	holy_tuesday	primary	lent.holy_week_day		St. Prisca
+2026-04-01	holy_wednesday	primary	lent.holy_week_day		Groß St. Marien
+2026-04-02	thursday_of_the_lords_supper	primary	thursday_of_the_lords_supper		St. Johann im Lateran
+2026-04-03	friday_of_the_passion_of_the_lord	primary	friday_of_the_passion_of_the_lord		Zum hl. Kreuz in Jerusalem
+2026-04-04	holy_saturday	primary	holy_saturday		St. Johann im Lateran
+2026-04-05	easter_sunday	primary	easter_sunday		Groß St. Marien
+2026-04-06	easter_monday	primary	easter_time.octave		St. Peter
+2026-04-07	easter_tuesday	primary	easter_time.octave		St. Paul vor den Mauern
+2026-04-08	easter_wednesday	primary	easter_time.octave		St. Laurentius vor den Mauern
+2026-04-09	easter_thursday	primary	easter_time.octave		Zu den heiligen Zwölf Aposteln
+2026-04-10	easter_friday	primary	easter_time.octave		St. Maria bei den Märtyrern
+2026-04-11	easter_saturday	primary	easter_time.octave		St. Johann im Lateran
+2026-04-12	easter_time_1_sunday	primary	easter_time.sunday		St. Pankratius
+2026-04-25	saint_mark_the_evangelist	primary	saint_mark_the_evangelist		St. Peter
+2026-05-12	easter_time_5_tuesday	primary	easter_time.weekday
+2026-05-14	ascension_of_the_lord	primary	ascension_of_the_lord		St. Peter
+2026-05-23	vigil_of_pentecost	primary	vigil_of_pentecost		St. Johann im Lateran
+2026-05-24	pentecost_sunday	primary	pentecost_sunday		St. Peter
+2026-05-25	pentecost_octave_monday	primary	pentecost_octave.weekday		St. Peter in Ketten
+2026-05-26	pentecost_octave_tuesday	primary	pentecost_octave.weekday		St. Anastasia
+2026-05-27	pentecost_octave_wednesday	primary	pentecost_octave.weekday		Groß St. Marien
+2026-05-28	pentecost_octave_thursday	primary	pentecost_octave.weekday		St. Laurentius vor den Mauern
+2026-05-29	pentecost_octave_friday	primary	pentecost_octave.weekday		Zu den heiligen Zwölf Aposteln
+2026-05-30	pentecost_octave_saturday	primary	pentecost_octave.weekday		St. Peter
+2026-06-24	nativity_of_saint_john_the_baptist	primary	nativity_of_saint_john_the_baptist		St. Johann im Lateran
+2026-06-29	saints_peter_and_paul_apostles	primary	saints_peter_and_paul_apostles		St. Peter
+2026-09-14	exaltation_of_the_holy_cross	primary	exaltation_of_the_holy_cross		Zum hl. Kreuz in Jerusalem
+2026-09-16	after_pentecost_16_wednesday	primary	time_after_pentecost.weekday (Sept Ember wednesday)		Groß St. Marien
+2026-09-16	cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs	primary	cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs
+2026-09-16	saints_cornelius_pope_and_cyprian_bishop_martyrs	commemoration	saints_cornelius_pope_and_cyprian_bishop_martyrs
+2026-09-18	after_pentecost_16_friday	primary	time_after_pentecost.weekday (Sept Ember friday)		Zu den heiligen Zwölf Aposteln
+2026-09-18	saint_joseph_of_cupertino_confessor	primary	saint_joseph_of_cupertino_confessor
+2026-09-19	after_pentecost_16_saturday	primary	time_after_pentecost.weekday (Sept Ember saturday)		St. Peter
+2026-09-19	saint_januarius_bishop_and_companions_martyrs	primary	saint_januarius_bishop_and_companions_martyrs
+2026-11-01	all_saints	primary	all_saints		St. Maria bei den Märtyrern
+2026-11-29	advent_1_sunday	primary	advent.sunday		Groß St. Marien
+2026-12-06	advent_2_sunday	primary	advent.sunday		Zum hl. Kreuz in Jerusalem
+2026-12-13	advent_3_sunday	primary	advent.sunday		St. Peter
+2026-12-16	advent_3_wednesday	primary	advent.weekday		Groß St. Marien
+2026-12-16	advent_3_friday	primary	advent.weekday		Zu den heiligen Zwölf Aposteln
+2026-12-16	advent_3_saturday	primary	advent.weekday		St. Peter
+2026-12-17	advent_december_17	primary	advent.privileged_weekday
+2026-12-18	advent_december_18	primary	advent.privileged_weekday
+2026-12-19	advent_december_19	primary	advent.privileged_weekday
+2026-12-20	advent_4_sunday	primary	advent.sunday		Zu den heiligen Zwölf Aposteln
+2026-12-21	advent_december_21	primary	advent.privileged_weekday
+2026-12-22	advent_december_22	primary	advent.privileged_weekday
+2026-12-23	advent_december_23	primary	advent.privileged_weekday
+2026-12-24	christmas_eve	primary	christmas_eve		Groß St. Marien
+2026-12-25	nativity_of_the_lord	primary	nativity_of_the_lord	in_nocte	Groß St. Marien bei der Krippe
+2026-12-25	nativity_of_the_lord	primary	nativity_of_the_lord	in_aurora	St. Anastasia
+2026-12-25	nativity_of_the_lord	primary	nativity_of_the_lord	in_die	Groß St. Marien
+2026-12-25	nativity_of_our_lord_jesus_christ	commemoration	nativity_of_our_lord_jesus_christ	in_nocte	Groß St. Marien bei der Krippe
+2026-12-25	nativity_of_our_lord_jesus_christ	commemoration	nativity_of_our_lord_jesus_christ	in_aurora	St. Anastasia
+2026-12-25	nativity_of_our_lord_jesus_christ	commemoration	nativity_of_our_lord_jesus_christ	in_die	Groß St. Marien
+2026-12-26	christmas_octave_day_2	primary	christmas_time.octave		St. Stephanus auf dem Mons Cælius
+2026-12-26	saint_stephen_the_first_martyr	commemoration	saint_stephen_the_first_martyr		St. Stephanus auf dem Mons Cælius
+2026-12-27	sunday_within_octave_of_christmas	primary	sunday_within_octave_of_christmas
+2026-12-27	saint_john_the_apostle_evangelist	commemoration	saint_john_the_apostle_evangelist		Groß St. Marien
+2026-12-28	christmas_octave_day_4	primary	christmas_time.octave		St. Paul vor den Mauern
+2026-12-28	4th_day_in_the_octave_of_christmas_rubrica1960	commemoration	4th_day_in_the_octave_of_christmas_rubrica1960		St. Paul vor den Mauern

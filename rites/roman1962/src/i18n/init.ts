@@ -3,7 +3,16 @@ import { addBundles, createI18nInstance, LOCALES_1969, type i18n } from '@intern
 import { locales as ALL_LOCALES } from '../locales';
 import type { Locale1962 } from '../types/locale';
 
-const NAMESPACES = ['names', 'colors', 'ranks', 'seasons', 'months', 'weekdays', 'ordinals'] as const;
+const NAMESPACES = [
+  'names',
+  'colors',
+  'ranks',
+  'seasons',
+  'months',
+  'weekdays',
+  'ordinals',
+  'stationChurches',
+] as const;
 
 /**
  * Per-locale additions on top of the ship-with-the-package locales.
@@ -76,6 +85,7 @@ function loadLocale(instance: i18n, locale: Locale1962): void {
       ...(locale.ranks ? { ranks: locale.ranks } : {}),
       ...(locale.months ? { months: locale.months } : {}),
       ...(locale.weekdays ? { weekdays: locale.weekdays } : {}),
+      ...(locale.stationChurches ? { stationChurches: locale.stationChurches } : {}),
     },
     true,
     true

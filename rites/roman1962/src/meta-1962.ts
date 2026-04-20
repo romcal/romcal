@@ -27,6 +27,17 @@ export interface LiturgicalDay1962Meta {
    * parent feast is forward-transferred (Rubricae 1960 §10).
    */
   readonly vigilOf?: string;
+  /**
+   * Roman station-church(es) for this day, looked up at input build-time
+   * from `data/stations.json`. Each entry carries an i18n `key` (the
+   * station-church slug, e.g. `santa_maria_maggiore`) and an optional
+   * `mass` discriminator for days with multiple stations across masses
+   * (Christmas: `in_nocte` / `in_aurora` / `in_die`).
+   *
+   * Surfaced on `LiturgicalDay1962.stationChurches` with the localized
+   * `name` resolved from the `stationChurches:<key>` i18n bundle.
+   */
+  readonly stationChurches?: readonly { readonly mass?: string; readonly key: string }[];
 }
 
 /**

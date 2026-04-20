@@ -2,6 +2,7 @@ import { CalendarDef, RomcalConfig, RomcalConfigInput } from '@internal/rite-rom
 import type { Locale, MartyrologyCatalog } from '@internal/rite-roman1969';
 
 import type { Overlay1962Name } from './calendars';
+import type { Locale1962 } from './types/locale';
 
 export type CommemorationCapMode = 'solemn' | 'private' | 'all';
 
@@ -48,5 +49,15 @@ export class RomcalConfig1962 extends RomcalConfig {
   ) {
     super(input, martyrologyCatalog, locale, ParticularCalendar, ProperOfTimeCalendar);
     this.commemorationMode = input?.commemorationMode ?? 'all';
+
+    // The parent's `#addResourceBundles` only knows the 1969 namespaces, so
+    // the 1962-only `stationChurches` map is dropped. Lift it into the
+    // i18next instance here so `LiturgicalDay1962#stationChurches` can
+    // resolve `stationChurches:<key>` at access time. Source: the bundle's
+    // `i18n` field (preferred), falling back to the constructor `locale` arg.
+    const localeObj = (this.localizedCalendar?.i18n ?? locale) as Locale1962 | undefined;
+    if (localeObj?.stationChurches) {
+      this.i18next.addResourceBundle(localeObj.id, 'stationChurches', localeObj.stationChurches, true, true);
+    }
   }
 }

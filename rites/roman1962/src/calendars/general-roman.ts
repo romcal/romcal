@@ -7,6 +7,7 @@ import type { Inputs, MonthIndex, ParticularConfig, Rank } from '@internal/rite-
 import type { Class1962 } from '../meta-1962';
 import { setMeta1962 } from '../meta-1962';
 import { derivePrecedence1962 } from '../precedence-1962-derive';
+import { stationsForId } from '../stations';
 import { detectVigil } from '../vigil';
 
 // -- JSON shapes (mirrored locally so we don't reach into `src/sanctoral/*`,
@@ -168,12 +169,14 @@ export function buildGeneralRoman1962Inputs(): Inputs {
     // the overridden `Calendar1962#resolveOccurrence` can sort by
     // Rubricae 1960 §91 slot.
     const vigilOf = detectVigil(primary.name);
+    const stationChurches = stationsForId(primary.key);
     setMeta1962(primary.key, {
       classOf1962,
       kind1962: 'sancti',
       key1962: primary.key,
       precedence1962: derivePrecedence1962(classOf1962, primary.key, 'sancti'),
       ...(vigilOf ? { vigilOf } : {}),
+      ...(stationChurches ? { stationChurches } : {}),
     });
 
     // Jan 1: Circumcision of the Lord is the Christmas octave-day. Tag it

@@ -92,6 +92,22 @@ export class LiturgicalDay1962 extends LiturgicalDay {
    */
   readonly precedence1962?: Precedence1962;
 
+  /**
+   * Roman station-church(es) for this day. Each entry carries:
+   *   - `key`: the i18n slug (e.g. `santa_maria_maggiore`)
+   *   - `name`: the localized display name resolved from
+   *     `stationChurches:<key>` against the active locale's bundle (with
+   *     the i18next fallback chain `requested → en → la`)
+   *   - `mass` (optional): which Mass the station belongs to on days
+   *     with multiple stations (e.g. Christmas: `in_nocte` /
+   *     `in_aurora` / `in_die`).
+   *
+   * Sourced from `data/stations.json` via the meta side-channel; absent
+   * when the day has no station (the common case outside Lent / a few
+   * feast days / the Octave seasons).
+   */
+  readonly stationChurches?: readonly { readonly mass?: string; readonly key: string; readonly name: string }[];
+
   constructor(
     def: LiturgicalDayDef,
     date: Date,
@@ -125,6 +141,14 @@ export class LiturgicalDay1962 extends LiturgicalDay {
       // constructor in tests today; in production the meta side-channel is
       // the source of truth.)
       if (!this.vigilOf && meta.vigilOf) this.vigilOf = meta.vigilOf;
+      if (meta.stationChurches) {
+        const t = ldConfig.config.i18next;
+        this.stationChurches = meta.stationChurches.map((s) => ({
+          ...(s.mass ? { mass: s.mass } : {}),
+          key: s.key,
+          name: t.t(`stationChurches:${s.key}`, { defaultValue: s.key }) as string,
+        }));
+      }
     }
   }
 

@@ -98,6 +98,7 @@ export type {
   LocaleNames,
   LocaleRanks,
   LocaleSeasons,
+  LocaleStationChurches,
   LocaleWeekdays,
 } from './types/locale';
 
