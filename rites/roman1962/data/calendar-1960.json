@@ -107,7 +107,7 @@
   ],
   "01-16": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_marcellus_pope_and_martyr",
       "name": "S. Marcelli Papae et Martyris"
     }
@@ -154,14 +154,14 @@
   ],
   "01-22": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "ss_vincent_and_anastasius_martyrs",
       "name": "Ss. Vincentii et Anastasii Martyrum"
     }
   ],
   "01-23": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "s_raymond_of_penafort_confessor",
       "name": "S. Raymundi de Penafort Confessoris"
     },
@@ -220,7 +220,7 @@
   ],
   "01-30": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_martina_virgin_and_martyr",
       "name": "S. Martinae Virginis et Martyris"
     }
@@ -377,7 +377,7 @@
   ],
   "03-04": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_casimir_confessor",
       "name": "S. Casimiri"
     },
@@ -417,7 +417,7 @@
   ],
   "03-10": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "forty_holy_martyrs",
       "name": "Ss. Quadraginta Martyrum"
     }
@@ -480,7 +480,7 @@
   ],
   "03-28": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_john_of_capistrano_confessor",
       "name": "S. Joannis Capistrano Confessoris"
     }
@@ -515,7 +515,7 @@
   ],
   "04-13": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_hermenegild_martyr",
       "name": "S. Hermenegildi Martyris"
     }
@@ -548,14 +548,14 @@
   ],
   "04-22": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saints_soter_and_caius_popes_and_martyrs",
       "name": "Ss. Soteris et Caji Pontifices et Martyres"
     }
   ],
   "04-23": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_george_martyr",
       "name": "S. Georgii Martyris"
     }
@@ -576,7 +576,7 @@
   ],
   "04-26": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saints_cletus_and_marcellinus_popes_and_martyrs",
       "name": "S. Cleti et Marcellini Pontif Martyrum"
     }
@@ -679,7 +679,7 @@
   ],
   "05-12": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "ss_nereus_achilleus_and_domitilla_the_virgin_and_pancras_martyrs",
       "name": "Ss. Nerei, Achillei et Domitillae Virgini atque Pancratii Martyrum"
     }
@@ -707,7 +707,7 @@
   ],
   "05-16": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_ubald_bishop_and_confessor",
       "name": "S. Ubaldi Episcopi Confessoris"
     }
@@ -740,7 +740,7 @@
   ],
   "05-20": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_bernardine_of_siena_confessor",
       "name": "S. Bernardini Senensis Confessoris"
     }
@@ -790,7 +790,7 @@
   ],
   "05-29": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_mary_magdalene_de_pazzi_virgin",
       "name": "S. Mariae Magdalenae de Pazzis"
     }
@@ -858,7 +858,7 @@
   ],
   "06-10": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_margaret_queen_and_widow",
       "name": "S. Margaritae Reginae viduae"
     }
@@ -1051,14 +1051,14 @@
   ],
   "07-08": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_elizabeth_of_portugal_queen_and_widow",
       "name": "S. Elisabeth Reg Portugaliae Viduae"
     }
   ],
   "07-10": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "seven_brothers_martyrs_and_saints_rufina_and_secunda_virgins_and_martyrs",
       "name": "Ss. Septem Fratrum Martyrum, ac Rufinae et Secundae Virgini et Martyri"
     }
@@ -1091,7 +1091,7 @@
   ],
   "07-15": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_henry_the_emperor_confessor",
       "name": "S. Henrici Imperatoris Confessoris"
     }
@@ -1105,7 +1105,7 @@
   ],
   "07-17": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_alexis_confessor",
       "name": "S. Alexii Confessoris"
     }
@@ -1207,14 +1207,14 @@
   ],
   "07-28": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saints_nazarius_and_celsus_martyr_pope_victor_i_martyr_and_pope_innocent_i_confessor",
       "name": "Ss. Nazarii et Celsi Martyrum"
     }
   ],
   "07-29": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_martha_virgin",
       "name": "S. Marthae Virginis"
     },
@@ -1436,7 +1436,7 @@
   ],
   "08-25": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_louis_confessor",
       "name": "S. Ludovioci Confessoris"
     }
@@ -1512,7 +1512,7 @@
   ],
   "09-02": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_stephen_king_of_hungary_confessor",
       "name": "S. Stephani Hungariae Regis Confessoris"
     }
@@ -1526,7 +1526,7 @@
   ],
   "09-05": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_lawrence_justinian_bishop_and_confessor",
       "name": "S. Laurentii Justiniani Episcopi et Confessoris"
     }
@@ -1592,7 +1592,7 @@
   ],
   "09-16": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saints_cornelius_pope_and_cyprian_bishop_martyrs",
       "name": "Ss. Cornelii et Cypriani Pontificium et Martyrum"
     },
@@ -1651,7 +1651,7 @@
   ],
   "09-23": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_linus_pope_and_martyr",
       "name": "S. Linae Papae et Martyris"
     },
@@ -1677,14 +1677,14 @@
   ],
   "09-27": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saints_cosmas_and_damian_martyrs",
       "name": "S. Cosmae et Damiani Martyrum"
     }
   ],
   "09-28": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_wenceslaus_duke_and_martyr",
       "name": "S. Wenceslai Ducis et Martyris"
     }
@@ -1783,7 +1783,7 @@
   ],
   "10-10": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_francis_borgia_confessor",
       "name": "S. Francisci Borgiae Confessoris"
     }
@@ -1797,7 +1797,7 @@
   ],
   "10-13": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_edward_the_confessor_king",
       "name": "S. Eduardi Regis Confessoris"
     }
@@ -1818,7 +1818,7 @@
   ],
   "10-16": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_hedwig_widow",
       "name": "S. Hedwigis Viduae"
     }
@@ -1964,14 +1964,14 @@
   ],
   "11-12": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_martin_i_pope_and_martyr",
       "name": "S. Martini Papae et Martyris"
     }
   ],
   "11-13": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_didacus_confessor",
       "name": "S. Didaci Confessoris"
     }
@@ -2164,7 +2164,7 @@
   ],
   "12-11": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_damasus_pope_and_confessor",
       "name": "S. Damasi Papae et confessoris"
     }
@@ -2178,7 +2178,7 @@
   ],
   "12-16": [
     {
-      "class1962": 4,
+      "class1962": 3,
       "key": "saint_eusebius_bishop_and_martyr",
       "name": "S. Eusebii Episcopi et Martyris"
     }
