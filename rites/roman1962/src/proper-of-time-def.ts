@@ -445,14 +445,14 @@ export class ProperOfTime1962 extends CalendarDef {
       colors: [Colors.Red],
       i18nDef: ['names:friday_of_the_passion_of_the_lord'],
     });
-    this.emit('holy_saturday', {
+    this.emit('easter_vigil', {
       precedence: Precedences.Triduum_1,
       dateDef: { dateFn: 'holySaturday', yearOffset },
       seasons: [Season.PaschalTriduum],
       periods: [Period.HolyWeek],
       calendarMetadata: { weekOfSeason: 1, dayOfSeason: 2, dayOfWeek: 6 },
-      colors: [],
-      i18nDef: ['names:holy_saturday'],
+      colors: [Colors.White],
+      i18nDef: ['names:easter_vigil'],
     });
     this.emit('easter_sunday', {
       precedence: Precedences.Triduum_1,

@@ -193,7 +193,7 @@ const HOLY_WEEK_SLUGS = [
   'holy_week_wednesday',
   'maundy_thursday',
   'good_friday',
-  'holy_saturday',
+  'easter_vigil',
 ] as const;
 
 function walkHolyWeek({ year, map }: WalkArgs): void {

@@ -12,7 +12,7 @@ export const Precedences1962 = {
   /**
    * 1a - The Sacred Triduum (Maundy Thursday, Good Friday, Holy Saturday).
    * Tempora keys: `thursday_of_the_lords_supper`, `friday_of_the_passion_of_the_lord`,
-   * `holy_saturday`.
+   * `easter_vigil`.
    */
   Triduum_1a: 'TRIDUUM_1A' as const,
 

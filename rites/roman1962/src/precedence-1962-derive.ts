@@ -13,7 +13,7 @@ import type { Class1962, Kind1962 } from './meta-1962';
  * never sees pre-Lent Sundays because they branch out one step earlier).
  */
 
-const TRIDUUM = new Set(['thursday_of_the_lords_supper', 'friday_of_the_passion_of_the_lord', 'holy_saturday']);
+const TRIDUUM = new Set(['thursday_of_the_lords_supper', 'friday_of_the_passion_of_the_lord', 'easter_vigil']);
 const EASTER_PENTECOST_TRINITY = new Set(['easter_sunday', 'pentecost_sunday', 'trinity_sunday']);
 const PRIVILEGED_SOLEMN_SUNDAYS = new Set([
   'easter_time_1_sunday', // Low Sunday / Octave Day of Easter / Dominica in Albis

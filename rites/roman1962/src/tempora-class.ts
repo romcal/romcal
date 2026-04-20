@@ -7,7 +7,8 @@ import type { Class1962 } from './meta-1962';
  * patterns/sets below track the OOP emission. Deliberate callouts:
  *
  *   - Triduum keys: `thursday_of_the_lords_supper`, `friday_of_the_passion_of_the_lord`,
- *     `holy_saturday` (legacy used `maundy_thursday`/`good_friday`/`holy_saturday`).
+ *     `easter_vigil` (legacy used `maundy_thursday`/`good_friday`/`holy_saturday`;
+ *     slug renamed since the day is practically always celebrated as the Vigil Mass).
  *   - Palm Sunday: `palm_sunday_of_the_passion_of_the_lord` (legacy `palm_sunday`).
  *   - Ash Wednesday: `ash_wednesday` (legacy also `quinquagesima_wednesday`).
  *   - Low Sunday: `easter_time_1_sunday` (Octave Day of Easter / Dominica in Albis).
@@ -19,7 +20,7 @@ import type { Class1962 } from './meta-1962';
  *     Class II.
  */
 
-const TRIDUUM_KEYS = new Set(['thursday_of_the_lords_supper', 'friday_of_the_passion_of_the_lord', 'holy_saturday']);
+const TRIDUUM_KEYS = new Set(['thursday_of_the_lords_supper', 'friday_of_the_passion_of_the_lord', 'easter_vigil']);
 const CLASS_I_SOLEMN_SUNDAYS = new Set([
   'easter_sunday',
   'pentecost_sunday',
@@ -123,6 +124,11 @@ function isPentSunday(key: string): boolean {
   return /^after_pentecost_([1-9]|1[0-9]|2[0-7])_sunday$/.test(key);
 }
 
+/** Eastertide Sundays 2..6 (Low Sunday is Class I, handled separately). */
+function isPaschaltideSunday(key: string): boolean {
+  return /^easter_time_[2-6]_sunday$/.test(key);
+}
+
 function isPerAnnumWeekday(key: string): boolean {
   return (
     /^epiphany_[1-6]_(monday|tuesday|wednesday|thursday|friday|saturday)$/.test(key) ||
@@ -156,6 +162,7 @@ export function classifyTempora(key: string): Class1962 {
   if (CLASS_II_LORD_SOLEMNITIES.has(key)) return 2;
   if (isQuadpSunday(key)) return 2;
   if (isEpiphanySunday(key)) return 2;
+  if (isPaschaltideSunday(key)) return 2;
   if (isPentSunday(key)) return 2;
   if (key === 'sunday_within_octave_of_christmas') return 2;
   if (CHRISTMAS_OCTAVE_DAYS.has(key)) return 2;

@@ -52,7 +52,7 @@ date	id	rank	name	mass	station_de
 2026-04-01	holy_wednesday	primary	lent.holy_week_day		Groß St. Marien
 2026-04-02	thursday_of_the_lords_supper	primary	thursday_of_the_lords_supper		St. Johann im Lateran
 2026-04-03	friday_of_the_passion_of_the_lord	primary	friday_of_the_passion_of_the_lord		Zum hl. Kreuz in Jerusalem
-2026-04-04	holy_saturday	primary	holy_saturday		St. Johann im Lateran
+2026-04-04	easter_vigil	primary	easter_vigil		St. Johann im Lateran
 2026-04-05	easter_sunday	primary	easter_sunday		Groß St. Marien
 2026-04-06	easter_monday	primary	easter_time.octave		St. Peter
 2026-04-07	easter_tuesday	primary	easter_time.octave		St. Paul vor den Mauern

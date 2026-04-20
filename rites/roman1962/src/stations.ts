@@ -8,9 +8,12 @@
  * + `ProperOfTime1962#emit` to stamp the `stationChurches` field of the
  * `LiturgicalDay1962Meta` side-channel. `LiturgicalDay1962` then resolves
  * the localized name via i18next.
+ *
+ * Imported (rather than `fs.readFileSync`'d) so esbuild inlines the data
+ * into the bundled `dist/{esm,cjs}/romcal.js` — the runtime has no access
+ * to the source-tree `data/stations.json` path once published.
  */
-import fs from 'node:fs';
-import path from 'node:path';
+import stationsData from '../data/stations.json';
 
 export interface StationChurchRef {
   readonly mass?: string;
@@ -19,15 +22,7 @@ export interface StationChurchRef {
 
 type StationsFile = Record<string, StationChurchRef[]>;
 
-let _stations: StationsFile | undefined;
-
-function loadStations(): StationsFile {
-  if (!_stations) {
-    const file = path.resolve(__dirname, '../data/stations.json');
-    _stations = JSON.parse(fs.readFileSync(file, 'utf8')) as StationsFile;
-  }
-  return _stations;
-}
+const STATIONS = stationsData as StationsFile;
 
 /**
  * Look up the station-church entries for a `LiturgicalDay1962.id`.
@@ -35,6 +30,5 @@ function loadStations(): StationsFile {
  * outside Lent / the Octave seasons / a handful of feast days).
  */
 export function stationsForId(id: string): readonly StationChurchRef[] | undefined {
-  const map = loadStations();
-  return map[id];
+  return STATIONS[id];
 }

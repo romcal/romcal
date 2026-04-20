@@ -2805,21 +2805,25 @@
       "White"
     ]
   },
-  "holy_saturday": {
-    "officium": "Sabbato Sancto",
+  "easter_vigil": {
+    "officium": "Missa Vigiliæ paschalis",
     "colors": [
-      "Purple"
+      "White"
     ],
     "rubrics": {
+      "gloria": true,
+      "credo": false,
       "preface": "Paschalis"
     }
   },
-  "holy_saturday_rubrica1960": {
-    "officium": "Sabbato Sancto",
+  "easter_vigil_rubrica1960": {
+    "officium": "Missa Vigiliæ paschalis",
     "colors": [
-      "Purple"
+      "White"
     ],
     "rubrics": {
+      "gloria": true,
+      "credo": false,
       "preface": "Paschalis"
     }
   },

@@ -83,7 +83,7 @@ const FIXED_STATION_IDS: ReadonlySet<string> = new Set([
   'holy_wednesday',
   'thursday_of_the_lords_supper',
   'friday_of_the_passion_of_the_lord',
-  'holy_saturday',
+  'easter_vigil',
 
   // -- Easter octave --
   'easter_sunday',

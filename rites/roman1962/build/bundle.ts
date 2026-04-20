@@ -24,8 +24,38 @@ import { build } from 'esbuild';
 import { rimraf } from 'rimraf';
 import { merge } from 'ts-deepmerge';
 
+import {
+  buildSwitzerlandBaselInputs,
+  buildSwitzerlandChurInputs,
+  buildSwitzerlandInputs,
+  buildSwitzerlandLausanneGenevaFribourgInputs,
+  buildSwitzerlandLuganoInputs,
+  buildSwitzerlandSaintMauriceAbbeyInputs,
+  buildSwitzerlandSanktGallenInputs,
+  buildSwitzerlandSionInputs,
+  collectOverlayNamesForLocale,
+} from '../src/calendars';
 import { locales } from '../src/locales';
 import type { Locale1962 } from '../src/types/locale';
+
+/**
+ * Force every overlay's `buildXxxInputs()` to run so its entries stamp
+ * their per-locale names into the overlay-names side-channel. Overlays
+ * register lazily inside `buildOverlayInputs`; the bundle builder never
+ * instantiates them via the 1969 engine, so call each builder eagerly
+ * before harvesting names. Europe overlay carries no per-entry names,
+ * so it is omitted here.
+ */
+function registerOverlayNames(): void {
+  buildSwitzerlandInputs();
+  buildSwitzerlandBaselInputs();
+  buildSwitzerlandChurInputs();
+  buildSwitzerlandLausanneGenevaFribourgInputs();
+  buildSwitzerlandLuganoInputs();
+  buildSwitzerlandSaintMauriceAbbeyInputs();
+  buildSwitzerlandSanktGallenInputs();
+  buildSwitzerlandSionInputs();
+}
 
 const { log } = console;
 
@@ -97,15 +127,22 @@ async function run(): Promise<void> {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   fs.mkdirSync(TMP_DIR, { recursive: true });
 
+  registerOverlayNames();
+
   const en = locales.en;
   const la = locales.la;
   const ids = Object.keys(locales);
+  const overlayLa = collectOverlayNamesForLocale('la');
+  const overlayEn = collectOverlayNamesForLocale('en');
 
   log(chalk.bold(`\n✓ Writing ${ids.length} locale bundles → ${chalk.cyan('./dist/bundles/{lang}/')}`));
 
   for (const lang of ids) {
     const mergedI18n = (lang === 'la' ? la : merge(la, en, locales[lang])) as Locale1962;
     mergedI18n.id = lang;
+    const mergedOverlayNames =
+      lang === 'la' ? overlayLa : { ...overlayLa, ...overlayEn, ...collectOverlayNamesForLocale(lang) };
+    mergedI18n.names = { ...mergedOverlayNames, ...mergedI18n.names };
     const propers = loadPropers(lang);
     const tsSource = emitSource(lang, mergedI18n, propers);
     const tsPath = path.join(TMP_DIR, `${lang}.ts`);
