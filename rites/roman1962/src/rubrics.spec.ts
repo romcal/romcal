@@ -74,8 +74,7 @@ describe('1962 rubrics — precedence ordering + commemoration selection', () =>
     it('default cap is "all" — no upper bound on commemoration count', async () => {
       const cal = await new Romcal1962().generateCalendar(2024);
       const maxLen = Math.max(...Object.values(cal).map((d) => d[0].commemorations.length));
-      // There exists at least one date with multiple commemorations in 2024
-      // (e.g. 2024-01-07 Holy Family has two: epiphany octave + Raymond of Penyafort).
+      // There exists at least one date with a commemoration in 2024.
       expect(maxLen).toBeGreaterThanOrEqual(1);
     });
 

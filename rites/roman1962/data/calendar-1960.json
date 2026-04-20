@@ -27,51 +27,11 @@
       "name": "Epiphaniae Domini"
     }
   ],
-  "01-07": [
-    {
-      "class1962": 4,
-      "key": "2nd_day_in_the_octave_of_the_epiphany",
-      "name": "Secunda die infra Octavam Epiphaniae"
-    }
-  ],
-  "01-08": [
-    {
-      "class1962": 4,
-      "key": "3rd_day_in_the_octave_of_the_epiphany",
-      "name": "Tertia die infra Octavam Epiphaniae"
-    }
-  ],
-  "01-09": [
-    {
-      "class1962": 4,
-      "key": "4th_day_in_the_octave_of_the_epiphany",
-      "name": "Quarta die infra Octavam Epiphaniae"
-    }
-  ],
-  "01-10": [
-    {
-      "class1962": 4,
-      "key": "5th_day_in_the_octave_of_the_epiphany",
-      "name": "Quinta die infra Octavam Epiphaniae"
-    }
-  ],
   "01-11": [
     {
       "class1962": 4,
-      "key": "6th_day_in_the_octave_of_the_epiphany",
-      "name": "Sexta die infra Octavam Epiphaniae"
-    },
-    {
-      "class1962": 4,
       "key": "saint_hyginus_pope_and_martyr_commemoration",
-      "name": "S. Hygini Papæ et Martyris"
-    }
-  ],
-  "01-12": [
-    {
-      "class1962": 4,
-      "key": "7th_day_in_the_octave_of_the_epiphany",
-      "name": "Septima die infra Octavam Epiphaniae"
+      "name": "S. Hygini Pap\u00e6 et Martyris"
     }
   ],
   "01-13": [
@@ -276,7 +236,7 @@
     {
       "class1962": 4,
       "key": "saint_dorothy_virgin_and_martyr_optional",
-      "name": "S. Dorotheæ, Virginis et Martyris"
+      "name": "S. Dorothe\u00e6, Virginis et Martyris"
     }
   ],
   "02-07": [
@@ -468,7 +428,7 @@
     {
       "class1962": 1,
       "key": "annunciation_of_the_blessed_virgin_mary",
-      "name": "In Annuntiatione Beate Mariæ Virginis"
+      "name": "In Annuntiatione Beate Mari\u00e6 Virginis"
     }
   ],
   "03-27": [
@@ -773,7 +733,7 @@
     {
       "class1962": 3,
       "key": "saint_bede_the_venerable_confessor_and_doctor_of_the_church",
-      "name": "S. Bedæ Venerabilis Confessoris et Ecclesiæ Doctoris"
+      "name": "S. Bed\u00e6 Venerabilis Confessoris et Ecclesi\u00e6 Doctoris"
     },
     {
       "class1962": 4,
@@ -1138,7 +1098,7 @@
     {
       "class1962": 4,
       "key": "saint_margarita_virgin_and_martyr_optional",
-      "name": "S. Margaritæ, Virginis et Martyris"
+      "name": "S. Margarit\u00e6, Virginis et Martyris"
     }
   ],
   "07-21": [

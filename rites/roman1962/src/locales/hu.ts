@@ -3,13 +3,7 @@ import type { Locale1962 } from '../types/locale';
 export const locale: Locale1962 = {
   id: 'hu',
   names: {
-    '2nd_day_in_the_octave_of_the_epiphany': 'Vízkereszt nyolcadának második napja',
-    '3rd_day_in_the_octave_of_the_epiphany': 'Vízkereszt nyolcadának harmadik napja',
-    '4th_day_in_the_octave_of_the_epiphany': 'Vízkereszt nyolcadának negyedik napja',
-    '5th_day_in_the_octave_of_the_epiphany': 'Vízkereszt nyolcadának ötödik napja',
-    '6th_day_in_the_octave_of_the_epiphany': 'Vízkereszt nyolcadának hatodik napja',
     '7th_day_in_the_octave_of_christmas_octave_day': 'Keresztelő Szent János nyolcadának hetedik napja',
-    '7th_day_in_the_octave_of_the_epiphany': 'Vízkereszt nyolcadának hetedik napja',
     advent_1_friday: 'Péntek advent I. hetében',
     advent_1_monday: 'Hétfő advent I. hetében',
     advent_1_saturday: 'Szombat advent I. hetében',

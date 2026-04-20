@@ -3,12 +3,6 @@ import type { Locale1962 } from '../types/locale';
 export const locale: Locale1962 = {
   id: 'cs',
   names: {
-    '2nd_day_in_the_octave_of_the_epiphany': 'druhého dne Oktávu Zjevení Páně',
-    '3rd_day_in_the_octave_of_the_epiphany': 'třetího dne Oktávu Zjevení Páně',
-    '4th_day_in_the_octave_of_the_epiphany': 'čtvrtého dne Oktávu Zjevení Páně',
-    '5th_day_in_the_octave_of_the_epiphany': 'pátého dne Oktávu Zjevení Páně',
-    '6th_day_in_the_octave_of_the_epiphany': 'šestého dne Oktávu Zjevení Páně',
-    '7th_day_in_the_octave_of_the_epiphany': 'sedmého dne Oktávu Zjevení Páně',
     advent_1_friday: 'pátku v prvním týdnu Adventu',
     advent_1_monday: 'pondělí v prvním týdnu Adventu',
     advent_1_saturday: 'Sobota v prvním týdnu Adventu',

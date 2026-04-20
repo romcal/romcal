@@ -1,22 +1,4 @@
 {
-  "2nd_day_in_the_octave_of_the_epiphany": {
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "gloria": true,
-      "preface": "Epiphaniae"
-    }
-  },
-  "3rd_day_in_the_octave_of_the_epiphany": {
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "gloria": true,
-      "preface": "Epiphaniae"
-    }
-  },
   "3rd_day_in_the_octave_of_the_epiphany_germany": {
     "colors": [
       "White"
@@ -32,47 +14,11 @@
       "preface": "Nativitatis"
     }
   },
-  "4th_day_in_the_octave_of_the_epiphany": {
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "gloria": true,
-      "preface": "Epiphaniae"
-    }
-  },
-  "5th_day_in_the_octave_of_the_epiphany": {
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "gloria": true,
-      "preface": "Epiphaniae"
-    }
-  },
-  "6th_day_in_the_octave_of_the_epiphany": {
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "gloria": true,
-      "preface": "Epiphaniae"
-    }
-  },
   "7th_day_in_the_octave_of_christmas_octave_day": {
     "officium": "Die septima infra Octavam Nativitatis S. Joannis Baptistæ",
     "colors": [
       "White"
     ]
-  },
-  "7th_day_in_the_octave_of_the_epiphany": {
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "gloria": true,
-      "preface": "Epiphaniae"
-    }
   },
   "7th_day_in_the_octave_of_the_epiphany_tridentine": {
     "colors": [

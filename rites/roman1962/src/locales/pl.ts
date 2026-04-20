@@ -3,12 +3,6 @@ import type { Locale1962 } from '../types/locale';
 export const locale: Locale1962 = {
   id: 'pl',
   names: {
-    '2nd_day_in_the_octave_of_the_epiphany': 'Drugi dzień Oktawy Objawienia',
-    '3rd_day_in_the_octave_of_the_epiphany': 'Trzeci dzień Oktawy Objawienia',
-    '4th_day_in_the_octave_of_the_epiphany': 'Czwarty dzień Oktawy Objawienia',
-    '5th_day_in_the_octave_of_the_epiphany': 'Dzień piąty Oktawy Objawienia',
-    '6th_day_in_the_octave_of_the_epiphany': 'Dzień szósty Oktawy Objawienia',
-    '7th_day_in_the_octave_of_the_epiphany': 'Dzień siódmy Oktawy Objawienia',
     advent_1_friday: 'Piątek I tygodnia Adwentu',
     advent_1_monday: 'Poniedziałek I tygodnia Adwentu',
     advent_1_saturday: 'Sobota I tygodnia Adwentu',

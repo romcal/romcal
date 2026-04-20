@@ -15,8 +15,8 @@ function idsAt(cal: Record<string, { id: string }[]>, date: string): string[] {
 const INPUT_IDS: Set<string> = new Set(Object.keys(buildGeneralRoman1962Inputs()));
 
 describe('1962 General Roman sanctoral — raw inputs', () => {
-  it('generates 279 primary-entry inputs (280 dates minus "01-00" synthetic)', () => {
-    expect(INPUT_IDS.size).toBe(279);
+  it('generates 274 primary-entry inputs (275 dates minus "01-00" synthetic)', () => {
+    expect(INPUT_IDS.size).toBe(274);
   });
 
   it('includes expected keys', () => {
