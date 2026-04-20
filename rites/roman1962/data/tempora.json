@@ -1810,15 +1810,6 @@
       "credo": true
     }
   },
-  "easter_friday_tridentine": {
-    "officium": "Die VI infra octavam Paschæ",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": true
-    }
-  },
   "easter_monday": {
     "officium": "Die II infra octavam Paschæ",
     "colors": [
@@ -1829,15 +1820,6 @@
     }
   },
   "easter_saturday": {
-    "officium": "Sabbato in Albis",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": true
-    }
-  },
-  "easter_saturday_tridentine": {
     "officium": "Sabbato in Albis",
     "colors": [
       "White"
@@ -1857,15 +1839,6 @@
     }
   },
   "easter_thursday": {
-    "officium": "Die V infra octavam Paschæ",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": true
-    }
-  },
-  "easter_thursday_tridentine": {
     "officium": "Die V infra octavam Paschæ",
     "colors": [
       "White"
@@ -1913,11 +1886,6 @@
       "credo": true,
       "gloria": true
     }
-  },
-  "easter_time_1_sunday_tridentine": {
-    "colors": [
-      "White"
-    ]
   },
   "easter_time_1_thursday": {
     "officium": "Feria Quinta infra Hebdomadam I post Octavam Paschæ",
@@ -2039,16 +2007,6 @@
       "gloria": true
     }
   },
-  "easter_time_2_tuesday_tridentine": {
-    "officium": "Feria Tertia infra Hebdomadam II post Octavam Paschæ",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": false,
-      "gloria": true
-    }
-  },
   "easter_time_2_wednesday": {
     "officium": "Patrocinii St. Joseph Confessoris Sponsi B.M.V. confessoris",
     "colors": [
@@ -2061,16 +2019,6 @@
     }
   },
   "easter_time_2_wednesday_feria": {
-    "officium": "Feria Quarta infra Hebdomadam II post Octavam Paschæ",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": false,
-      "gloria": true
-    }
-  },
-  "easter_time_2_wednesday_feria_tridentine": {
     "officium": "Feria Quarta infra Hebdomadam II post Octavam Paschæ",
     "colors": [
       "White"
@@ -2110,16 +2058,6 @@
       "gloria": true
     }
   },
-  "easter_time_3_monday_feria_tridentine": {
-    "officium": "Feria Secunda infra Hebdomadam III post Octavam Paschæ",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": false,
-      "gloria": true
-    }
-  },
   "easter_time_3_saturday": {
     "officium": "Sabbato infra Hebdomadam III post Octavam Paschæ",
     "colors": [
@@ -2148,17 +2086,6 @@
     "rubrics": {
       "credo": true,
       "gloria": true
-    }
-  },
-  "easter_time_3_sunday_tridentine": {
-    "officium": "Patrocinii St. Joseph Confessoris Sponsi B.M.V. confessoris",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": true,
-      "gloria": true,
-      "preface": "SanctiIoseph"
     }
   },
   "easter_time_3_thursday": {
@@ -2221,16 +2148,6 @@
       "gloria": true
     }
   },
-  "easter_time_4_friday_tridentine": {
-    "officium": "Feria Sexta infra Hebdomadam IV post Octavam Paschæ",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": false,
-      "gloria": true
-    }
-  },
   "easter_time_4_monday": {
     "officium": "Feria Secunda infra Hebdomadam IV post Octavam Paschæ",
     "colors": [
@@ -2252,16 +2169,6 @@
     }
   },
   "easter_time_4_sunday": {
-    "officium": "Dominica IV Post Pascha",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": true,
-      "gloria": true
-    }
-  },
-  "easter_time_4_sunday_tridentine": {
     "officium": "Dominica IV Post Pascha",
     "colors": [
       "White"
@@ -2330,16 +2237,6 @@
       "gloria": true
     }
   },
-  "easter_time_5_monday_tridentine": {
-    "officium": "Feria Secunda in Rogationibus",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": false,
-      "gloria": false
-    }
-  },
   "easter_time_5_saturday": {
     "officium": "Sabbato infra Octavam Ascensionis",
     "colors": [
@@ -2349,26 +2246,7 @@
       "gloria": true
     }
   },
-  "easter_time_5_saturday_tridentine": {
-    "officium": "Sabbato infra Octavam Ascensionis",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "gloria": true
-    }
-  },
   "easter_time_5_sunday": {
-    "officium": "Dominica V Post Pascha",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": true,
-      "gloria": true
-    }
-  },
-  "easter_time_5_sunday_tridentine": {
     "officium": "Dominica V Post Pascha",
     "colors": [
       "White"
@@ -2398,16 +2276,6 @@
       "credo": false
     }
   },
-  "easter_time_5_tuesday_tridentine": {
-    "officium": "Feria Tertia in Rogationibus",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": false,
-      "gloria": false
-    }
-  },
   "easter_time_5_wednesday": {
     "officium": "Feria Quarta in Rogationibus, In Vigilia Ascensionis",
     "colors": [
@@ -2417,11 +2285,6 @@
       "credo": false,
       "gloria": true
     }
-  },
-  "easter_time_5_wednesday_tridentine": {
-    "colors": [
-      "White"
-    ]
   },
   "easter_time_6_friday": {
     "officium": "Feria VI post Octavam Ascensionis",
@@ -2489,25 +2352,7 @@
       "gloria": true
     }
   },
-  "easter_time_6_thursday_tridentine": {
-    "officium": "Feria V in Octava Ascensionis",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "gloria": true
-    }
-  },
   "easter_time_6_tuesday": {
-    "officium": "Feria III infra Octavam Ascensionis",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "gloria": true
-    }
-  },
-  "easter_time_6_tuesday_tridentine": {
     "officium": "Feria III infra Octavam Ascensionis",
     "colors": [
       "White"
@@ -2526,17 +2371,6 @@
     }
   },
   "easter_time_7_friday": {
-    "officium": "Feria Sexta Quattuor temporum Pentecostes",
-    "colors": [
-      "Red"
-    ],
-    "rubrics": {
-      "credo": true,
-      "gloria": true,
-      "preface": "Pentecostes"
-    }
-  },
-  "easter_time_7_friday_tridentine": {
     "officium": "Feria Sexta Quattuor temporum Pentecostes",
     "colors": [
       "Red"
@@ -2569,17 +2403,6 @@
       "preface": "Pentecostes"
     }
   },
-  "easter_time_7_saturday_tridentine": {
-    "officium": "Sabbato Quattuor Temporum Pentecostes",
-    "colors": [
-      "Red"
-    ],
-    "rubrics": {
-      "credo": true,
-      "gloria": false,
-      "preface": "Pentecostes"
-    }
-  },
   "easter_time_7_sunday": {
     "officium": "Dominica Pentecostes",
     "colors": [
@@ -2592,17 +2415,6 @@
     }
   },
   "easter_time_7_thursday": {
-    "officium": "Die Quinta infra octavam Pentecostes",
-    "colors": [
-      "Red"
-    ],
-    "rubrics": {
-      "credo": true,
-      "gloria": true,
-      "preface": "Pentecostes"
-    }
-  },
-  "easter_time_7_thursday_tridentine": {
     "officium": "Die Quinta infra octavam Pentecostes",
     "colors": [
       "Red"
@@ -2644,25 +2456,7 @@
       "credo": true
     }
   },
-  "easter_tuesday_tridentine": {
-    "officium": "Die III infra octavam Paschæ",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": true
-    }
-  },
   "easter_wednesday": {
-    "officium": "Die IV infra octavam Paschæ",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": true
-    }
-  },
-  "easter_wednesday_tridentine": {
     "officium": "Die IV infra octavam Paschæ",
     "colors": [
       "White"
@@ -2995,12 +2789,6 @@
       "Purple"
     ]
   },
-  "friday_of_the_passion_of_the_lord_tridentine": {
-    "officium": "Feria Sexta in Parasceve",
-    "colors": [
-      "Purple"
-    ]
-  },
   "holy_family_of_jesus_mary_and_joseph": {
     "officium": "Dominica infra Octavam Epiphaniæ",
     "colors": [
@@ -3044,11 +2832,6 @@
       "gloria": false,
       "preface": "Crucis"
     }
-  },
-  "holy_week_monday_tridentine": {
-    "colors": [
-      "Purple"
-    ]
   },
   "holy_week_tuesday": {
     "officium": "Feria Tertia Majoris Hebdomadæ",
@@ -3232,15 +3015,6 @@
       "gloria": false
     }
   },
-  "lent_3_friday_tridentine": {
-    "officium": "Feria Sexta infra Hebdomadam III in Quadragesima",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false
-    }
-  },
   "lent_3_monday": {
     "officium": "Feria Secunda infra Hebdomadam III in Quadragesima",
     "colors": [
@@ -3251,15 +3025,6 @@
     }
   },
   "lent_3_saturday": {
-    "officium": "Sabbato infra Hebdomadam III in Quadragesima",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false
-    }
-  },
-  "lent_3_saturday_tridentine": {
     "officium": "Sabbato infra Hebdomadam III in Quadragesima",
     "colors": [
       "Purple"
@@ -3288,15 +3053,6 @@
       "gloria": false
     }
   },
-  "lent_3_thursday_tridentine": {
-    "officium": "Feria Quinta infra Hebdomadam III in Quadragesima",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false
-    }
-  },
   "lent_3_tuesday": {
     "officium": "Feria Tertia infra Hebdomadam III in Quadragesima",
     "colors": [
@@ -3315,25 +3071,7 @@
       "gloria": false
     }
   },
-  "lent_3_wednesday_tridentine": {
-    "officium": "Feria Quarta infra Hebdomadam III in Quadragesima",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false
-    }
-  },
   "lent_4_friday": {
-    "officium": "Feria Sexta infra Hebdomadam IV in Quadragesima",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false
-    }
-  },
-  "lent_4_friday_tridentine": {
     "officium": "Feria Sexta infra Hebdomadam IV in Quadragesima",
     "colors": [
       "Purple"
@@ -3360,27 +3098,7 @@
       "gloria": false
     }
   },
-  "lent_4_saturday_tridentine": {
-    "officium": "Sabbato infra Hebdomadam IV in Quadragesima",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false
-    }
-  },
   "lent_4_sunday": {
-    "officium": "Dominica IV in Quadragesima",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "credo": true,
-      "gloria": false,
-      "preface": "Quadragesimalis"
-    }
-  },
-  "lent_4_sunday_tridentine": {
     "officium": "Dominica IV in Quadragesima",
     "colors": [
       "Purple"
@@ -3400,15 +3118,6 @@
       "gloria": false
     }
   },
-  "lent_4_thursday_tridentine": {
-    "officium": "Feria Quinta infra Hebdomadam IV in Quadragesima",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false
-    }
-  },
   "lent_4_tuesday": {
     "officium": "Feria Tertia infra Hebdomadam IV in Quadragesima",
     "colors": [
@@ -3418,25 +3127,7 @@
       "gloria": false
     }
   },
-  "lent_4_tuesday_tridentine": {
-    "officium": "Feria Tertia infra Hebdomadam IV in Quadragesima",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false
-    }
-  },
   "lent_4_wednesday": {
-    "officium": "Feria Quarta infra Hebdomadam IV in Quadragesima",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false
-    }
-  },
-  "lent_4_wednesday_tridentine": {
     "officium": "Feria Quarta infra Hebdomadam IV in Quadragesima",
     "colors": [
       "Purple"
@@ -3455,11 +3146,6 @@
       "gloria": false,
       "preface": "Crucis"
     }
-  },
-  "lent_5_friday_feria_tridentine": {
-    "colors": [
-      "Purple"
-    ]
   },
   "lent_5_friday_seven_sorrows_commemoration": {
     "officium": "Feria Sexta infra Hebdomadam Passionis",
@@ -3502,22 +3188,7 @@
       "preface": "Crucis"
     }
   },
-  "lent_5_sunday_tridentine": {
-    "colors": [
-      "Purple"
-    ]
-  },
   "lent_5_thursday": {
-    "officium": "Feria Quinta infra Hebdomadam Passionis",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false,
-      "preface": "Crucis"
-    }
-  },
-  "lent_5_thursday_tridentine": {
     "officium": "Feria Quinta infra Hebdomadam Passionis",
     "colors": [
       "Purple"
@@ -3537,27 +3208,7 @@
       "preface": "Crucis"
     }
   },
-  "lent_5_tuesday_tridentine": {
-    "officium": "Feria Tertia infra Hebdomadam Passionis",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false,
-      "preface": "Crucis"
-    }
-  },
   "lent_5_wednesday": {
-    "officium": "Feria Quarta infra Hebdomadam Passionis",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "gloria": false,
-      "preface": "Crucis"
-    }
-  },
-  "lent_5_wednesday_tridentine": {
     "officium": "Feria Quarta infra Hebdomadam Passionis",
     "colors": [
       "Purple"
@@ -3617,11 +3268,6 @@
       "lastGospel": "none",
       "preface": "Crucis"
     }
-  },
-  "palm_sunday_of_the_passion_of_the_lord_tridentine": {
-    "colors": [
-      "Purple"
-    ]
   },
   "quinquagesima_friday": {
     "officium": "Feria VI post Cineres",
@@ -4082,17 +3728,6 @@
       "preface": "Crucis"
     }
   },
-  "thursday_of_the_lords_supper_tridentine": {
-    "officium": "Feria Quinta in Cœna Domini",
-    "colors": [
-      "Purple"
-    ],
-    "rubrics": {
-      "credo": true,
-      "gloria": true,
-      "preface": "Crucis"
-    }
-  },
   "trinity_sunday": {
     "officium": "Dominica Sanctissimæ Trinitatis",
     "colors": [
@@ -4116,17 +3751,6 @@
   },
   "trinity_sunday_rubrica1960": {
     "officium": "Dominica Sanctissimæ Trinitatis",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": true,
-      "gloria": true,
-      "preface": "Trinitatis"
-    }
-  },
-  "trinity_sunday_tridentine": {
-    "officium": "Festum Sanctissimæ Trinitatis",
     "colors": [
       "White"
     ],

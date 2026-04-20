@@ -146,7 +146,7 @@ describe('1962 rubrics — forward transfer (§50) + vigil suppression (§10)', 
       const checks: Array<[string, string]> = [
         ['2024-06-23', 'vigil_of_the_nativity_of_saint_john_the_baptist'],
         ['2024-06-28', 'vigil_of_saints_peter_and_paul_apostles_rubrica1960'],
-        ['2024-08-09', 'vigil_of_saint_lawrence_martyr_tridentine'],
+        ['2024-08-09', 'vigil_of_saint_lawrence_martyr'],
         ['2024-08-14', 'vigil_of_the_assumption_of_the_blessed_virgin_mary'],
         ['2024-12-24', 'christmas_eve'],
       ];
