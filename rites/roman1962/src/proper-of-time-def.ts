@@ -560,7 +560,7 @@ export class ProperOfTime1962 extends CalendarDef {
 
   private timeAfterPentecost(yearOffset: number): void {
     // Trinity Sunday (1 week after Pentecost).
-    this.emit('trinity_sunday', {
+    this.emit('most_holy_trinity', {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { dateFn: 'trinitySunday', yearOffset },
       isHolyDayOfObligation: true,

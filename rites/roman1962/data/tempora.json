@@ -2730,43 +2730,43 @@
       "Green"
     ]
   },
-  "epiphany_octave_day_2": {
+  "epiphany_1_monday": {
     "officium": "Feria II infra Hebdomadam I post Epiphaniam",
     "colors": [
       "White"
     ]
   },
-  "epiphany_octave_day_3": {
+  "epiphany_1_tuesday": {
     "officium": "Feria III infra Hebdomadam I post Epiphaniam",
     "colors": [
       "White"
     ]
   },
-  "epiphany_octave_day_4": {
+  "epiphany_1_wednesday": {
     "officium": "Feria IV infra Hebdomadam I post Epiphaniam",
     "colors": [
       "White"
     ]
   },
-  "epiphany_octave_day_5": {
+  "epiphany_1_thursday": {
     "officium": "Feria V infra Hebdomadam I post Epiphaniam",
     "colors": [
       "White"
     ]
   },
-  "epiphany_octave_day_6": {
+  "epiphany_1_friday": {
     "officium": "Feria VI infra Hebdomadam I post Epiphaniam",
     "colors": [
       "White"
     ]
   },
-  "epiphany_octave_day_7": {
+  "epiphany_1_saturday": {
     "officium": "Sabbato infra Hebdomadam I post Epiphaniam",
     "colors": [
       "White"
     ]
   },
-  "first_sunday_after_epiphany": {
+  "holy_family_of_jesus_mary_and_joseph": {
     "officium": "Sanctæ Familiæ Jesu Mariæ Joseph",
     "colors": [
       "White"
@@ -2788,17 +2788,6 @@
     "colors": [
       "Purple"
     ]
-  },
-  "holy_family_of_jesus_mary_and_joseph": {
-    "officium": "Dominica infra Octavam Epiphaniæ",
-    "colors": [
-      "White"
-    ],
-    "rubrics": {
-      "credo": true,
-      "gloria": true,
-      "preface": "Epiphaniae"
-    }
   },
   "holy_family_within_christmas_octave": {
     "colors": [
@@ -3732,7 +3721,7 @@
       "preface": "Crucis"
     }
   },
-  "trinity_sunday": {
+  "most_holy_trinity": {
     "officium": "Dominica Sanctissimæ Trinitatis",
     "colors": [
       "White"

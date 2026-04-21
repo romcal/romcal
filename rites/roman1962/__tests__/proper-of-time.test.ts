@@ -17,9 +17,9 @@ describe('buildProperOfTime1962 — 1962 spot checks', () => {
     expect(map.has('1962-01-06')).toBe(false);
   });
 
-  test('Holy Family = first Sunday after Epiphany → holy_family', () => {
+  test('Holy Family = first Sunday after Epiphany → holy_family_of_jesus_mary_and_joseph', () => {
     const entry = map.get('1962-01-07');
-    expect(entry?.temporaKey).toBe('holy_family');
+    expect(entry?.temporaKey).toBe('holy_family_of_jesus_mary_and_joseph');
     expect(entry?.kind).toBe('feast');
   });
 
@@ -51,9 +51,9 @@ describe('buildProperOfTime1962 — 1962 spot checks', () => {
     expect(entry?.temporaKey).toBe('easter_time_7_sunday');
   });
 
-  test('Trinity Sunday 1962 = June 17 → trinity_sunday', () => {
+  test('Trinity Sunday 1962 = June 17 → most_holy_trinity', () => {
     const entry = map.get('1962-06-17');
-    expect(entry?.temporaKey).toBe('trinity_sunday');
+    expect(entry?.temporaKey).toBe('most_holy_trinity');
     expect(entry?.season).toBe('TimeAfterPentecost');
   });
 

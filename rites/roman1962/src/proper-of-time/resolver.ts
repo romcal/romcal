@@ -128,19 +128,16 @@ function walkTimeAfterEpiphany({ year, map }: WalkArgs): void {
     const dow = d.getUTCDay() as DayOfWeek;
     if (dow === 0) {
       sundayCount += 1;
-      const key = sundayCount === 1 ? 'holy_family' : `epiphany_${sundayCount}_sunday`;
+      const key = sundayCount === 1 ? 'holy_family_of_jesus_mary_and_joseph' : `epiphany_${sundayCount}_sunday`;
       push(map, d, key, 'EpiphanyTide', sundayCount, sundayCount === 1 ? 'feast' : 'sunday');
       // Weekdays after this Sunday belong to epi<sundayCount + 1> … except
       // the first block (before Holy Family) belongs to the octave week.
       epiWeek = sundayCount === 1 ? 1 : sundayCount;
       continue;
     }
-    // Weekdays of the Epi1 week (whether Jan 7-13 pre-Holy-Family or the
-    // Monday-Saturday following Holy Family Sunday) use DO's single Epi1-N
-    // file, which our slug taxonomy names `epiphany_octave_day_N`. Later
-    // weeks use the straightforward `epiphany_<week>_<weekday>` form.
+    // Weekdays follow the `epiphany_<week>_<weekday>` form across weeks 1-6.
     const weekIdx = epiWeek;
-    const key = weekIdx === 1 ? `epiphany_octave_day_${dow + 1}` : `epiphany_${weekIdx}_${WEEKDAYS[dow]}`;
+    const key = `epiphany_${weekIdx}_${WEEKDAYS[dow]}`;
     push(map, d, key, 'EpiphanyTide', weekIdx, 'feria');
   }
 }
@@ -296,7 +293,7 @@ function walkTimeAfterPentecost({ year, map }: WalkArgs): void {
       // Friday is the Sacred Heart of Jesus. Other days follow the
       // after_pentecost_<N>_<weekday> template.
       let key: string;
-      if (s === 0 && dow === 0) key = 'trinity_sunday';
+      if (s === 0 && dow === 0) key = 'most_holy_trinity';
       else if (s === 0 && dow === 4) key = 'corpus_christi';
       else if (s === 1 && dow === 5) key = 'sacred_heart_of_jesus';
       else key = `${prefix}_${WEEKDAYS[dow]}`;

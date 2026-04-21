@@ -118,7 +118,7 @@ function isEpiphanySunday(key: string): boolean {
 }
 
 function isPentSunday(key: string): boolean {
-  // Weeks 1-27 of time after Pentecost. Specials (`trinity_sunday`,
+  // Weeks 1-27 of time after Pentecost. Specials (`most_holy_trinity`,
   // `corpus_christi`, `most_sacred_heart_of_jesus`) are handled by explicit
   // class lookups.
   return /^after_pentecost_([1-9]|1[0-9]|2[0-7])_sunday$/.test(key);
@@ -157,7 +157,7 @@ export function classifyTempora(key: string): Class1962 {
   if (isHolyWeekFeria(key)) return 1;
   if (isEasterWeekFeria(key)) return 1;
   if (key === 'vigil_of_pentecost') return 1;
-  if (key === 'trinity_sunday') return 1;
+  if (key === 'most_holy_trinity') return 1;
 
   if (CLASS_II_LORD_SOLEMNITIES.has(key)) return 2;
   if (isQuadpSunday(key)) return 2;

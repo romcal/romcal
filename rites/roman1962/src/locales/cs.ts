@@ -171,6 +171,10 @@ export const locale: Locale1962 = {
     easter_tuesday: 'Úterý ve velikonočním Oktávu',
     easter_vigil: 'Missa Vigiliæ paschalis',
     easter_wednesday: 'Die IV infra octavam Paschae',
+    epiphany_1_friday: 'pátku v prvním týdnu po Zjevení Páně',
+    epiphany_1_monday: 'pondělí v 1. týdnu po Zjevení Páně',
+    epiphany_1_tuesday: 'úterý v 1. týdnu po Zjevení Páně',
+    epiphany_1_wednesday: 'středa v 1. týdnu po Zjevení Páně',
     epiphany_2_friday: 'pátku v druhém týdnu po Zjevení Páně',
     epiphany_2_monday: 'pondělí v druhém týdnu po Zjevení Páně',
     epiphany_2_sunday: '2. Neděle po Zjevení Páně',
@@ -209,10 +213,6 @@ export const locale: Locale1962 = {
     epiphany_6_thursday: 'čtvrtku v šestém týdnu po Zjevení Páně',
     epiphany_6_tuesday: 'úterý v šestém týdnu po Zjevení Páně',
     epiphany_6_wednesday: 'středy v šestém týdnu po Zjevení Páně',
-    epiphany_octave_day_2: 'pondělí v 1. týdnu po Zjevení Páně',
-    epiphany_octave_day_3: 'úterý v 1. týdnu po Zjevení Páně',
-    epiphany_octave_day_4: 'středa v 1. týdnu po Zjevení Páně',
-    epiphany_octave_day_6: 'pátku v prvním týdnu po Zjevení Páně',
     epiphany_of_the_lord: 'Zjevení Páně',
     exaltation_of_the_holy_cross: 'Povýšení Svatého Kříže',
     fifth_day_of_the_octave_of_the_nativity_of_saint_john_the_baptist_octave_day:
@@ -226,7 +226,6 @@ export const locale: Locale1962 = {
     fifth_day_within_the_octave_of_the_nativity_of_the_blessed_virgin_mary_bmv_variant:
       'pátého dne v Oktávu Narození Panny Marie',
     finding_of_the_holy_cross: 'Nalezení Svatého Kříže',
-    first_sunday_after_epiphany: 'Svaté Rodiny Ježíš, Marie a Josefa',
     forty_holy_martyrs: 'svatých Čtyřiceti Mučedníků',
     four_crowned_martyrs_rubrica1960: 'sv. Čtyř Korunovaných Mučedníků',
     fourth_day_of_the_octave_of_the_assumption_of_blessed_mary_bmv_variant:
@@ -242,7 +241,7 @@ export const locale: Locale1962 = {
       'čtvrtého dne v Oktávu Narození Panny Marie',
     friday_of_the_passion_of_the_lord: 'Feria Sexta in Parasceve',
     guardian_angels: 'Andělů Strážných',
-    holy_family_of_jesus_mary_and_joseph: 'Neděle v Oktávu Zjevení Páně',
+    holy_family_of_jesus_mary_and_joseph: 'Svaté rodiny Ježíše, Marie a Josefa',
     holy_innocents: 'Svatých Neviňátek, Mučedníků',
     holy_name_of_the_blessed_virgin_mary: 'Přesvatého Jména Panny Marie',
     holy_week_monday: 'Pondělí Svatého týdne',
@@ -586,7 +585,6 @@ export const locale: Locale1962 = {
     third_day_within_the_octave_of_the_immaculate_conception_of_the_blessed_virgin_mary_bmv_variant:
       'třetího dne v Oktávu Neposkvrněného Početí Panny Marie',
     thursday_of_the_lords_supper: 'Feria Quinta in Cœna Domini',
-    trinity_sunday: 'Neděle Nejsvětější Trojice',
     vigil_of_all_saints: 'Vigilie Všechn Svatých',
     vigil_of_saint_andrew_the_apostle: 'Vigilie sv. Ondřeje, Apoštola',
     vigil_of_saint_bartholomew_apostle_optional: 'Vigilie sv. Bartoloměje, Apoštola',
