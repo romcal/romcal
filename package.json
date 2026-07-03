@@ -73,6 +73,7 @@
     "i18next": "^26.3.3"
   },
   "devDependencies": {
+    "@babel/core": "^8.0.1",
     "@babel/eslint-parser": "^8.0.1",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",

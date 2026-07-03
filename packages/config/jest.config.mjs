@@ -1,7 +1,7 @@
 export default {
   testEnvironment: 'node',
   transform: {
-    '^.+\\.tsx?$': ['esbuild-jest', { sourcemap: true }],
+    '^.+\\.tsx?$': ['esbuild-jest-transform', { sourcemap: true }],
   },
   moduleNameMapper: {
     '@internal/package.json': '<rootDir>/package.json',

@@ -2,14 +2,16 @@
   "name": "@internal/config",
   "version": "0.0.0",
   "description": "Configuration files for the Romcal project",
+  "license": "MIT",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "prettier": "prettier -c ."
   },
   "devDependencies": {
+    "esbuild": "~0.28.1",
+    "esbuild-jest-transform": "^2.0.1",
     "jest": "^30.4.2",
     "jest-extended": "^7.0.0"
-  },
-  "license": "MIT"
+  }
 }
