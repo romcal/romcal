@@ -16,6 +16,12 @@ updates:
       separator: '-'
     rebase-strategy: 'auto'
     versioning-strategy: increase
+    cooldown:
+      default-days: 7
+    groups:
+      default:
+        patterns:
+          - '*'
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
@@ -30,3 +36,9 @@ updates:
     pull-request-branch-name:
       separator: '-'
     rebase-strategy: 'auto'
+    cooldown:
+      default-days: 7
+    groups:
+      default:
+        patterns:
+          - '*'
