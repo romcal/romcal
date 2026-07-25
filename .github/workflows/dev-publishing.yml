@@ -13,12 +13,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
       - name: Install Node.js
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: '.nvmrc'
 
@@ -43,13 +43,13 @@ jobs:
 
     steps:
       - name: Git checkout dev branch
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: dev
           token: ${{ secrets.REPO_TOKEN }}
 
       - name: Install Node.js
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: '.nvmrc'
 
@@ -66,7 +66,7 @@ jobs:
           skip-tag: 'true'
 
       - name: Read package.json
-        uses: beaconbrigade/package-json-version@v0.3.2
+        uses: beaconbrigade/package-json-version@1da990953ac5abf189b6833724706acaae203fe4 # v0.3.2
         id: package
 
       - name: Display bumped version
