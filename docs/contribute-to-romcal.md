@@ -124,7 +124,7 @@ _pass the `-t` flag and the path of the file_
 
 ## Coverage Reporting
 
-A coverage report is generated for every core branch build and published to [gh-pages]().
+A coverage report is generated for every core branch build and published to [gh-pages](<>).
 
 ## Committing Changes
 
