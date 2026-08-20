@@ -18,6 +18,7 @@ import { England } from './countries/england';
 import { Finland } from './countries/finland';
 import {
   France,
+  France_Albi,
   France_Angers,
   France_Coutances,
   France_Laval,
@@ -93,6 +94,7 @@ export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   Europe,
   Finland,
   France,
+  France_Albi,
   France_Angers,
   France_Coutances,
   France_Laval,

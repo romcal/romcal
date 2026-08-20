@@ -114,6 +114,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Ailbe',
       titles: [Title.Bishop],
     },
+    // src:
+    // - https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/
+    alain_of_lavaur: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Alain of Lavaur',
+    },
     alban_of_britain_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Alban',
@@ -273,6 +280,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfDeath: 346,
       dateOfDeathIsApproximative: true,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/saint-amarand/
+    amarand_of_albi_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Amarand of Albi',
+      titles: [Title.Martyr],
     },
     amarin_of_alsace_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -879,6 +894,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Canute',
       titles: [Title.Martyr],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://albi.catholique.fr/saint-du-jour/07/09/sainte-carissime/
+    carissima_of_albi_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Carissima of Albi',
+      titles: [Title.Virgin],
+    },
     carlos_manuel_rodriguez_santiago: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Carlos Manuel Rodríguez Santiago',
@@ -1436,6 +1459,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Emeric',
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://www.vatican.va/spirit/documents/spirit_20010227_emilie-de-vialar_en.html
+    emilie_de_vialar_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Émilie de Vialar',
+      titles: [Title.Virgin],
+      dateOfBirth: 1797,
+      dateOfDeath: 1856,
+      dateOfCanonization: 1951,
+    },
     emilie_tavernier_gamelin_religious: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Émilie Tavernier-Gamelin',
@@ -1527,6 +1561,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: {
         century: 8,
       },
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/saint-eugene/
+    // - https://en.wikipedia.org/wiki/Eugenius_of_Carthage
+    eugenius_of_carthage_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Eugenius of Carthage',
+      titles: [Title.Bishop],
+      dateOfDeath: 505,
+      dateOfDeathIsApproximative: true,
     },
     eulalia_of_merida_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1659,6 +1704,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Flannan',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - https://albi.catholique.fr/saint-du-jour/05/09/bienheureux-florent-de-cardaillac/
+    // - https://www.causesanti.va/it/santi-e-beati/jean-baptiste-souzy-e-63-compagni.html
+    florent_dumontet_de_cardaillac_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Florent Dumontet de Cardaillac',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1749-02-08',
+      dateOfDeath: '1794-09-05',
+      dateOfBeatification: '1995-10-01',
     },
     // src:
     // - mr_fr_2022_ed3_angers
@@ -2466,6 +2522,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: '1666-06-18',
       dateOfDeath: '1736-08-17',
     },
+    // src:
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/sainte-emilie-de-villeneuve/
+    // - https://www.vatican.va/content/francesco/fr/events/event.dir.html/content/vaticanevents/fr/2015/5/17/canonizzazioni.html
+    jeanne_emilie_de_villeneuve_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Jeanne-Émilie de Villeneuve',
+      titles: [Title.Virgin],
+      dateOfBirth: 1811,
+      dateOfDeath: 1854,
+      dateOfCanonization: '2015-05-17',
+    },
     // The 1998 proper named her Blessed; she was canonized on 11 October 2009.
     // src:
     // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
@@ -2790,6 +2857,28 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Joseph Freinademetz',
       titles: [Title.Priest],
+    },
+    // src:
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/357291-bienheureux-j-h-chamayou-et-j-l-marcou-la-saintete-du-martyre/
+    // - https://www.lasalle.org/en/lasallian-holiness/blessed-brothers-martyrs-of-barcelona/
+    joseph_henri_chamayou_religious: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Joseph-Henri Chamayou',
+      titles: [Title.Religious, Title.Martyr],
+      dateOfBirth: 1884,
+      dateOfDeath: '1936-08-18',
+      dateOfBeatification: '2007-10-28',
+    },
+    // src:
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/357291-bienheureux-j-h-chamayou-et-j-l-marcou-la-saintete-du-martyre/
+    // - https://www.lasalle.org/en/lasallian-holiness/blessed-brothers-martyrs-of-barcelona/
+    joseph_louis_marcou_religious: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Joseph-Louis Marcou',
+      titles: [Title.Religious, Title.Martyr],
+      dateOfBirth: 1881,
+      dateOfDeath: '1936-07-22',
+      dateOfBeatification: '2007-10-28',
     },
     // src:
     // - ordo_fr_2025_province_ecclesiastique_de_toulouse
@@ -3463,6 +3552,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin],
       dateOfBirth: '1816-12-02',
       dateOfDeath: '1883-03-18',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/sainte-martiane/
+    martiana_of_albi_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Martiana of Albi',
+      titles: [Title.Virgin],
     },
     martin_de_porres_religious: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4363,6 +4460,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Philip of Jesus de las Casas',
       titles: [Title.Martyr],
     },
+    // src:
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/bienheureux-pierre-francois-jamet/
+    // - https://www.vatican.va/content/john-paul-ii/fr/homilies/1987/documents/hf_jp-ii_hom_19870510_rito-beatificazione.html
+    pierre_francois_jamet_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Pierre-François Jamet',
+      titles: [Title.Priest],
+      dateOfBirth: 1762,
+      dateOfDeath: '1845-01-12',
+      dateOfBeatification: '1987-05-10',
+    },
     pirmin_of_hornbach_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Pirmin',
@@ -4489,6 +4597,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Raphael of Saint Joseph Kalinowski',
       titles: [Title.Priest],
+    },
+    // src:
+    // - https://albi.catholique.fr/notre-diocese/contacts/chancellerie-officialite/381784-decret-du-17-avril-2026-decret-episcopal-liturgie-raymond-cayre/
+    // - https://dioceseparis.fr/pere-raymond-cayre
+    // - https://www.vatican.va/content/leo-xiv/fr/angelus/2025/documents/20251214-angelus.html
+    raymond_cayre_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Raymond Cayré',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1915-12-23',
+      dateOfDeath: { between: ['1944-10-22', '1944-10-24'] },
+      dateOfBeatification: '2025-12-13',
     },
     // src:
     // - ordo_fr_2025_province_ecclesiastique_de_toulouse
@@ -4629,6 +4749,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Salomea of Poland',
       titles: [Title.Religious],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/saint-salvi/
+    // - https://en.wikipedia.org/wiki/Salvius_of_Albi
+    salvius_of_albi_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Salvius of Albi',
+      titles: [Title.Bishop],
+      dateOfDeath: 584,
+    },
     sancha_of_portugal_virgin: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Sancha',
@@ -4736,6 +4866,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Sigmund Felix Feliński',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/sainte-sigolene/
+    // - https://en.wikipedia.org/wiki/Sigolena_of_Albi
+    sigolena_of_albi_abbess: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Sigolena of Albi',
+      titles: [Title.Abbess],
     },
     simon_apostle: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4889,6 +5028,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Theodore Romzha',
       titles: [Title.Bishop, Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/saint-theodoric-balat/
+    theodoric_balat_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Théodoric Balat',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1858-10-23',
+      dateOfDeath: '1900-07-09',
+      dateOfCanonization: '2000-10-01',
     },
     theodosius_of_the_caves_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
