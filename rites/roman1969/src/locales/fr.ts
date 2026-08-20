@@ -268,6 +268,7 @@ export const locale: Locale = {
     germain_of_paris_bishop: 'Saint Germain, évêque de Paris († 576)',
     germaine_cousin_virgin: 'Sainte Germaine Cousin, vierge († 1601)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     germanus_of_normandy_bishop: 'Saint Germain de la Mer, évêque et martyr († 480)', // src: mr_fr_1982_ed2_coutances
+    germier_of_toulouse_bishop: 'Saint Germier, évêque († VIIème s.)', // src: ordo_fr_2025_province_ecclesiastique_de_toulouse
     gertrude_of_nivelles_abbess: 'Sainte Gertrude de Nivelles, abbesse († 659)',
     gertrude_the_great_virgin: 'Sainte Gertrude, vierge moniale († 1301)',
     gregory_i_the_great_pope: 'Saint Grégoire le Grand, pape et docteur de l’Église († 604)',
@@ -360,6 +361,7 @@ export const locale: Locale = {
     john_paul_ii_pope: 'Saint Jean-Paul II, pape († 2005)',
     john_xxiii_pope: 'Saint Jean XXIII, pape († 1963)',
     josaphat_kuntsevych_bishop: 'Saint Josaphat Kuntsevych, évêque Basilien et martyr († 1623)',
+    joseph_marie_cassant_priest: 'Bienheureux Joseph-Marie Cassant, prêtre († 1903)', // src: ordo_fr_2025_province_ecclesiastique_de_toulouse
     joseph_of_calasanz_priest: 'Saint Joseph de Calasanz, prêtre († 1648)',
     joseph_spouse_of_mary: 'Saint Joseph, Époux de la vierge Marie',
     joseph_spouse_of_mary_patron_of_canada: 'Saint Joseph, Époux de la Bienheureuse vierge Marie, patron du Canada',
@@ -541,8 +543,8 @@ export const locale: Locale = {
     presentation_of_the_lord: 'Présentation du Seigneur au Temple',
     queenship_of_the_blessed_virgin_mary: 'Vierge Marie, reine',
     raoul_de_la_futaie_priest: 'Bienheureux Raoul de la Futaie, prêtre et ermite († 1129)', // src: mr_fr_1998_ed1_laval
-    raymond_costeran_and_companions_martyrs: 'Bienheureux Raymond et ses compagnons, martyrs († 1242)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
-    raymond_costeran_martyr: 'Bienheureux Raymond, martyr († 1242)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    raymond_costeran_and_companions_martyrs: 'Bienheureux Raymond Escrivan et ses compagnons, martyrs († 1242)', // src: ordo_fr_2025_province_ecclesiastique_de_toulouse, mr_fr_1974_ed1_region_apostolique_du_midi
+    raymond_costeran_martyr: 'Bienheureux Raymond Escrivan, martyr († 1242)', // src: ordo_fr_2025_province_ecclesiastique_de_toulouse, mr_fr_1974_ed1_region_apostolique_du_midi
     raymond_gayrard_religious: 'Saint Raymond Gayrard, religieux († 1118)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     raymond_of_penyafort_priest: 'Saint Raymond de Peñafort, prêtre († 1275)',
     remigius_of_reims_bishop: 'Saint Remi, évêque de Reims († 530)',

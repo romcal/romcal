@@ -1945,6 +1945,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 480,
       dateOfDeathIsApproximative: true,
     },
+    // src:
+    // - ordo_fr_2025_province_ecclesiastique_de_toulouse
+    // - https://fr.wikipedia.org/wiki/Germier_de_Toulouse
+    germier_of_toulouse_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Germier of Toulouse',
+      titles: [Title.Bishop],
+      dateOfDeath: { century: 7 },
+    },
     gertrude_of_nivelles_abbess: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Gertrude of Nivelles',
@@ -2781,6 +2790,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Joseph Freinademetz',
       titles: [Title.Priest],
+    },
+    // src:
+    // - ordo_fr_2025_province_ecclesiastique_de_toulouse
+    // - https://www.vatican.va/news_services/liturgy/saints/ns_lit_doc_20041003_cassant_fr.html
+    // - https://www.vatican.va/news_services/liturgy/saints/ns_lit_doc_20041003_cassant_en.html
+    joseph_marie_cassant_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Joseph-Marie Cassant',
+      titles: [Title.Priest],
+      dateOfBirth: '1878-03-06',
+      dateOfDeath: '1903-06-17',
+      dateOfBeatification: '2004-10-03',
     },
     joseph_of_calasanz_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4469,10 +4490,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Raphael of Saint Joseph Kalinowski',
       titles: [Title.Priest],
     },
-    // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    // src:
+    // - ordo_fr_2025_province_ecclesiastique_de_toulouse
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/7138/Bienheureux-Raymond-Scriptor.html
+    // Raymond Scriptor, Raymond de Costiran and Raymond Costeran are historical variants of the name.
     raymond_costeran_martyr: {
       canonizationLevel: CanonizationLevels.Blessed,
-      name: 'Raymond Costeran',
+      name: 'Raymond Escrivan',
       titles: [Title.Martyr],
       dateOfDeath: '1242-05-29',
     },
