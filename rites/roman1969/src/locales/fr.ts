@@ -71,6 +71,7 @@ export const locale: Locale = {
     all_saints_of_the_diocese_of_saint_denis: 'Tous les Saints du diocèse de Saint-Denis',
     aloysius_gonzaga_religious: 'Saint Louis de Gonzague, religieux Jésuite († 1591)',
     alphonsus_mary_liguori_bishop: 'Saint Alphonse-Marie de Liguori, évêque et docteur de l’Église',
+    alpinien: 'Saint Alpinien',
     amand_of_maastricht_bishop: 'Saint Amand d’Elnone, Missionnaire, évêque de Maastricht († v. 676)',
     amandus_of_strasbourg_bishop: 'Saint Amand, premier évêque de Strasbourg († v. 346)',
     amarand_of_albi_martyr: 'Saint Amarand, martyr', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
@@ -104,6 +105,7 @@ export const locale: Locale = {
     antoine_auriel_constant_priest: 'Bienheureux Antoine Auriel-Constant, prêtre et martyr († 1794)',
     antoine_auriel_constant_priest_and_companions_martyrs:
       'Bienheureux Antoine Auriel-Constant, prêtre, et ses compagnons, martyrs († 1794)',
+    antonin_of_pamiers_martyr: 'Saint Antonin, martyr',
     apollinaris_of_ravenna_bishop: 'Saint Apollinaire, évêque et martyr († IIème s.)',
     arbogast_of_strasbourg_bishop: 'Saint Arbogast, évêque († 678)',
     arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg:
@@ -113,6 +115,8 @@ export const locale: Locale = {
     assumption_of_the_blessed_virgin_mary: 'Assomption de la bienheureuse Vierge Marie',
     assumption_of_the_blessed_virgin_mary_patroness_of_france:
       'Assomption de la bienheureuse Vierge Marie, patronne principale de la France',
+    assumption_of_the_blessed_virgin_mary_patroness_of_france_and_principal_patroness_of_the_diocese_of_montauban:
+      'Assomption de la bienheureuse Vierge Marie, patronne principale de la France et du diocèse de Montauban',
     athanasius_of_alexandria_bishop: 'Saint Athanase, évêque, docteur et père de l’Église († 373)',
     aubert_of_avranches_bishop: 'Saint Aubert, évêque († 725)', // src: mr_fr_1982_ed2_coutances
     audoen_of_rouen_bishop: 'Saint Ouen, évêque',
@@ -221,6 +225,8 @@ export const locale: Locale = {
     dedication_of_the_cathedral_basilica_of_saint_denis_france: 'Dédicace de la cathédrale de Saint-Denis',
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france: 'Dédicace de la cathédrale de Strasbourg',
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france: 'Dédicace de la cathédrale de Coutances', // src: mr_fr_1982_ed2_coutances
+    dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
+      'Dédicace de la cathédrale Notre-Dame-de-l’Assomption de Montauban',
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'Dédicace de la cathédrale Sainte-Cécile d’Albi', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france: 'Dédicace de la cathédrale primatiale', // src: mr_fr_2014_ed2_lyon
     dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france: 'Dédicace de la Cathédrale Saint-Maurice', // mr_fr_2022_ed3_angers
@@ -245,6 +251,7 @@ export const locale: Locale = {
     elijah_prophet: 'Saint Élie, prophète († IXe s. av. J.-C.)',
     elizabeth_of_hungary_religious: 'Sainte Élisabeth de Hongrie († 1231)',
     elizabeth_of_portugal: 'Sainte Élisabeth du Portugal, reine († 1336)',
+    emilie_de_rodat_virgin: 'Sainte Émilie de Rodat, vierge († 1852)',
     emilie_de_vialar_virgin: 'Sainte Émilie de Vialar, vierge († 1856)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     emilie_tavernier_gamelin_religious:
       'Bienheureuse Émilie Tavernier-Gamelin, religieuse, fondatrice des Sœurs de la Providence de Montréal († 1851)',
@@ -571,6 +578,7 @@ export const locale: Locale = {
     peter_nolasco_religious: 'Saint Pierre Nolasque, religieux († 1256)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     philip_and_james_apostles: 'Saint Philippe et Saint Jacques le Mineur, apôtres',
     philip_neri_priest: 'Saint Philippe Néri, prêtre († 1595)',
+    phoebadius_of_agen_bishop: 'Saint Phébade, évêque',
     pierre_francois_jamet_priest: 'Bienheureux Pierre-François Jamet, prêtre († 1845)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     pierre_jean_garrigues_priest: 'Bienheureux Pierre-Jean Garrigues, prêtre et martyr († 1792)',
     pirmin_of_hornbach_abbot: 'Saint Pirmin, abbé († 753)',
@@ -601,6 +609,7 @@ export const locale: Locale = {
     rita_of_cascia_religious: 'Sainte Rita da Cascia, veuve puis religieuse († 1456)',
     robert_bellarmine_bishop: 'Saint Robert Bellarmin, Jésuite, évêque et docteur de l’Église († 1621)',
     robert_of_arbrissel_priest: 'Bienheureux Robert d’Arbrissel, prêtre et ermite († 1116)', // src: mr_fr_1998_ed1_laval
+    roch_of_montpellier: 'Saint Roch († v. 1379)',
     romuald_of_ravenna_abbot: 'Saint Romuald, anachorète et père des moines Camaldules († 1027)',
     rosalie_jeanne_marie_rendu_virgin: 'Bienheureuse Rosalie Rendu, vierge († 1856)',
     rose_of_lima_virgin: 'Sainte Rose de Lima, vierge († 1617)',
@@ -636,6 +645,7 @@ export const locale: Locale = {
     teresa_of_calcutta_virgin: 'Sainte Teresa de Calcutta, vierge', // src: https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2025/02/11/0125/00250.html#francese
     teresa_of_jesus_of_avila_virgin: 'Sainte Thérèse de Jésus (d’Avila), vierge et docteur de l’Église († 1582)',
     thanksgiving_day: 'Jour de l’action de grâce', // src: mr_fr_2021_ed3
+    theodard_of_narbonne_bishop: 'Saint Théodard, évêque († 893)',
     theodoric_balat_priest: 'Saint Théodoric Balat, prêtre et martyr († 1900)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     therese_marie_victoire_couderc_virgin: 'Sainte Thérèse Couderc, vierge († 1885)', // src: mr_fr_2014_ed2_lyon
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:

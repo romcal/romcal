@@ -266,6 +266,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'All Saints of Wales',
       count: 'many',
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/12583/Saints-Alpinien-et-Austriclinien.html
+    alpinien: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Alpinien',
+    },
     aloysius_gonzaga_religious: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Aloysius Gonzaga',
@@ -520,6 +527,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: '1764-04-19',
       dateOfDeath: '1794-06-16',
       dateOfBeatification: '1995-10-01',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://ariege-catholique.fr/blog/2019/saint-antonin-ses-conseils-pour-aujourdhui/
+    antonin_of_pamiers_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Antonin of Pamiers',
+      titles: [Title.Martyr],
     },
     apollinaris_of_ravenna_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1381,6 +1396,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDedication: '1057-12-03',
     },
     // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://www.diocese-montauban.fr/grand-montauban/paroisses/paroisse-montauban-ville-haute/eglises-et-paroisses/cathedrale-centre-ville/
+    dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france: {
+      dateOfDedication: '1739-11-01',
+    },
+    // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/dedicace-de-la-basilique-du-mont-saint-michel
     // - https://en.wikipedia.org/wiki/Mont-Saint-Michel_Abbey
@@ -1568,6 +1589,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     emeric_of_hungary: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Emeric',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://www.vatican.va/content/pius-xii/la/homilies/documents/hf_p-xii_hom_19500423_santa-maria-de-rodat.html
+    // - https://nominis.cef.fr/contenus/saint/1880/Sainte-Marie-Emilie-de-Rodat.html
+    emilie_de_rodat_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Émilie de Rodat',
+      titles: [Title.Virgin],
+      dateOfDeath: '1852-09-19',
+      dateOfBeatification: '1940-06-09',
+      dateOfCanonization: '1950-04-23',
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -4641,6 +4674,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Martyr],
     },
     // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese47.fr/Saint-Phebade5/
+    phoebadius_of_agen_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Phoebadius of Agen',
+      titles: [Title.Bishop],
+    },
+    // src:
     // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/bienheureux-pierre-francois-jamet/
     // - https://www.vatican.va/content/john-paul-ii/fr/homilies/1987/documents/hf_jp-ii_hom_19870510_rito-beatificazione.html
     pierre_francois_jamet_priest: {
@@ -4887,9 +4928,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Roch González',
       titles: [Title.Priest, Title.Martyr],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/1678/Saint-Roch.html
     roch_of_montpellier: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Roch',
+      dateOfDeath: 1379,
+      dateOfDeathIsApproximative: true,
     },
     romuald_of_ravenna_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5208,6 +5254,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Teresa of Portugal',
       titles: [Title.Religious],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://www.diocese-montauban.fr/le-diocese/histoire-et-patrimoine/saint-theodard/
+    theodard_of_narbonne_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Theodard of Narbonne',
+      titles: [Title.Bishop],
+      dateOfBirth: 840,
+      dateOfDeath: '893-05-01',
     },
     theodore_of_canterbury_bishop: {
       canonizationLevel: CanonizationLevels.Saint,

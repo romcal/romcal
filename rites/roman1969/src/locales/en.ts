@@ -91,6 +91,7 @@ export const locale: Locale = {
     alphonsa_of_the_immaculate_conception_muttathupadathu_virgin:
       'Saint Alphonsa of the Immaculate Conception Muttathupadathu, Virgin',
     alphonsus_mary_liguori_bishop: 'Saint Alphonsus Mary Liguori, Bishop and Doctor of the Church',
+    alpinien: 'Saint Alpinien',
     amand_of_maastricht_bishop: 'Saint Amand, Bishop',
     amandus_of_strasbourg_bishop: 'Saint Amandus of Strasbourg, Bishop',
     amarand_of_albi_martyr: 'Saint Amarand of Albi, Martyr',
@@ -131,6 +132,7 @@ export const locale: Locale = {
     antoine_auriel_constant_priest: 'Blessed Antoine Auriel-Constant, Priest and Martyr',
     antoine_auriel_constant_priest_and_companions_martyrs:
       'Blessed Antoine Auriel-Constant, Priest, and Companions, Martyrs',
+    antonin_of_pamiers_martyr: 'Saint Antonin of Pamiers, Martyr',
     apollinaris_of_ravenna_bishop: 'Saint Apollinaris, Bishop and Martyr',
     arbogast_of_strasbourg_bishop: 'Saint Arbogast, Bishop',
     arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg:
@@ -142,6 +144,8 @@ export const locale: Locale = {
     assumption_of_the_blessed_virgin_mary: 'The Assumption of the Blessed Virgin Mary',
     assumption_of_the_blessed_virgin_mary_patroness_of_france:
       'The Assumption of the Blessed Virgin Mary, Patroness of France',
+    assumption_of_the_blessed_virgin_mary_patroness_of_france_and_principal_patroness_of_the_diocese_of_montauban:
+      'The Assumption of the Blessed Virgin Mary, Patroness of France and Principal Patroness of the Diocese of Montauban',
     athanasius_of_alexandria_bishop: 'Saint Athanasius, Bishop and Doctor of the Church',
     attracta_of_killaraght_virgin: 'Saint Attracta, Virgin',
     aubert_of_avranches_bishop: 'Saint Aubert, Bishop',
@@ -301,6 +305,8 @@ export const locale: Locale = {
       'The Dedication of the Cathedral of Notre-Dame of Strasbourg',
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france:
       'The Dedication of the Cathedral of Coutances, France',
+    dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
+      'The Dedication of the Cathedral of Our Lady of the Assumption, Montauban, France',
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'The Dedication of the Cathedral of Saint Cecilia, Albi',
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france:
       'The Dedication of the Cathedral of Saint John the Baptist, Lyon',
@@ -347,6 +353,7 @@ export const locale: Locale = {
     elizabeth_of_hungary_religious: 'Saint Elizabeth of Hungary, Religious',
     elizabeth_of_portugal: 'Saint Elizabeth of Portugal',
     emeric_of_hungary: 'Saint Emeric',
+    emilie_de_rodat_virgin: 'Saint Émilie de Rodat, Virgin',
     emilie_de_vialar_virgin: 'Saint Émilie de Vialar, Virgin',
     emilie_tavernier_gamelin_religious: 'Blessed Émilie Tavernier-Gamelin, Religious',
     enda_of_aran_abbot: 'Saint Enda, Abbot',
@@ -926,6 +933,7 @@ export const locale: Locale = {
     philip_of_jesus_de_las_casas_martyr: 'Saint Philip of Jesus de las Casas, Martyr',
     philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs:
       'Saints Philip of Jesus de las Casas, Paul Miki and Companions, Martyrs',
+    phoebadius_of_agen_bishop: 'Saint Phoebadius of Agen, Bishop',
     pierre_francois_jamet_priest: 'Blessed Pierre-François Jamet, Priest',
     pierre_jean_garrigues_priest: 'Blessed Pierre-Jean Garrigues, Priest and Martyr',
     pirmin_of_hornbach_abbot: 'Saint Pirmin, Abbot',
@@ -1033,6 +1041,7 @@ export const locale: Locale = {
     teresa_of_portugal_religious: 'Blessed Teresa of Portugal, Religious',
     thanksgiving_day: 'Thanksgiving Day', // src: mr_en_2011_ed3_us
     thanksgiving_mass_on_lunar_new_year_eve: 'Thanksgiving Mass on Lunar New Year Eve',
+    theodard_of_narbonne_bishop: 'Saint Theodard of Narbonne, Bishop',
     theodore_of_canterbury_bishop: 'Saint Theodore of Canterbury, Bishop',
     theodore_romzha_bishop: 'Blessed Theodore Romzha, Bishop and Martyr',
     theodoric_balat_priest: 'Saint Théodoric Balat, Priest and Martyr',
