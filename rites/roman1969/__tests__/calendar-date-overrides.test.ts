@@ -4,6 +4,8 @@ import { England_En } from '@dist/rite-roman1969/bundles/england';
 import { Europe_En } from '@dist/rite-roman1969/bundles/europe';
 import { EuropeanRussia_En } from '@dist/rite-roman1969/bundles/european-russia';
 import { France_Fr } from '@dist/rite-roman1969/bundles/france';
+import { France_Creteil_Fr } from '@dist/rite-roman1969/bundles/france.creteil';
+import { France_Nanterre_Fr } from '@dist/rite-roman1969/bundles/france.nanterre';
 import { France_Paris_Fr } from '@dist/rite-roman1969/bundles/france.paris';
 import { Germany_En } from '@dist/rite-roman1969/bundles/germany';
 import { Hungary_En } from '@dist/rite-roman1969/bundles/hungary';
@@ -376,7 +378,7 @@ describe('Testing national calendar overrides', () => {
     });
   });
 
-  describe('Parent calendar inheritance for France and the Diocese of Paris', () => {
+  describe('Parent calendar inheritance for France and its dioceses', () => {
     let generalDates: LiturgicalDay[];
     let franceDates: LiturgicalDay[];
     let franceParisDates: LiturgicalDay[];
@@ -403,6 +405,22 @@ describe('Testing national calendar overrides', () => {
       expect(mhnojParis).toBeTruthy();
       expect(mhnojParis?.date).toMatch(/-01-04$/);
     });
+
+    test.each([
+      ['Créteil', France_Creteil_Fr],
+      ['Nanterre', France_Nanterre_Fr],
+    ])(
+      'Saint Genevieve is on January 3 and the Most Holy Name of Jesus is moved to January 4 in the Diocese of %s',
+      async (_diocese, localizedCalendar) => {
+        const dates = Object.values(await new Romcal({ localizedCalendar }).generateCalendar(2025)).flat();
+        const genevieve = dates.find((d) => d.id === 'genevieve_of_paris_virgin');
+        const mostHolyNameOfJesus = dates.find((d) => d.id === 'most_holy_name_of_jesus');
+
+        expect(genevieve?.date).toMatch(/-01-03$/);
+        expect(mostHolyNameOfJesus?.date).toMatch(/-01-04$/);
+        expect(dates.some((d) => d.id === 'most_holy_name_of_jesus' && d.date.endsWith('-01-03'))).toBeFalsy();
+      }
+    );
 
     test('"genevieve_of_paris_virgin" is only present in the France and Diocese of Paris calendars, with correct date and precedence', () => {
       const genevieveGeneral = generalDates.find((d) => d.id === 'genevieve_of_paris_virgin');

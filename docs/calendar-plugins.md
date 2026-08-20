@@ -44,11 +44,13 @@ Below the list of all available calendar plugins:
 | France / Auch              | `@romcal/calendar.france.auch@dev`              |
 | France / Cahors            | `@romcal/calendar.france.cahors@dev`            |
 | France / Coutances         | `@romcal/calendar.france.coutances@dev`         |
+| France / Creteil           | `@romcal/calendar.france.creteil@dev`           |
 | France / Gap Embrun        | `@romcal/calendar.france.gap-embrun@dev`        |
 | France / Laval             | `@romcal/calendar.france.laval@dev`             |
 | France / Lyon              | `@romcal/calendar.france.lyon@dev`              |
 | France / Lourdes Sanctuary | `@romcal/calendar.france.lourdes-sanctuary@dev` |
 | France / Montauban         | `@romcal/calendar.france.montauban@dev`         |
+| France / Nanterre          | `@romcal/calendar.france.nanterre@dev`          |
 | France / Pamiers           | `@romcal/calendar.france.pamiers@dev`           |
 | France / Paris             | `@romcal/calendar.france.paris@dev`             |
 | France / Rodez             | `@romcal/calendar.france.rodez@dev`             |

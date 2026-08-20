@@ -92,6 +92,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin, Title.Martyr],
       dateOfDeath: 251,
     },
+    // src:
+    // - mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    // - https://catholiques-val-de-marne.cef.fr/diocese/grandes-figures-diocese/
+    // - https://en.wikipedia.org/wiki/Agoard_and_Aglibert
+    aglibert_of_creteil_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Aglibert',
+      titles: [Title.Martyr],
+    },
     agnes_cao_guiying_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Agnes Cao Guiying',
@@ -108,6 +117,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin, Title.Martyr],
       dateOfDeath: 304,
       dateOfDeathIsApproximative: true,
+    },
+    // src:
+    // - mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    // - https://catholiques-val-de-marne.cef.fr/diocese/grandes-figures-diocese/
+    // - https://en.wikipedia.org/wiki/Agoard_and_Aglibert
+    agoard_of_creteil_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Agoard',
+      titles: [Title.Martyr],
     },
     aidan_of_ferns_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -266,6 +284,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'All Saints of the Diocese of Coutances and Avranches',
       count: 'many',
     },
+    // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    all_saints_of_the_diocese_of_creteil: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'All Saints of the Diocese of Créteil',
+      count: 'many',
+    },
     // src:
     // - mr_fr_2016_ed1_gap_embrun
     // - https://www.diocesedegap.fr/diocese-de-gap-embrun/actualite/10144-faire-memoire-des-saints-du-diocese/
@@ -274,6 +298,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       hideCanonizationLevel: true,
       name: 'All Saints of the Diocese of Gap and Embrun',
+      count: 'many',
+    },
+    // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    all_saints_of_the_diocese_of_nanterre: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'All Saints of the Diocese of Nanterre',
       count: 'many',
     },
     all_saints_of_the_diocese_of_saint_denis: {
@@ -1258,7 +1288,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Charles de Foucauld',
       titles: [Title.Priest],
-      dateOfDeath: '1916-12-1',
+      dateOfDeath: '1916-12-01',
+      // src: https://www.vatican.va/content/francesco/en/events/event.dir.html/content/vaticanevents/en/2022/5/15/canonizzazione.html
+      dateOfCanonization: '2022-05-15',
     },
     charles_spinola_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -1363,6 +1395,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Clement of Ohrid',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    // - https://diocese92.fr/decouvrir-le-diocese-de-nanterre/les-saints-du-diocese-de-nanterre/
+    // - https://stcdio.org/about/saint-cloud-saint/
+    clodoald_of_nogent_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Clodoald',
+      titles: [Title.Priest],
+      dateOfBirth: 522,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 560,
+      dateOfDeathIsApproximative: true,
     },
     clotilde_of_burgundy: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1533,7 +1578,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Daniel Brottier',
       titles: [Title.Priest],
-      dateOfDeath: '28-2-1936',
+      dateOfDeath: '1936-02-28', // src: https://spiritans.org/brottier
     },
     david_lewis_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1567,6 +1612,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // - https://en.wikipedia.org/wiki/Coutances_Cathedral
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france: {
       dateOfDedication: '1057-12-03',
+    },
+    // The 2009 proper commemorated the former cathedral dedication, celebrated
+    // on September 21, 2003, on September 22.
+    // src:
+    // - mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    // - https://eglise.catholique.fr/actualites/404329-a-creteil-la-cathedrale-fait-signe-dans-la-ville/
+    dedication_of_the_cathedral_of_notre_dame_of_creteil_france: {
+      dateOfDedication: '2015-09-20',
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -2459,6 +2512,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBeatification: '1854-05-07',
       dateOfCanonization: '1867-06-29',
     },
+    // src:
+    // - mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    // - https://diocese92.fr/decouvrir-le-diocese-de-nanterre/les-saints-du-diocese-de-nanterre/
+    // - https://en.wikipedia.org/wiki/Germanus_of_Auxerre
     germanus_of_auxerre_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Germanus of Auxerre',
@@ -2846,7 +2903,8 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Isabelle of France',
       titles: [Title.Virgin],
-      dateOfDeath: 1272,
+      // src: https://diocese92.fr/decouvrir-le-diocese-de-nanterre/les-saints-du-diocese-de-nanterre/
+      dateOfDeath: 1270,
     },
     isidore_of_seville_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3119,6 +3177,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Joan of Arc',
       titles: [Title.Virgin],
       dateOfDeath: 1431,
+    },
+    // src:
+    // - mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    // - https://www.annonciade.info/2013/07/1473/
+    // - https://www.vaticanstate.va/en/state-and-government/general-informations/saint-of-the-day/3627-february-4-saint-joan-of-valois.html
+    joan_of_france_foundress: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Joan of France',
+      titles: [Title.Queen],
+      dateOfBirth: '1464-04-23',
+      dateOfDeath: '1505-02-04',
+      dateOfCanonization: '1950-05-28',
     },
     joan_of_portugal_virgin: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -4734,6 +4804,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Our Lady of Bethlehem',
     },
     // src:
+    // - mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    // - https://enpelerinage.diocese92.fr/notre-dame-de-boulogne/
+    our_lady_of_boulogne: {
+      name: 'Our Lady of Boulogne',
+    },
+    // src:
     // - ordo_fr_2025_province_ecclesiastique_de_toulouse
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://rodez.catholique.fr/blog-du-synode/150-ans-du-couronnement-de-la-statue-de-ceignac-et-fete-des-vierges-couronnees-de
@@ -4755,6 +4831,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     our_lady_of_good_counsel: {
       name: 'Our Lady of Good Counsel',
+    },
+    // src:
+    // - mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    // - https://enpelerinage.diocese92.fr/notre-dame-de-bonne-delivrance/
+    our_lady_of_good_deliverance: {
+      name: 'Our Lady of Good Deliverance',
     },
     our_lady_of_guadalupe: {
       name: 'Our Lady of Guadalupe',

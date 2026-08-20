@@ -55,9 +55,12 @@ export const locale: Locale = {
     aengus_of_tallaght_bishop: 'Saint Aengus, Bishop and Abbot',
     africain_of_comminges_bishop: 'Saint Africus of Comminges, Bishop',
     agatha_of_sicily_virgin: 'Saint Agatha, Virgin and Martyr',
+    aglibert_of_creteil_martyr: 'Saint Aglibert, Martyr at Créteil', // src: https://en.wikipedia.org/wiki/Agoard_and_Aglibert
     agnes_cao_guiying_martyr: 'Saint Agnes Cao Guiying, Martyr',
     agnes_of_bohemia_virgin: 'Saint Agnes of Bohemia, Virgin',
     agnes_of_rome_virgin: 'Saint Agnes, Virgin and Martyr',
+    agoard_of_creteil_and_aglibert_of_creteil_martyrs: 'Saints Agoard and Aglibert, Martyrs', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    agoard_of_creteil_martyr: 'Saint Agoard, Martyr at Créteil', // src: https://en.wikipedia.org/wiki/Agoard_and_Aglibert
     aidan_of_ferns_bishop: 'Saint Aidan, Bishop',
     aidan_of_lindisfarne_bishop: 'Saint Aidan of Lindisfarne, Bishop and Missionary',
     aidan_of_lindisfarne_bishop_and_the_saints_of_lindisfarne: 'Saint Aidan, Bishop, and the Saints of Lindisfarne',
@@ -83,7 +86,9 @@ export const locale: Locale = {
     all_saints_of_the_archdiocese_of_lyon: 'All Saints of the Archdiocese of Lyon',
     all_saints_of_the_archdiocese_of_paris: 'All Saints of the Archdiocese of Paris',
     all_saints_of_the_diocese_of_coutances: 'All Saints of the Diocese of Coutances and Avranches',
+    all_saints_of_the_diocese_of_creteil: 'All Saints of the Diocese of Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     all_saints_of_the_diocese_of_gap_and_embrun: 'All Saints of the Diocese of Gap and Embrun',
+    all_saints_of_the_diocese_of_nanterre: 'All Saints of the Diocese of Nanterre', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     all_saints_of_the_diocese_of_saint_denis: 'All Saints of the Diocese of Saint-Denis',
     all_saints_of_wales: 'All Saints of Wales',
     aloysius_gonzaga_religious: 'Saint Aloysius Gonzaga, Religious',
@@ -281,6 +286,7 @@ export const locale: Locale = {
     clement_mary_hofbauer_priest: 'Saint Clement Mary Hofbauer, Priest',
     clement_of_ohrid_and_gorazd_of_moravia_bishops_and_companions:
       'Saints Clement of Ohrid and Gorazd, Bishops, and Companions',
+    clodoald_of_nogent_priest: 'Saint Clodoald (Cloud), Priest', // src: https://stcdio.org/about/saint-cloud-saint/
     clotilde_of_burgundy: 'Saint Clotilde',
     colman_of_cloyne_bishop: 'Saint Colman of Cloyne, Bishop',
     colman_of_dromore_bishop: 'Saint Colman of Dromore, Bishop',
@@ -332,6 +338,7 @@ export const locale: Locale = {
       'The Dedication of the Cathedral of Notre-Dame of Strasbourg',
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france:
       'The Dedication of the Cathedral of Coutances, France',
+    dedication_of_the_cathedral_of_notre_dame_of_creteil_france: 'The Dedication of the Cathedral of Créteil, France', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
       'The Dedication of the Cathedral of Our Lady of the Assumption, Montauban, France',
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_rodez_france:
@@ -365,6 +372,10 @@ export const locale: Locale = {
       'Saint Denis, Bishop and Martyr, Patron of the Archdiocese of Paris',
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
       'Saint Denis, Bishop and Martyr, Patron of the City and of the Diocese of Saint-Denis',
+    denis_of_paris_bishop_second_patron_of_the_diocese_of_creteil:
+      'Saint Denis, Bishop and Martyr, Secondary Patron of the Diocese of Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    denis_of_paris_bishop_second_patron_of_the_diocese_of_nanterre:
+      'Saint Denis, Bishop and Martyr, Secondary Patron of the Diocese of Nanterre', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     didier_of_cahors_bishop: 'Saint Didier of Cahors, Bishop',
     dina_belanger_virgin: 'Blessed Dina Bélanger, Virgin',
     dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
@@ -483,6 +494,10 @@ export const locale: Locale = {
     gausbert_of_montsalvy_abbot: 'Saint Gausbert of Montsalvy, Abbot',
     gausbert_of_montsalvy_and_bernard_of_rodez_abbots: 'Saints Gausbert of Montsalvy and Bernard of Rodez, Abbots',
     genevieve_of_paris_virgin: 'Saint Genevieve, Virgin',
+    genevieve_of_paris_virgin_patroness_of_the_diocese_of_nanterre:
+      'Saint Genevieve, Virgin, Patroness of the Diocese of Nanterre', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    genevieve_of_paris_virgin_second_patroness_of_the_diocese_of_creteil:
+      'Saint Genevieve, Virgin, Secondary Patroness of the Diocese of Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     geny_of_lectoure_hermit: 'Saint Geny of Lectoure, Hermit',
     george_matulaitis_bishop: 'Blessed George Matulaitis, Bishop',
     george_of_lydda_martyr: 'Saint George, Martyr',
@@ -493,7 +508,7 @@ export const locale: Locale = {
     gerard_of_csanad_bishop: 'Saint Gerard of Csanád, Bishop and Martyr',
     germain_of_paris_bishop: 'Saint Germain of Paris, Bishop',
     germaine_cousin_virgin: 'Saint Germaine Cousin, Virgin',
-    germanus_of_auxerre_bishop: 'Saint Germanus of Auxerre, Bishop',
+    germanus_of_auxerre_bishop: 'Saint Germanus of Auxerre, Bishop', // src: https://en.wikipedia.org/wiki/Germanus_of_Auxerre
     germanus_of_normandy_bishop: 'Saint Germanus of Normandy, Bishop and Martyr',
     germier_of_toulouse_bishop: 'Saint Germier of Toulouse, Bishop',
     gertrude_of_nivelles_abbess: 'Saint Gertrude of Nivelles, Abbess',
@@ -614,6 +629,7 @@ export const locale: Locale = {
       'Saints Anne, Patroness of the Province of Quebec, and Joachim, Parents of the Blessed Virgin Mary',
     joachim_he_kaizhi_martyr: 'Saint Joachim He Kaizhi, Martyr',
     joan_of_arc_virgin_copatroness_of_france: 'Saint Joan of Arc, Virgin, Copatroness of France',
+    joan_of_france_foundress: 'Saint Joan of Valois, Queen of France and Foundress of the Order of the Annunciation', // src: https://www.vaticanstate.va/en/state-and-government/general-informations/saint-of-the-day/3627-february-4-saint-joan-of-valois.html
     joan_of_portugal_virgin: 'Blessed Joan of Portugal, Virgin',
     joaquina_of_saint_francis_of_assisi_de_vedruna_religious:
       'Saint Joaquina of Saint Francis of Assisi de Vedruna, Religious',
@@ -732,6 +748,8 @@ export const locale: Locale = {
     louis_bertrand_priest: 'Saint Louis Bertrand, Priest',
     louis_grignion_de_montfort_priest: 'Saint Louis Grignion de Montfort, Priest',
     louis_ix_of_france: 'Saint Louis',
+    louis_ix_of_france_patron_of_the_diocese_of_creteil:
+      'Saint Louis IX, King of France, Patron of the Diocese of Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     louis_mathieu_lanier_priest_martyr: 'Blessed Louis-Mathieu Lanier, Priest and Martyr', // src: mr_fr_1998_ed1_laval
     louis_of_toulouse_bishop: 'Saint Louis of Toulouse, Bishop',
     louis_zephirin_moreau_bishop: 'Blessed Louis-Zéphirin Moreau, Bishop',
@@ -908,12 +926,14 @@ export const locale: Locale = {
     our_lady_of_aparecida: 'Our Lady of Aparecida', // src: https://en.wikipedia.org/wiki/Our_Lady_of_Aparecida
     our_lady_of_aparecida_patroness_of_brazil: 'Our Lady of Aparecida, Patroness of Brazil',
     our_lady_of_bethlehem: 'Our Lady of Bethlehem',
+    our_lady_of_boulogne: 'Our Lady of Boulogne', // src: https://enpelerinage.diocese92.fr/notre-dame-de-boulogne/
     our_lady_of_ceignac: 'Our Lady of Ceignac',
     our_lady_of_china: 'Our Lady of China',
     our_lady_of_czestochowa: 'Our Lady of Częstochowa',
     our_lady_of_fatima: 'Our Lady of Fatima',
     our_lady_of_fourviere: 'Our Lady of Fourvière',
     our_lady_of_good_counsel: 'Our Lady of Good Counsel',
+    our_lady_of_good_deliverance: 'Our Lady of Good Deliverance', // src: https://enpelerinage.diocese92.fr/notre-dame-de-bonne-delivrance/
     our_lady_of_guadalupe: 'Our Lady of Guadalupe',
     our_lady_of_guadalupe_patroness_of_the_americas: 'Our Lady of Guadalupe, Patroness of the Americas',
     our_lady_of_guadalupe_patroness_of_the_philippines: 'Our Lady of Guadalupe, Patroness of the Philippines',

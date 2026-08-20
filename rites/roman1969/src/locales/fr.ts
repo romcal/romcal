@@ -53,7 +53,10 @@ export const locale: Locale = {
     adelphus_of_metz_bishop: 'Saint Adelphe, évêque († Vème s.)',
     africain_of_comminges_bishop: 'Saint Africain, évêque', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     agatha_of_sicily_virgin: 'Sainte Agathe, vierge et martyre en Sicile († 251)',
+    aglibert_of_creteil_martyr: 'Saint Aglibert, martyr à Créteil', // src: https://catholiques-val-de-marne.cef.fr/diocese/grandes-figures-diocese/
     agnes_of_rome_virgin: 'Sainte Agnès, vierge et martyre († v. 304)',
+    agoard_of_creteil_and_aglibert_of_creteil_martyrs: 'Saints Agoard et Aglibert, martyrs', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    agoard_of_creteil_martyr: 'Saint Agoard, martyr à Créteil', // src: https://catholiques-val-de-marne.cef.fr/diocese/grandes-figures-diocese/
     alain_de_solminihac_bishop: 'Bienheureux Alain de Solminihac, évêque († 1659)',
     alain_of_lavaur: 'Saint Alain', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     albert_the_great_bishop:
@@ -69,7 +72,9 @@ export const locale: Locale = {
     all_saints_of_the_archdiocese_of_lyon: 'Tous les Saints du diocèse de Lyon', // src: mr_fr_2014_ed2_lyon
     all_saints_of_the_archdiocese_of_paris: 'Tous les Saints du diocèse de Paris',
     all_saints_of_the_diocese_of_coutances: 'Tous les Saints du diocèse de Coutances et Avranches', // src: mr_fr_1982_ed2_coutances
+    all_saints_of_the_diocese_of_creteil: 'Tous les Saints du diocèse de Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     all_saints_of_the_diocese_of_gap_and_embrun: 'Tous les Saints du diocèse de Gap et d’Embrun', // src: mr_fr_2016_ed1_gap_embrun
+    all_saints_of_the_diocese_of_nanterre: 'Tous les Saints du diocèse de Nanterre', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     all_saints_of_the_diocese_of_saint_denis: 'Tous les Saints du diocèse de Saint-Denis',
     aloysius_gonzaga_religious: 'Saint Louis de Gonzague, religieux Jésuite († 1591)',
     alphonsus_mary_liguori_bishop: 'Saint Alphonse-Marie de Liguori, évêque et docteur de l’Église',
@@ -220,6 +225,7 @@ export const locale: Locale = {
       'Bienheureux Claude Caïx, Charles Carnus, Jean Lacan, Jean-Antoine Segonds, Pierre-Jean Garrigues, prêtres, et leurs compagnons, martyrs († 1792)',
     claude_caix_priest: 'Bienheureux Claude Caïx, prêtre et martyr († 1792)',
     clement_i_pope: 'Saint Clément Ier, pape et martyr († 97)',
+    clodoald_of_nogent_priest: 'Saint Cloud (Clodoald), prêtre († 560)', // src: https://diocese92.fr/decouvrir-le-diocese-de-nanterre/les-saints-du-diocese-de-nanterre/
     clotilde_of_burgundy: 'Sainte Clotilde, reine des Francs († 545)',
     columba_of_iona_abbot: 'Saint Colomba, religieux († 615)',
     columba_of_iona_abbot_copatron_of_ireland: 'Saint Colomba, religieux, co-patron de l’Irlande († 615)',
@@ -252,6 +258,7 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_gap_france: 'Dédicace de la cathédrale de Gap', // src: mr_fr_2016_ed1_gap_embrun
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france: 'Dédicace de la cathédrale de Strasbourg',
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france: 'Dédicace de la cathédrale de Coutances', // src: mr_fr_1982_ed2_coutances
+    dedication_of_the_cathedral_of_notre_dame_of_creteil_france: 'Dédicace de la cathédrale de Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
       'Dédicace de la cathédrale Notre-Dame-de-l’Assomption de Montauban',
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_rodez_france:
@@ -274,6 +281,10 @@ export const locale: Locale = {
     denis_of_paris_bishop_patron_of_the_archdiocese_of_paris: 'Saint Denis, martyr, premier évêque, patron du diocèse',
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
       'Saint Denis, évêque et martyr, patron de la ville et du diocèse de Saint-Denis',
+    denis_of_paris_bishop_second_patron_of_the_diocese_of_creteil:
+      'Saint Denis, évêque et martyr, patron secondaire du diocèse de Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    denis_of_paris_bishop_second_patron_of_the_diocese_of_nanterre:
+      'Saint Denis, évêque et martyr, patron secondaire du diocèse de Nanterre', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     didier_of_cahors_bishop: 'Saint Didier, évêque de Cahors († 655)',
     dina_belanger_virgin: 'Bienheureuse Dina Bélanger, religieuse de la congrégation des Sœurs de Jésus-Marie († 1929)',
     dismas_the_good_thief: 'Saint Dismas (le Bon Larron)', // src: mr_fr_2014_ed2_lyon
@@ -345,6 +356,10 @@ export const locale: Locale = {
     gausbert_of_montsalvy_abbot: 'Saint Gausbert de Montsalvy, abbé',
     gausbert_of_montsalvy_and_bernard_of_rodez_abbots: 'Saint Gausbert et saint Bernard, abbés',
     genevieve_of_paris_virgin: 'Sainte Geneviève, vierge († 500)',
+    genevieve_of_paris_virgin_patroness_of_the_diocese_of_nanterre:
+      'Sainte Geneviève, vierge, patronne du diocèse de Nanterre († 500)', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    genevieve_of_paris_virgin_second_patroness_of_the_diocese_of_creteil:
+      'Sainte Geneviève, vierge, patronne secondaire du diocèse de Créteil († 500)', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     geny_of_lectoure_hermit: 'Saint Gény, ermite († IVe s.)',
     george_of_lydda_martyr: 'Saint Georges, martyr († 303)',
     george_of_lydda_martyr_patron_of_england: 'Saint Georges, martyr et patron de l’Angleterre († 303)',
@@ -352,6 +367,7 @@ export const locale: Locale = {
     gerald_of_braga_bishop: 'Saint Géraud de Braga, évêque († 1108)',
     germain_of_paris_bishop: 'Saint Germain, évêque de Paris († 576)',
     germaine_cousin_virgin: 'Sainte Germaine Cousin, vierge († 1601)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    germanus_of_auxerre_bishop: 'Saint Germain d’Auxerre, évêque († 448)', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     germanus_of_normandy_bishop: 'Saint Germain de la Mer, évêque et martyr († 480)', // src: mr_fr_1982_ed2_coutances
     germier_of_toulouse_bishop: 'Saint Germier, évêque († VIIème s.)', // src: ordo_fr_2025_province_ecclesiastique_de_toulouse
     gertrude_of_nivelles_abbess: 'Sainte Gertrude de Nivelles, abbesse († 659)',
@@ -429,6 +445,7 @@ export const locale: Locale = {
     joachim_and_anne_patroness_of_the_province_of_quebec_parents_of_mary:
       'Saints Anne, patronne de la province civile de Québec, et Joachim, parents de la vierge Marie († Ier s.)',
     joan_of_arc_virgin_copatroness_of_france: 'Sainte Jeanne d’Arc, vierge, co-patronne de la France († 1431)',
+    joan_of_france_foundress: 'Sainte Jeanne de France, fondatrice de l’Ordre de l’Annonciade († 1505)', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     john_apostle: 'Saint Jean, apôtre et évangéliste',
     john_baptist_de_la_salle_priest:
       'Saint Jean-Baptiste de La Salle, prêtre et fondateur des Frères des Écoles Chrétiennes († 1719)',
@@ -498,6 +515,8 @@ export const locale: Locale = {
     lizier_of_couserans_bishop: 'Saint Lizier, évêque († au VIe s.)',
     louis_grignion_de_montfort_priest: 'Saint Louis-Marie Grignion de Montfort, prêtre († 1716)', // mr_fr_2021_ed3
     louis_ix_of_france: 'Saint Louis, roi de France († 1270)',
+    louis_ix_of_france_patron_of_the_diocese_of_creteil:
+      'Saint Louis, roi de France, patron du diocèse de Créteil († 1270)', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     louis_mathieu_lanier_priest_martyr: 'Bienheureux Louis-Mathieu Lanier, prêtre et martyr († 1792)', // src: mr_fr_1998_ed1_laval
     louis_of_toulouse_bishop: 'Saint Louis d’Anjou, évêque († 1297)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     louis_zephirin_moreau_bishop: 'Bienheureux Louis Zéphyrin Moreau, évêque († 1901)',
@@ -604,10 +623,12 @@ export const locale: Locale = {
     orens_of_auch_bishop: 'Saint Orens, évêque d’Auch († Ve s.)',
     ortaire_of_landelles_abbot: 'Saint Ortaire, abbé († 580)', // src: mr_fr_1982_ed2_coutances
     our_lady_mediatrix_of_all_grace: 'Marie, Médiatrice de toute grâce',
+    our_lady_of_boulogne: 'Notre-Dame de Boulogne', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     our_lady_of_ceignac: 'Notre-Dame de Ceignac',
     our_lady_of_fatima: 'Notre-Dame de Fatima',
     our_lady_of_fourviere: 'Notre-Dame de Fourvière', // src: mr_fr_2014_ed2_lyon
     our_lady_of_good_counsel: 'Notre-Dame du Bon Conseil',
+    our_lady_of_good_deliverance: 'Notre-Dame de Bonne Délivrance', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     our_lady_of_guadalupe: 'Notre-Dame de Guadalupé',
     our_lady_of_guadalupe_patroness_of_the_americas: 'Notre-Dame de Guadalupé, patronne des Amériques',
     our_lady_of_la_salette: 'Bienheureuse Vierge Marie de La Salette', // src: mr_fr_2021_ed3
