@@ -10,6 +10,7 @@ import { France_Lyon } from './archdiocese-of-lyon';
 import { France_Paris } from './archdiocese-of-paris';
 import { France_Toulouse } from './archdiocese-of-toulouse';
 import { France_Angers } from './diocese-of-angers';
+import { France_Cahors } from './diocese-of-cahors';
 import { France_Coutances } from './diocese-of-coutances';
 import { France_Laval } from './diocese-of-laval';
 import { France_SaintDenis } from './diocese-of-saint-denis';
@@ -148,6 +149,7 @@ export {
   France_Lyon,
   France_Paris,
   France_Angers,
+  France_Cahors,
   France_Coutances,
   France_Laval,
   France_SaintDenis,

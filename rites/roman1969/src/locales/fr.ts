@@ -53,14 +53,17 @@ export const locale: Locale = {
     adelphus_of_metz_bishop: 'Saint Adelphe, évêque († Vème s.)',
     agatha_of_sicily_virgin: 'Sainte Agathe, vierge et martyre en Sicile († 251)',
     agnes_of_rome_virgin: 'Sainte Agnès, vierge et martyre († v. 304)',
+    alain_de_solminihac_bishop: 'Bienheureux Alain de Solminihac, évêque († 1659)',
     alain_of_lavaur: 'Saint Alain', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     albert_the_great_bishop:
       'Saint Albert le Grand, frère prêcheur, évêque de Ratisbonne, docteur de l’Église († 1280)',
     albinus_of_angers_bishop: 'Saint Aubin, évêque († 550)', // mr_fr_2022_ed3_angers
+    alithe_of_cahors_bishop: 'Saint Alithe, évêque',
     all_holy_bishops_and_priests_of_the_diocese_of_coutances:
       'Tous les Saints Évêques du diocèse de Coutances et Avranches, et les prêtres, leurs coopérateurs', // src: mr_fr_1982_ed2_coutances
     all_holy_bishops_of_the_archdiocese_of_lyon: 'Tous les Saints Évêques du diocèse de Lyon',
     all_holy_bishops_of_the_diocese_of_angers: 'Tous les Saints Évêques du diocèse d’Angers', // mr_fr_2022_ed3_angers
+    all_holy_bishops_of_the_diocese_of_cahors: 'Tous les saints évêques du diocèse de Cahors',
     all_saints: 'Tous les Saints',
     all_saints_of_the_archdiocese_of_lyon: 'Tous les Saints du diocèse de Lyon', // src: mr_fr_2014_ed2_lyon
     all_saints_of_the_archdiocese_of_paris: 'Tous les Saints du diocèse de Paris',
@@ -87,6 +90,9 @@ export const locale: Locale = {
     angela_merici_virgin:
       'Sainte Angèle Mérici, religieuse, fondatrice de la Compagnie de Sainte Ursule de Brescia († 1540)',
     annemund_of_lyon_bishop: 'Saint Ennemond (Chamond), évêque et martyr († v. 658)', // src: mr_fr_2014_ed2_lyon
+    annette_pelras_virgin: 'Sainte Annette Pelras, vierge et martyre († 1794)',
+    annette_pelras_virgin_and_companions_martyrs:
+      'Sainte Annette Pelras (Marie-Henriette de la Providence) et ses compagnes, carmélites de Compiègne, martyres († 1794)',
     annunciation_of_the_lord: 'Annonciation du Seigneur',
     anselm_of_canterbury_bishop: 'Saint Anselme de Cantorbéry, évêque, docteur de l’Église († 1109)',
     ansgar_of_hamburg_bishop: 'Saint Anschaire de Brême, évêque († 865)',
@@ -95,6 +101,9 @@ export const locale: Locale = {
     anthony_of_egypt_abbot: 'Saint Antoine le Grand, ermite en Égypte († 356)',
     anthony_of_padua_priest: 'Saint Antoine, prêtre et docteur de l’Église († 1231)',
     anthony_zaccaria_priest: 'Saint Antoine-Marie Zaccaria, prêtre († 1539)',
+    antoine_auriel_constant_priest: 'Bienheureux Antoine Auriel-Constant, prêtre et martyr († 1794)',
+    antoine_auriel_constant_priest_and_companions_martyrs:
+      'Bienheureux Antoine Auriel-Constant, prêtre, et ses compagnons, martyrs († 1794)',
     apollinaris_of_ravenna_bishop: 'Saint Apollinaire, évêque et martyr († IIème s.)',
     arbogast_of_strasbourg_bishop: 'Saint Arbogast, évêque († 678)',
     arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg:
@@ -131,6 +140,7 @@ export const locale: Locale = {
     bernard_of_clairvaux_abbot: 'Saint Bernard de Clairvaux, abbé, docteur de l’Église († 1153)',
     bernard_of_tiron_abbot: 'Saint Bernard de Tiron, abbé et ermite († 1117)', // src: mr_fr_1998_ed1_laval
     bernardine_of_siena_priest: 'Saint Bernardin de Sienne, prêtre († 1444)',
+    bertrand_of_aquileia_bishop: 'Bienheureux Bertrand d’Aquilée, évêque († 1350)',
     bertrand_of_comminges_bishop: 'Saint Bertrand de Comminges, évêque († 1126)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     blaise_of_sebaste_bishop: 'Saint Blaise de Sébaste, évêque et martyr († 316)',
     blessed_martyrs_of_angers: 'Bienheureux Martyrs d’Angers († 1793-1794)', // mr_fr_2022_ed3_angers
@@ -169,14 +179,19 @@ export const locale: Locale = {
     ceraunus_of_paris_bishop: 'Saint Céran, évêque de Paris († au 7e s.)',
     chair_of_saint_peter_the_apostle: 'Chaire de Saint Pierre, apôtre',
     charles_borromeo_bishop: 'Saint Charles Borromée, archevêque de Milan († 1584)',
+    charles_carnus_priest: 'Bienheureux Charles Carnus, prêtre et martyr († 1792)',
     charles_collas_du_bignon_priest_martyr: 'Bienheureux Charles Collas du Bignon, prêtre et martyr († 1794)', // src: mr_fr_1998_ed1_laval
     charles_lwanga_and_companions_martyrs: 'Saints Charles Lwanga et ses douze compagnons, martyrs († 618)',
     charles_of_blois: 'Bienheureux Charles de Blois († 1364)', // src: mr_fr_1998_ed1_laval
     charles_of_jesus_de_foucauld: 'Saint Charles de Foucauld, prêtre, ermite et missionnaire au Sahara († 1916)',
     christopher_magallanes_priest_and_companions_martyrs:
       'Saints Cristóbal Magallanes, prêtre, et ses 24 compagnons, martyrs mexicains († 1927)',
+    christopher_of_romandiola_priest: 'Bienheureux Christophe de Romandiola, prêtre († 1272)',
     clair_of_normandy_priest: 'Saint Clair, prêtre et martyr († v. 884)', // src: mr_fr_1982_ed2_coutances
     clare_of_assisi_virgin: 'Sainte Claire, vierge',
+    claude_caix_charles_carnus_jean_lacan_jean_antoine_segonds_pierre_jean_garrigues_priests_and_companions_martyrs:
+      'Bienheureux Claude Caïx, Charles Carnus, Jean Lacan, Jean-Antoine Segonds, Pierre-Jean Garrigues, prêtres, et leurs compagnons, martyrs († 1792)',
+    claude_caix_priest: 'Bienheureux Claude Caïx, prêtre et martyr († 1792)',
     clement_i_pope: 'Saint Clément Ier, pape et martyr († 97)',
     clotilde_of_burgundy: 'Sainte Clotilde, reine des Francs († 545)',
     columba_of_iona_abbot: 'Saint Colomba, religieux († 615)',
@@ -209,6 +224,8 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'Dédicace de la cathédrale Sainte-Cécile d’Albi', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france: 'Dédicace de la cathédrale primatiale', // src: mr_fr_2014_ed2_lyon
     dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france: 'Dédicace de la Cathédrale Saint-Maurice', // mr_fr_2022_ed3_angers
+    dedication_of_the_cathedral_of_saint_stephen_cahors_france:
+      'Dédicace de l’église cathédrale Saint-Étienne de Cahors',
     dedication_of_the_cathedral_of_saint_stephen_of_toulouse_france: 'Dédicace de la cathédrale Saint-Étienne', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     dedication_of_the_cathedral_of_the_holy_trinity_laval_france: 'Dédicace de la cathédrale de Laval', // src: mr_fr_1998_ed1_laval
     dedication_of_the_lateran_basilica: 'Dédicace de la Basilique du Latran',
@@ -218,6 +235,7 @@ export const locale: Locale = {
     denis_of_paris_bishop_patron_of_the_archdiocese_of_paris: 'Saint Denis, martyr, premier évêque, patron du diocèse',
     denis_of_paris_bishop_patron_of_the_city_and_of_the_diocese_of_saint_denis:
       'Saint Denis, évêque et martyr, patron de la ville et du diocèse de Saint-Denis',
+    didier_of_cahors_bishop: 'Saint Didier, évêque de Cahors († 655)',
     dina_belanger_virgin: 'Bienheureuse Dina Bélanger, religieuse de la congrégation des Sœurs de Jésus-Marie († 1929)',
     dismas_the_good_thief: 'Saint Dismas (le Bon Larron)', // src: mr_fr_2014_ed2_lyon
     divine_mercy_sunday: 'Deuxième dimanche de Pâques ou de la Divine Miséricorde',
@@ -247,7 +265,11 @@ export const locale: Locale = {
     faustina_kowalska_virgin: 'Sainte Faustina Kowalska († 1938)',
     fidelis_of_sigmaringen_priest: 'Saint Fidèle de Sigmaringen, prêtre et martyr († 1622)',
     first_martyrs_of_the_holy_roman_church: 'Premiers martyrs de l’Église de Rome († 64)',
+    fleur_of_issendolus_virgin: 'Sainte Fleur, vierge et religieuse hospitalière à Issendolus († 1347)',
     florent_dumontet_de_cardaillac_priest: 'Bienheureux Florent Dumontet de Cardaillac, prêtre et martyr († 1794)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
+    florent_of_cahors_alithe_of_cahors_urcisse_of_cahors_bishops_and_all_holy_bishops_of_the_diocese_of_cahors:
+      'Saints Florent, Alithe, Urcisse, évêques, et tous les saints évêques de Cahors',
+    florent_of_cahors_bishop: 'Saint Florent, évêque de Cahors',
     florentius_of_anjou_abbot: 'Saint Florent, abbé († Vème s.)', // mr_fr_2022_ed3_angers
     florentius_of_strasbourg_bishop: 'Saint Florent, évêque († VIIème s.)',
     floscellus_of_normandy_martyr: 'Saint Floscel, martyr († v. 296)', // src: mr_fr_1982_ed2_coutances
@@ -274,6 +296,7 @@ export const locale: Locale = {
     genevieve_of_paris_virgin: 'Sainte Geneviève, vierge († 500)',
     george_of_lydda_martyr: 'Saint Georges, martyr († 303)',
     george_of_lydda_martyr_patron_of_england: 'Saint Georges, martyr et patron de l’Angleterre († 303)',
+    gerald_of_braga_bishop: 'Saint Géraud de Braga, évêque († 1108)',
     germain_of_paris_bishop: 'Saint Germain, évêque de Paris († 576)',
     germaine_cousin_virgin: 'Sainte Germaine Cousin, vierge († 1601)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     germanus_of_normandy_bishop: 'Saint Germain de la Mer, évêque et martyr († 480)', // src: mr_fr_1982_ed2_coutances
@@ -323,10 +346,12 @@ export const locale: Locale = {
     james_apostle: 'Saint Jacques le Majeur, apôtre († 44)',
     jane_frances_de_chantal_religious: 'Sainte Jeanne-Françoise de Chantal, religieuse († 1641)',
     januarius_i_of_benevento_bishop: 'Saint Janvier, évêque de Bénévent et martyr († 305)',
+    jean_antoine_segonds_priest: 'Bienheureux Jean-Antoine Segonds, prêtre et martyr († 1792)',
     jean_baptiste_turpin_du_cormier_priest_martyr:
       'Bienheureux Jean-Baptiste Turpin du Cormier, prêtre et martyr († 1794)', // src: mr_fr_1998_ed1_laval
     jean_chevillard_and_companions_martyrs:
       'Bienheureux Jean Chevillard et ses compagnons, religieux et martyrs († 1994-1996)', // mr_fr_2022_ed3_angers
+    jean_lacan_priest: 'Bienheureux Jean Lacan, prêtre et martyr († 1792)',
     jean_louis_bonnard_priest: 'Saint Jean-Louis Bonnard, prêtre et martyr († 1841)', // src: mr_fr_2014_ed2_lyon
     jean_pierre_neel_priest: 'Saint Jean-Pierre Néel, prêtre et martyr († 1862)', // src: mr_fr_2014_ed2_lyon
     jean_robert_queneau_and_companions_martyrs:
@@ -359,6 +384,7 @@ export const locale: Locale = {
     john_eudes_priest: 'Saint Jean Eudes, prêtre († 1680)',
     john_fisher_bishop_and_thomas_more_martyrs: 'Saints Jean Fisher, évêque, et Thomas More, martyrs († 1535)',
     john_francis_regis_priest: 'Saint Jean-François Régis, prêtre († 1640)', // src: mr_fr_2014_ed2_lyon
+    john_gabriel_perboyre_priest: 'Saint Jean-Gabriel Perboyre, prêtre et martyr († 1840)',
     john_henry_newman_priest: 'Saint John Henry Newman, prêtre et docteur de l’Église († 1890)',
     john_i_pope: 'Saint Jean Ier, pape et martyr († 526)',
     john_leonardi_priest: 'Saint Jean Léonardi, prêtre († 1609)',
@@ -485,6 +511,7 @@ export const locale: Locale = {
     most_holy_trinity: 'La Sainte Trinité',
     most_sacred_heart_of_jesus: 'Sacré-Cœur de Jésus',
     mutien_marie_wiaux_religious: 'Saint Mutien-Marie Wiaux, Frère des Écoles Chrétiennes († 1917)',
+    namphaise_of_cahors_hermit: 'Saint Namphaise, ermite († v. 800)',
     nativity_of_john_the_baptist: 'Nativité de Saint Jean le Baptiste',
     nativity_of_the_blessed_virgin_mary: 'Nativité de la vierge Marie',
     nativity_of_the_lord: 'Nativité du Seigneur',
@@ -516,6 +543,7 @@ export const locale: Locale = {
     our_lady_of_the_rosary: 'Notre-Dame du Rosaire',
     our_lady_refuge_of_sinners: 'Sainte Marie, refuge des pécheurs',
     our_lord_jesus_christ_king_of_the_universe: 'Trente-quatrième et dernier dimanche - Le Christ, Roi de l’Univers',
+    ours_of_cahors_abbot: 'Saint Ours, abbé originaire de Cahors († v. 510)',
     palm_sunday_of_the_passion_of_the_lord: 'Dimanche des Rameaux et de la Passion',
     pancras_of_rome_martyr: 'Saint Pancrace, martyr à Rome († v. 304)',
     passion_of_saint_john_the_baptist: 'martyre de Saint Jean-Baptiste',
@@ -544,6 +572,7 @@ export const locale: Locale = {
     philip_and_james_apostles: 'Saint Philippe et Saint Jacques le Mineur, apôtres',
     philip_neri_priest: 'Saint Philippe Néri, prêtre († 1595)',
     pierre_francois_jamet_priest: 'Bienheureux Pierre-François Jamet, prêtre († 1845)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
+    pierre_jean_garrigues_priest: 'Bienheureux Pierre-Jean Garrigues, prêtre et martyr († 1792)',
     pirmin_of_hornbach_abbot: 'Saint Pirmin, abbé († 753)',
     pius_francesco_forgione_priest: 'Saint Pio de Pietrelcina (Padre Pio), prêtre Capucin († 1968)',
     pius_v_pope: 'Saint Pie V, pape († 1572)',
@@ -595,6 +624,8 @@ export const locale: Locale = {
     stephen_the_first_martyr: 'Saint Étienne, diacre et premier martyr († 35)',
     stephen_the_first_martyr_and_principal_patron_of_the_archdiocese_of_toulouse:
       'Saint Étienne, martyr, patron principal du diocèse († 35)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    stephen_the_first_martyr_and_principal_patron_of_the_diocese_of_cahors:
+      'Saint Étienne, premier martyr et patron principal du diocèse de Cahors († 35)',
     sunday_of_the_word_of_god: 'Troisième dimanche du Temps Ordinaire, ou Dimanche de la Parole de Dieu',
     sylvester_i_pope: 'Saint Sylvestre Ier, pape († 335)',
     sylvius_of_toulouse_bishop: 'Saint Silve, évêque († v. 400)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
@@ -631,6 +662,7 @@ export const locale: Locale = {
     urban_i_pope: 'Saint Urbain Ier, pape († IIIème s.)',
     urban_ii_pope: 'Bienheureux Urbain II, pape († 1099)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     urban_v_pope: 'Bienheureux Urbain V, pape († 1370)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    urcisse_of_cahors_bishop: 'Saint Urcisse, évêque de Cahors',
     valerius_of_trier_bishop: 'Saint Valère, évêque († IVème s.)',
     viator_of_lyon: 'Saint Viateur († v. 389)', // src: mr_fr_2014_ed2_lyon
     vincent_de_paul_priest:
