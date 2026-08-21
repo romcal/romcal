@@ -1474,6 +1474,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDedication: '1914-06-20',
     },
     // src:
+    // - ordo_fr_2025_province_ecclesiastique_de_toulouse
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://catholique65.fr/les-saints-de-nos-vallees/
+    // The proper states that the anniversary has been celebrated on 20 November from time immemorial,
+    // but that the cathedral's exact dedication date is unknown.
+    dedication_of_the_cathedral_of_our_lady_of_the_sede_tarbes_france: {
+      name: 'Dedication of the Cathedral of Our Lady of the Sède, Tarbes',
+    },
+    // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/dedicace-de-la-basilique-du-mont-saint-michel
     // - https://en.wikipedia.org/wiki/Mont-Saint-Michel_Abbey
@@ -3335,6 +3344,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Junípero Serra',
       titles: [Title.Priest],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://catholique65.fr/les-saints-de-nos-vallees/
+    justin_of_bigorre_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Justin of Bigorre',
+      titles: [Title.Priest],
+      dateOfDeath: { century: 4 },
+    },
     justin_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Justin',
@@ -4210,6 +4228,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Michael',
       titles: [Title.Archangel],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese64.org/site/wp-content/uploads/2025/02/VI.-Saint-Michel-Garicoits.pdf
+    // - https://www.causesanti.va/it/santi-e-beati/michele-garicoits.html
+    michael_garicoits_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Michael Garicoïts',
+      titles: [Title.Priest],
+      dateOfBirth: '1797-04-15',
+      dateOfDeath: '1863-05-14',
+    },
     michael_kozal_bishop: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Michael Kozal',
@@ -4224,6 +4253,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Miguel Febres Cordero',
       titles: [Title.Religious],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://catholique65.fr/les-saints-de-nos-vallees/
+    misselin_of_tarbes_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Misselin of Tarbes',
+      titles: [Title.Priest],
+      dateOfDeath: { century: 5 },
     },
     modestus_andlauer_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4407,6 +4445,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Oliver Plunket',
       titles: [Title.Bishop, Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://catholique65.fr/les-saints-de-nos-vallees/
+    orens_of_auch_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Orens of Auch',
+      titles: [Title.Bishop],
+      dateOfBirth: { century: 4 },
     },
     // src:
     // - mr_fr_1982_ed2_coutances
@@ -5223,6 +5270,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 257,
       dateOfDeathIsApproximative: true,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://catholique65.fr/les-saints-de-nos-vallees/
+    savin_of_lavedan_hermit: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Savin of Lavedan',
+      titles: [Title.Hermit],
+      dateOfDeath: { century: 5 },
+    },
     scholastica_of_nursia_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Scholastica',
@@ -5273,6 +5329,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     seven_martyred_nuns_from_the_franciscan_missionaries_of_mary: {
       name: 'Seven Martyred Nuns from the Franciscan Missionaries of Mary',
       count: 7,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://catholique65.fr/les-saints-de-nos-vallees/
+    sever_of_rustan_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Sever of Rustan',
+      titles: [Title.Priest],
+      dateOfDeath: { century: 6 },
     },
     severinus_of_noricum_monk: {
       canonizationLevel: CanonizationLevels.Saint,

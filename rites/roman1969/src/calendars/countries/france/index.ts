@@ -18,6 +18,8 @@ import { France_Pamiers } from './diocese-of-pamiers';
 import { France_Rodez } from './diocese-of-rodez';
 import { France_SaintDenis } from './diocese-of-saint-denis';
 import { France_Strasbourg } from './diocese-of-strasbourg';
+import { France_TarbesLourdes } from './diocese-of-tarbes-and-lourdes';
+import { France_LourdesSanctuary } from './sanctuary-of-our-lady-of-lourdes';
 
 export class France extends CalendarDef {
   ParentCalendars = [Europe];
@@ -160,5 +162,7 @@ export {
   France_Rodez,
   France_SaintDenis,
   France_Strasbourg,
+  France_TarbesLourdes,
   France_Toulouse,
+  France_LourdesSanctuary,
 };

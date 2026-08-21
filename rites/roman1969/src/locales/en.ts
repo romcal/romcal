@@ -321,6 +321,8 @@ export const locale: Locale = {
       'The Dedication of the Cathedral of Our Lady of the Assumption, Montauban, France',
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_rodez_france:
       'The Dedication of the Cathedral of Our Lady of the Assumption, Rodez, France',
+    dedication_of_the_cathedral_of_our_lady_of_the_sede_tarbes_france:
+      'The Dedication of the Cathedral of Our Lady of the Sède, Tarbes, France',
     dedication_of_the_cathedral_of_saint_antonin_pamiers_france:
       'The Dedication of the Cathedral of Saint Antonin, Pamiers, France',
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'The Dedication of the Cathedral of Saint Cecilia, Albi',
@@ -659,6 +661,7 @@ export const locale: Locale = {
     julie_billiart_virgin: 'Saint Julie Billiart, Virgin',
     junipero_serra_priest: 'Saint Junípero Serra, Priest',
     justin_martyr: 'Saint Justin, Martyr',
+    justin_of_bigorre_priest: 'Saint Justin of Bigorre, Priest',
     justus_of_lyon_bishop: 'Saint Justus, Bishop',
     kateri_tekakwitha_virgin: 'Saint Kateri Tekakwitha, Virgin',
     katharine_drexel_virgin: 'Saint Katharine Drexel, Virgin',
@@ -810,9 +813,11 @@ export const locale: Locale = {
     mel_of_ardagh_bishop: 'Saint Mel, Bishop',
     melchior_grodziecki_priest: 'Saint Melchior Grodziecki, Priest and Martyr',
     michael_gabriel_and_raphael_archangels: 'Saints Michael, Gabriel and Raphael, Archangels',
+    michael_garicoits_priest: 'Saint Michael Garicoïts, Priest',
     michael_kozal_bishop: 'Blessed Michael Kozal, Bishop and Martyr',
     miguel_agustin_pro_priest: 'Blessed Miguel Agustín Pro, Priest and Martyr',
     miguel_febres_cordero_religious: 'Saint Miguel Febres Cordero, Religious',
+    misselin_of_tarbes_priest: 'Saint Misselin of Tarbes, Priest',
     modestus_andlauer_and_andrew_bauer_martyrs: 'Saints Modeste Andlauer and Andrew Bauer, Martyrs',
     modestus_andlauer_martyr: 'Saint Modeste Andlauer, Martyr', // src: https://en.wikipedia.org/wiki/Martyr_Saints_of_China
     monica_of_hippo: 'Saint Monica',
@@ -829,6 +834,8 @@ export const locale: Locale = {
     namphaise_of_cahors_hermit: 'Saint Namphaise of Cahors, Hermit',
     nativity_of_john_the_baptist: 'The Nativity of Saint John the Baptist',
     nativity_of_the_blessed_virgin_mary: 'The Nativity of the Blessed Virgin Mary',
+    nativity_of_the_blessed_virgin_mary_principal_patroness_of_the_diocese_of_tarbes_and_lourdes:
+      'The Nativity of the Blessed Virgin Mary, Principal Patroness of the Diocese of Tarbes and Lourdes',
     nativity_of_the_lord: 'The Nativity of the Lord (Christmas)',
     nazaria_ignacia_of_saint_teresa_of_jesus_march_mesa_virgin:
       'Saint Nazaria Ignacia of Saint Teresa of Jesus March Mesa, Virgin',
@@ -851,6 +858,7 @@ export const locale: Locale = {
     oleksiy_zarytskyi_priest: 'Blessed Oleksiy Zarytskyi, Priest and Martyr',
     olga_of_kiev: 'Saint Olga',
     oliver_plunket_bishop: 'Saint Oliver Plunket, Bishop and Martyr',
+    orens_of_auch_bishop: 'Saint Orens of Auch, Bishop',
     ortaire_of_landelles_abbot: 'Saint Ortaire, Abbot',
     otteran_of_iona_monk: 'Saint Otteran, Monk',
     otto_of_bamberg_bishop: 'Saint Otto of Bamberg, Bishop',
@@ -1021,6 +1029,7 @@ export const locale: Locale = {
     sancha_of_portugal_and_mafalda_of_portugal_virgins: 'Blessed Sancha and Mafalda, Virgins',
     sara_salkahazi_virgin: 'Blessed Sára Salkaházi, Virgin and Martyr',
     saturnin_of_toulouse_bishop: 'Saint Saturnin of Toulouse, Bishop and Martyr',
+    savin_of_lavedan_hermit: 'Saint Savin of Lavedan, Hermit',
     scholastica_of_nursia_virgin: 'Saint Scholastica, Virgin',
     sebastian_de_aparicio_religious: 'Blessed Sebastian de Aparicio, Religious',
     sebastian_of_milan_martyr: 'Saint Sebastian, Martyr',
@@ -1029,6 +1038,7 @@ export const locale: Locale = {
     seven_holy_founders_of_the_servite_order: 'The Seven Holy Founders of the Servite Order',
     seven_martyred_nuns_from_the_franciscan_missionaries_of_mary:
       'Seven Martyred Nuns from the Franciscan Missionaries of Mary',
+    sever_of_rustan_priest: 'Saint Sever of Rustan, Priest',
     severinus_of_noricum_monk: 'Saint Severinus of Noricum, Monk',
     severus_of_avranches_bishop: 'Saint Severus of Avranches, Bishop',
     sharbel_makhluf_priest: 'Saint Sharbel Makhlūf, Priest',

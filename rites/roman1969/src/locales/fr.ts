@@ -241,6 +241,8 @@ export const locale: Locale = {
       'Dédicace de la cathédrale Notre-Dame-de-l’Assomption de Montauban',
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_rodez_france:
       'Dédicace de la cathédrale Notre-Dame de Rodez',
+    dedication_of_the_cathedral_of_our_lady_of_the_sede_tarbes_france:
+      'Dédicace de la cathédrale Notre-Dame de la Sède de Tarbes',
     dedication_of_the_cathedral_of_saint_antonin_pamiers_france: 'Dédicace de la cathédrale Saint-Antonin de Pamiers',
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'Dédicace de la cathédrale Sainte-Cécile d’Albi', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france: 'Dédicace de la cathédrale primatiale', // src: mr_fr_2014_ed2_lyon
@@ -448,6 +450,7 @@ export const locale: Locale = {
     julie_billiart_virgin:
       'Sainte Julie Billiart, religieuse, fondatrice de l’Institut des Sœurs de Notre-Dame († 1816)',
     justin_martyr: 'Saint Justin, martyr († 165)',
+    justin_of_bigorre_priest: 'Saint Justin de Bigorre, prêtre († IVe s.)',
     justus_of_lyon_bishop: 'Saint Just, évêque († v. 389)', // src: mr_fr_2014_ed2_lyon
     kateri_tekakwitha_virgin: 'Sainte Kateri Tekakwitha, vierge Amérindienne († 1680)',
     labor_day: 'Fête du travail', // src: mr_fr_2021_ed3
@@ -535,6 +538,8 @@ export const locale: Locale = {
     maximilian_mary_raymund_kolbe_priest: 'Saint Maximilien-Marie Kolbe, prêtre et martyr († 1941)',
     mederic_of_autun_and_droctoveus_of_autun_abbots: 'Saint Merry et Saint Droctovée, Abbés',
     michael_gabriel_and_raphael_archangels: 'Saints Michel, Gabriel and Raphaël, archanges',
+    michael_garicoits_priest: 'Saint Michel Garicoïts, prêtre († 1863)',
+    misselin_of_tarbes_priest: 'Saint Misselin, prêtre († Ve s.)',
     modestus_andlauer_and_andrew_bauer_martyrs: 'Saints Modeste Andlauer et André Bauer, martyrs († 1900)',
     modestus_andlauer_martyr: 'Saint Modeste Andlauer, martyr († 1900)',
     monica_of_hippo: 'Sainte Monique, Mère de Saint Augustin d’Hippone († 387)',
@@ -548,6 +553,8 @@ export const locale: Locale = {
     namphaise_of_cahors_hermit: 'Saint Namphaise, ermite († v. 800)',
     nativity_of_john_the_baptist: 'Nativité de Saint Jean le Baptiste',
     nativity_of_the_blessed_virgin_mary: 'Nativité de la vierge Marie',
+    nativity_of_the_blessed_virgin_mary_principal_patroness_of_the_diocese_of_tarbes_and_lourdes:
+      'Nativité de la Vierge Marie, patronne principale du diocèse de Tarbes et Lourdes',
     nativity_of_the_lord: 'Nativité du Seigneur',
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Saints Nérée et Achillée, martyrs à Rome († v. 304)',
     nicetius_of_lyon_bishop: 'Saint Nizier, évêque († 573)', // src: mr_fr_2014_ed2_lyon
@@ -559,6 +566,7 @@ export const locale: Locale = {
       'Bienheureux Nicétas Budka († 1949) et Vasyl Velychkowsky († 1973), évêques et martyrs',
     odile_of_alsace_abbess: 'Sainte Odile, abbesse',
     odile_of_alsace_abbess_patroness_of_alsace: 'Sainte Odile, abbesse, patronne de l‘Alsace († v. 720)',
+    orens_of_auch_bishop: 'Saint Orens, évêque d’Auch († Ve s.)',
     ortaire_of_landelles_abbot: 'Saint Ortaire, abbé († 580)', // src: mr_fr_1982_ed2_coutances
     our_lady_mediatrix_of_all_grace: 'Marie, Médiatrice de toute grâce',
     our_lady_of_ceignac: 'Notre-Dame de Ceignac',
@@ -646,10 +654,12 @@ export const locale: Locale = {
     rumpharius_of_coutances_bishop: 'Saint Romphaire, évêque de Coutance († VIème s.)', // src: mr_fr_1982_ed2_coutances
     salvius_of_albi_bishop: 'Saint Salvi, évêque († 584)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     saturnin_of_toulouse_bishop: 'Saint Saturnin, évêque et martyr († v. 257)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    savin_of_lavedan_hermit: 'Saint Savin, ermite († Ve s.)',
     scholastica_of_nursia_virgin: 'Sainte Scholastique, Moniale, sœur de Saint Benoît († 543)',
     sebastian_of_milan_martyr: 'Saint Sébastien, martyr († v. 284)',
     senerius_of_normandy_bishop: 'Saint Senier, évêque d’Avranches († v. 574)', // src: mr_fr_1982_ed2_coutances
     seven_holy_founders_of_the_servite_order: 'Saint Alexis Falconieri et les fondateurs des Servites († 1310)',
+    sever_of_rustan_priest: 'Saint Sever de Rustan, prêtre († VIe s.)',
     severus_of_avranches_bishop: 'Saint Sever, évêque d’Avranches († 578)', // src: mr_fr_1982_ed2_coutances
     sharbel_makhluf_priest: 'Saint Charbel Makhlouf, moine prêtre Maronite († 1898)',
     sigolena_of_albi_abbess: 'Sainte Sigolène, abbesse', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
