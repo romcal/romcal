@@ -1135,12 +1135,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Carlos Manuel Rodríguez Santiago',
     },
+    // The 2009 proper's biographical note and the former catalog date used July 21; the 2024 decree confirms July 17.
+    // src:
+    // - mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    // - https://www.paroissesainthonoredesmoissons.fr/wp-content/uploads/ORDO-LITURGIQUE-DIOCESE-BEAUVAIS-2026.pdf
+    // - https://press.vatican.va/content/salastampa/en/bollettino/pubblico/2024/12/18/241218d.html
     carmelites_of_compiegne_virgins_and_martyrs: {
-      canonizationLevel: CanonizationLevels.Blessed,
+      canonizationLevel: CanonizationLevels.Saint,
       name: 'Carmelites of Compiègne',
       titles: [Title.Virgin, Title.Martyr],
       count: 16,
-      dateOfDeath: '21-7-1794',
+      dateOfDeath: '1794-07-17',
     },
     caroline_kozka_virgin: {
       canonizationLevel: CanonizationLevels.Blessed,

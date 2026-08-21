@@ -191,8 +191,9 @@ export const locale: Locale = {
     camillus_de_lellis_priest: 'Saint Camille de Lellis, prêtre († 1614)',
     canada_day: 'Fête du Canada', // src: mr_fr_2021_ed3
     carissima_of_albi_virgin: 'Sainte Carissime, vierge', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
+    // src: https://press.vatican.va/content/salastampa/en/bollettino/pubblico/2024/12/18/241218d.html
     carmelites_of_compiegne_virgins_and_martyrs:
-      'Bienheureuses Carmélites de Compiègne : Mère Thérèse et ses 15 compagnes, martyres († guillotinées en 1794)',
+      'Sainte Thérèse de Saint-Augustin et ses 15 compagnes, vierges et martyres († guillotinées en 1794)',
     casimir_of_poland: 'Saint Casimir († 1484)',
     catherine_of_alexandria_virgin: 'Sainte Catherine d’Alexandrie, vierge et martyre († IVème s.)',
     catherine_of_siena_virgin: 'Sainte Catherine de Sienne, vierge et docteur de l’Église († 1380)',

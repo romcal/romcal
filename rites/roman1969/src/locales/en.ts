@@ -237,7 +237,8 @@ export const locale: Locale = {
     canute_iv_of_denmark_martyr: 'Saint Canute, Martyr',
     carissima_of_albi_virgin: 'Saint Carissima of Albi, Virgin',
     carlos_manuel_rodriguez_santiago: 'Blessed Carlos Manuel Rodríguez Santiago',
-    carmelites_of_compiegne_virgins_and_martyrs: 'Blessed Carmelites of Compiègne, Virgins and Martyrs',
+    // src: https://press.vatican.va/content/salastampa/en/bollettino/pubblico/2024/12/18/241218d.html
+    carmelites_of_compiegne_virgins_and_martyrs: 'Saint Teresa of Saint Augustine and Companions, Virgins and Martyrs',
     caroline_kozka_virgin: 'Blessed Caroline Kózka, Virgin and Martyr',
     carthage_of_lismore_bishop: 'Saint Carthage, Bishop',
     casimir_of_poland: 'Saint Casimir',
