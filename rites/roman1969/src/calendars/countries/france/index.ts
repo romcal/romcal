@@ -15,6 +15,7 @@ import { France_Angers } from './diocese-of-angers';
 import { France_BayonneLescarOloron } from './diocese-of-bayonne-lescar-and-oloron';
 import { France_Beauvais } from './diocese-of-beauvais';
 import { France_Cahors } from './diocese-of-cahors';
+import { France_CarcassonneNarbonne } from './diocese-of-carcassonne-and-narbonne';
 import { France_Coutances } from './diocese-of-coutances';
 import { France_Creteil } from './diocese-of-creteil';
 import { France_GapEmbrun } from './diocese-of-gap-and-embrun';
@@ -167,6 +168,7 @@ export {
   France_BayonneLescarOloron,
   France_Beauvais,
   France_Cahors,
+  France_CarcassonneNarbonne,
   France_Coutances,
   France_Creteil,
   France_GapEmbrun,

@@ -52,6 +52,7 @@ Below the list of all available calendar plugins:
 | France / Bayonne Lescar Oloron        | `@romcal/calendar.france.bayonne-lescar-oloron@dev`        |
 | France / Beauvais                     | `@romcal/calendar.france.beauvais@dev`                     |
 | France / Cahors                       | `@romcal/calendar.france.cahors@dev`                       |
+| France / Carcassonne Narbonne         | `@romcal/calendar.france.carcassonne-narbonne@dev`         |
 | France / Coutances                    | `@romcal/calendar.france.coutances@dev`                    |
 | France / Creteil                      | `@romcal/calendar.france.creteil@dev`                      |
 | France / Gap Embrun                   | `@romcal/calendar.france.gap-embrun@dev`                   |
