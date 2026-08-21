@@ -15,6 +15,7 @@ import { France_Coutances } from './diocese-of-coutances';
 import { France_Laval } from './diocese-of-laval';
 import { France_Montauban } from './diocese-of-montauban';
 import { France_Pamiers } from './diocese-of-pamiers';
+import { France_Rodez } from './diocese-of-rodez';
 import { France_SaintDenis } from './diocese-of-saint-denis';
 import { France_Strasbourg } from './diocese-of-strasbourg';
 
@@ -156,6 +157,7 @@ export {
   France_Laval,
   France_Montauban,
   France_Pamiers,
+  France_Rodez,
   France_SaintDenis,
   France_Strasbourg,
   France_Toulouse,

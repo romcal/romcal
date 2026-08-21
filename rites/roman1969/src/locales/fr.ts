@@ -51,6 +51,7 @@ export const locale: Locale = {
     adeline_de_mortain_abbess_and_the_saints_of_savigny:
       'Sainte Adeline de Mortain († v. 1125) et les saints de Savigny', // src: mr_fr_1982_ed2_coutances
     adelphus_of_metz_bishop: 'Saint Adelphe, évêque († Vème s.)',
+    africain_of_comminges_bishop: 'Saint Africain, évêque', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     agatha_of_sicily_virgin: 'Sainte Agathe, vierge et martyre en Sicile († 251)',
     agnes_of_rome_virgin: 'Sainte Agnès, vierge et martyre († v. 304)',
     alain_de_solminihac_bishop: 'Bienheureux Alain de Solminihac, évêque († 1659)',
@@ -74,6 +75,9 @@ export const locale: Locale = {
     alpinien: 'Saint Alpinien',
     amand_of_maastricht_bishop: 'Saint Amand d’Elnone, Missionnaire, évêque de Maastricht († v. 676)',
     amandus_of_strasbourg_bishop: 'Saint Amand, premier évêque de Strasbourg († v. 346)',
+    amans_of_rodez_bishop: 'Saint Amans, évêque de Rodez († v. 440)',
+    amans_of_rodez_bishop_principal_patron_of_the_diocese_of_rodez:
+      'Saint Amans, évêque, patron principal du diocèse († v. 440)',
     amarand_of_albi_martyr: 'Saint Amarand, martyr', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     amarin_of_alsace_abbot: 'Saint Amarin, abbé et martyr († 674 ou 676)',
     ambrose_of_milan_bishop: 'Saint Ambroise, évêque de Milan et docteur de l’Église († 397)',
@@ -146,6 +150,7 @@ export const locale: Locale = {
       'Saint Benoît de Nursie, Patriarche des moines d’Occident, fondateur de l’ordre des Bénédictins et patron de l’Europe († v. 547)',
     bernadette_soubirous_virgin: 'Sainte Bernadette Soubirous, vierge († 1879)',
     bernard_of_clairvaux_abbot: 'Saint Bernard de Clairvaux, abbé, docteur de l’Église († 1153)',
+    bernard_of_rodez_abbot: 'Saint Bernard de Rodez, abbé († 1110)',
     bernard_of_tiron_abbot: 'Saint Bernard de Tiron, abbé et ermite († 1117)', // src: mr_fr_1998_ed1_laval
     bernardine_of_siena_priest: 'Saint Bernardin de Sienne, prêtre († 1444)',
     bertrand_of_aquileia_bishop: 'Bienheureux Bertrand d’Aquilée, évêque († 1350)',
@@ -218,6 +223,8 @@ export const locale: Locale = {
       'Saints Cyrille, Moine, et Méthode, évêque, apôtres des Slaves, co-patrons de l’Europe († au IXème s.)',
     cyril_of_alexandria_bishop: 'Saint Cyrille, évêque d’Alexandrie et docteur de l’Église († 444)', // src: mr_fr_2014_ed2_lyon
     cyril_of_jerusalem_bishop: 'Saint Cyrille de Jérusalem, évêque de Jérusalem, docteur de l’Église († 387)',
+    dalmas_of_rodez_and_quintien_of_rodez_bishops: 'Saint Dalmas et saint Quintien, évêques († au VIe s.)',
+    dalmas_of_rodez_bishop: 'Saint Dalmas, évêque de Rodez († v. 580)',
     damasus_i_pope: 'Saint Damase Ier, pape († 384)',
     damien_de_veuster_priest: 'Saint Père Damien, prêtre et Missionnaire Picpus († 1889)',
     daniel_brottier_priest: 'Bienheureux Daniel Brottier, prêtre, apôtre des Orphelins d’Auteuil († 1936 à Paris)',
@@ -232,6 +239,8 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france: 'Dédicace de la cathédrale de Coutances', // src: mr_fr_1982_ed2_coutances
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
       'Dédicace de la cathédrale Notre-Dame-de-l’Assomption de Montauban',
+    dedication_of_the_cathedral_of_our_lady_of_the_assumption_rodez_france:
+      'Dédicace de la cathédrale Notre-Dame de Rodez',
     dedication_of_the_cathedral_of_saint_antonin_pamiers_france: 'Dédicace de la cathédrale Saint-Antonin de Pamiers',
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'Dédicace de la cathédrale Sainte-Cécile d’Albi', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france: 'Dédicace de la cathédrale primatiale', // src: mr_fr_2014_ed2_lyon
@@ -275,6 +284,7 @@ export const locale: Locale = {
     exaltation_of_the_holy_cross: 'La Croix Glorieuse',
     exuperius_of_toulouse_bishop: 'Saint Exupère, évêque († v. 410)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     fabian_i_pope: 'Saint Fabien, pape et martyr († 250)',
+    faith_of_agen_virgin: 'Sainte Foy, vierge et martyre († au IIIe s.)',
     faustina_kowalska_virgin: 'Sainte Faustina Kowalska († 1938)',
     fidelis_of_sigmaringen_priest: 'Saint Fidèle de Sigmaringen, prêtre et martyr († 1622)',
     first_martyrs_of_the_holy_roman_church: 'Premiers martyrs de l’Église de Rome († 64)',
@@ -308,9 +318,12 @@ export const locale: Locale = {
     gall_of_switzerland_abbot: 'Saint Gall, abbé et missionnaire († 641 ou 646)',
     gaud_of_evreux_bishop: 'Saint Gaud, évêque († v. 491)', // src: mr_fr_1982_ed2_coutances
     gauderic_of_vieville: 'Saint Gaudéric († v. 900)',
+    gausbert_of_montsalvy_abbot: 'Saint Gausbert de Montsalvy, abbé',
+    gausbert_of_montsalvy_and_bernard_of_rodez_abbots: 'Saint Gausbert et saint Bernard, abbés',
     genevieve_of_paris_virgin: 'Sainte Geneviève, vierge († 500)',
     george_of_lydda_martyr: 'Saint Georges, martyr († 303)',
     george_of_lydda_martyr_patron_of_england: 'Saint Georges, martyr et patron de l’Angleterre († 303)',
+    george_of_vabres_monk: 'Saint Georges, moine († v. 877)',
     gerald_of_braga_bishop: 'Saint Géraud de Braga, évêque († 1108)',
     germain_of_paris_bishop: 'Saint Germain, évêque de Paris († 576)',
     germaine_cousin_virgin: 'Sainte Germaine Cousin, vierge († 1601)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
@@ -548,6 +561,7 @@ export const locale: Locale = {
     odile_of_alsace_abbess_patroness_of_alsace: 'Sainte Odile, abbesse, patronne de l‘Alsace († v. 720)',
     ortaire_of_landelles_abbot: 'Saint Ortaire, abbé († 580)', // src: mr_fr_1982_ed2_coutances
     our_lady_mediatrix_of_all_grace: 'Marie, Médiatrice de toute grâce',
+    our_lady_of_ceignac: 'Notre-Dame de Ceignac',
     our_lady_of_fatima: 'Notre-Dame de Fatima',
     our_lady_of_fourviere: 'Notre-Dame de Fourvière', // src: mr_fr_2014_ed2_lyon
     our_lady_of_good_counsel: 'Notre-Dame du Bon Conseil',
@@ -609,6 +623,7 @@ export const locale: Locale = {
     presentation_of_the_blessed_virgin_mary: 'Présentation de la vierge Marie',
     presentation_of_the_lord: 'Présentation du Seigneur au Temple',
     queenship_of_the_blessed_virgin_mary: 'Vierge Marie, reine',
+    quintien_of_rodez_bishop: 'Saint Quintien, évêque de Rodez († 525 ou 526)',
     raoul_de_la_futaie_priest: 'Bienheureux Raoul de la Futaie, prêtre et ermite († 1129)', // src: mr_fr_1998_ed1_laval
     raymond_cayre_priest: 'Bienheureux Raymond Cayré, prêtre et martyr († 1944)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     raymond_cayre_priest_and_companions_martyrs:
@@ -624,7 +639,7 @@ export const locale: Locale = {
     rita_of_cascia_religious: 'Sainte Rita da Cascia, veuve puis religieuse († 1456)',
     robert_bellarmine_bishop: 'Saint Robert Bellarmin, Jésuite, évêque et docteur de l’Église († 1621)',
     robert_of_arbrissel_priest: 'Bienheureux Robert d’Arbrissel, prêtre et ermite († 1116)', // src: mr_fr_1998_ed1_laval
-    roch_of_montpellier: 'Saint Roch († v. 1379)',
+    roch_of_montpellier: 'Saint Roch, pèlerin († v. 1379)', // src: mr_fr_1974_ed1_region_apostolique_du_midi, mr_fr_1984_ed1_nimes
     romuald_of_ravenna_abbot: 'Saint Romuald, anachorète et père des moines Camaldules († 1027)',
     rosalie_jeanne_marie_rendu_virgin: 'Bienheureuse Rosalie Rendu, vierge († 1856)',
     rose_of_lima_virgin: 'Sainte Rose de Lima, vierge († 1617)',
@@ -653,6 +668,7 @@ export const locale: Locale = {
     sunday_of_the_word_of_god: 'Troisième dimanche du Temps Ordinaire, ou Dimanche de la Parole de Dieu',
     sylvester_i_pope: 'Saint Sylvestre Ier, pape († 335)',
     sylvius_of_toulouse_bishop: 'Saint Silve, évêque († v. 400)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    tarcisse_of_rodez_virgin: 'Sainte Tarcisse, vierge († au VIe s.)',
     teresa_benedicta_of_the_cross_stein_virgin:
       'Sainte Thérèse-Bénédicte de la Croix (Edith Stein), Carmélite, martyr en Pologne († 1942)',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:

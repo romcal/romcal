@@ -53,6 +53,7 @@ export const locale: Locale = {
     adolph_kolping_priest: 'Blessed Adolph Kolping, Priest',
     aelred_of_rievaulx_abbot: 'Saint Aelred of Rievaulx, Abbot',
     aengus_of_tallaght_bishop: 'Saint Aengus, Bishop and Abbot',
+    africain_of_comminges_bishop: 'Saint Africus of Comminges, Bishop',
     agatha_of_sicily_virgin: 'Saint Agatha, Virgin and Martyr',
     agnes_cao_guiying_martyr: 'Saint Agnes Cao Guiying, Martyr',
     agnes_of_bohemia_virgin: 'Saint Agnes of Bohemia, Virgin',
@@ -94,6 +95,9 @@ export const locale: Locale = {
     alpinien: 'Saint Alpinien',
     amand_of_maastricht_bishop: 'Saint Amand, Bishop',
     amandus_of_strasbourg_bishop: 'Saint Amandus of Strasbourg, Bishop',
+    amans_of_rodez_bishop: 'Saint Amans of Rodez, Bishop',
+    amans_of_rodez_bishop_principal_patron_of_the_diocese_of_rodez:
+      'Saint Amans of Rodez, Bishop and Principal Patron of the Diocese',
     amarand_of_albi_martyr: 'Saint Amarand of Albi, Martyr',
     amarin_of_alsace_abbot: 'Saint Amarin, Abbot and Martyr',
     ambrose_of_milan_bishop: 'Saint Ambrose, Bishop and Doctor of the Church',
@@ -182,6 +186,7 @@ export const locale: Locale = {
     benno_of_meissen_bishop: 'Saint Benno of Meissen, Bishop',
     bernadette_soubirous_virgin: 'Saint Bernadette Soubirous, Virgin',
     bernard_of_clairvaux_abbot: 'Saint Bernard, Abbot and Doctor of the Church',
+    bernard_of_rodez_abbot: 'Saint Bernard of Rodez, Abbot',
     bernard_of_tiron_abbot: 'Saint Bernard of Tiron, Abbot and Hermit', // src: mr_fr_1998_ed1_laval
     bernardine_of_siena_priest: 'Saint Bernardine of Siena, Priest',
     bertrand_of_aquileia_bishop: 'Blessed Bertrand of Aquileia, Bishop',
@@ -290,6 +295,8 @@ export const locale: Locale = {
       'Saints Cyril, Monk, and Methodius, Bishop, Slavic Missionaries, Copatrons of Europe',
     cyril_of_alexandria_bishop: 'Saint Cyril of Alexandria, Bishop and Doctor of the Church',
     cyril_of_jerusalem_bishop: 'Saint Cyril of Jerusalem, Bishop and Doctor of the Church',
+    dalmas_of_rodez_and_quintien_of_rodez_bishops: 'Saints Dalmas and Quintien of Rodez, Bishops',
+    dalmas_of_rodez_bishop: 'Saint Dalmas of Rodez, Bishop',
     damasus_i_pope: 'Saint Damasus I, Pope',
     damien_de_veuster_priest: 'Saint Damien de Veuster, Priest',
     daniel_brottier_priest: 'Blessed Daniel Brottier, Priest',
@@ -312,6 +319,8 @@ export const locale: Locale = {
       'The Dedication of the Cathedral of Coutances, France',
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
       'The Dedication of the Cathedral of Our Lady of the Assumption, Montauban, France',
+    dedication_of_the_cathedral_of_our_lady_of_the_assumption_rodez_france:
+      'The Dedication of the Cathedral of Our Lady of the Assumption, Rodez, France',
     dedication_of_the_cathedral_of_saint_antonin_pamiers_france:
       'The Dedication of the Cathedral of Saint Antonin, Pamiers, France',
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'The Dedication of the Cathedral of Saint Cecilia, Albi',
@@ -389,6 +398,7 @@ export const locale: Locale = {
     fabian_i_pope: 'Saint Fabian, Pope and Martyr',
     fachanan_of_kilfenora_bishop: 'Saint Fachanan, Bishop',
     fachtna_of_rosscarbery_bishop: 'Saint Fachtna, Bishop',
+    faith_of_agen_virgin: 'Saint Faith of Agen, Virgin and Martyr',
     faustina_kowalska_virgin: 'Saint Faustina Kowalska, Virgin',
     ferdinand_iii_of_castile: 'Saint Ferdinand III of Castile',
     fiacre_of_breuil_monk: 'Saint Fiacre, Monk',
@@ -446,10 +456,13 @@ export const locale: Locale = {
     gall_of_switzerland_abbot: 'Saint Gall, Abbot and Missionary',
     gaud_of_evreux_bishop: 'Saint Gaud, Bishop',
     gauderic_of_vieville: 'Saint Gauderic of Viéville',
+    gausbert_of_montsalvy_abbot: 'Saint Gausbert of Montsalvy, Abbot',
+    gausbert_of_montsalvy_and_bernard_of_rodez_abbots: 'Saints Gausbert of Montsalvy and Bernard of Rodez, Abbots',
     genevieve_of_paris_virgin: 'Saint Genevieve, Virgin',
     george_matulaitis_bishop: 'Blessed George Matulaitis, Bishop',
     george_of_lydda_martyr: 'Saint George, Martyr',
     george_of_lydda_martyr_patron_of_england: 'Saint George, Martyr, Patron of England',
+    george_of_vabres_monk: 'Saint George of Vabres, Monk',
     george_preca_priest: 'Saint George Preca, Priest',
     gerald_of_braga_bishop: 'Saint Gerald of Braga, Bishop',
     gerard_of_csanad_bishop: 'Saint Gerard of Csanád, Bishop and Martyr',
@@ -853,6 +866,7 @@ export const locale: Locale = {
     our_lady_of_aparecida: 'Our Lady of Aparecida', // src: https://en.wikipedia.org/wiki/Our_Lady_of_Aparecida
     our_lady_of_aparecida_patroness_of_brazil: 'Our Lady of Aparecida, Patroness of Brazil',
     our_lady_of_bethlehem: 'Our Lady of Bethlehem',
+    our_lady_of_ceignac: 'Our Lady of Ceignac',
     our_lady_of_china: 'Our Lady of China',
     our_lady_of_czestochowa: 'Our Lady of Częstochowa',
     our_lady_of_fatima: 'Our Lady of Fatima',
@@ -968,6 +982,7 @@ export const locale: Locale = {
     procopius_of_sazava_abbot: 'Saint Procopius of Sázava, Abbot',
     publius_of_malta_bishop: 'Saint Publius, Bishop',
     queenship_of_the_blessed_virgin_mary: 'The Queenship of the Blessed Virgin Mary',
+    quintien_of_rodez_bishop: 'Saint Quintien of Rodez, Bishop',
     quirinus_of_sescia_bishop: 'Saint Quirinus of Sescia, Bishop and Martyr',
     rabanus_maurus_bishop: 'Saint Rabanus Maurus, Bishop',
     radim_of_gniezno_bishop: 'Saint Radim, Bishop',
@@ -993,7 +1008,7 @@ export const locale: Locale = {
     robert_of_arbrissel_priest: 'Blessed Robert of Arbrissel, Priest and Hermit', // src: mr_fr_1998_ed1_laval
     roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests:
       'Saints Roch González, Alphonsus Rodríguez and John del Castillo, Priests and Martyrs',
-    roch_of_montpellier: 'Saint Roch',
+    roch_of_montpellier: 'Saint Roch, Pilgrim', // src: mr_fr_1974_ed1_region_apostolique_du_midi, mr_fr_1984_ed1_nimes
     romuald_of_ravenna_abbot: 'Saint Romuald, Abbot',
     rosalie_jeanne_marie_rendu_virgin: 'Blessed Rosalie Rendu, Virgin',
     rose_of_lima_virgin: 'Saint Rose of Lima, Virgin',
@@ -1044,6 +1059,7 @@ export const locale: Locale = {
     sylvester_i_pope: 'Saint Sylvester I, Pope',
     sylvius_of_toulouse_bishop: 'Saint Sylvius of Toulouse, Bishop',
     szilard_bogdanffy_bishop: 'Blessed Szilárd Bogdánffy, Bishop and Martyr',
+    tarcisse_of_rodez_virgin: 'Saint Tarcisse of Rodez, Virgin',
     teilo_of_llandaff_bishop: 'Saint Teilo, Bishop',
     teresa_benedicta_of_the_cross_stein_virgin: 'Saint Teresa Benedicta of the Cross Stein, Virgin and Martyr',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:

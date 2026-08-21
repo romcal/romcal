@@ -76,6 +76,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Aengus',
       titles: [Title.Bishop, Title.Abbot],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/6685/Saint-Affrique.html
+    // The proper calls him Africain and places him in the late fourth or fifth century. Later sources
+    // use Affrique or Africus and assign different centuries, so no death date is encoded here.
+    africain_of_comminges_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Africain of Comminges',
+      titles: [Title.Bishop],
+    },
     agatha_of_sicily_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Agatha',
@@ -316,6 +326,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Amandus of Strasbourg',
       titles: [Title.Bishop],
       dateOfDeath: 346,
+      dateOfDeathIsApproximative: true,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/8834/Saint-Amans-de-Rodez.html
+    amans_of_rodez_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Amans of Rodez',
+      titles: [Title.Bishop],
+      dateOfDeath: 440,
       dateOfDeathIsApproximative: true,
     },
     // src:
@@ -799,6 +819,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Bernard',
       titles: [Title.Abbot, Title.DoctorOfTheChurch],
       dateOfDeath: 1153,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/7081/Saint-Gaubert.html
+    bernard_of_rodez_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Bernard of Rodez',
+      titles: [Title.Abbot],
+      dateOfDeath: 1110,
     },
     // src:
     // - mr_fr_1998_ed1_laval
@@ -1374,6 +1403,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop, Title.DoctorOfTheChurch],
       dateOfDeath: 387,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/9062/Saint-Dalmas.html
+    dalmas_of_rodez_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Dalmas of Rodez',
+      titles: [Title.Bishop],
+      dateOfDeath: 580,
+      dateOfDeathIsApproximative: true,
+    },
     damasus_i_pope: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Damasus I',
@@ -1429,6 +1468,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // - https://www.diocese-montauban.fr/grand-montauban/paroisses/paroisse-montauban-ville-haute/eglises-et-paroisses/cathedrale-centre-ville/
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france: {
       dateOfDedication: '1739-11-01',
+    },
+    // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    dedication_of_the_cathedral_of_our_lady_of_the_assumption_rodez_france: {
+      dateOfDedication: '1914-06-20',
     },
     // src:
     // - mr_fr_1982_ed2_coutances
@@ -1817,6 +1860,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Fachtna',
       titles: [Title.Bishop],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://abbaye-conques.org/histoire-sainte-foy
+    // - https://en.wikipedia.org/wiki/Saint_Faith
+    faith_of_agen_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Faith of Agen',
+      titles: [Title.Virgin, Title.Martyr],
+      dateOfDeath: { century: 3 },
+    },
     faustina_kowalska_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Faustina Kowalska',
@@ -2131,6 +2184,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeathIsApproximative: true,
     },
     // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/octobre/
+    // - https://nominis.cef.fr/contenus/saint/7081/Saint-Gaubert.html
+    // - https://francais.magnificat.net/magnificat_content/saint-gausbert-de-montsalvy/
+    // The sources disagree on his death year: Magnificat gives around 1079, while the note from the
+    // Saint-Flour proper reproduced by Nominis gives around 1109.
+    gausbert_of_montsalvy_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Gausbert of Montsalvy',
+      titles: [Title.Abbot],
+    },
+    // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-gaud-eveque
     // - https://en.wikipedia.org/wiki/Gaud_d%27%C3%89vreux
@@ -2171,6 +2236,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'George',
       titles: [Title.Martyr],
       dateOfDeath: 303,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/11462/Saint-Georges.html
+    george_of_vabres_monk: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'George of Vabres',
+      titles: [Title.Monk],
+      dateOfDeath: 877,
+      dateOfDeathIsApproximative: true,
     },
     george_preca_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4385,6 +4460,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     our_lady_of_bethlehem: {
       name: 'Our Lady of Bethlehem',
     },
+    // src:
+    // - ordo_fr_2025_province_ecclesiastique_de_toulouse
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://rodez.catholique.fr/blog-du-synode/150-ans-du-couronnement-de-la-statue-de-ceignac-et-fete-des-vierges-couronnees-de
+    our_lady_of_ceignac: {
+      name: 'Our Lady of Ceignac',
+    },
     our_lady_of_china: {
       name: 'Our Lady of China',
     },
@@ -4880,6 +4962,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     queenship_of_the_blessed_virgin_mary: {
       name: 'The Queenship of the Blessed Virgin Mary',
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/9132/Saint-Quintien.html
+    quintien_of_rodez_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Quintien of Rodez',
+      titles: [Title.Bishop],
+      dateOfDeath: { or: [525, 526] },
+    },
     quirinus_of_sescia_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Quirinus of Sescia',
@@ -5043,10 +5134,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes/
     // - https://nominis.cef.fr/contenus/saint/1678/Saint-Roch.html
     roch_of_montpellier: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Roch',
+      titles: [Title.Pilgrim],
       dateOfDeath: 1379,
       dateOfDeathIsApproximative: true,
     },
@@ -5328,6 +5422,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Szilárd Bogdánffy',
       titles: [Title.Bishop, Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/5219/Sainte-Tarcice.html
+    tarcisse_of_rodez_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Tarcisse of Rodez',
+      titles: [Title.Virgin],
+      dateOfDeath: { century: 6 },
     },
     teilo_of_llandaff_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
