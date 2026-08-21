@@ -46,6 +46,7 @@ Below the list of all available calendar plugins:
 | France / Laval       | `@romcal/calendar.france.laval@dev`       |
 | France / Lyon        | `@romcal/calendar.france.lyon@dev`        |
 | France / Montauban   | `@romcal/calendar.france.montauban@dev`   |
+| France / Pamiers     | `@romcal/calendar.france.pamiers@dev`     |
 | France / Paris       | `@romcal/calendar.france.paris@dev`       |
 | France / Saint Denis | `@romcal/calendar.france.saint-denis@dev` |
 | France / Strasbourg  | `@romcal/calendar.france.strasbourg@dev`  |
