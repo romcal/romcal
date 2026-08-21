@@ -41,6 +41,7 @@ Below the list of all available calendar plugins:
 | France                     | `@romcal/calendar.france@dev`                   |
 | France / Albi              | `@romcal/calendar.france.albi@dev`              |
 | France / Angers            | `@romcal/calendar.france.angers@dev`            |
+| France / Auch              | `@romcal/calendar.france.auch@dev`              |
 | France / Cahors            | `@romcal/calendar.france.cahors@dev`            |
 | France / Coutances         | `@romcal/calendar.france.coutances@dev`         |
 | France / Laval             | `@romcal/calendar.france.laval@dev`             |

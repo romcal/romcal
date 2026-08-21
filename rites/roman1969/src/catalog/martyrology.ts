@@ -518,6 +518,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Abbot],
       dateOfDeath: 356,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/8054/Saint-Antoine-de-Liaroles.html
+    anthony_of_lialores_hermit: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Anthony of Lialores',
+      titles: [Title.Hermit, Title.Martyr],
+      dateOfDeath: 540,
+    },
     anthony_of_padua_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Anthony of Padua',
@@ -558,6 +567,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: '1764-04-19',
       dateOfDeath: '1794-06-16',
       dateOfBeatification: '1995-10-01',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/12381/Bienheureux-Antoine-du-Bouzet-et-Bertrand-de-Caupenne.html
+    antoine_charles_du_bouzet_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Antoine-Charles du Bouzet',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfDeath: '1792-09-02',
+      dateOfBeatification: '1926-10-17',
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -710,6 +729,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://bordeaux.catholique.fr/le-diocese/decouvrir-le-diocese/presentation/les-saints-du-diocese/saint-austinde/
+    austinde_of_auch_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Austinde of Auch',
+      titles: [Title.Bishop],
+      dateOfDeath: 1068,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://en.wikipedia.org/wiki/Aventin
     aventin_of_larboust_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -844,6 +872,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Bernardine of Siena',
       titles: [Title.Priest],
       dateOfDeath: 1444,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/12381/Bienheureux-Antoine-du-Bouzet-et-Bertrand-de-Caupenne.html
+    bertrand_antoine_de_caupenne_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Bertrand-Antoine de Caupenne',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfDeath: '1792-09-03',
+      dateOfBeatification: '1926-10-17',
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -1106,6 +1144,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Hermit],
       dateOfDeath: 680,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/12384/Saint-C%C3%A9rase.html
+    cerase_of_simorre_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Cérase of Simorre',
+      titles: [Title.Bishop],
+      dateOfDeath: { century: 5 },
+    },
     ceraunus_of_paris_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Céran of Paris',
@@ -1223,6 +1270,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Cibar of Saint-Ybars',
       titles: [Title.Monk],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/12383/Saint-Clair.html
+    clair_of_lectoure_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Clair of Lectoure',
+      titles: [Title.Martyr],
+      dateOfDeath: { century: 4 },
     },
     // src:
     // - mr_fr_1982_ed2_coutances
@@ -1503,6 +1559,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // - https://www.ariegepyrenees.com/patrimoine-culturel/cathedrale-saint-antonin/
     dedication_of_the_cathedral_of_saint_antonin_pamiers_france: {
       dateOfDedication: '1689-01-09',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://web.archive.org/web/20220526104623id_/https://diocese32.org/wp-content/uploads/2011/11/EQV-13_janv2018.pdf
+    dedication_of_the_cathedral_of_saint_mary_auch_france: {
+      dateOfDedication: '1548-02-12',
     },
     // src:
     // - mr_fr_2022_ed3_angers
@@ -2133,6 +2195,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeathIsApproximative: true,
     },
     // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://fr.wikipedia.org/wiki/Fris_de_Bassoues
+    fris_of_bassoues_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Fris of Bassoues',
+      titles: [Title.Martyr],
+      dateOfDeath: 732,
+      dateOfDeathIsApproximative: true,
+    },
+    // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-fromond-eveque-de-coutances
     // - https://fr.wikipedia.org/wiki/Fromond_de_Coutances
@@ -2225,6 +2297,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Genevieve',
       titles: [Title.Virgin],
       dateOfDeath: 500,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/12382/Saint-G%C3%A9ny.html
+    geny_of_lectoure_hermit: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Geny of Lectoure',
+      titles: [Title.Hermit],
+      dateOfDeath: { century: 4 },
     },
     // src:
     // - mr_fr_1982_ed2_coutances
@@ -3569,6 +3650,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest],
     },
     // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://web.archive.org/web/20240222103704id_/https://diocese32.org/wp-content/uploads/2023/12/Annuaire-2024.pdf
+    leothade_of_auch_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Leothade of Auch',
+      titles: [Title.Bishop],
+      dateOfDeath: 718,
+    },
+    // src:
     // - mr_fr_2022_ed3_angers
     // - https://en.wikipedia.org/wiki/Licinius_of_Angers
     licinius_of_angers_bishop: {
@@ -3694,6 +3784,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Luke',
       titles: [Title.Evangelist],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://fr.wikipedia.org/wiki/Cath%C3%A9drale_Saint-Luperc_d%27Eauze
+    luperc_of_eauze_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Luperc of Eauze',
+      titles: [Title.Martyr],
+      dateOfDeath: 250,
+      dateOfDeathIsApproximative: true,
+    },
     lydia_of_philippi: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Lydia of Philippi',
@@ -3742,6 +3842,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Magnus',
       titles: [Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/12385/Saint-Majan.html
+    majan_of_lombez: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Majan of Lombez',
+      dateOfDeath: 610,
+      dateOfDeathIsApproximative: true,
     },
     malachy_of_armagh_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5496,6 +5605,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Tarcisse of Rodez',
       titles: [Title.Virgin],
       dateOfDeath: { century: 6 },
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/8123/Saint-Taurin.html
+    taurin_of_eauze_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Taurin of Eauze',
+      titles: [Title.Martyr],
     },
     teilo_of_llandaff_bishop: {
       canonizationLevel: CanonizationLevels.Saint,

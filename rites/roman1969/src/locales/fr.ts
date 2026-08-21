@@ -105,11 +105,15 @@ export const locale: Locale = {
     anthony_chevrier_priest: 'Bienheureux Antoine Chevrier, prêtre († 1879)', // src: mr_fr_2014_ed2_lyon
     anthony_mary_claret_bishop: 'Saint Antoine-Marie Claret, évêque († 1870)',
     anthony_of_egypt_abbot: 'Saint Antoine le Grand, ermite en Égypte († 356)',
+    anthony_of_lialores_hermit: 'Saint Antoine de Lialores, ermite et martyr († 540)',
     anthony_of_padua_priest: 'Saint Antoine, prêtre et docteur de l’Église († 1231)',
     anthony_zaccaria_priest: 'Saint Antoine-Marie Zaccaria, prêtre († 1539)',
     antoine_auriel_constant_priest: 'Bienheureux Antoine Auriel-Constant, prêtre et martyr († 1794)',
     antoine_auriel_constant_priest_and_companions_martyrs:
       'Bienheureux Antoine Auriel-Constant, prêtre, et ses compagnons, martyrs († 1794)',
+    antoine_charles_du_bouzet_bertrand_antoine_de_caupenne_priests_and_companions_martyrs:
+      'Bienheureux Antoine-Charles du Bouzet et Bertrand-Antoine de Caupenne, prêtres, et leurs compagnons, martyrs († 1792)',
+    antoine_charles_du_bouzet_priest: 'Bienheureux Antoine-Charles du Bouzet, prêtre et martyr († 1792)',
     antonin_of_pamiers_martyr: 'Saint Antonin, martyr',
     antonin_of_pamiers_martyr_principal_patron_of_the_diocese_of_pamiers:
       'Saint Antonin, martyr, titulaire de la cathédrale et patron principal du diocèse',
@@ -135,6 +139,7 @@ export const locale: Locale = {
       'Saints Augustin Zhao Rong et ses compagnons, martyrs en Chine († entre 1648 et 1930)',
     augustus_chapdelaine_priest: 'Saint Auguste Chapdelaine, prêtre et martyr († 1856)', // src: mr_fr_1982_ed2_coutances
     aurelia_of_strasbourg_virgin: 'Sainte Aurélie, vierge († IVème s.)',
+    austinde_of_auch_bishop: 'Saint Austinde, évêque d’Auch († 1068)',
     aventin_of_larboust_martyr: 'Saint Aventin, martyr († VIIIème s.)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     baldomerus_of_lyon_religious: 'Saint Galmier, religieux († v. 630)', // src: mr_fr_2014_ed2_lyon
     baptism_of_the_lord: 'Baptême du Seigneur',
@@ -153,6 +158,7 @@ export const locale: Locale = {
     bernard_of_rodez_abbot: 'Saint Bernard de Rodez, abbé († 1110)',
     bernard_of_tiron_abbot: 'Saint Bernard de Tiron, abbé et ermite († 1117)', // src: mr_fr_1998_ed1_laval
     bernardine_of_siena_priest: 'Saint Bernardin de Sienne, prêtre († 1444)',
+    bertrand_antoine_de_caupenne_priest: 'Bienheureux Bertrand-Antoine de Caupenne, prêtre et martyr († 1792)',
     bertrand_of_aquileia_bishop: 'Bienheureux Bertrand d’Aquilée, évêque († 1350)',
     bertrand_of_comminges_bishop: 'Saint Bertrand de Comminges, évêque († 1126)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     blaise_of_sebaste_bishop: 'Saint Blaise de Sébaste, évêque et martyr († 316)',
@@ -189,6 +195,7 @@ export const locale: Locale = {
     cecilia_of_rome_virgin_principal_patroness_of_the_archdiocese_of_albi:
       'Sainte Cécile, vierge et martyre, titulaire de la cathédrale et patronne principale du diocèse', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     cenere_of_saulges_hermit: 'Saint Céneré de Saulges, ermite († 680)', // src: mr_fr_1998_ed1_laval
+    cerase_of_simorre_bishop: 'Saint Cérase, évêque († Ve s.)',
     ceraunus_of_paris_bishop: 'Saint Céran, évêque de Paris († au 7e s.)',
     chair_of_saint_peter_the_apostle: 'Chaire de Saint Pierre, apôtre',
     charles_borromeo_bishop: 'Saint Charles Borromée, archevêque de Milan († 1584)',
@@ -201,6 +208,7 @@ export const locale: Locale = {
       'Saints Cristóbal Magallanes, prêtre, et ses 24 compagnons, martyrs mexicains († 1927)',
     christopher_of_romandiola_priest: 'Bienheureux Christophe de Romandiola, prêtre († 1272)',
     cibar_of_saint_ybars_monk: 'Saint Cibar (ou Ybars), moine de Lézat', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    clair_of_lectoure_martyr: 'Saint Clair, martyr († IVe s.)',
     clair_of_normandy_priest: 'Saint Clair, prêtre et martyr († v. 884)', // src: mr_fr_1982_ed2_coutances
     clare_of_assisi_virgin: 'Sainte Claire, vierge',
     claude_caix_charles_carnus_jean_lacan_jean_antoine_segonds_pierre_jean_garrigues_priests_and_companions_martyrs:
@@ -246,6 +254,7 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_saint_antonin_pamiers_france: 'Dédicace de la cathédrale Saint-Antonin de Pamiers',
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'Dédicace de la cathédrale Sainte-Cécile d’Albi', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france: 'Dédicace de la cathédrale primatiale', // src: mr_fr_2014_ed2_lyon
+    dedication_of_the_cathedral_of_saint_mary_auch_france: 'Dédicace de la cathédrale Sainte-Marie d’Auch',
     dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france: 'Dédicace de la Cathédrale Saint-Maurice', // mr_fr_2022_ed3_angers
     dedication_of_the_cathedral_of_saint_stephen_cahors_france:
       'Dédicace de l’église cathédrale Saint-Étienne de Cahors',
@@ -316,6 +325,7 @@ export const locale: Locale = {
     frederic_ozanam_founder: 'Bienheureux Frédéric Ozanam, fondateur de la Société de Saint-Vincent-de-Paul († 1853)',
     friday_of_the_passion_of_the_lord: 'Vendredi Saint',
     fridolin_of_sackingen_monk: 'Saint Fridolin, moine missionnaire († 540)',
+    fris_of_bassoues_martyr: 'Saint Fris, martyr († v. 732)',
     fromundus_of_coutances_bishop: 'Saint Fromond, évêque de Coutances († v. 691)', // src: mr_fr_1982_ed2_coutances
     gall_of_switzerland_abbot: 'Saint Gall, abbé et missionnaire († 641 ou 646)',
     gaud_of_evreux_bishop: 'Saint Gaud, évêque († v. 491)', // src: mr_fr_1982_ed2_coutances
@@ -323,6 +333,7 @@ export const locale: Locale = {
     gausbert_of_montsalvy_abbot: 'Saint Gausbert de Montsalvy, abbé',
     gausbert_of_montsalvy_and_bernard_of_rodez_abbots: 'Saint Gausbert et saint Bernard, abbés',
     genevieve_of_paris_virgin: 'Sainte Geneviève, vierge († 500)',
+    geny_of_lectoure_hermit: 'Saint Gény, ermite († IVe s.)',
     george_of_lydda_martyr: 'Saint Georges, martyr († 303)',
     george_of_lydda_martyr_patron_of_england: 'Saint Georges, martyr et patron de l’Angleterre († 303)',
     george_of_vabres_monk: 'Saint Georges, moine († v. 877)',
@@ -467,6 +478,7 @@ export const locale: Locale = {
     leo_ix_pope: 'Saint Léon IX, pape († 540)',
     leodegar_of_autun_bishop: 'Saint Léger, évêque et martyr († 679 ou 680)',
     leon_de_carentan_bishop: 'Saint Léon de Carentan, évêque et martyr († 890)', // src: mr_fr_1982_ed2_coutances
+    leothade_of_auch_bishop: 'Saint Léothade, évêque d’Auch († 718)',
     licinius_of_angers_bishop: 'Saint Lézin, évêque († 610)', // mr_fr_2022_ed3_angers
     lizier_of_couserans_bishop: 'Saint Lizier, évêque († au VIe s.)',
     louis_grignion_de_montfort_priest: 'Saint Louis-Marie Grignion de Montfort, prêtre († 1716)', // mr_fr_2021_ed3
@@ -478,8 +490,10 @@ export const locale: Locale = {
     lucy_of_syracuse_virgin: 'Sainte Lucie, vierge et martyre en Sicile († v. 305)',
     ludan_of_scotland_pilgrim: 'Saint Ludan, pèlerin († 1202)',
     luke_evangelist: 'Saint Luc, évangéliste',
+    luperc_of_eauze_martyr: 'Saint Luperc, martyr († v. 250)',
     madeleine_sophie_barat_virgin: 'Sainte Madeleine Sophie Barat, vierge († 1865)',
     maglorius_of_dol_monk: 'Saint Magloire, moine († V-VIème s.)', // src: mr_fr_1982_ed2_coutances
+    majan_of_lombez: 'Saint Majan († v. 610)',
     marcellin_champagnat_priest: 'Saint Marcellin Champagnat, prêtre († 1840)', // src: mr_fr_2014_ed2_lyon
     marcellinus_of_rome_and_peter_the_exorcist_martyrs: 'Saints Marcellin et Pierre, martyrs († 304)',
     marcellus_of_paris_bishop: 'Saint Marcel, évêque de Paris († vers 430)',
@@ -553,6 +567,8 @@ export const locale: Locale = {
     namphaise_of_cahors_hermit: 'Saint Namphaise, ermite († v. 800)',
     nativity_of_john_the_baptist: 'Nativité de Saint Jean le Baptiste',
     nativity_of_the_blessed_virgin_mary: 'Nativité de la vierge Marie',
+    nativity_of_the_blessed_virgin_mary_principal_patroness_of_the_archdiocese_of_auch:
+      'Nativité de la Vierge Marie, patronne principale de l’archidiocèse d’Auch',
     nativity_of_the_blessed_virgin_mary_principal_patroness_of_the_diocese_of_tarbes_and_lourdes:
       'Nativité de la Vierge Marie, patronne principale du diocèse de Tarbes et Lourdes',
     nativity_of_the_lord: 'Nativité du Seigneur',
@@ -679,6 +695,7 @@ export const locale: Locale = {
     sylvester_i_pope: 'Saint Sylvestre Ier, pape († 335)',
     sylvius_of_toulouse_bishop: 'Saint Silve, évêque († v. 400)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     tarcisse_of_rodez_virgin: 'Sainte Tarcisse, vierge († au VIe s.)',
+    taurin_of_eauze_martyr: 'Saint Taurin, martyr',
     teresa_benedicta_of_the_cross_stein_virgin:
       'Sainte Thérèse-Bénédicte de la Croix (Edith Stein), Carmélite, martyr en Pologne († 1942)',
     teresa_benedicta_of_the_cross_stein_virgin_copatroness_of_europe:
