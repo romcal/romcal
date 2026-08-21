@@ -84,6 +84,7 @@ export const locale: Locale = {
     all_holy_bishops_of_the_diocese_of_angers: 'All Holy Bishops of the Diocese of Angers', // mr_fr_2022_ed3_angers
     all_holy_bishops_of_the_diocese_of_beauvais_noyon_and_senlis: 'All Holy Bishops of Beauvais, Noyon and Senlis',
     all_holy_bishops_of_the_diocese_of_cahors: 'All Holy Bishops of the Diocese of Cahors',
+    all_holy_bishops_of_the_diocese_of_mende: 'All Holy Bishops of the Diocese of Mende',
     all_saints: 'All Saints',
     all_saints_of_ireland: 'All Saints of Ireland',
     all_saints_of_the_archdiocese_of_lille: 'All Saints of the Archdiocese of Lille',
@@ -398,6 +399,8 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_oran_algeria: 'The Dedication of the Cathedral of Oran, Algeria',
     dedication_of_the_cathedral_of_our_lady_and_saint_castor_nimes_france:
       'The Dedication of the Cathedral of Our Lady and Saint Castor, Nîmes, France', // src: mr_fr_1984_ed1_nimes
+    dedication_of_the_cathedral_of_our_lady_and_saint_privat_mende_france:
+      'The Dedication of the Cathedral of Our Lady and Saint Privat, Mende, France',
     dedication_of_the_cathedral_of_our_lady_immaculate_monaco:
       'The Dedication of the Cathedral of Our Lady Immaculate, Monaco', // src: mr_fr_2021_ed3
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
@@ -484,6 +487,7 @@ export const locale: Locale = {
     emilie_tavernier_gamelin_religious: 'Blessed Émilie Tavernier-Gamelin, Religious',
     enda_of_aran_abbot: 'Saint Enda, Abbot',
     english_martyrs: 'English Martyrs',
+    enimie_of_gevaudan_virgin: 'Saint Énimie of Gévaudan, Virgin',
     eoghan_of_ardstraw_bishop: 'Saint Eoghan, Bishop',
     ephrem_the_syrian_deacon: 'Saint Ephrem, Deacon and Doctor of the Church',
     epiphany_of_the_lord: 'The Epiphany of the Lord',
@@ -523,6 +527,9 @@ export const locale: Locale = {
     finnian_of_clonard_bishop: 'Saint Finian, Bishop',
     fintan_of_clonenagh_abbot: 'Saint Fintan, Abbot',
     firmin_of_amiens_bishop: 'Saint Firmin, Bishop and Martyr',
+    firmin_of_mende_bishop: 'Saint Firmin of Mende, Bishop',
+    firmin_of_mende_bishop_and_all_holy_bishops_of_the_diocese_of_mende:
+      'Saint Firmin and All Holy Bishops of the Diocese of Mende',
     firminus_of_uzes_bishop: 'Saint Firminus of Uzès, Bishop', // src: mr_fr_1984_ed1_nimes
     first_martyrs_of_the_holy_roman_church: 'The First Martyrs of the Holy Roman Church',
     first_polish_martyrs: 'Saints Benedict, John, Matthew, Isaac and Christian, the First Polish Martyrs',
@@ -573,6 +580,7 @@ export const locale: Locale = {
     francois_urbain_salins_de_niart_priest: 'Blessed François-Urbain Salins de Niart, Priest and Martyr',
     frederic_janssoone_priest: 'Blessed Frédéric Janssoone, Priest',
     frederic_ozanam_founder: 'Blessed Frédéric Ozanam, Founder',
+    frezal_of_mende_bishop: 'Saint Frézal of Mende, Bishop',
     friday_of_the_passion_of_the_lord: 'Friday of the Passion of the Lord',
     fridolin_of_sackingen_monk: 'Saint Fridolin of Säckingen, Monk',
     fris_of_bassoues_martyr: 'Saint Fris of Bassoues, Martyr',
@@ -652,6 +660,7 @@ export const locale: Locale = {
     hilarius_of_toulouse_bishop: 'Saint Hilary of Toulouse, Bishop',
     hilarius_of_toulouse_bishop_and_sylvius_of_toulouse_bishops: 'Saints Hilary and Sylvius of Toulouse, Bishops',
     hilary_of_carcassonne_bishop: 'Saint Hilary of Carcassonne, Bishop',
+    hilary_of_mende_bishop: 'Saint Hilary of Mende, Bishop',
     hilary_of_poitiers_bishop: 'Saint Hilary, Bishop and Doctor of the Church',
     hilda_of_whitby_abbess: 'Saint Hilda, Abbess',
     hildegard_of_bingen_abbess: 'Saint Hildegard of Bingen, Abbess and Doctor of the Church',
@@ -680,6 +689,7 @@ export const locale: Locale = {
     ignatius_of_loyola_priest: 'Saint Ignatius of Loyola, Priest',
     ildephonsus_of_toledo_bishop: 'Saint Ildephonsus of Toledo, Bishop',
     illtud_the_knight_abbot: 'Saint Illtud, Abbot',
+    ilpide_of_mende_martyr: 'Saint Ilpide of Mende, Martyr',
     immaculate_conception_of_the_blessed_virgin_mary: 'The Immaculate Conception of the Blessed Virgin Mary',
     immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_apostolic_vicariate_of_benghazi:
       'The Immaculate Conception of the Blessed Virgin Mary, Patroness of the Apostolic Vicariate of Benghazi',
@@ -903,6 +913,7 @@ export const locale: Locale = {
     louis_of_toulouse_bishop: 'Saint Louis of Toulouse, Bishop',
     louis_zephirin_moreau_bishop: 'Blessed Louis-Zéphirin Moreau, Bishop',
     louise_de_marillac_religious: 'Saint Louise de Marillac, Religious',
+    louvent_of_saint_privat_abbot: 'Saint Louvent of Saint-Privat, Martyr',
     lucian_of_beauvais_bishop: 'Saint Lucian of Beauvais, Bishop and Martyr',
     lucian_of_beauvais_bishop_principal_patron_of_the_church_of_beauvais_and_companions_martyrs:
       'Saint Lucian, Principal Patron of the Church of Beauvais, and Companions, Martyrs',
@@ -1255,6 +1266,9 @@ export const locale: Locale = {
       'Saints Pothinus, Bishop, Patron of the City of Lyon, Blandina, Virgin, and Companions, Martyrs',
     presentation_of_the_blessed_virgin_mary: 'The Presentation of the Blessed Virgin Mary',
     presentation_of_the_lord: 'The Presentation of the Lord',
+    privat_of_mende_bishop: 'Saint Privatus of Mende, Bishop and Martyr',
+    privat_of_mende_bishop_principal_patron_of_the_diocese_of_mende:
+      'Saint Privatus of Mende, Bishop and Martyr, Principal Patron of the Diocese of Mende',
     procopius_of_sazava_abbot: 'Saint Procopius of Sázava, Abbot',
     publius_of_malta_bishop: 'Saint Publius, Bishop',
     queenship_of_the_blessed_virgin_mary: 'The Queenship of the Blessed Virgin Mary',
@@ -1403,6 +1417,7 @@ export const locale: Locale = {
     timothy_of_ephesus_and_titus_of_crete_bishops: 'Saints Timothy and Titus, Bishops',
     transfiguration_of_the_lord: 'The Transfiguration of the Lord',
     translation_of_the_relics_of_odile_of_alsace_abbess: 'Translation of the Relics of Saint Odile',
+    translation_of_the_relics_of_privat_of_mende_bishop: 'Translation of the Relics of Saint Privatus of Mende',
     translation_of_the_relics_of_saint_stephen_of_hungary: 'Translation of the Relics of Saint Stephen of Hungary',
     tugdual_of_treguier_bishop: 'Saint Tugdual of Tréguier, Bishop and Abbot', // src: mr_fr_1998_ed1_laval
     tugdual_of_treguier_bishop_patron_of_the_city_of_laval:
@@ -1420,6 +1435,7 @@ export const locale: Locale = {
     valerius_of_trier_bishop: 'Saint Valerius, Bishop',
     valier_of_couserans_and_lizier_of_couserans_bishops: 'Saints Valier and Lizier of Couserans, Bishops',
     valier_of_couserans_bishop: 'Saint Valier of Couserans, Bishop',
+    veran_of_cavaillon_bishop: 'Saint Veranus of Cavaillon, Bishop',
     viator_of_lyon: 'Saint Viator',
     victor_i_miltiades_and_gelasius_i_popes: 'Saints Victor I, Miltiades and Gelasius I, Popes',
     victor_i_pope: 'Saint Victor I, Pope',

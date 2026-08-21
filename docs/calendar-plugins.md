@@ -60,6 +60,7 @@ Below the list of all available calendar plugins:
 | France / Lille                        | `@romcal/calendar.france.lille@dev`                        |
 | France / Lyon                         | `@romcal/calendar.france.lyon@dev`                         |
 | France / Lourdes Sanctuary            | `@romcal/calendar.france.lourdes-sanctuary@dev`            |
+| France / Mende                        | `@romcal/calendar.france.mende@dev`                        |
 | France / Montauban                    | `@romcal/calendar.france.montauban@dev`                    |
 | France / Nanterre                     | `@romcal/calendar.france.nanterre@dev`                     |
 | France / Nimes                        | `@romcal/calendar.france.nimes@dev`                        |
