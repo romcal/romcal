@@ -414,6 +414,8 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'The Dedication of the Cathedral of Saint Cecilia, Albi',
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france:
       'The Dedication of the Cathedral of Saint John the Baptist, Lyon',
+    dedication_of_the_cathedral_of_saint_john_the_baptist_perpignan_france:
+      'The Dedication of the Cathedral of Saint John the Baptist, Perpignan, France',
     dedication_of_the_cathedral_of_saint_mary_auch_france:
       'The Dedication of the Cathedral of Saint Mary, Auch, France',
     dedication_of_the_cathedral_of_saint_mary_of_bayonne_france: 'The Dedication of Saint Mary Cathedral, Bayonne',
@@ -503,6 +505,8 @@ export const locale: Locale = {
     eugene_de_mazenod_bishop: 'Saint Eugène de Mazenod, Bishop',
     eugenia_of_alsace_and_attala_of_alsace_virgins: 'Saints Eugenia and Attala, Virgins',
     eugenius_of_carthage_bishop: 'Saint Eugenius of Carthage, Bishop',
+    eulalia_of_merida_and_julia_of_merida_virgins_and_martyrs_patronesses_of_the_diocese_of_perpignan_elne:
+      'Saints Eulalia and Julia of Merida, Virgins and Martyrs, Patronesses of the Diocese of Perpignan-Elne',
     eulalia_of_merida_virgin: 'Saint Eulalia of Merida, Virgin and Martyr',
     eulogius_of_cordoba_bishop: 'Saint Eulogius of Córdoba, Bishop',
     eusebius_of_esztergom_priest: 'Blessed Eusebius of Esztergom, Priest',
@@ -597,6 +601,8 @@ export const locale: Locale = {
     gall_of_switzerland_abbot: 'Saint Gall, Abbot and Missionary',
     gaud_of_evreux_bishop: 'Saint Gaud, Bishop',
     gauderic_of_vieville: 'Saint Gauderic of Viéville',
+    gauderic_of_vieville_second_patron_of_the_diocese_of_perpignan_elne:
+      'Saint Gauderic of Viéville, Copatron of the Diocese of Perpignan-Elne',
     gaugericus_of_cambrai_bishop: 'Saint Gaugericus, Bishop',
     gausbert_of_montsalvy_abbot: 'Saint Gausbert of Montsalvy, Abbot',
     gausbert_of_montsalvy_and_bernard_of_rodez_abbots: 'Saints Gausbert of Montsalvy and Bernard of Rodez, Abbots',
@@ -1066,6 +1072,8 @@ export const locale: Locale = {
     mutien_marie_wiaux_religious: 'Saint Mutien-Marie Wiaux, Religious',
     namphaise_of_cahors_hermit: 'Saint Namphaise of Cahors, Hermit',
     nativity_of_john_the_baptist: 'The Nativity of Saint John the Baptist',
+    nativity_of_john_the_baptist_principal_patron_of_the_diocese_of_perpignan_elne:
+      'The Nativity of Saint John the Baptist, Principal Patron of the Diocese of Perpignan-Elne',
     nativity_of_the_blessed_virgin_mary: 'The Nativity of the Blessed Virgin Mary',
     nativity_of_the_blessed_virgin_mary_principal_patroness_of_the_archdiocese_of_auch:
       'The Nativity of the Blessed Virgin Mary, Principal Patroness of the Archdiocese of Auch',
@@ -1232,6 +1240,7 @@ export const locale: Locale = {
       'Saints Peter Poveda Castroverde and Innocent of Mary Immaculate Canoura Arnau, Priests, and Companions Martyrs',
     peter_sanz_bishop: 'Saint Peter Sanz, Bishop and Martyr',
     peter_to_rot_martyr: 'Blessed Peter To Rot, Martyr',
+    peter_urseolus_monk: 'Saint Peter Urseolus, Monk',
     peter_wu_guosheng_martyr: 'Saint Peter Wu Guosheng, Martyr',
     philip_and_james_apostles: 'Saints Philip and James, Apostles',
     philip_evans_and_john_lloyd_priests: 'Saints Philip Evans and John Lloyd, Priests and Martyrs',
@@ -1445,6 +1454,7 @@ export const locale: Locale = {
     vincent_ferrer_priest: 'Saint Vincent Ferrer, Priest',
     vincent_kadlubek_bishop: 'Blessed Vincent Kadłubek, Bishop',
     vincent_lewoniuk_and_companions_martyrs: 'Blessed Vincent Lewoniuk and Companions, Martyrs',
+    vincent_of_collioure_martyr: 'Saint Vincent of Collioure, Martyr',
     vincent_of_saragossa_deacon: 'Saint Vincent, Deacon and Martyr',
     vincent_pallotti_priest: 'Saint Vincent Pallotti, Priest',
     vindemialis_of_capsa_bishop: 'Saint Vindemialis of Capsa, Bishop',

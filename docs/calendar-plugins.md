@@ -66,6 +66,7 @@ Below the list of all available calendar plugins:
 | France / Nimes                        | `@romcal/calendar.france.nimes@dev`                        |
 | France / Pamiers                      | `@romcal/calendar.france.pamiers@dev`                      |
 | France / Paris                        | `@romcal/calendar.france.paris@dev`                        |
+| France / Perpignan Elne               | `@romcal/calendar.france.perpignan-elne@dev`               |
 | France / Rodez                        | `@romcal/calendar.france.rodez@dev`                        |
 | France / Saint Denis                  | `@romcal/calendar.france.saint-denis@dev`                  |
 | France / Saint Flour                  | `@romcal/calendar.france.saint-flour@dev`                  |

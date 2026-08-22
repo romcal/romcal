@@ -25,6 +25,7 @@ import { France_Montauban } from './diocese-of-montauban';
 import { France_Nanterre } from './diocese-of-nanterre';
 import { France_Nimes } from './diocese-of-nimes';
 import { France_Pamiers } from './diocese-of-pamiers';
+import { France_PerpignanElne } from './diocese-of-perpignan-and-elne';
 import { France_Rodez } from './diocese-of-rodez';
 import { France_SaintDenis } from './diocese-of-saint-denis';
 import { France_SaintFlour } from './diocese-of-saint-flour';
@@ -179,6 +180,7 @@ export {
   France_Nanterre,
   France_Nimes,
   France_Pamiers,
+  France_PerpignanElne,
   France_Rodez,
   France_SaintDenis,
   France_SaintFlour,

@@ -334,6 +334,8 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_saint_antonin_pamiers_france: 'Dédicace de la cathédrale Saint-Antonin de Pamiers',
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'Dédicace de la cathédrale Sainte-Cécile d’Albi', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france: 'Dédicace de la cathédrale primatiale', // src: mr_fr_2014_ed2_lyon
+    dedication_of_the_cathedral_of_saint_john_the_baptist_perpignan_france:
+      'Dédicace de la cathédrale Saint-Jean-Baptiste de Perpignan',
     dedication_of_the_cathedral_of_saint_mary_auch_france: 'Dédicace de la cathédrale Sainte-Marie d’Auch',
     dedication_of_the_cathedral_of_saint_mary_of_bayonne_france: 'Dédicace de la cathédrale Sainte-Marie de Bayonne',
     dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france: 'Dédicace de la Cathédrale Saint-Maurice', // mr_fr_2022_ed3_angers
@@ -399,6 +401,8 @@ export const locale: Locale = {
       'Saint Eugène de Mazenod, fondateur des Oblats de Marie-Immaculée, évêque de Marseille († 1861)',
     eugenia_of_alsace_and_attala_of_alsace_virgins: 'Sainte Eugénie et Sainte Attale, vierges († VIIIème s.)',
     eugenius_of_carthage_bishop: 'Saint Eugène, évêque († v. 505)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
+    eulalia_of_merida_and_julia_of_merida_virgins_and_martyrs_patronesses_of_the_diocese_of_perpignan_elne:
+      'Saintes Eulalie et Julie, vierges et martyres, patronnes du diocèse de Perpignan-Elne († 304)',
     eusebius_of_vercelli_bishop: 'Saint Eusèbe de Verceil, évêque († 371)',
     everard_of_friuli: 'Saint Évrard, laïc († v. 869)',
     evroult_of_saint_lucien_abbot: 'Saint Évroult, abbé de Saint-Lucien († v. 600)',
@@ -466,6 +470,8 @@ export const locale: Locale = {
     gall_of_switzerland_abbot: 'Saint Gall, abbé et missionnaire († 641 ou 646)',
     gaud_of_evreux_bishop: 'Saint Gaud, évêque († v. 491)', // src: mr_fr_1982_ed2_coutances
     gauderic_of_vieville: 'Saint Gaudéric († v. 900)',
+    gauderic_of_vieville_second_patron_of_the_diocese_of_perpignan_elne:
+      'Saint Gaudéric, patron secondaire du diocèse de Perpignan-Elne († v. 900)',
     gaugericus_of_cambrai_bishop: 'Saint Géry, évêque de Cambrai († v. 625)',
     gausbert_of_montsalvy_abbot: 'Saint Gausbert de Montsalvy, abbé',
     gausbert_of_montsalvy_and_bernard_of_rodez_abbots: 'Saint Gausbert et saint Bernard, abbés',
@@ -805,6 +811,8 @@ export const locale: Locale = {
     mutien_marie_wiaux_religious: 'Saint Mutien-Marie Wiaux, Frère des Écoles Chrétiennes († 1917)',
     namphaise_of_cahors_hermit: 'Saint Namphaise, ermite († v. 800)',
     nativity_of_john_the_baptist: 'Nativité de Saint Jean le Baptiste',
+    nativity_of_john_the_baptist_principal_patron_of_the_diocese_of_perpignan_elne:
+      'Nativité de Saint Jean-Baptiste, patron principal du diocèse de Perpignan-Elne',
     nativity_of_the_blessed_virgin_mary: 'Nativité de la vierge Marie',
     nativity_of_the_blessed_virgin_mary_principal_patroness_of_the_archdiocese_of_auch:
       'Nativité de la Vierge Marie, patronne principale de l’archidiocèse d’Auch',
@@ -903,6 +911,7 @@ export const locale: Locale = {
     peter_of_castelnau_martyr: 'Bienheureux Pierre de Castelnau, martyr', // src: https://www.nimes-catholique.fr/wp-content/uploads/2026/01/2026.01.feuille.paroissiale.pdf
     peter_of_castelnau_priest: 'Bienheureux Pierre de Castelnau, prêtre et martyr († 1208)',
     peter_of_luxembourg_bishop: 'Bienheureux Pierre de Luxembourg, évêque', // src: mr_fr_1984_ed1_nimes
+    peter_urseolus_monk: 'Saint Pierre Orseolo, moine († 987)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     philip_and_james_apostles: 'Saint Philippe et Saint Jacques le Mineur, apôtres',
     philip_howard_martyr: 'Saint Philippe Howard, martyr († 1595)',
     philip_howard_martyr_patron_of_the_diocese_of_arundel_and_brighton:
@@ -1058,6 +1067,7 @@ export const locale: Locale = {
     vincent_de_paul_priest_patron_of_the_priests_of_the_archdiocese_of_albi:
       'Saint Vincent de Paul, prêtre, patron des prêtres du diocèse († 1660)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     vincent_ferrer_priest: 'Saint Vincent Ferrier, prêtre de l’Ordre des Prêcheurs († 1419)',
+    vincent_of_collioure_martyr: 'Saint Vincent de Collioure, martyr († v. 303)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     vincent_of_saragossa_deacon: 'Saint Vincent, diacre et martyr († 304)',
     vindemialis_of_capsa_bishop: 'Saint Vindémial, évêque de Capsa',
     visitation_of_mary: 'Visitation de la vierge Marie',

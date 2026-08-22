@@ -2437,10 +2437,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 505,
       dateOfDeathIsApproximative: true,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/242/Sainte-Eulalie.html
     eulalia_of_merida_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Eulalia of Merida',
       titles: [Title.Virgin, Title.Martyr],
+      dateOfDeath: 304,
     },
     eulogius_of_cordoba_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4343,6 +4347,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Martyr],
       dateOfDeath: 290,
       dateOfDeathIsApproximative: true,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/242/Sainte-Eulalie.html
+    julia_of_merida_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Julia of Merida',
+      titles: [Title.Virgin, Title.Martyr],
+      dateOfDeath: 304,
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -6353,6 +6366,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Peter To Rot',
       titles: [Title.Martyr],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/407/Saint-Pierre-Orseolo.html
+    // - https://www.newadvent.org/cathen/11776a.htm
+    peter_urseolus_monk: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Peter Urseolus',
+      titles: [Title.Monk],
+      dateOfDeath: 987,
+    },
     peter_wu_guosheng_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Peter Wu Guosheng',
@@ -7560,6 +7583,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Vincent Lewoniuk',
       titles: [Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/6660/Saint-Vincent-de-Collioure.html
+    // - https://fr.wikipedia.org/wiki/Vincent_de_Collioure
+    vincent_of_collioure_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Vincent of Collioure',
+      titles: [Title.Martyr],
+      dateOfDeath: 303,
+      dateOfDeathIsApproximative: true,
     },
     vincent_of_saragossa_deacon: {
       canonizationLevel: CanonizationLevels.Saint,
