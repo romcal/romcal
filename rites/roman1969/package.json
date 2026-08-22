@@ -33,7 +33,7 @@
     "ts-deepmerge": "^8.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.1",
+    "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.0.2",
     "@commitlint/types": "^21.0.1",
     "@internal/config": "file:../../packages/config",
@@ -48,7 +48,7 @@
     "commitlint-plugin-selective-scope": "^1.0.3",
     "diff": "^9.0.0",
     "dts-bundle-generator": "^9.5.1",
-    "esbuild": "~0.28.1",
+    "esbuild": "~0.28.2",
     "esbuild-jest": "~0.5.0",
     "glob": "^13.0.6",
     "humanize-duration": "^3.34.0",
