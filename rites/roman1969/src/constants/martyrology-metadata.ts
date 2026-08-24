@@ -106,6 +106,7 @@ export enum PatronTitle {
   PatronessOfTheProvinceOfQuebec = 'PATRONESS_OF_THE_PROVINCE_OF_QUEBEC',
   PatronessOfTheUSA = 'PATRONESS_OF_THE_U_S_A',
   PatronOfTheClergyOfTheArchdioceseOfLyon = 'PATRON_OF_THE_CLERGY_OF_THE_ARCHDIOCESE_OF_LYON',
+  PatronOfTheCityOfLaval = 'PATRON_OF_THE_CITY_OF_LAVAL',
   PatronOfTheCityOfLyon = 'PATRON_OF_THE_CITY_OF_LYON',
   PatronessOfCostaRica = 'PATRONESS_OF_COSTA_RICA',
   PrincipalPatronOfTheDiocese = 'PRINCIPAL_PATRON_OF_THE_DIOCESE',
