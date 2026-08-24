@@ -13,6 +13,7 @@ import { France_Toulouse } from './archdiocese-of-toulouse';
 import { France_Angers } from './diocese-of-angers';
 import { France_Cahors } from './diocese-of-cahors';
 import { France_Coutances } from './diocese-of-coutances';
+import { France_GapEmbrun } from './diocese-of-gap-and-embrun';
 import { France_Laval } from './diocese-of-laval';
 import { France_Montauban } from './diocese-of-montauban';
 import { France_Pamiers } from './diocese-of-pamiers';
@@ -158,6 +159,7 @@ export {
   France_Angers,
   France_Cahors,
   France_Coutances,
+  France_GapEmbrun,
   France_Laval,
   France_Montauban,
   France_Pamiers,

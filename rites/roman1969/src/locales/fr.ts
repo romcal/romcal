@@ -69,6 +69,7 @@ export const locale: Locale = {
     all_saints_of_the_archdiocese_of_lyon: 'Tous les Saints du diocèse de Lyon', // src: mr_fr_2014_ed2_lyon
     all_saints_of_the_archdiocese_of_paris: 'Tous les Saints du diocèse de Paris',
     all_saints_of_the_diocese_of_coutances: 'Tous les Saints du diocèse de Coutances et Avranches', // src: mr_fr_1982_ed2_coutances
+    all_saints_of_the_diocese_of_gap_and_embrun: 'Tous les Saints du diocèse de Gap et d’Embrun', // src: mr_fr_2016_ed1_gap_embrun
     all_saints_of_the_diocese_of_saint_denis: 'Tous les Saints du diocèse de Saint-Denis',
     aloysius_gonzaga_religious: 'Saint Louis de Gonzague, religieux Jésuite († 1591)',
     alphonsus_mary_liguori_bishop: 'Saint Alphonse-Marie de Liguori, évêque et docteur de l’Église',
@@ -121,7 +122,11 @@ export const locale: Locale = {
     arbogast_of_strasbourg_bishop: 'Saint Arbogast, évêque († 678)',
     arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg:
       'Saint Arbogast, évêque, patron du diocèse de Strasbourg († 678)',
+    aredius_of_gap_bishop: 'Saint Arey, évêque de Gap († 604)', // src: mr_fr_2016_ed1_gap_embrun
     arnere_of_lezat_abbot: 'Saint Arnère, abbé de Lézat', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    arnulf_of_gap_bishop: 'Saint Arnoux, évêque de Gap († v. 1078)', // src: mr_fr_2016_ed1_gap_embrun
+    arnulf_of_gap_bishop_patron_of_the_diocese_of_gap_and_embrun:
+      'Saint Arnoux, évêque de Gap, patron du diocèse († v. 1078)', // src: mr_fr_2016_ed1_gap_embrun
     ascension_of_the_lord: 'Ascension du Seigneur',
     ash_wednesday: 'Mercredi des Cendres',
     assumption_of_the_blessed_virgin_mary: 'Assomption de la bienheureuse Vierge Marie',
@@ -221,6 +226,7 @@ export const locale: Locale = {
     columban_of_luxeuil_abbot: 'Saint Colomban, abbé († 615)',
     commemoration_of_all_the_faithful_departed: 'Commémoration de tous les fidèles défunts',
     constantien_of_javron_hermit: 'Saint Constantien de Javron, ermite († v. 570)', // src: mr_fr_1998_ed1_laval
+    constantine_of_gap_bishop: 'Saint Constantin, évêque de Gap († v. 456)', // src: mr_fr_2016_ed1_gap_embrun
     conversion_of_saint_paul_the_apostle: 'Conversion de Saint Paul, apôtre',
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs:
       'Saints martyrs Corneille, pape, et Cyprien, évêque († IIIème s.)',
@@ -243,6 +249,7 @@ export const locale: Locale = {
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
       'Dédicace des basiliques de Saint Pierre et Saint Paul, apôtres, à Rome',
     dedication_of_the_cathedral_basilica_of_saint_denis_france: 'Dédicace de la cathédrale de Saint-Denis',
+    dedication_of_the_cathedral_of_gap_france: 'Dédicace de la cathédrale de Gap', // src: mr_fr_2016_ed1_gap_embrun
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france: 'Dédicace de la cathédrale de Strasbourg',
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france: 'Dédicace de la cathédrale de Coutances', // src: mr_fr_1982_ed2_coutances
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
@@ -272,7 +279,12 @@ export const locale: Locale = {
     dismas_the_good_thief: 'Saint Dismas (le Bon Larron)', // src: mr_fr_2014_ed2_lyon
     divine_mercy_sunday: 'Deuxième dimanche de Pâques ou de la Divine Miséricorde',
     dominic_de_guzman_priest: 'Saint Dominique de Guzman, prêtre, fondateur de l’Ordre des Frères prêcheurs († 1221)',
+    domninus_of_digne_bishop: 'Saint Domnin, évêque de Digne († 379)', // src: mr_fr_2016_ed1_gap_embrun
+    donatus_of_sisteron_priest: 'Saint Donat, prêtre et ermite († v. 522)', // src: mr_fr_2016_ed1_gap_embrun
+    donatus_of_sisteron_priest_and_may_of_bodon_abbot:
+      'Saint Donat, prêtre et ermite († v. 522), et saint May, abbé († v. 550)', // src: mr_fr_2016_ed1_gap_embrun
     easter_sunday: 'Dimanche de Pâques - La résurrection du Seigneur',
+    eldrad_of_novalesa_abbot: 'Saint Eldrad, abbé de la Novalaise († 875)', // src: mr_fr_2016_ed1_gap_embrun
     eligius_of_noyon_bishop: 'Saint Éloi, évêque',
     elijah_prophet: 'Saint Élie, prophète († IXe s. av. J.-C.)',
     elizabeth_of_hungary_religious: 'Sainte Élisabeth de Hongrie († 1231)',
@@ -388,6 +400,9 @@ export const locale: Locale = {
     james_apostle: 'Saint Jacques le Majeur, apôtre († 44)',
     jane_frances_de_chantal_religious: 'Sainte Jeanne-Françoise de Chantal, religieuse († 1641)',
     januarius_i_of_benevento_bishop: 'Saint Janvier, évêque de Bénévent et martyr († 305)',
+    jean_antoine_savine_priest: 'Bienheureux Jean-Antoine Savine, prêtre et martyr († 1792)', // src: mr_fr_2016_ed1_gap_embrun
+    jean_antoine_savine_priest_and_companions_martyrs:
+      'Bienheureux Jean-Antoine Savine, prêtre, et ses compagnons, martyrs († 1792)', // src: mr_fr_2016_ed1_gap_embrun
     jean_antoine_segonds_priest: 'Bienheureux Jean-Antoine Segonds, prêtre et martyr († 1792)',
     jean_baptiste_turpin_du_cormier_priest_martyr:
       'Bienheureux Jean-Baptiste Turpin du Cormier, prêtre et martyr († 1794)', // src: mr_fr_1998_ed1_laval
@@ -495,6 +510,9 @@ export const locale: Locale = {
     maglorius_of_dol_monk: 'Saint Magloire, moine († V-VIème s.)', // src: mr_fr_1982_ed2_coutances
     majan_of_lombez: 'Saint Majan († v. 610)',
     marcellin_champagnat_priest: 'Saint Marcellin Champagnat, prêtre († 1840)', // src: mr_fr_2014_ed2_lyon
+    marcellinus_of_embrun_bishop: 'Saint Marcellin, premier évêque d’Embrun († v. 374)', // src: mr_fr_2016_ed1_gap_embrun
+    marcellinus_of_embrun_bishop_second_patron_of_the_diocese_of_gap_and_embrun:
+      'Saint Marcellin, premier évêque d’Embrun, patron secondaire du diocèse († v. 374)', // src: mr_fr_2016_ed1_gap_embrun
     marcellinus_of_rome_and_peter_the_exorcist_martyrs: 'Saints Marcellin et Pierre, martyrs († 304)',
     marcellus_of_paris_bishop: 'Saint Marcel, évêque de Paris († vers 430)',
     marculf_of_normandy_abbot: 'Saint Marcouf, abbé († v. 558)', // src: mr_fr_1982_ed2_coutances
@@ -550,6 +568,7 @@ export const locale: Locale = {
       'Saint Maurille, évêque et patron secondaire du diocèse († 453)', // mr_fr_2022_ed3_angers
     maurus_of_glanfeuil_abbot: 'Saint Maur, abbé († 584)', // mr_fr_2022_ed3_angers
     maximilian_mary_raymund_kolbe_priest: 'Saint Maximilien-Marie Kolbe, prêtre et martyr († 1941)',
+    may_of_bodon_abbot: 'Saint May, abbé († v. 550)', // src: mr_fr_2016_ed1_gap_embrun
     mederic_of_autun_and_droctoveus_of_autun_abbots: 'Saint Merry et Saint Droctovée, Abbés',
     michael_gabriel_and_raphael_archangels: 'Saints Michel, Gabriel and Raphaël, archanges',
     michael_garicoits_priest: 'Saint Michel Garicoïts, prêtre († 1863)',
@@ -592,6 +611,7 @@ export const locale: Locale = {
     our_lady_of_guadalupe: 'Notre-Dame de Guadalupé',
     our_lady_of_guadalupe_patroness_of_the_americas: 'Notre-Dame de Guadalupé, patronne des Amériques',
     our_lady_of_la_salette: 'Bienheureuse Vierge Marie de La Salette', // src: mr_fr_2021_ed3
+    our_lady_of_laus: 'Notre-Dame du Laus', // src: mr_fr_2016_ed1_gap_embrun
     our_lady_of_loreto: 'Notre-Dame de Lorette',
     our_lady_of_lourdes: 'Notre-Dame de Lourdes',
     our_lady_of_mount_carmel: 'Notre-Dame du Mont-Carmel',
@@ -615,6 +635,7 @@ export const locale: Locale = {
     paul_of_the_cross_priest: 'Saint Paul de la Croix, prêtre († 1776)',
     paul_vi_pope: 'Saint Paul VI, pape († 1978)',
     paulinus_of_nola_bishop: 'Saint Paulin, évêque († 431)',
+    peladius_of_embrun_bishop: 'Saint Pélade, évêque d’Embrun († probablement en 538)', // src: mr_fr_2016_ed1_gap_embrun
     pentecost_sunday: 'Pentecôte',
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Saintes Perpétue et Félicité, martyres à Carthage († 203)',
     peter_adrian_toulorge_priest: 'Bienheureux Pierre-Adrien Toulorge, prêtre et martyr († 1793)', // src: mr_fr_1982_ed2_coutances
@@ -657,6 +678,8 @@ export const locale: Locale = {
     raymond_gayrard_religious: 'Saint Raymond Gayrard, religieux († 1118)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     raymond_of_barbastro_bishop: 'Saint Raymond de Barbastro, évêque († 1126)',
     raymond_of_penyafort_priest: 'Saint Raymond de Peñafort, prêtre († 1275)',
+    remigius_of_gap_and_tigidius_of_gap_bishops: 'Saint Rémi et saint Tigide, évêques', // src: mr_fr_2016_ed1_gap_embrun
+    remigius_of_gap_bishop: 'Saint Rémi, évêque de Gap', // src: mr_fr_2016_ed1_gap_embrun
     remigius_of_reims_bishop: 'Saint Remi, évêque de Reims († 530)',
     rene_goupil_religious: 'Saint René Goupil, religieux et martyr († 1642)', // mr_fr_2022_ed3_angers
     richardis_of_swabia_empress: 'Sainte Richarde, impératrice († 894 ou 896)',
@@ -667,6 +690,7 @@ export const locale: Locale = {
     romuald_of_ravenna_abbot: 'Saint Romuald, anachorète et père des moines Camaldules († 1027)',
     rosalie_jeanne_marie_rendu_virgin: 'Bienheureuse Rosalie Rendu, vierge († 1856)',
     rose_of_lima_virgin: 'Sainte Rose de Lima, vierge († 1617)',
+    roseline_of_villeneuve_virgin: 'Sainte Roseline de Villeneuve, vierge († 1329)', // src: mr_fr_2016_ed1_gap_embrun
     rumpharius_of_coutances_bishop: 'Saint Romphaire, évêque de Coutance († VIème s.)', // src: mr_fr_1982_ed2_coutances
     salvius_of_albi_bishop: 'Saint Salvi, évêque († 584)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     saturnin_of_toulouse_bishop: 'Saint Saturnin, évêque et martyr († v. 257)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
@@ -718,6 +742,7 @@ export const locale: Locale = {
     thomas_jean_georges_rehm_priest: 'Bienheureux Jean-Georges Rehm, prêtre et martyr († 1794)',
     thomas_rene_dubuisson_priest_martyr: 'Bienheureux Thomas-René Dubuisson, prêtre et martyr († 1792)', // src: mr_fr_1998_ed1_laval
     thursday_of_the_lords_supper: 'Mémoire de la Cène du Seigneur',
+    tigidius_of_gap_bishop: 'Saint Tigide, évêque de Gap', // src: mr_fr_2016_ed1_gap_embrun
     timothy_of_ephesus_and_titus_of_crete_bishops:
       'Saints Timothée et Tite, évêques, disciples et compagnons de Saint Paul († Ier s.)',
     transfiguration_of_the_lord: 'Transfiguration du Seigneur',
