@@ -248,6 +248,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       hideTitles: true,
     },
     // src:
+    // - https://www.paroissesainthonoredesmoissons.fr/wp-content/uploads/ORDO-LITURGIQUE-DIOCESE-BEAUVAIS-2026.pdf
+    // - https://oise.catholique.fr/poles-services/administratif/archives-historiques/4203-les-eveques/
+    all_holy_bishops_of_the_diocese_of_beauvais_noyon_and_senlis: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'All Holy Bishops of the Diocese of Beauvais, Noyon and Senlis',
+      count: 'many',
+      titles: [Title.Bishop],
+      hideTitles: true,
+    },
+    // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://fr.wikipedia.org/wiki/Liste_des_%C3%A9v%C3%AAques_de_Cahors
     all_holy_bishops_of_the_diocese_of_cahors: {
@@ -298,6 +309,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     all_saints_of_the_archdiocese_of_paris: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'All Saints of the Archdiocese of Paris',
+      count: 'many',
+    },
+    // src: https://www.paroissesainthonoredesmoissons.fr/wp-content/uploads/ORDO-LITURGIQUE-DIOCESE-BEAUVAIS-2026.pdf
+    all_saints_of_the_diocese_of_beauvais_noyon_and_senlis: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'All Saints of the Diocese of Beauvais, Noyon and Senlis',
       count: 'many',
     },
     // src:
@@ -541,6 +559,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Andrew Zorard',
       titles: [Title.Hermit],
       dateOfDeath: 1009,
+    },
+    // src:
+    // - https://oise.catholique.fr/diocese/les-800-ans-cathedrale-beauvais/10956-sainte-angadreme/
+    // - https://nominis.cef.fr/contenus/saint/10528/Sainte-Angadr%C3%AAme.html
+    angadrisma_of_beauvais_abbess: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Angadrisma of Beauvais',
+      titles: [Title.Abbess, Title.Virgin],
+      dateOfDeath: 695,
+      dateOfDeathIsApproximative: true,
     },
     angela_merici_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2140,9 +2168,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 536,
       dateOfDeathIsApproximative: true,
     },
+    // src: https://nominis.cef.fr/contenus/saint/205/Saint-Eloi.html
     eligius_of_noyon_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
-      name: 'Eloi',
+      name: 'Eligius',
       titles: [Title.Bishop],
       dateOfDeath: 660,
     },
@@ -2364,6 +2393,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfDeath: 371,
     },
+    // src: https://nominis.cef.fr/contenus/saint/7723/Saint-Evrou.html
+    evroult_of_saint_lucien_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Evroult of Saint-Lucien',
+      titles: [Title.Abbot],
+      dateOfDeath: 600,
+      dateOfDeathIsApproximative: true,
+    },
     exaltation_of_the_holy_cross: {
       name: 'The Exaltation of the Holy Cross',
     },
@@ -2476,6 +2513,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Fintan',
       titles: [Title.Abbot],
+    },
+    // src: https://nominis.cef.fr/contenus/saint/1914/Saint-Firmin.html
+    firmin_of_amiens_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Firmin of Amiens',
+      titles: [Title.Bishop, Title.Martyr],
+      dateOfDeath: { century: 4 },
     },
     first_martyrs_of_the_holy_roman_church: {
       name: 'First Martyrs of the Holy Roman Church',
@@ -2686,6 +2730,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'François de Laval',
       titles: [Title.Bishop],
       dateOfDeath: 1708,
+    },
+    // src:
+    // - https://oise.catholique.fr/poles-services/administratif/archives-historiques/4203-les-eveques/
+    // - https://fr.wikipedia.org/wiki/Fran%C3%A7ois-Joseph_de_La_Rochefoucauld-Bayers
+    francois_joseph_de_la_rochefoucauld_bishop: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'François-Joseph de La Rochefoucauld',
+      titles: [Title.Bishop, Title.Martyr],
+      dateOfBirth: '1736-02-28',
+      dateOfDeath: '1792-09-02',
     },
     // src:
     // - ordo_fr_2025_province_ecclesiastique_de_toulouse
@@ -2963,6 +3017,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfDeath: 448,
     },
+    // src: https://nominis.cef.fr/contenus/saint/8323/Saint-Germer.html
+    germer_of_fly_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Germer of Fly',
+      titles: [Title.Abbot],
+      dateOfDeath: 658,
+      dateOfDeathIsApproximative: true,
+    },
     // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saint-germain-de-la-mer-eveque-et-martyr
@@ -3026,6 +3088,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Gobnait',
       titles: [Title.Virgin],
+    },
+    // src: https://nominis.cef.fr/contenus/saint/6524/Sainte-Godeberte.html
+    godeberta_of_noyon_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Godeberta of Noyon',
+      titles: [Title.Virgin],
+      dateOfDeath: 690,
+      dateOfDeathIsApproximative: true,
     },
     gorazd_of_moravia: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3211,6 +3281,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Hippolytus',
       titles: [Title.Priest, Title.Martyr],
       dateOfDeath: 235,
+    },
+    // src: https://www.paroissesainthonoredesmoissons.fr/wp-content/uploads/ORDO-LITURGIQUE-DIOCESE-BEAUVAIS-2026.pdf
+    holy_abbots_of_fly: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'Holy Abbots of Fly',
+      count: 'many',
+      titles: [Title.Abbot],
+      hideTitles: true,
     },
     // src:
     // - mr_fr_1998_ed1_laval
@@ -3419,6 +3498,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     ivan_merz: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Ivan Merz',
+    },
+    // src: https://nominis.cef.fr/contenus/saint/9279/Saint-Yves-de-Chartres.html
+    ivo_of_chartres_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Ivo of Chartres',
+      titles: [Title.Bishop],
+      dateOfDeath: 1116,
     },
     ivo_of_kermartin_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4106,6 +4192,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Jude',
       titles: [Title.Apostle],
     },
+    // src: https://nominis.cef.fr/contenus/saint/392/Saint-Lucien-de-Beauvais.html
+    julian_of_beauvais_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Julian of Beauvais',
+      titles: [Title.Martyr],
+      dateOfDeath: 290,
+      dateOfDeathIsApproximative: true,
+    },
     // src:
     // - mr_fr_1998_ed1_laval
     // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
@@ -4131,6 +4225,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin],
       dateOfDeath: 1258,
     },
+    // src: https://oise.catholique.fr/poles-services/administratif/archives-historiques/4210-temoins-dhier-ayant-marque-notre-diocese/
     julie_billiart_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Julie Billiart',
@@ -4516,6 +4611,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Louise de Marillac',
       titles: [Title.Religious],
       dateOfDeath: 1660,
+    },
+    // src: https://nominis.cef.fr/contenus/saint/392/Saint-Lucien-de-Beauvais.html
+    lucian_of_beauvais_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Lucian of Beauvais',
+      titles: [Title.Bishop, Title.Martyr],
+      dateOfDeath: 290,
+      dateOfDeathIsApproximative: true,
     },
     lucius_of_chur_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5160,6 +5263,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Maurus',
       titles: [Title.Bishop],
     },
+    // src: https://nominis.cef.fr/contenus/saint/392/Saint-Lucien-de-Beauvais.html
+    maximian_of_beauvais_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Maximian of Beauvais',
+      titles: [Title.Martyr],
+      dateOfDeath: 290,
+      dateOfDeathIsApproximative: true,
+    },
     maximilian_mary_raymund_kolbe_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Maximilian Mary Kolbe',
@@ -5182,6 +5293,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Abbot],
       dateOfDeath: 550,
       dateOfDeathIsApproximative: true,
+    },
+    // src: https://nominis.cef.fr/contenus/saint/1293/Saint-M%C3%A9dard-de-Noyon.html
+    medard_of_noyon_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Medard of Noyon',
+      titles: [Title.Bishop],
+      dateOfDeath: 560,
     },
     mederic_of_autun_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -6314,6 +6432,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Raymond Gayrard',
       titles: [Title.Religious],
       dateOfDeath: '1118-07-03',
+    },
+    // src: https://nominis.cef.fr/contenus/saint/6376/Saint-Rieul.html
+    regulus_of_senlis_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Regulus of Senlis',
+      titles: [Title.Bishop],
+      dateOfDeath: { century: 4 },
     },
     // src:
     // - mr_fr_1984_ed1_nimes

@@ -69,11 +69,14 @@ export const locale: Locale = {
       'Tous les Saints Évêques du diocèse de Coutances et Avranches, et les prêtres, leurs coopérateurs', // src: mr_fr_1982_ed2_coutances
     all_holy_bishops_of_the_archdiocese_of_lyon: 'Tous les Saints Évêques du diocèse de Lyon',
     all_holy_bishops_of_the_diocese_of_angers: 'Tous les Saints Évêques du diocèse d’Angers', // mr_fr_2022_ed3_angers
+    all_holy_bishops_of_the_diocese_of_beauvais_noyon_and_senlis:
+      'Tous les saints évêques de Beauvais, Noyon et Senlis',
     all_holy_bishops_of_the_diocese_of_cahors: 'Tous les saints évêques du diocèse de Cahors',
     all_saints: 'Tous les Saints',
     all_saints_of_the_archdiocese_of_lille: 'Tous les Saints de l’archidiocèse de Lille',
     all_saints_of_the_archdiocese_of_lyon: 'Tous les Saints du diocèse de Lyon', // src: mr_fr_2014_ed2_lyon
     all_saints_of_the_archdiocese_of_paris: 'Tous les Saints du diocèse de Paris',
+    all_saints_of_the_diocese_of_beauvais_noyon_and_senlis: 'Tous les saints de l’Église diocésaine',
     all_saints_of_the_diocese_of_coutances: 'Tous les Saints du diocèse de Coutances et Avranches', // src: mr_fr_1982_ed2_coutances
     all_saints_of_the_diocese_of_creteil: 'Tous les Saints du diocèse de Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     all_saints_of_the_diocese_of_gap_and_embrun: 'Tous les Saints du diocèse de Gap et d’Embrun', // src: mr_fr_2016_ed1_gap_embrun
@@ -109,6 +112,9 @@ export const locale: Locale = {
       'Saint André Kim Taegon, prêtre, et Paul Chong Ha-sang et ses compagnons, martyrs en Corée († XIXème s.)',
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits:
       'Saints André Svorad († 1009) et Benoît Stojislav († 1012), ermites',
+    angadrisma_of_beauvais_abbess: 'Sainte Angadrême, abbesse et vierge († v. 695)',
+    angadrisma_of_beauvais_abbess_principal_patroness_of_beauvais_and_secondary_patroness_of_the_diocese:
+      'Sainte Angadrême, patronne principale de Beauvais et patronne secondaire du diocèse',
     angela_merici_virgin:
       'Sainte Angèle Mérici, religieuse, fondatrice de la Compagnie de Sainte Ursule de Brescia († 1540)',
     anne_mother_of_mary_patroness_of_the_province_of_quebec:
@@ -381,6 +387,7 @@ export const locale: Locale = {
     eugenius_of_carthage_bishop: 'Saint Eugène, évêque († v. 505)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     eusebius_of_vercelli_bishop: 'Saint Eusèbe de Verceil, évêque († 371)',
     everard_of_friuli: 'Saint Évrard, laïc († v. 869)',
+    evroult_of_saint_lucien_abbot: 'Saint Évroult, abbé de Saint-Lucien († v. 600)',
     exaltation_of_the_holy_cross: 'La Croix Glorieuse',
     exuperius_of_toulouse_bishop: 'Saint Exupère, évêque († v. 410)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     fabian_i_pope: 'Saint Fabien, pape et martyr († 250)',
@@ -388,6 +395,7 @@ export const locale: Locale = {
     faustina_kowalska_virgin: 'Sainte Faustina Kowalska († 1938)',
     ferreolus_of_uzes_bishop: 'Saint Ferréol, évêque', // src: mr_fr_1984_ed1_nimes
     fidelis_of_sigmaringen_priest: 'Saint Fidèle de Sigmaringen, prêtre et martyr († 1622)',
+    firmin_of_amiens_bishop: 'Saint Firmin, évêque et martyr († IVème s.)',
     firminus_of_uzes_bishop: 'Saint Firmin, évêque', // src: mr_fr_1984_ed1_nimes
     first_martyrs_of_the_holy_roman_church: 'Premiers martyrs de l’Église de Rome († 64)',
     fleur_of_issendolus_virgin: 'Sainte Fleur, vierge et religieuse hospitalière à Issendolus († 1347)',
@@ -420,6 +428,10 @@ export const locale: Locale = {
     francois_dardan_priest_and_companions_martyrs:
       'Bienheureux François Dardan, prêtre, et ses compagnons, martyrs († 1792)',
     francois_de_montmorency_laval_bishop: 'Saint François de Laval, premier évêque de Québec († 1708)',
+    francois_joseph_de_la_rochefoucauld_bishop:
+      'Bienheureux François-Joseph de La Rochefoucauld, évêque et martyr († 1792)',
+    francois_joseph_de_la_rochefoucauld_bishop_and_companions_martyrs:
+      'Bienheureux François-Joseph de La Rochefoucauld, évêque, et ses compagnons, martyrs († 1792)',
     francois_louis_meallet_de_fargues_priest:
       'Bienheureux François-Louis Méallet de Fargues, prêtre et martyr († 1792)',
     francois_louis_meallet_de_fargues_priest_and_companions_martyrs:
@@ -456,11 +468,14 @@ export const locale: Locale = {
     germaine_cousin_virgin: 'Sainte Germaine Cousin, vierge († 1601)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     germanus_of_auxerre_bishop: 'Saint Germain d’Auxerre, évêque († 448)', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     germanus_of_normandy_bishop: 'Saint Germain de la Mer, évêque et martyr († 480)', // src: mr_fr_1982_ed2_coutances
+    germer_of_fly_abbot: 'Saint Germer de Fly, abbé († v. 658)',
+    germer_of_fly_abbot_and_holy_abbots_of_fly: 'Saint Germer et les saints abbés de Fly',
     germier_of_toulouse_bishop: 'Saint Germier, évêque († VIIème s.)', // src: ordo_fr_2025_province_ecclesiastique_de_toulouse
     gertrude_of_nivelles_abbess: 'Sainte Gertrude de Nivelles, abbesse († 659)',
     gertrude_the_great_virgin: 'Sainte Gertrude, vierge moniale († 1301)',
     giles_of_saint_gilles_abbot: 'Saint Gilles, abbé', // src: mr_fr_1984_ed1_nimes
     girons_of_hagetmau_martyr: 'Saint Girons, moine et martyr († Ve s.)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    godeberta_of_noyon_virgin: 'Sainte Godeberthe, vierge († v. 690)',
     grat_of_oloron_bishop: 'Saint Grat d’Oloron, évêque, patron de la ville d’Oloron',
     gregory_i_the_great_pope: 'Saint Grégoire le Grand, pape et docteur de l’Église († 604)',
     gregory_of_narek_abbot: 'Saint Grégoire de Narek, abbé et docteur de l’Église',
@@ -476,6 +491,7 @@ export const locale: Locale = {
       'Saint Hilaire († v. 360) et Saint Silve († v. 400), évêques', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     hilary_of_poitiers_bishop: 'Saint Hilaire de Poitiers, évêque et docteur de l’Église († 367)',
     hildegard_of_bingen_abbess: 'Sainte Hildegarde de Bingen, abbesse et docteur de l’Église († 1179)',
+    holy_abbots_of_fly: 'Saints abbés de Fly',
     holy_bishops_of_le_mans: 'Les Saints Évêques du Mans', // src: mr_fr_1998_ed1_laval
     holy_family_of_jesus_mary_and_joseph: 'La Sainte Famille',
     holy_guardian_angels: 'Saints Anges gardiens',
@@ -507,6 +523,8 @@ export const locale: Locale = {
     isabelle_of_france_virgin: 'Bienheureuse Isabelle de France, sœur de saint Louis, vierge († 1270)',
     isidore_of_seville_bishop: 'Saint Isidore de Séville, docteur de l’Église, évêque et Confesseur († 636)',
     isidore_the_farmer: 'Saint Isidore le Laboureur',
+    ivo_of_auteuil_bishop: 'Saint Yves d’Auteuil, évêque',
+    ivo_of_chartres_bishop: 'Saint Yves de Chartres, évêque († 1116)',
     ivo_of_kermartin_priest: 'Saint Yves Hélory, prêtre et juge en Bretagne († 1303)',
     jacques_berthieu_priest: 'Saint Jacques Berthieu, prêtre et martyr († 1896)',
     jacques_francois_lefranc_martyr_and_martyrs_of_the_revolution:
@@ -599,6 +617,7 @@ export const locale: Locale = {
     joseph_the_worker: 'Saint Joseph, Artisan († Ier s.)',
     josephine_bakhita_virgin: 'Sainte Joséphine Bakhita, vierge et religieuse († 1947)',
     juan_diego_cuauhtlatoatzin: 'Saint Juan Diego Cuauhtlatoatzin († 1548)',
+    julian_of_beauvais_martyr: 'Saint Julien de Beauvais, martyr († v. 290)',
     julian_of_le_mans_bishop: 'Saint Julien, évêque du Mans († IVe s.)', // src: mr_fr_1998_ed1_laval
     julian_of_le_mans_bishop_second_patron_of_the_diocese_of_laval:
       'Saint Julien, premier évêque du Mans, patron secondaire du diocèse', // src: mr_fr_1998_ed1_laval
@@ -647,6 +666,9 @@ export const locale: Locale = {
     louis_of_toulouse_bishop: 'Saint Louis d’Anjou, évêque († 1297)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     louis_zephirin_moreau_bishop: 'Bienheureux Louis Zéphyrin Moreau, évêque († 1901)',
     louise_de_marillac_religious: 'Sainte Louise de Marillac, religieuse († 1660)',
+    lucian_of_beauvais_bishop: 'Saint Lucien de Beauvais, évêque et martyr († v. 290)',
+    lucian_of_beauvais_bishop_principal_patron_of_the_church_of_beauvais_and_companions_martyrs:
+      'Saint Lucien, patron principal de l’Église de Beauvais, et ses compagnons, martyrs († v. 290)',
     lucy_of_syracuse_virgin: 'Sainte Lucie, vierge et martyre en Sicile († v. 305)',
     ludan_of_scotland_pilgrim: 'Saint Ludan, pèlerin († 1202)',
     luke_evangelist: 'Saint Luc, évangéliste',
@@ -724,9 +746,11 @@ export const locale: Locale = {
       'Saint Maurille, évêque et patron secondaire du diocèse († 453)', // mr_fr_2022_ed3_angers
     mauront_of_breuil_abbot: 'Saint Mauront, abbé († 701 ou 708)',
     maurus_of_glanfeuil_abbot: 'Saint Maur, abbé († 584)', // mr_fr_2022_ed3_angers
+    maximian_of_beauvais_martyr: 'Saint Maximien de Beauvais, martyr († v. 290)',
     maximilian_mary_raymund_kolbe_priest: 'Saint Maximilien-Marie Kolbe, prêtre et martyr († 1941)',
     maximilian_of_tebessa_martyr: 'Saint Maximilien, martyr à Tébessa († 295)',
     may_of_bodon_abbot: 'Saint May, abbé († v. 550)', // src: mr_fr_2016_ed1_gap_embrun
+    medard_of_noyon_bishop: 'Saint Médard, évêque de Noyon († 560)',
     mederic_of_autun_and_droctoveus_of_autun_abbots: 'Saint Merry et Saint Droctovée, Abbés',
     mellitus_of_canterbury_bishop: 'Saint Mellitus de Cantorbéry, évêque',
     michael_gabriel_and_raphael_archangels: 'Saints Michel, Gabriel and Raphaël, archanges',
@@ -880,6 +904,7 @@ export const locale: Locale = {
     raymond_of_barbastro_bishop: 'Saint Raymond de Barbastro, évêque († 1126)',
     raymond_of_penyafort_priest: 'Saint Raymond de Peñafort, prêtre († 1275)',
     reginald_of_orleans_priest: 'Bienheureux Réginald, prêtre', // src: mr_fr_1984_ed1_nimes
+    regulus_of_senlis_bishop: 'Saint Rieul, évêque de Senlis († IVème s.)',
     remembrance_day: 'Jour du souvenir',
     remigius_of_gap_and_tigidius_of_gap_bishops: 'Saint Rémi et saint Tigide, évêques', // src: mr_fr_2016_ed1_gap_embrun
     remigius_of_gap_bishop: 'Saint Rémi, évêque de Gap', // src: mr_fr_2016_ed1_gap_embrun

@@ -82,12 +82,14 @@ export const locale: Locale = {
       'The Holy Bishops of the diocese of Coutances and Avranches, and the priests, their collaborators',
     all_holy_bishops_of_the_archdiocese_of_lyon: 'All Holy Bishops of the Archdiocese of Lyon',
     all_holy_bishops_of_the_diocese_of_angers: 'All Holy Bishops of the Diocese of Angers', // mr_fr_2022_ed3_angers
+    all_holy_bishops_of_the_diocese_of_beauvais_noyon_and_senlis: 'All Holy Bishops of Beauvais, Noyon and Senlis',
     all_holy_bishops_of_the_diocese_of_cahors: 'All Holy Bishops of the Diocese of Cahors',
     all_saints: 'All Saints',
     all_saints_of_ireland: 'All Saints of Ireland',
     all_saints_of_the_archdiocese_of_lille: 'All Saints of the Archdiocese of Lille',
     all_saints_of_the_archdiocese_of_lyon: 'All Saints of the Archdiocese of Lyon',
     all_saints_of_the_archdiocese_of_paris: 'All Saints of the Archdiocese of Paris',
+    all_saints_of_the_diocese_of_beauvais_noyon_and_senlis: 'All Saints of the Diocesan Church',
     all_saints_of_the_diocese_of_coutances: 'All Saints of the Diocese of Coutances and Avranches',
     all_saints_of_the_diocese_of_creteil: 'All Saints of the Diocese of Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     all_saints_of_the_diocese_of_gap_and_embrun: 'All Saints of the Diocese of Gap and Embrun',
@@ -131,6 +133,9 @@ export const locale: Locale = {
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
       'Saints Andrew Kim Tae-gŏn, Priest, Paul Chŏng Ha-sang and Companions, Martyrs',
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: 'Saints Andrew Zorard and Benedict, Hermits',
+    angadrisma_of_beauvais_abbess: 'Saint Angadrisma of Beauvais, Abbess and Virgin',
+    angadrisma_of_beauvais_abbess_principal_patroness_of_beauvais_and_secondary_patroness_of_the_diocese:
+      'Saint Angadrisma, Principal Patroness of Beauvais and Secondary Patroness of the Diocese',
     angela_merici_virgin: 'Saint Angela Merici, Virgin',
     angela_salawa_virgin: 'Blessed Angela Salawa, Virgin',
     anne_mother_of_mary_patroness_of_the_province_of_quebec:
@@ -489,6 +494,7 @@ export const locale: Locale = {
     eusebius_of_esztergom_priest: 'Blessed Eusebius of Esztergom, Priest',
     eusebius_of_vercelli_bishop: 'Saint Eusebius of Vercelli, Bishop',
     everard_of_friuli: 'Saint Everard of Friuli',
+    evroult_of_saint_lucien_abbot: 'Saint Evroult, Abbot of Saint-Lucien',
     exaltation_of_the_holy_cross: 'The Exaltation of the Holy Cross',
     exuperius_of_toulouse_bishop: 'Saint Exuperius of Toulouse, Bishop',
     eysteinn_of_nidaros_bishop: 'Saint Eysteinn of Nidaros, Bishop',
@@ -506,6 +512,7 @@ export const locale: Locale = {
     finding_of_the_holy_cross: 'Finding of the Holy Cross',
     finnian_of_clonard_bishop: 'Saint Finian, Bishop',
     fintan_of_clonenagh_abbot: 'Saint Fintan, Abbot',
+    firmin_of_amiens_bishop: 'Saint Firmin, Bishop and Martyr',
     firminus_of_uzes_bishop: 'Saint Firminus of Uzès, Bishop', // src: mr_fr_1984_ed1_nimes
     first_martyrs_of_the_holy_roman_church: 'The First Martyrs of the Holy Roman Church',
     first_polish_martyrs: 'Saints Benedict, John, Matthew, Isaac and Christian, the First Polish Martyrs',
@@ -547,6 +554,9 @@ export const locale: Locale = {
     francis_xavier_seelos_priest: 'Blessed Francis Xavier Seelos, Priest',
     francois_dardan_priest_and_companions_martyrs: 'Blessed François Dardan, Priest, and Companions, Martyrs',
     francois_de_montmorency_laval_bishop: 'Saint François de Laval, Bishop',
+    francois_joseph_de_la_rochefoucauld_bishop: 'Blessed François-Joseph de La Rochefoucauld, Bishop and Martyr',
+    francois_joseph_de_la_rochefoucauld_bishop_and_companions_martyrs:
+      'Blessed François-Joseph de La Rochefoucauld, Bishop, and Companions, Martyrs',
     francois_louis_meallet_de_fargues_priest: 'Blessed François-Louis Méallet de Fargues, Priest and Martyr',
     francois_louis_meallet_de_fargues_priest_and_companions_martyrs:
       'Blessed François-Louis Méallet de Fargues, Priest, and Companions, Martyrs',
@@ -592,6 +602,8 @@ export const locale: Locale = {
     germaine_cousin_virgin: 'Saint Germaine Cousin, Virgin',
     germanus_of_auxerre_bishop: 'Saint Germanus of Auxerre, Bishop', // src: https://en.wikipedia.org/wiki/Germanus_of_Auxerre
     germanus_of_normandy_bishop: 'Saint Germanus of Normandy, Bishop and Martyr',
+    germer_of_fly_abbot: 'Saint Germer of Fly, Abbot',
+    germer_of_fly_abbot_and_holy_abbots_of_fly: 'Saint Germer and the Holy Abbots of Fly',
     germier_of_toulouse_bishop: 'Saint Germier of Toulouse, Bishop',
     gertrude_of_nivelles_abbess: 'Saint Gertrude of Nivelles, Abbess',
     gertrude_the_great_virgin: 'Saint Gertrude, Virgin',
@@ -599,6 +611,7 @@ export const locale: Locale = {
     girons_of_hagetmau_martyr: 'Saint Girons of Hagetmau, Monk and Martyr',
     gisela_of_hungary: 'Blessed Gisela',
     gobnait_of_ballyvourney_virgin: 'Saint Gobnait, Virgin',
+    godeberta_of_noyon_virgin: 'Saint Godeberta of Noyon, Virgin',
     gorazd_of_moravia_and_companions: 'Saint Gorazd and Companions',
     gotthard_of_hildesheim_bishop: 'Saint Gotthard, Bishop',
     grat_of_oloron_bishop: 'Saint Grat of Oloron, Bishop, Patron of the City of Oloron',
@@ -630,6 +643,7 @@ export const locale: Locale = {
     hilary_of_poitiers_bishop: 'Saint Hilary, Bishop and Doctor of the Church',
     hilda_of_whitby_abbess: 'Saint Hilda, Abbess',
     hildegard_of_bingen_abbess: 'Saint Hildegard of Bingen, Abbess and Doctor of the Church',
+    holy_abbots_of_fly: 'Holy Abbots of Fly',
     holy_bishops_of_le_mans: 'The Holy Bishops of Le Mans', // src: mr_fr_1998_ed1_laval
     holy_child_of_cebu: 'The Holy Child of Cebú',
     holy_family_of_jesus_mary_and_joseph: 'The Holy Family of Jesus, Mary and Joseph',
@@ -681,6 +695,8 @@ export const locale: Locale = {
     istvan_sandor_religious: 'Blessed István Sándor, Religious and Martyr',
     ita_of_killeedy_virgin: 'Saint Ita, Virgin',
     ivan_merz: 'Blessed Ivan Merz',
+    ivo_of_auteuil_bishop: 'Saint Ivo of Auteuil, Bishop',
+    ivo_of_chartres_bishop: 'Saint Ivo of Chartres, Bishop',
     ivo_of_kermartin_priest: 'Saint Ivo, Priest',
     jacinta_marto_and_francisco_marto: 'Saints Jacinta and Francisco Marto',
     jacques_berthieu_priest: 'Saint Jacques Berthieu, Priest and Martyr',
@@ -796,6 +812,7 @@ export const locale: Locale = {
     joseph_zhang_dapeng_martyr: 'Saint Joseph Zhang Dapeng, Martyr',
     josephine_bakhita_virgin: 'Saint Josephine Bakhita, Virgin',
     juan_diego_cuauhtlatoatzin: 'Saint Juan Diego Cuauhtlatoatzin',
+    julian_of_beauvais_martyr: 'Saint Julian of Beauvais, Martyr',
     julian_of_le_mans_bishop: 'Saint Julian of Le Mans, Bishop', // src: mr_fr_1998_ed1_laval
     julian_of_le_mans_bishop_second_patron_of_the_diocese_of_laval:
       'Saint Julian, First Bishop of Le Mans, Second Patron of the Diocese of Laval', // src: mr_fr_1998_ed1_laval
@@ -866,6 +883,9 @@ export const locale: Locale = {
     louis_of_toulouse_bishop: 'Saint Louis of Toulouse, Bishop',
     louis_zephirin_moreau_bishop: 'Blessed Louis-Zéphirin Moreau, Bishop',
     louise_de_marillac_religious: 'Saint Louise de Marillac, Religious',
+    lucian_of_beauvais_bishop: 'Saint Lucian of Beauvais, Bishop and Martyr',
+    lucian_of_beauvais_bishop_principal_patron_of_the_church_of_beauvais_and_companions_martyrs:
+      'Saint Lucian, Principal Patron of the Church of Beauvais, and Companions, Martyrs',
     lucius_of_chur_bishop: 'Saint Lucius of Chur, Bishop and Martyr',
     lucy_of_syracuse_virgin: 'Saint Lucy, Virgin and Martyr',
     lucy_yi_zhenmei_virgin: 'Saint Lucy Yi Zhenmei, Virgin and Martyr',
@@ -979,9 +999,11 @@ export const locale: Locale = {
     mauront_of_breuil_abbot: 'Saint Mauront, Abbot',
     maurus_of_glanfeuil_abbot: 'Saint Maurus, Abbot', // mr_fr_2022_ed3_angers
     maurus_of_pecs_bishop: 'Saint Maurus, Bishop',
+    maximian_of_beauvais_martyr: 'Saint Maximian of Beauvais, Martyr',
     maximilian_mary_raymund_kolbe_priest: 'Saint Maximilian Mary Kolbe, Priest and Martyr',
     maximilian_of_tebessa_martyr: 'Saint Maximilian of Tebessa, Martyr',
     may_of_bodon_abbot: 'Saint May of Bodon, Abbot',
+    medard_of_noyon_bishop: 'Saint Medard of Noyon, Bishop',
     mederic_of_autun_and_droctoveus_of_autun_abbots: 'Saints Mederic and Droctoveus, Abbots',
     meinrad_of_einsiedeln_martyr: 'Saint Meinrad of Einsiedeln, Martyr',
     mel_of_ardagh_bishop: 'Saint Mel, Bishop',
@@ -1225,6 +1247,7 @@ export const locale: Locale = {
     raymond_of_barbastro_bishop: 'Saint Raymond of Barbastro, Bishop',
     raymond_of_penyafort_priest: 'Saint Raymond of Penyafort, Priest',
     reginald_of_orleans_priest: 'Blessed Reginald of Orléans, Priest', // src: mr_fr_1984_ed1_nimes
+    regulus_of_senlis_bishop: 'Saint Regulus, Bishop of Senlis',
     remembrance_day: 'Remembrance Day',
     remigius_of_gap_and_tigidius_of_gap_bishops: 'Saints Remigius and Tigidius, Bishops',
     remigius_of_gap_bishop: 'Saint Remigius of Gap, Bishop',
