@@ -253,6 +253,7 @@ export const locale: Locale = {
     daniel_brottier_priest: 'Bienheureux Daniel Brottier, prêtre, apôtre des Orphelins d’Auteuil († 1936 à Paris)',
     dedication_of_consecrated_churches:
       'Dédicace des églises consacrées dont on ne connaît pas la date de consécration', // src: mr_fr_2021_ed3
+    dedication_of_notre_dame_cathedral_luxembourg: 'Dédicace de la cathédrale Notre-Dame de Luxembourg', // src: mr_fr_2021_ed3
     dedication_of_the_basilica_of_mont_saint_michel_france: 'Dédicace de la basilique du Mont-Saint-Michel', // src: mr_fr_1982_ed2_coutances
     dedication_of_the_basilica_of_saint_mary_major: 'Dédicace de la basilique Sainte-Marie Majeure',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
@@ -388,6 +389,7 @@ export const locale: Locale = {
     hedwig_of_silesia_religious: 'Sainte Edwige de Silésie, veuve puis religieuse († 1243)',
     helier_of_jersey_martyr: 'Saint Hélier, martyr († v. 552)', // src: mr_fr_1982_ed2_coutances
     henry_ii_emperor: 'Saint Henri, empereur germanique († 1024)',
+    henry_ii_emperor_and_cunigunde_of_luxembourg: 'Saint Henri et sainte Cunégonde († 1024 et 1033)', // src: mr_fr_2021_ed3
     henry_of_finland_bishop: 'Saint Henri, évêque et martyr († 1156)',
     hilarius_of_toulouse_bishop: 'Saint Hilaire, évêque († v. 360)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     hilarius_of_toulouse_bishop_and_sylvius_of_toulouse_bishops:
@@ -414,6 +416,7 @@ export const locale: Locale = {
     irenaeus_of_lyon_bishop: 'Saint Irénée, évêque, martyr et docteur de l’Église († v. 201)',
     irenaeus_of_lyon_bishop_patron_of_the_archdiocese_of_lyon_and_companions_martyrs:
       'Saint Irénée, évêque et docteur de l’Église, patron principal du diocèse, et ses compagnons, martyrs († v. 201)', // src: mr_fr_2014_ed2_lyon
+    irmina_of_oeren_abbess: 'Sainte Irmine, religieuse († v. 710)', // src: mr_fr_2021_ed3
     isabelle_of_france_virgin: 'Bienheureuse Isabelle de France, sœur de saint Louis, vierge († 1270)',
     isidore_of_seville_bishop: 'Saint Isidore de Séville, docteur de l’Église, évêque et Confesseur († 636)',
     ivo_of_kermartin_priest: 'Saint Yves Hélory, prêtre et juge en Bretagne († 1303)',
@@ -636,6 +639,9 @@ export const locale: Locale = {
     odile_of_alsace_abbess_patroness_of_alsace: 'Sainte Odile, abbesse, patronne de l‘Alsace († v. 720)',
     orens_of_auch_bishop: 'Saint Orens, évêque d’Auch († Ve s.)',
     ortaire_of_landelles_abbot: 'Saint Ortaire, abbé († 580)', // src: mr_fr_1982_ed2_coutances
+    our_lady_comforter_of_the_afflicted: 'Bienheureuse Vierge Marie, Consolatrice des affligés', // src: mr_fr_2021_ed3
+    our_lady_comforter_of_the_afflicted_principal_patroness_of_luxembourg:
+      'Bienheureuse Vierge Marie, Consolatrice des affligés, patronne principale du Luxembourg', // src: mr_fr_2021_ed3
     our_lady_mediatrix_of_all_grace: 'Marie, Médiatrice de toute grâce',
     our_lady_of_boulogne: 'Notre-Dame de Boulogne', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     our_lady_of_ceignac: 'Notre-Dame de Ceignac',
@@ -657,6 +663,7 @@ export const locale: Locale = {
     our_lady_of_the_rosary: 'Notre-Dame du Rosaire',
     our_lady_refuge_of_sinners: 'Sainte Marie, refuge des pécheurs',
     our_lord_jesus_christ_king_of_the_universe: 'Trente-quatrième et dernier dimanche - Le Christ, Roi de l’Univers',
+    our_lord_jesus_christ_the_eternal_high_priest: 'Notre Seigneur Jésus Christ, Prêtre éternel et souverain', // src: mr_fr_2021_ed3
     ours_of_cahors_abbot: 'Saint Ours, abbé originaire de Cahors († v. 510)',
     palm_sunday_of_the_passion_of_the_lord: 'Dimanche des Rameaux et de la Passion',
     pancras_of_rome_martyr: 'Saint Pancrace, martyr à Rome († v. 304)',
@@ -732,6 +739,7 @@ export const locale: Locale = {
     salvius_of_albi_bishop: 'Saint Salvi, évêque († 584)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     saturnin_of_toulouse_bishop: 'Saint Saturnin, évêque et martyr († v. 257)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     savin_of_lavedan_hermit: 'Saint Savin, ermite († Ve s.)',
+    schetzel_of_grunewald_hermit: 'Bienheureux Schecelin ou Schetzel, ermite († 1138 ou 1139)', // src: mr_fr_2021_ed3
     scholastica_of_nursia_virgin: 'Sainte Scholastique, Moniale, sœur de Saint Benoît († 543)',
     sebastian_of_milan_martyr: 'Saint Sébastien, martyr († v. 284)',
     senerius_of_normandy_bishop: 'Saint Senier, évêque d’Avranches († v. 574)', // src: mr_fr_1982_ed2_coutances
@@ -814,6 +822,9 @@ export const locale: Locale = {
     william_firmatus_abbot: 'Saint Guillaume Firmat, abbé († 1103)', // src: mr_fr_1982_ed2_coutances
     william_firmatus_robert_of_arbrissel_bernard_of_tiron_raoul_de_la_futaie_and_vitalis_of_savigny_hermits:
       'Saints Guillaume Firmat, Bernard de Tiron et Vital de Mortain, et les bienheureux Robert d’Arbrissel et Raoul de la Futaie, ermites', // src: mr_fr_1998_ed1_laval
+    willibrord_of_utrecht_bishop: 'Saint Willibrord, évêque († 739)', // src: mr_fr_2021_ed3
+    willibrord_of_utrecht_bishop_secondary_patron_of_luxembourg:
+      'Saint Willibrord, évêque, patron secondaire du Luxembourg († 739)', // src: mr_fr_2021_ed3
     ysarn_of_saint_victor_abbot: 'Saint Ysarn, abbé († 1043)',
   },
 

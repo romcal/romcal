@@ -1530,9 +1530,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Cosmas',
       titles: [Title.Martyr],
     },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://www.cathol.lu/fileadmin/user_upload/DOCUMENTS/ORDO/ORDO_2025-2026_WEB.pdf
     cunigunde_of_luxembourg: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Cunigunde',
+      titles: [Title.Empress],
+      dateOfDeath: 1033,
     },
     cuthbert_of_lindisfarne_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1615,6 +1620,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Declan',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://sip.gouvernement.lu/dam-assets/publications/bulletin/1963/BID_1963_17/BID_1963_17.pdf
+    dedication_of_notre_dame_cathedral_luxembourg: {
+      dateOfDedication: '1963-12-08',
     },
     // src:
     // - mr_fr_2016_ed1_gap_embrun
@@ -2723,9 +2734,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Hemming of Turku',
       titles: [Title.Bishop],
     },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://www.cathol.lu/fileadmin/user_upload/DOCUMENTS/ORDO/ORDO_2025-2026_WEB.pdf
     henry_ii_emperor: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Henry',
+      titles: [Title.Emperor],
       dateOfDeath: 1024,
     },
     henry_of_finland_bishop: {
@@ -2937,6 +2952,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     irene_of_macedonia: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Irene',
+    },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://www.vaticanstate.va/fr/etat-et-gouvernorat/notes-generales/saint-du-jour/3352-24-decembre-sainte-irmine-abbesse.html
+    irmina_of_oeren_abbess: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Irmina of Oeren',
+      titles: [Title.Abbess],
+      dateOfDeath: 710,
+      dateOfDeathIsApproximative: true,
     },
     irish_martyrs: {
       name: 'Irish Martyrs',
@@ -4836,6 +4861,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Abbot],
       dateOfDeath: { between: [484, 510] },
     },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://web.cathol.lu/1/paroisses/par-letzebuerg-notre-dame/cathedrale/la-consolatrice-des-affliges-die-trosterin-der-betrubten/our-lady-comforter-of-the-afflicted
+    our_lady_comforter_of_the_afflicted: {
+      name: 'Our Lady, Comforter of the Afflicted',
+    },
     our_lady_help_of_christians: {
       name: 'Our Lady, Help of Christians',
     },
@@ -5695,6 +5726,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Hermit],
       dateOfDeath: { century: 5 },
     },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://nominis.cef.fr/contenus/saint/11054/Bienheureux-Sch%C3%A9celin.html
+    // - https://gfn.lu/seliger-schetzel-der-einsiedler-im-grunewald/?lang=fr
+    schetzel_of_grunewald_hermit: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Schetzel of Grünewald',
+      titles: [Title.Hermit],
+      dateOfDeath: { or: [1138, 1139] },
+    },
     scholastica_of_nursia_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Scholastica',
@@ -6363,10 +6404,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Willibald',
       titles: [Title.Bishop],
     },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://cathol.lu/fr/news-fr-1/du-7-au-16-novembre-2025-octave-de-saint-willibrord
     willibrord_of_utrecht_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Willibrord',
-      titles: [Title.Bishop],
+      titles: [Title.Bishop, Title.Missionary],
+      dateOfDeath: 739,
     },
     winefride_of_flintshire_virgin: {
       canonizationLevel: CanonizationLevels.Saint,

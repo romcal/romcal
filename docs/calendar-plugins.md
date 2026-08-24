@@ -70,6 +70,7 @@ Below the list of all available calendar plugins:
 | Japan                      | `@romcal/calendar.japan@dev`                    |
 | Lebanon                    | `@romcal/calendar.lebanon@dev`                  |
 | Lithuania                  | `@romcal/calendar.lithuania@dev`                |
+| Luxembourg                 | `@romcal/calendar.luxembourg@dev`               |
 | Malta                      | `@romcal/calendar.malta@dev`                    |
 | Mexico                     | `@romcal/calendar.mexico@dev`                   |
 | Monaco                     | `@romcal/calendar.monaco@dev`                   |

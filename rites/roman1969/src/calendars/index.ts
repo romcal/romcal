@@ -49,6 +49,7 @@ import { Italy } from './countries/italy';
 import { Japan } from './countries/japan';
 import { Lebanon } from './countries/lebanon';
 import { Lithuania } from './countries/lithuania';
+import { Luxembourg } from './countries/luxembourg';
 import { Malta } from './countries/malta';
 import { Mexico } from './countries/mexico';
 import { Monaco } from './countries/monaco';
@@ -136,6 +137,7 @@ export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   Japan,
   Lebanon,
   Lithuania,
+  Luxembourg,
   Malta,
   Mexico,
   Monaco,

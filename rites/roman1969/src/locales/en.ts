@@ -328,6 +328,7 @@ export const locale: Locale = {
     davnet_of_sliabh_beagh_virgin: 'Saint Davnet, Virgin',
     declan_of_ardmore_bishop: 'Saint Declan, Bishop',
     dedication_of_consecrated_churches: 'The Dedication of Consecrated Churches Whose Date of Consecration is Unknown',
+    dedication_of_notre_dame_cathedral_luxembourg: 'Dedication of Notre-Dame Cathedral, Luxembourg',
     dedication_of_the_basilica_of_mont_saint_michel_france:
       'The Dedication of the Basilica of Mont-Saint-Michel, France',
     dedication_of_the_basilica_of_saint_mary_major: 'The Dedication of the Basilica of Saint Mary Major',
@@ -543,7 +544,7 @@ export const locale: Locale = {
     hemma_of_gurk: 'Saint Hemma of Gurk',
     hemming_of_turku_bishop: 'Blessed Hemming of Turku, Bishop',
     henry_ii_emperor: 'Saint Henry',
-    henry_ii_emperor_and_cunigunde_of_luxembourg: 'Saints Henry and Cunigunde',
+    henry_ii_emperor_and_cunigunde_of_luxembourg: 'Saints Henry II and Cunigunde',
     henry_of_finland_bishop: 'Saint Henry, Bishop and Martyr',
     henry_suso_priest: 'Blessed Henry Suso, Priest',
     hermann_joseph_of_steinfeld_priest: 'Saint Hermann Joseph, Priest',
@@ -592,6 +593,7 @@ export const locale: Locale = {
       'Saints Irenaeus, Bishop and Doctor of the Church, Patron of the Archdiocese of Lyon, and Companions, Martyrs',
     irene_of_macedonia: 'Saint Irene',
     irish_martyrs: 'Irish Martyrs',
+    irmina_of_oeren_abbess: 'Saint Irmina of Oeren, Abbess',
     isabelle_of_france_virgin: 'Blessed Isabelle of France, Virgin',
     isidore_of_seville_bishop: 'Saint Isidore, Bishop and Doctor of the Church',
     isidore_the_farmer: 'Saint Isidore',
@@ -925,6 +927,9 @@ export const locale: Locale = {
     ortaire_of_landelles_abbot: 'Saint Ortaire, Abbot',
     otteran_of_iona_monk: 'Saint Otteran, Monk',
     otto_of_bamberg_bishop: 'Saint Otto of Bamberg, Bishop',
+    our_lady_comforter_of_the_afflicted: 'Our Lady, Comforter of the Afflicted',
+    our_lady_comforter_of_the_afflicted_principal_patroness_of_luxembourg:
+      'Blessed Virgin Mary, Comforter of the Afflicted, Principal Patroness of Luxembourg',
     our_lady_help_of_christians: 'Our Lady, Help of Christians',
     our_lady_mediatrix_of_all_grace: 'Our Lady, Mediatrix of All Grace',
     our_lady_mother_of_christian_unity: 'Our Lady, Mother of Christian Unity',
@@ -1102,6 +1107,7 @@ export const locale: Locale = {
     sara_salkahazi_virgin: 'Blessed Sára Salkaházi, Virgin and Martyr',
     saturnin_of_toulouse_bishop: 'Saint Saturnin of Toulouse, Bishop and Martyr',
     savin_of_lavedan_hermit: 'Saint Savin of Lavedan, Hermit',
+    schetzel_of_grunewald_hermit: 'Blessed Schetzel of Grünewald, Hermit',
     scholastica_of_nursia_virgin: 'Saint Scholastica, Virgin',
     sebastian_de_aparicio_religious: 'Blessed Sebastian de Aparicio, Religious',
     sebastian_of_milan_martyr: 'Saint Sebastian, Martyr',
@@ -1229,6 +1235,8 @@ export const locale: Locale = {
       'Saints William Firmatus, Bernard of Tiron and Vitalis of Savigny, and Blesseds Robert of Arbrissel and Raoul de la Futaie, Hermits', // src: mr_fr_1998_ed1_laval
     willibald_of_eichstatt_bishop: 'Saint Willibald, Bishop',
     willibrord_of_utrecht_bishop: 'Saint Willibrord, Bishop',
+    willibrord_of_utrecht_bishop_secondary_patron_of_luxembourg:
+      'Saint Willibrord, Bishop and Missionary, Secondary Patron of Luxembourg',
     winefride_of_flintshire_virgin: 'Saint Winefride, Virgin',
     wladyslaw_bladzinski_priest_and_companions_martyrs: 'Blessed Wladyslaw Błądziński, Priest, and Companions, Martyrs',
     wolfgang_of_regensburg_bishop: 'Saint Wolfgang of Regensburg, Bishop',
