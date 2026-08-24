@@ -91,6 +91,7 @@ export const locale: Locale = {
     all_saints_of_the_diocese_of_creteil: 'All Saints of the Diocese of Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     all_saints_of_the_diocese_of_gap_and_embrun: 'All Saints of the Diocese of Gap and Embrun',
     all_saints_of_the_diocese_of_nanterre: 'All Saints of the Diocese of Nanterre', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    all_saints_of_the_diocese_of_nimes: 'All Saints of the Diocese of Nîmes', // src: mr_fr_1984_ed1_nimes
     all_saints_of_the_diocese_of_saint_denis: 'All Saints of the Diocese of Saint-Denis',
     all_saints_of_wales: 'All Saints of Wales',
     aloysius_gonzaga_religious: 'Saint Aloysius Gonzaga, Religious',
@@ -174,6 +175,8 @@ export const locale: Locale = {
       'The Assumption of the Blessed Virgin Mary, Patroness of France',
     assumption_of_the_blessed_virgin_mary_patroness_of_france_and_principal_patroness_of_the_diocese_of_montauban:
       'The Assumption of the Blessed Virgin Mary, Patroness of France and Principal Patroness of the Diocese of Montauban',
+    assumption_of_the_blessed_virgin_mary_principal_patroness_of_the_diocese_of_nimes:
+      'The Assumption of the Blessed Virgin Mary, Principal Patroness of the Diocese of Nîmes', // src: mr_fr_1984_ed1_nimes
     assumption_of_the_blessed_virgin_mary_titular_of_the_cathedral_and_patroness_of_france_and_the_diocese_of_bayonne:
       'The Assumption of the Blessed Virgin Mary, Titular of the Cathedral and Patroness of France and of the Diocese of Bayonne, Lescar and Oloron',
     athanasius_of_alexandria_bishop: 'Saint Athanasius, Bishop and Doctor of the Church',
@@ -201,6 +204,7 @@ export const locale: Locale = {
     bartholomew_of_the_martyrs_fernandes_bishop: 'Saint Bartholomew of the Martyrs Fernandes, Bishop',
     basil_the_great_and_gregory_nazianzen_bishops:
       'Saints Basil the Great and Gregory Nazianzen, Bishops and Doctors of the Church',
+    baudilus_of_nimes_martyr: 'Saint Baudilus of Nîmes, Martyr', // src: mr_fr_1984_ed1_nimes
     beatrice_da_silva_meneses_virgin: 'Saint Beatrice da Silva Meneses, Virgin',
     bede_the_venerable_priest: 'Saint Bede the Venerable, Priest and Doctor of the Church',
     benedict_of_aniane_abbot: 'Saint Benedict of Aniane, Abbot',
@@ -208,6 +212,7 @@ export const locale: Locale = {
     benedict_of_nursia_abbot: 'Saint Benedict, Abbot',
     benedict_of_nursia_abbot_patron_of_europe: 'Saint Benedict, Abbot, Patron of Europe',
     benedict_the_moor_religious: 'Saint Benedict the Moor, Religious', // src: https://en.wikipedia.org/wiki/Benedict_the_Moor
+    benezet_of_avignon: 'Saint Bénézet of Avignon', // src: mr_fr_1984_ed1_nimes
     benildus_romancon_religious: 'Saint Benildus Romançon, Religious',
     benno_of_meissen_bishop: 'Saint Benno of Meissen, Bishop',
     bernadette_soubirous_virgin: 'Saint Bernadette Soubirous, Virgin',
@@ -218,11 +223,13 @@ export const locale: Locale = {
     bertrand_antoine_de_caupenne_priest: 'Blessed Bertrand-Antoine de Caupenne, Priest and Martyr',
     bertrand_of_aquileia_bishop: 'Blessed Bertrand of Aquileia, Bishop',
     bertrand_of_comminges_bishop: 'Saint Bertrand of Comminges, Bishop',
+    bertrand_of_garrigues_priest: 'Blessed Bertrand of Garrigues, Priest', // src: mr_fr_1984_ed1_nimes
     beuno_of_wales_abbot: 'Saint Beuno, Abbot',
     blaise_of_sebaste_bishop: 'Saint Blaise, Bishop and Martyr',
     blessed_martyrs_of_angers: 'Blessed Martyrs of Angers', // mr_fr_2022_ed3_angers
     blessed_martyrs_of_douai: 'Blessed Martyrs of Douai',
     blessed_martyrs_of_paris: 'Blessed Martyrs of Paris',
+    blessed_religious_martyrs_of_orange: 'Blessed Religious Martyrs of Orange', // src: mr_fr_1984_ed1_nimes
     bogumilus_of_dobrow_bishop: 'Blessed Bogumilus, Bishop',
     boleslawa_mary_lament_virgin: 'Blessed Boleslawa Mary Lament, Virgin',
     bonaventure_of_bagnoregio_bishop: 'Saint Bonaventure, Bishop and Doctor of the Church',
@@ -254,6 +261,7 @@ export const locale: Locale = {
     caroline_kozka_virgin: 'Blessed Caroline Kózka, Virgin and Martyr',
     carthage_of_lismore_bishop: 'Saint Carthage, Bishop',
     casimir_of_poland: 'Saint Casimir',
+    castor_of_apt_bishop: 'Saint Castor of Apt, Bishop', // src: mr_fr_1984_ed1_nimes
     catherine_jarrige_virgin: 'Blessed Catherine Jarrige, Virgin',
     catherine_of_alexandria_virgin: 'Saint Catherine of Alexandria, Virgin and Martyr',
     catherine_of_siena_virgin: 'Saint Catherine of Siena, Virgin and Doctor of the Church',
@@ -354,6 +362,8 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france:
       'The Dedication of the Cathedral of Coutances, France',
     dedication_of_the_cathedral_of_notre_dame_of_creteil_france: 'The Dedication of the Cathedral of Créteil, France', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    dedication_of_the_cathedral_of_our_lady_and_saint_castor_nimes_france:
+      'The Dedication of the Cathedral of Our Lady and Saint Castor, Nîmes, France', // src: mr_fr_1984_ed1_nimes
     dedication_of_the_cathedral_of_our_lady_immaculate_monaco:
       'The Dedication of the Cathedral of Our Lady Immaculate, Monaco', // src: mr_fr_2021_ed3
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
@@ -463,12 +473,14 @@ export const locale: Locale = {
     faith_of_agen_virgin: 'Saint Faith of Agen, Virgin and Martyr',
     faustina_kowalska_virgin: 'Saint Faustina Kowalska, Virgin',
     ferdinand_iii_of_castile: 'Saint Ferdinand III of Castile',
+    ferreolus_of_uzes_bishop: 'Saint Ferreolus of Uzès, Bishop', // src: mr_fr_1984_ed1_nimes
     fiacre_of_breuil_monk: 'Saint Fiacre, Monk',
     fidelis_of_sigmaringen_priest: 'Saint Fidelis of Sigmaringen, Priest and Martyr',
     finbarr_of_cork_bishop: 'Saint Finbarr, Bishop',
     finding_of_the_holy_cross: 'Finding of the Holy Cross',
     finnian_of_clonard_bishop: 'Saint Finian, Bishop',
     fintan_of_clonenagh_abbot: 'Saint Fintan, Abbot',
+    firminus_of_uzes_bishop: 'Saint Firminus of Uzès, Bishop', // src: mr_fr_1984_ed1_nimes
     first_martyrs_of_the_holy_roman_church: 'The First Martyrs of the Holy Roman Church',
     first_polish_martyrs: 'Saints Benedict, John, Matthew, Isaac and Christian, the First Polish Martyrs',
     five_wounds_of_the_lord: 'Five Wounds of the Lord',
@@ -543,6 +555,7 @@ export const locale: Locale = {
     gerald_of_aurillac: 'Saint Gerald of Aurillac',
     gerald_of_braga_bishop: 'Saint Gerald of Braga, Bishop',
     gerard_of_csanad_bishop: 'Saint Gerard of Csanád, Bishop and Martyr',
+    gerard_of_lunel_hermit: 'Blessed Gerard of Lunel, Hermit', // src: mr_fr_1984_ed1_nimes
     germain_of_paris_bishop: 'Saint Germain of Paris, Bishop',
     germaine_cousin_virgin: 'Saint Germaine Cousin, Virgin',
     germanus_of_auxerre_bishop: 'Saint Germanus of Auxerre, Bishop', // src: https://en.wikipedia.org/wiki/Germanus_of_Auxerre
@@ -550,6 +563,7 @@ export const locale: Locale = {
     germier_of_toulouse_bishop: 'Saint Germier of Toulouse, Bishop',
     gertrude_of_nivelles_abbess: 'Saint Gertrude of Nivelles, Abbess',
     gertrude_the_great_virgin: 'Saint Gertrude, Virgin',
+    giles_of_saint_gilles_abbot: 'Saint Giles, Abbot', // src: mr_fr_1984_ed1_nimes
     girons_of_hagetmau_martyr: 'Saint Girons of Hagetmau, Monk and Martyr',
     gisela_of_hungary: 'Blessed Gisela',
     gobnait_of_ballyvourney_virgin: 'Saint Gobnait, Virgin',
@@ -791,6 +805,7 @@ export const locale: Locale = {
     leon_of_bayonne_bishop_and_martyr: 'Saint Leo of Bayonne, Bishop and Martyr, Patron of the City of Bayonne',
     leonard_of_noblac_hermit: 'Saint Leonard of Noblac, Hermit',
     leonid_feodorov_priest: 'Blessed Leonid Feodorov, Priest and Martyr',
+    leontius_of_frejus_bishop: 'Saint Leontius of Fréjus, Bishop', // src: mr_fr_1984_ed1_nimes
     leopold_iii_of_babenberg: 'Saint Leopold III of Babenberg',
     leopold_mandic_priest: 'Saint Leopold Mandić, Priest',
     leothade_of_auch_bishop: 'Saint Leothade of Auch, Bishop',
@@ -877,6 +892,8 @@ export const locale: Locale = {
     mary_magdalene_de_pazzi_virgin: 'Saint Mary Magdalene de’ Pazzi, Virgin',
     mary_mother_of_god: 'The Octave Day of the Nativity of the Lord: Solemnity of Mary, the Holy Mother of God',
     mary_mother_of_the_church: 'Blessed Virgin Mary, Mother of the Church',
+    mary_of_clopas_and_salome_disciples: 'Saints Mary of Clopas and Salome, Disciples of the Lord', // src: mr_fr_1984_ed1_nimes
+    mary_of_clopas_disciple: 'Saint Mary of Clopas, Disciple of the Lord', // src: mr_fr_1984_ed1_nimes
     mary_of_jesus_crucified_baouardy_virgin: 'Saint Mary of Jesus Crucified Baouardy, Virgin',
     mary_of_jesus_crucified_petkovic_virgin: 'Blessed Mary of Jesus Crucified Petković, Virgin',
     mary_of_jesus_in_the_blessed_sacrament_venegas_de_la_torre_virgin:
@@ -889,6 +906,7 @@ export const locale: Locale = {
     mary_of_the_providence_eugenie_smet_virgin: 'Blessed Mary of the Providence Eugénie Smet, Virgin',
     mary_of_the_sacred_heart_sophie_therese_de_soubiran_la_louviere_virgin:
       'Blessed Mary Thérèse de Soubiran La Louvière, Virgin',
+    mary_rivier_virgin: 'Saint Mary Rivier, Virgin', // src: https://www.nimes-catholique.fr/saints-du-diocese-de-nimes/
     mary_soledad_torres_acosta_virgin: 'Saint Mary Soledad Torres y Acosta, Virgin',
     mary_stella_of_the_blessed_sacrament_mardosewicz_and_companions_virgins:
       'Blessed Mary Stella of the Blessed Sacrament Mardosewicz and Companions, Virgins and Martyrs',
@@ -1078,6 +1096,9 @@ export const locale: Locale = {
     peter_liu_wenyuan_martyr: 'Saint Peter Liu Wenyuan, Martyr',
     peter_nolasco_religious: 'Saint Peter Nolasco, Religious',
     peter_of_alcantara_priest: 'Saint Peter of Alcántara, Priest',
+    peter_of_castelnau_martyr: 'Blessed Peter of Castelnau, Martyr', // src: https://www.nimes-catholique.fr/wp-content/uploads/2026/01/2026.01.feuille.paroissiale.pdf
+    peter_of_castelnau_priest: 'Blessed Peter of Castelnau, Priest and Martyr',
+    peter_of_luxembourg_bishop: 'Blessed Peter of Luxembourg, Bishop', // src: mr_fr_1984_ed1_nimes
     peter_poveda_and_innocent_of_mary_immaculate_canoura_priests_and_companions_martyrs:
       // src: https://en.wikipedia.org/wiki/Pedro_Poveda_Castroverde, https://en.wikipedia.org/wiki/Inocencio_of_Mary_Immaculate,
       'Saints Peter Poveda Castroverde and Innocent of Mary Immaculate Canoura Arnau, Priests, and Companions Martyrs',
@@ -1100,6 +1121,7 @@ export const locale: Locale = {
     pius_x_pope: 'Saint Pius X, Pope',
     placide_eulalie_victoire_jacqueline_viel_virgin: 'Blessed Placide Viel, Virgin',
     polycarp_of_smyrna_bishop: 'Saint Polycarp, Bishop and Martyr',
+    pons_of_villeneuve_les_avignon_abbot: 'Saint Pons, Abbot', // src: mr_fr_1984_ed1_nimes
     pontian_i_pope_and_hippolytus_of_rome_priest: 'Saints Pontian, Pope, and Hippolytus, Priest, Martyrs',
     pontius_of_cimiez_martyr: 'Saint Pontius of Cimiez, Martyr', // src: mr_fr_2021_ed3
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs:
@@ -1127,6 +1149,7 @@ export const locale: Locale = {
     raymond_gayrard_religious: 'Saint Raymond Gayrard, Religious',
     raymond_of_barbastro_bishop: 'Saint Raymond of Barbastro, Bishop',
     raymond_of_penyafort_priest: 'Saint Raymond of Penyafort, Priest',
+    reginald_of_orleans_priest: 'Blessed Reginald of Orléans, Priest', // src: mr_fr_1984_ed1_nimes
     remembrance_day: 'Remembrance Day',
     remigius_of_gap_and_tigidius_of_gap_bishops: 'Saints Remigius and Tigidius, Bishops',
     remigius_of_gap_bishop: 'Saint Remigius of Gap, Bishop',
@@ -1151,6 +1174,7 @@ export const locale: Locale = {
     roseline_of_villeneuve_virgin: 'Saint Roseline of Villeneuve, Virgin',
     rumpharius_of_coutances_bishop: 'Saint Rumpharius, Bishop',
     rupert_of_salzburg_and_virgilius_of_salzburg_bishops: 'Saints Rupert and Virgilius of Salzburg, Bishops',
+    salome_disciple: 'Saint Salome, Disciple of the Lord', // src: mr_fr_1984_ed1_nimes
     salomea_of_poland_religious: 'Blessed Salomea of Poland, Religious',
     salvius_of_albi_bishop: 'Saint Salvius of Albi, Bishop',
     sancha_of_portugal_and_mafalda_of_portugal_virgins: 'Blessed Sancha and Mafalda, Virgins',

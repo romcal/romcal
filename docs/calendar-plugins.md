@@ -54,6 +54,7 @@ Below the list of all available calendar plugins:
 | France / Lourdes Sanctuary     | `@romcal/calendar.france.lourdes-sanctuary@dev`     |
 | France / Montauban             | `@romcal/calendar.france.montauban@dev`             |
 | France / Nanterre              | `@romcal/calendar.france.nanterre@dev`              |
+| France / Nimes                 | `@romcal/calendar.france.nimes@dev`                 |
 | France / Pamiers               | `@romcal/calendar.france.pamiers@dev`               |
 | France / Paris                 | `@romcal/calendar.france.paris@dev`                 |
 | France / Rodez                 | `@romcal/calendar.france.rodez@dev`                 |
