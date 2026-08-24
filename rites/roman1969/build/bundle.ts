@@ -26,7 +26,7 @@ import { GeneralRoman } from '../src/calendars/general-roman';
 import { Martyrology } from '../src/catalog/martyrology';
 import { PROPER_OF_TIME_NAME } from '../src/constants/general-calendar-names';
 import { locales } from '../src/locales';
-import { sanitizeLocaleId, toPascalCase } from '../src/utils/string';
+import { sanitizeLocaleId, toPackageName, toPascalCase } from '../src/utils/string';
 
 const { log } = console;
 
@@ -63,9 +63,7 @@ export class RomcalBuilder {
 
   getOutputFilename(): string {
     const calendarDefs = this.#config.calendarsDef;
-    const currentCalendarName: string = calendarDefs[calendarDefs.length - 1].calendarName
-      .replace('__', '.')
-      .replace('_', '-');
+    const currentCalendarName = toPackageName(calendarDefs[calendarDefs.length - 1].constructor.name);
     return `${currentCalendarName}.${this.#config.localeId}.ts`;
   }
 
@@ -236,10 +234,7 @@ export const RomcalBundler = (): void => {
     }
 
     // Define package name, variable name and package dist.
-    const pkgName = calendar.name
-      .replace(/([^_]+)([A-Z])/g, '$1-$2')
-      .replace(/_/g, '.')
-      .toLowerCase();
+    const pkgName = toPackageName(calendar.name);
     const dir = resolve(__dirname, '../tmp/bundles/', pkgName);
 
     /**

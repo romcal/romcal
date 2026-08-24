@@ -11,6 +11,7 @@ import { France_Lyon } from './archdiocese-of-lyon';
 import { France_Paris } from './archdiocese-of-paris';
 import { France_Toulouse } from './archdiocese-of-toulouse';
 import { France_Angers } from './diocese-of-angers';
+import { France_BayonneLescarOloron } from './diocese-of-bayonne-lescar-and-oloron';
 import { France_Cahors } from './diocese-of-cahors';
 import { France_Coutances } from './diocese-of-coutances';
 import { France_Creteil } from './diocese-of-creteil';
@@ -159,6 +160,7 @@ export {
   France_Lyon,
   France_Paris,
   France_Angers,
+  France_BayonneLescarOloron,
   France_Cahors,
   France_Coutances,
   France_Creteil,

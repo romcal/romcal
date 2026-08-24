@@ -98,6 +98,7 @@ export const locale: Locale = {
     andrew_bauer_martyr: 'Saint André Bauer, martyr († 1900)',
     andrew_dung_lac_priest_and_companions_martyrs:
       'Saint André Dung Lac, prêtre, et ses compagnons, martyrs († entre 1745 et 1862)',
+    andrew_hubert_fournet_priest: 'Saint André-Hubert Fournet, prêtre († 1834)',
     andrew_kim_tae_gon_priest_paul_chong_ha_sang_and_companions_martyrs:
       'Saint André Kim Taegon, prêtre, et Paul Chong Ha-sang et ses compagnons, martyrs en Corée († XIXème s.)',
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits:
@@ -144,6 +145,8 @@ export const locale: Locale = {
       'Assomption de la bienheureuse Vierge Marie, patronne principale de la France',
     assumption_of_the_blessed_virgin_mary_patroness_of_france_and_principal_patroness_of_the_diocese_of_montauban:
       'Assomption de la bienheureuse Vierge Marie, patronne principale de la France et du diocèse de Montauban',
+    assumption_of_the_blessed_virgin_mary_titular_of_the_cathedral_and_patroness_of_france_and_the_diocese_of_bayonne:
+      'Assomption de la bienheureuse Vierge Marie, titulaire de la cathédrale, patronne de la France et du diocèse de Bayonne, Lescar et Oloron',
     athanasius_of_alexandria_bishop: 'Saint Athanase, évêque, docteur et père de l’Église († 373)',
     aubert_of_avranches_bishop: 'Saint Aubert, évêque († 725)', // src: mr_fr_1982_ed2_coutances
     audoen_of_rouen_bishop: 'Saint Ouen, évêque',
@@ -284,6 +287,7 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_saint_cecilia_albi_france: 'Dédicace de la cathédrale Sainte-Cécile d’Albi', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
     dedication_of_the_cathedral_of_saint_john_the_baptist_lyon_france: 'Dédicace de la cathédrale primatiale', // src: mr_fr_2014_ed2_lyon
     dedication_of_the_cathedral_of_saint_mary_auch_france: 'Dédicace de la cathédrale Sainte-Marie d’Auch',
+    dedication_of_the_cathedral_of_saint_mary_of_bayonne_france: 'Dédicace de la cathédrale Sainte-Marie de Bayonne',
     dedication_of_the_cathedral_of_saint_maurice_of_agaunum_angers_france: 'Dédicace de la Cathédrale Saint-Maurice', // mr_fr_2022_ed3_angers
     dedication_of_the_cathedral_of_saint_peter_saint_flour_france:
       'Dédicace de la cathédrale Saint-Pierre de Saint-Flour',
@@ -320,6 +324,7 @@ export const locale: Locale = {
     eldrad_of_novalesa_abbot: 'Saint Eldrad, abbé de la Novalaise († 875)', // src: mr_fr_2016_ed1_gap_embrun
     eligius_of_noyon_bishop: 'Saint Éloi, évêque',
     elijah_prophet: 'Saint Élie, prophète († IXe s. av. J.-C.)',
+    elizabeth_bichier_des_ages_virgin: 'Sainte Élisabeth Bichier des Âges, vierge († 1838)',
     elizabeth_of_hungary_religious: 'Sainte Élisabeth de Hongrie († 1231)',
     elizabeth_of_portugal: 'Sainte Élisabeth du Portugal, reine († 1336)',
     emilie_de_rodat_virgin: 'Sainte Émilie de Rodat, vierge († 1852)',
@@ -368,6 +373,8 @@ export const locale: Locale = {
       'Saint François d’Assise, fondateur de l’ordre des Frères mineurs, patron de l’Italie († 1226)',
     francis_of_paola_hermit: 'Saint François de Paule, ermite, fondateur de l’ordre des Minimes († 1507)',
     francis_xavier_priest: 'Saint François-Xavier, prêtre, Jésuite Missionnaire († 1552)',
+    francois_dardan_priest_and_companions_martyrs:
+      'Bienheureux François Dardan, prêtre, et ses compagnons, martyrs († 1792)',
     francois_de_montmorency_laval_bishop: 'Saint François de Laval, premier évêque de Québec († 1708)',
     francois_louis_meallet_de_fargues_priest:
       'Bienheureux François-Louis Méallet de Fargues, prêtre et martyr († 1792)',
@@ -380,6 +387,7 @@ export const locale: Locale = {
     fridolin_of_sackingen_monk: 'Saint Fridolin, moine missionnaire († 540)',
     fris_of_bassoues_martyr: 'Saint Fris, martyr († v. 732)',
     fromundus_of_coutances_bishop: 'Saint Fromond, évêque de Coutances († v. 691)', // src: mr_fr_1982_ed2_coutances
+    galactorius_of_lescar_bishop_and_martyr: 'Saint Galactoire de Lescar, évêque et martyr',
     gall_of_switzerland_abbot: 'Saint Gall, abbé et missionnaire († 641 ou 646)',
     gaud_of_evreux_bishop: 'Saint Gaud, évêque († v. 491)', // src: mr_fr_1982_ed2_coutances
     gauderic_of_vieville: 'Saint Gaudéric († v. 900)',
@@ -404,6 +412,7 @@ export const locale: Locale = {
     gertrude_of_nivelles_abbess: 'Sainte Gertrude de Nivelles, abbesse († 659)',
     gertrude_the_great_virgin: 'Sainte Gertrude, vierge moniale († 1301)',
     girons_of_hagetmau_martyr: 'Saint Girons, moine et martyr († Ve s.)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    grat_of_oloron_bishop: 'Saint Grat d’Oloron, évêque, patron de la ville d’Oloron',
     gregory_i_the_great_pope: 'Saint Grégoire le Grand, pape et docteur de l’Église († 604)',
     gregory_of_narek_abbot: 'Saint Grégoire de Narek, abbé et docteur de l’Église',
     gregory_vii_pope: 'Saint Grégoire VII, pape († 1085)',
@@ -460,6 +469,8 @@ export const locale: Locale = {
       'Bienheureux Jean-Baptiste Turpin du Cormier, prêtre et martyr († 1794)', // src: mr_fr_1998_ed1_laval
     jean_chevillard_and_companions_martyrs:
       'Bienheureux Jean Chevillard et ses compagnons, religieux et martyrs († 1994-1996)', // mr_fr_2022_ed3_angers
+    jean_de_mayorga_religious_and_companions_martyrs:
+      'Bienheureux Jean de Mayorga, religieux, et ses compagnons, martyrs († 1570)',
     jean_francois_bonnel_de_pradal_priest: 'Bienheureux Jean-François Bonnel de Pradal, prêtre et martyr († 1792)',
     jean_lacan_priest: 'Bienheureux Jean Lacan, prêtre et martyr († 1792)',
     jean_louis_bonnard_priest: 'Saint Jean-Louis Bonnard, prêtre et martyr († 1841)', // src: mr_fr_2014_ed2_lyon
@@ -529,6 +540,7 @@ export const locale: Locale = {
     julian_of_le_mans_bishop: 'Saint Julien, évêque du Mans († IVe s.)', // src: mr_fr_1998_ed1_laval
     julian_of_le_mans_bishop_second_patron_of_the_diocese_of_laval:
       'Saint Julien, premier évêque du Mans, patron secondaire du diocèse', // src: mr_fr_1998_ed1_laval
+    julian_of_lescar_bishop: 'Saint Julien de Lescar, évêque, patron de la ville de Lescar',
     juliana_of_liege_virgin: 'Sainte Julienne de Cornillon, religieuse Augustine († 1258)',
     julie_billiart_virgin:
       'Sainte Julie Billiart, religieuse, fondatrice de l’Institut des Sœurs de Notre-Dame († 1816)',
@@ -553,9 +565,11 @@ export const locale: Locale = {
     leo_ix_pope: 'Saint Léon IX, pape († 540)',
     leodegar_of_autun_bishop: 'Saint Léger, évêque et martyr († 679 ou 680)',
     leon_de_carentan_bishop: 'Saint Léon de Carentan, évêque et martyr († 890)', // src: mr_fr_1982_ed2_coutances
+    leon_of_bayonne_bishop_and_martyr: 'Saint Léon de Bayonne, évêque et martyr, patron de la ville de Bayonne',
     leothade_of_auch_bishop: 'Saint Léothade, évêque d’Auch († 718)',
     licinius_of_angers_bishop: 'Saint Lézin, évêque († 610)', // mr_fr_2022_ed3_angers
     lizier_of_couserans_bishop: 'Saint Lizier, évêque († au VIe s.)',
+    louis_edouard_cestac_priest: 'Bienheureux Louis-Édouard Cestac, prêtre († 1868)',
     louis_grignion_de_montfort_priest: 'Saint Louis-Marie Grignion de Montfort, prêtre († 1716)', // mr_fr_2021_ed3
     louis_ix_of_france: 'Saint Louis, roi de France († 1270)',
     louis_ix_of_france_patron_of_the_diocese_of_creteil:
@@ -611,6 +625,7 @@ export const locale: Locale = {
     mary_magdalene_de_pazzi_virgin: 'Sainte Marie-Madeleine de Pazzi, vierge de l’Ordre du Carmel († 1607)',
     mary_mother_of_god: 'Sainte Marie, Mère de Dieu',
     mary_mother_of_the_church: 'Bienheureuse Vierge Marie, Mère de l’Église',
+    mary_of_jesus_crucified_baouardy_virgin: 'Sainte Mariam de Jésus Crucifié, vierge († 1878)',
     mary_of_montjournal_hermit: 'Saint Mary de Montjournal, ermite',
     mary_of_the_incarnation_barbara_acarie_religious:
       'Bienheureuse Marie de l’Incarnation, Carmélite à Pontoise († 1618)',
