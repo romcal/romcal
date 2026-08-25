@@ -2492,10 +2492,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'John Gabriel Perboyre',
       titles: [Title.Priest, Title.Martyr],
     },
+    // src: https://www.vatican.va/content/leo-xiv/en/letters/2025/documents/20251101-chirografo-newman-patrono.html
     john_henry_newman_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John Henry Newman',
-      titles: [Title.Priest],
+      titles: [Title.Priest, Title.DoctorOfTheChurch],
+      dateOfBirth: '1801-02-21',
+      dateOfDeath: '1890-08-11',
+      dateOfCanonization: '2019-10-13',
     },
     john_i_pope: {
       canonizationLevel: CanonizationLevels.Saint,

@@ -449,7 +449,7 @@ export const locale: Locale = {
     john_eudes_priest: 'புனித ஜோன் யூட்ஸ் - அருட்பணியாளர்',
     john_fisher_bishop_and_thomas_more_martyrs: 'புனித ஜோன் பிஷர் - ஆயர், புனித தோமஸ் மோர் - மறைசாட்சி',
     john_gabriel_perboyre_priest: 'புனித ஜோன் கேப்றியேல் பெர்போரே - அருட்பணியாள்ர், மறை சாட்சி',
-    john_henry_newman_priest: 'புனித ஜோன் ஹென்றி நியுமன் - அருட்பணியாளர்',
+    john_henry_newman_priest: 'புனித ஜோன் ஹென்றி நியுமன் - அருட்பணியாளர், மறைவல்லுனர்',
     john_i_pope: 'புனித முதலாம் அருளப்பர் - திருத்தந்தை, மறைசாட்சி',
     john_jones_priest: 'புனித ஜொன் ஜோன்ஸ் - அருட்பணியாளர், மறைசாட்சி',
     john_leonardi_priest: 'புனித ஜோன் லெனார்டி - அருட்பணியாளர்',
