@@ -264,7 +264,7 @@ export class ProperOfTime extends CalendarDef {
 
     // The Baptism of the Lord.
     this.#newLiturgicalDayDef('baptism_of_the_lord', {
-      precedence: Precedences.ProperOfTimeSolemnity_2,
+      precedence: Precedences.GeneralLordFeast_5,
       dateDef: { dateFn: 'baptismOfTheLord', yearOffset },
       seasons: [Season.ChristmasTime],
       periods: [Period.DaysFromEpiphany, Period.ChristmasToPresentationOfTheLord],
