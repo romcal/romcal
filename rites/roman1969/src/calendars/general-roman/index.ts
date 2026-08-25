@@ -1324,6 +1324,14 @@ export class GeneralRoman extends CalendarDef {
       commonsDef: [Common.Missionaries, Common.MercyWorkers],
     },
 
+    // Added on 2025-11-09: https://www.vatican.va/content/romancuria/en/dicasteri/dicastero-culto-divino-e-disciplina-sacramenti/documenti/20251109-decreto-iscrizione-newman.html
+    // src: https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2026/02/03/0095/00182.html
+    john_henry_newman_priest: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 10, date: 9 },
+      commonsDef: [Common.Pastors, Common.DoctorsOfTheChurch],
+    },
+
     // Added on 2014-05-29: https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20140529_decreto-calendario-generale-gxxiii-gpii_en.html
     // src: mr_fr_2021_ed3, mr_it_2020_ed3
     john_xxiii_pope: {

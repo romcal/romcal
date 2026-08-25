@@ -431,7 +431,7 @@ export const locale: Locale = {
     john_eudes_priest: 'S. Ioannis Eudes, presbyteri',
     john_fisher_bishop_and_thomas_more_martyrs: 'Ss. Ioannis Fisher, episcopi, et Thomæ More, martyrum',
     john_gabriel_perboyre_priest: 'S. Ioannis Gabrielis Perboyre, presbyteri et martyris',
-    john_henry_newman_priest: 'S. Ioannis Henrici Newman, presbyteri',
+    john_henry_newman_priest: 'S. Ioannis Henrici Newman, presbyteri et Ecclesiæ doctoris',
     john_i_pope: 'S. Ioannis I, papæ et martyris',
     john_jones_priest: 'S. Ioannis Jones, presbyteri et martyris',
     john_leonardi_priest: 'S. Ioannis Leonardi, presbyteri',
