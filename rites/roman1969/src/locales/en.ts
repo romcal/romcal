@@ -539,7 +539,7 @@ export const locale: Locale = {
     john_fisher_bishop_and_thomas_more_martyrs: 'Saints John Fisher, Bishop, and Thomas More, Martyrs',
     john_francis_regis_priest: 'Saint John Francis Regis, Priest',
     john_gabriel_perboyre_priest: 'Saint John Gabriel Perboyre, Priest and Martyr',
-    john_henry_newman_priest: 'Saint John Henry Newman, Priest',
+    john_henry_newman_priest: 'Saint John Henry Newman, Priest and Doctor of the Church',
     john_i_pope: 'Saint John I, Pope and Martyr',
     john_jones_priest: 'Saint John Jones, Priest and Martyr',
     john_leonardi_priest: 'Saint John Leonardi, Priest',

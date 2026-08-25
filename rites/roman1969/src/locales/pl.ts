@@ -245,6 +245,7 @@ export const locale: Locale = {
     john_eudes_priest: 'Św. Jana Eudesa, prezbitera',
     john_fisher_bishop_and_thomas_more_martyrs: 'Świętych męczenników Jana Fishera, biskupa i Tomasza More’a',
     john_gabriel_perboyre_priest: 'Św. Jana Gabriela Perboyre’a, prezbitera i męczennika',
+    john_henry_newman_priest: 'Św. Johna Henry’ego Newmana, prezbitera i doktora Kościoła',
     john_i_pope: 'Św. Jana I, papieża i męczennika',
     john_leonardi_priest: 'Św. Jana Leonardiego, prezbitera',
     john_martin_moye_priest: 'Bł. Jana Marcina Moyego, prezbitera',

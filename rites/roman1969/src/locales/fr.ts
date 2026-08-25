@@ -348,6 +348,7 @@ export const locale: Locale = {
     john_eudes_priest: 'Saint Jean Eudes, prêtre († 1680)',
     john_fisher_bishop_and_thomas_more_martyrs: 'Saints Jean Fisher, évêque, et Thomas More, martyrs († 1535)',
     john_francis_regis_priest: 'Saint Jean-François Régis, prêtre († 1640)', // src: mr_fr_2014_ed2_lyon
+    john_henry_newman_priest: 'Saint John Henry Newman, prêtre et docteur de l’Église († 1890)',
     john_i_pope: 'Saint Jean Ier, pape et martyr († 526)',
     john_leonardi_priest: 'Saint Jean Léonardi, prêtre († 1609)',
     john_mary_vianney_priest: 'Saint Jean-Marie Vianney, prêtre, curé d’Ars († 1859)',

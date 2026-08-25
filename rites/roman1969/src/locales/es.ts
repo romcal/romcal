@@ -258,6 +258,7 @@ export const locale: Locale = {
       'Santos Juan de Brébeuf e Isaac Jogues, presbíteros, y compañeros, mártires',
     john_eudes_priest: 'San Juan Eudes, presbítero',
     john_fisher_bishop_and_thomas_more_martyrs: 'Santos Juan Fisher, obispo, y Tomás Moro, mártires',
+    john_henry_newman_priest: 'San John Henry Newman, presbítero y doctor de la Iglesia',
     john_i_pope: 'San Juan I, papa y mártir',
     john_leonardi_priest: 'San Juan Leonardi, presbítero',
     john_mary_vianney_priest: 'San Juan María Vianney, presbítero',
