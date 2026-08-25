@@ -446,7 +446,7 @@ export const locale: Locale = {
     john_eudes_priest: 'Svätého Jána Eudesa, kňaza',
     john_fisher_bishop_and_thomas_more_martyrs: 'Svätých Jána Fišera, biskupa, a Tomáša Morusa, mučeníkov',
     john_gabriel_perboyre_priest: 'Svätého Jána Gabriela Perboyreho, kňaza a mučeníka',
-    john_henry_newman_priest: 'Svätého Johna Henryho Newmana, kňaza',
+    john_henry_newman_priest: 'Svätého Johna Henryho Newmana, kňaza a učiteľa Cirkvi',
     john_i_pope: 'Svätého Jána I., pápeža a mučeníka',
     john_jones_priest: 'Svätého Jána Jonesa, kňaza a mučeníka',
     john_leonardi_priest: 'Svätého Jána Leonardiho, kňaza',

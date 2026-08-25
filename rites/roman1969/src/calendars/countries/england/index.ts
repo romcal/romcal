@@ -153,7 +153,6 @@ export class England extends CalendarDef {
 
     john_henry_newman_priest: {
       precedence: Precedences.ProperFeast_8f,
-      dateDef: { month: 10, date: 9 },
     },
 
     denis_of_paris_bishop_and_companions_martyrs: {

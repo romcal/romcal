@@ -226,6 +226,7 @@ export const locale: Locale = {
     john_de_britto_priest: 'São João de Brito, presbítero e mártir',
     john_eudes_priest: 'São João Eudes, presbítero',
     john_fisher_bishop_and_thomas_more_martyrs: 'Santos João Fisher, bispo e Tomás More, mártires', // src: https://arquidiocesemilitar.org.br/wp-content/uploads/2025/01/DIRETORIO-LITURGICO-OMB-2025-1_compressed.pdf#page=81
+    john_henry_newman_priest: 'São John Henry Newman, presbítero e doutor da Igreja',
     john_i_pope: 'São João I, papa e mártir',
     john_leonardi_priest: 'São João Leonardi, presbítero',
     john_mary_vianney_priest: 'São João Maria Vianney, presbítero',
