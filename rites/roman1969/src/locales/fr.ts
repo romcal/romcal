@@ -468,6 +468,7 @@ export const locale: Locale = {
     john_i_pope: 'Saint Jean Ier, pape et martyr († 526)',
     john_leonardi_priest: 'Saint Jean Léonardi, prêtre († 1609)',
     john_mary_vianney_priest: 'Saint Jean-Marie Vianney, prêtre, curé d’Ars († 1859)',
+    john_nepomucene_priest: 'Saint Jean Népomucène, prêtre et martyr († 1393)',
     john_of_avila_priest: 'Saint Jean d’Avila, prêtre et docteur de l’Église († 1569)',
     john_of_capistrano_priest: 'Saint Jean de Capistran, prêtre de l’Ordre des Mineurs († 1456)',
     john_of_god_duarte_cidade_religious: 'Saint Jean de Dieu, religieux, fondateur des Frères de la Charité († 1550)',
@@ -614,6 +615,9 @@ export const locale: Locale = {
     nereus_of_terracina_and_achilleus_of_terracina_martyrs: 'Saints Nérée et Achillée, martyrs à Rome († v. 304)',
     nicetius_of_lyon_bishop: 'Saint Nizier, évêque († 573)', // src: mr_fr_2014_ed2_lyon
     nicholas_barre_priest: 'Bienheureux. Nicolas Barré, prêtre († 1686 à Paris)',
+    nicholas_of_flue_hermit: 'Saint Nicolas de Flüe, ermite († 1487)', // src: mr_fr_2021_ed3
+    nicholas_of_flue_hermit_patron_of_switzerland:
+      'Saint Nicolas de Flüe, patron principal de la Confédération helvétique († 1487)', // src: mr_fr_2021_ed3
     nicholas_of_myra_bishop: 'Saint Nicolas, évêque de Myre († v. 350)',
     noel_pinot_priest: 'Bienheureux Noël Pinot, prêtre et martyr († 1794)', // mr_fr_2022_ed3_angers
     norbert_of_xanten_bishop: 'Saint Norbert, évêque († 1134)',
