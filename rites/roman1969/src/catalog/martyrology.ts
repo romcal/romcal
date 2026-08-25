@@ -698,6 +698,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Abbot, Title.DoctorOfTheChurch],
       dateOfDeath: 1153,
     },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/6570/Saint-Bernard-de-Thiron.html
+    bernard_of_tiron_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Bernard of Tiron',
+      titles: [Title.Abbot, Title.Hermit],
+      dateOfDeath: '1117-04-14',
+    },
     bernardine_of_siena_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Bernardine of Siena',
@@ -831,6 +841,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest],
       dateOfDeath: 1547,
     },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/7431/Saint-Calais.html
+    calais_of_anisole_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Calais of Anisole',
+      titles: [Title.Abbot],
+      dateOfDeath: 542,
+      dateOfDeathIsApproximative: true,
+    },
     callistus_caravario_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Callistus Caravario',
@@ -924,6 +945,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Ceferino Giménez Malla',
       titles: [Title.Martyr],
     },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/10895/Saint-C%C3%A9ner%C3%A9.html
+    cenere_of_saulges_hermit: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Céneré of Saulges',
+      titles: [Title.Hermit],
+      dateOfDeath: 680,
+    },
     ceraunus_of_paris_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Céran of Paris',
@@ -951,6 +982,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfDeath: 1584,
     },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/11779/Bienheureux-Charles-Ren%C3%A9-Collas-du-Bignon.html
+    charles_collas_du_bignon_priest_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Charles-René Collas du Bignon',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1743-08-25',
+      dateOfDeath: '1794-06-03',
+      dateOfBeatification: '1995-10-01',
+    },
     charles_i_of_austria: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Charles of Austria',
@@ -959,6 +1002,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Charles Lwanga',
       dateOfDeath: 618,
+    },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/1935/Bienheureux-Charles-de-Blois.html
+    charles_of_blois: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Charles of Blois',
+      dateOfBirth: { or: [1319, 1320] },
+      dateOfDeath: '1364-09-29',
     },
     charles_of_jesus_de_foucauld: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1093,6 +1146,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Conrad of Parzham',
       titles: [Title.Religious],
     },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/5649/Saint-Constantien.html
+    constantien_of_javron_hermit: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Constantien of Javron',
+      titles: [Title.Abbot, Title.Hermit],
+      dateOfDeath: 570,
+      dateOfDeathIsApproximative: true,
+    },
     conversion_of_saint_paul_the_apostle: {
       name: 'Conversion of Saint Paul the Apostle',
     },
@@ -1221,6 +1285,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // - https://en.wikipedia.org/wiki/Toulouse_Cathedral
     dedication_of_the_cathedral_of_saint_stephen_of_toulouse_france: {
       dateOfDedication: '1592-08-30',
+    },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    dedication_of_the_cathedral_of_the_holy_trinity_laval_france: {
+      dateOfDedication: '1921-11-22',
     },
     // src: http://catholic-dlc.org.hk/1209_Dedication_of_the_Cathedral-enA5.pdf
     dedication_of_the_cathedral_of_the_immaculate_conception_hong_kong: {
@@ -1623,6 +1693,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: 280,
       dateOfBirthIsApproximative: true,
       dateOfDeath: '296-09-17',
+    },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/9962/Saint-Fraimbault.html
+    fraimbault_of_lassay_hermit: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Fraimbault of Lassay',
+      titles: [Title.Hermit],
+      dateOfBirth: 500,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 550,
     },
     frances_of_rome_religious: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2062,6 +2144,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest, Title.Martyr],
       dateOfDeath: 235,
     },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    holy_bishops_of_le_mans: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'Holy Bishops of Le Mans',
+      count: 'many',
+      titles: [Title.Bishop],
+      hideTitles: true,
+    },
     holy_child_of_cebu: {
       name: 'Holy Child of Cebú',
     },
@@ -2259,6 +2352,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: 1740,
       dateOfDeath: '1792-09-02',
     },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/11329/Bienheureux-Fran%C3%A7ois-Peltier--Jacques-Ledoyen--Pierre-Tessier.html
+    jacques_ledoyen_priest_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Jacques Ledoyen',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1760-04-03',
+      dateOfDeath: '1794-01-05',
+      dateOfBeatification: '1984-02-19',
+    },
     james_apostle: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'James',
@@ -2286,6 +2391,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Jarlath',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/5293/Bienheureux-Jean-Baptiste-Turpin-du-Cormier.html
+    jean_baptiste_turpin_du_cormier_priest_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Jean-Baptiste Turpin du Cormier',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfDeath: '1794-01-21',
+      dateOfBeatification: '1955-06-19',
     },
     // src:
     // - mr_fr_2022_ed3_angers
@@ -2340,6 +2456,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Religious],
       dateOfBirth: '1666-06-18',
       dateOfDeath: '1736-08-17',
+    },
+    // The 1998 proper named her Blessed; she was canonized on 11 October 2009.
+    // src:
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/1756/Sainte-Jeanne-Jugan.html
+    jeanne_jugan_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Jeanne Jugan',
+      titles: [Title.Virgin],
+      dateOfBirth: '1792-10-25',
+      dateOfDeath: '1879-08-29',
+      dateOfBeatification: '1982-10-03',
+      dateOfCanonization: '2009-10-11',
     },
     jerome_de_angelis_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -2704,6 +2833,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Jude',
       titles: [Title.Apostle],
     },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saints/516/Saint-Julien-du-Mans.html
+    julian_of_le_mans_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Julian of Le Mans',
+      titles: [Title.Bishop],
+      dateOfDeath: { century: 4 },
+    },
     juliana_of_liege_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Juliana of Liège',
@@ -2980,6 +3119,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 1270,
     },
     // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://www.martyrsde1792.com/la-liste-des-victimes.php
+    louis_mathieu_lanier_priest_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Louis-Mathieu Lanier',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1753-09-24',
+      dateOfDeath: '1792-09-03',
+      dateOfBeatification: 1926,
+    },
+    // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://en.wikipedia.org/wiki/Louis_of_Toulouse
     louis_of_toulouse_bishop: {
@@ -3164,6 +3315,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Margaret of Hungary',
       titles: [Title.Religious],
+    },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/35/Bienheureuse-Marguerite-de-Lorraine.html
+    margaret_of_lorraine_religious: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Margaret of Lorraine',
+      titles: [Title.Religious],
+      dateOfBirth: 1463,
+      dateOfDeath: '1521-11-02',
     },
     margaret_of_scotland: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4277,6 +4439,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Rafqa Pietra Choboq Ar-Rayès',
       titles: [Title.Virgin],
     },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/12153/Bienheureux-Raoul-de-la-Futaie.html
+    raoul_de_la_futaie_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Raoul de la Futaie',
+      titles: [Title.Priest, Title.Hermit],
+      dateOfDeath: '1129-08-16',
+    },
     raphael_archangel: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Raphael',
@@ -4364,6 +4536,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Robert Bellarmine',
       titles: [Title.Bishop, Title.DoctorOfTheChurch],
       dateOfDeath: 1621,
+    },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/699/Bienheureux-Robert-d-Arbrissel.html
+    robert_of_arbrissel_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Robert of Arbrissel',
+      titles: [Title.Priest, Title.Hermit],
+      dateOfDeath: 1116,
     },
     roch_gonzalez_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4539,6 +4721,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Simon of Lipnica',
       titles: [Title.Priest],
+    },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saints/5953/Saint-Siviard.html
+    siviard_of_anisole_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Siviard of Anisole',
+      titles: [Title.Abbot],
+      dateOfDeath: '687-04-01',
     },
     six_welsh_martyrs: {
       name: 'Six Welsh Martyrs',
@@ -4763,6 +4955,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Thomas of Villanova',
       titles: [Title.Bishop],
     },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://diocesedelaval.fr/bienheureux-thomas-dubuisson-et-louis-lanier-deux-martyrs-de-la-revolution-fils-de-notre-terre-mayennaise/
+    thomas_rene_dubuisson_priest_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Thomas-René Dubuisson',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1737-07-06',
+      dateOfDeath: '1792-09-02',
+      dateOfBeatification: 1926,
+    },
     thorfinn_of_hamar_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Thorfinn',
@@ -4794,6 +4998,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     translation_of_the_relics_of_saint_stephen_of_hungary: {
       name: 'Translation of the Relics of Saint Stephen of Hungary',
+    },
+    // src:
+    // - mr_fr_1998_ed1_laval
+    // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
+    // - https://nominis.cef.fr/contenus/saint/148/Saint-Tugdual.html
+    tugdual_of_treguier_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Tugdual of Tréguier',
+      titles: [Title.Bishop, Title.Abbot],
+      dateOfDeath: 558,
     },
     turibius_of_mogrovejo_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
