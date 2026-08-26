@@ -83,6 +83,7 @@ export const locale: Locale = {
     all_saints_of_the_archdiocese_of_lyon: 'All Saints of the Archdiocese of Lyon',
     all_saints_of_the_archdiocese_of_paris: 'All Saints of the Archdiocese of Paris',
     all_saints_of_the_diocese_of_coutances: 'All Saints of the Diocese of Coutances and Avranches',
+    all_saints_of_the_diocese_of_gap_and_embrun: 'All Saints of the Diocese of Gap and Embrun',
     all_saints_of_the_diocese_of_saint_denis: 'All Saints of the Diocese of Saint-Denis',
     all_saints_of_wales: 'All Saints of Wales',
     aloysius_gonzaga_religious: 'Saint Aloysius Gonzaga, Religious',
@@ -148,7 +149,11 @@ export const locale: Locale = {
     arbogast_of_strasbourg_bishop: 'Saint Arbogast, Bishop',
     arbogast_of_strasbourg_bishop_patron_of_the_archdiocese_of_strasbourg:
       'Saint Arbogast, Bishop, Patron of the Archdiocese of Strasbourg',
+    aredius_of_gap_bishop: 'Saint Aredius of Gap, Bishop',
     arnere_of_lezat_abbot: 'Saint Arnère of Lézat, Abbot',
+    arnulf_of_gap_bishop: 'Saint Arnulf of Gap, Bishop',
+    arnulf_of_gap_bishop_patron_of_the_diocese_of_gap_and_embrun:
+      'Saint Arnulf of Gap, Bishop, Patron of the Diocese of Gap and Embrun',
     asaph_of_wales_bishop: 'Saint Asaph, Bishop',
     ascension_of_the_lord: 'The Ascension of the Lord',
     ash_wednesday: 'Ash Wednesday',
@@ -290,6 +295,7 @@ export const locale: Locale = {
     conrad_of_constance_and_gebhard_of_constance_bishops: 'Saints Conrad and Gebhard of Constance, Bishops',
     conrad_of_parzham_religious: 'Saint Conrad of Parzham, Religious',
     constantien_of_javron_hermit: 'Saint Constantien of Javron, Hermit', // src: mr_fr_1998_ed1_laval
+    constantine_of_gap_bishop: 'Saint Constantine of Gap, Bishop',
     conversion_of_saint_paul_the_apostle: 'The Conversion of Saint Paul the Apostle',
     corbinian_of_freising_bishop: 'Saint Corbinian, Bishop',
     cornelius_i_pope_and_cyprian_of_carthage_bishop_martyrs: 'Saints Cornelius, Pope, and Cyprian, Bishop, Martyrs',
@@ -321,6 +327,7 @@ export const locale: Locale = {
       'The Dedication of the Basilicas of Saints Peter and Paul, Apostles',
     dedication_of_the_cathedral_basilica_of_saint_denis_france:
       'The Dedication of the Cathedral Basilica of Saint-Denis, France',
+    dedication_of_the_cathedral_of_gap_france: 'The Dedication of the Cathedral of Gap, France',
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france:
       'The Dedication of the Cathedral of Notre-Dame of Strasbourg',
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france:
@@ -365,6 +372,9 @@ export const locale: Locale = {
     divine_mercy_sunday: 'Second Sunday of Easter or Sunday of Divine Mercy',
     dominic_de_guzman_priest: 'Saint Dominic, Priest',
     dominic_of_the_mother_of_god_barberi_priest: 'Blessed Dominic of the Mother of God Barberi, Priest',
+    domninus_of_digne_bishop: 'Saint Domninus of Digne, Bishop',
+    donatus_of_sisteron_priest: 'Saint Donatus of Sisteron, Priest and Hermit',
+    donatus_of_sisteron_priest_and_may_of_bodon_abbot: 'Saints Donatus, Priest and Hermit, and May, Abbot',
     dulce_lopes_pontes_virgin: 'Saint Dulce Lopes Pontes, Virgin', // src: https://en.wikipedia.org/wiki/Irm%C3%A3_Dulce
     dunstan_of_canterbury_bishop: 'Saint Dunstan, Bishop',
     dyfrig_of_wales_bishop: 'Saint Dyfrig, Bishop',
@@ -374,6 +384,7 @@ export const locale: Locale = {
     edmund_ignatius_rice_religious: 'Blessed Edmund Rice, Religious',
     edmund_of_abingdon_bishop: 'Saint Edmund of Abingdon, Bishop',
     edward_the_confessor: 'Saint Edward the Confessor',
+    eldrad_of_novalesa_abbot: 'Saint Eldrad of Novalesa, Abbot',
     eligius_of_noyon_bishop: 'Saint Eligius, Bishop',
     elijah_prophet: 'Saint Elijah, Prophet',
     elizabeth_ann_seton_religious: 'Saint Elizabeth Ann Seton, Religious',
@@ -577,6 +588,8 @@ export const locale: Locale = {
     jane_frances_de_chantal_religious: 'Saint Jane Frances de Chantal, Religious',
     januarius_i_of_benevento_bishop: 'Saint Januarius, Bishop and Martyr',
     jarlath_of_tuam_bishop: 'Saint Jarlath, Bishop',
+    jean_antoine_savine_priest: 'Blessed Jean-Antoine Savine, Priest and Martyr',
+    jean_antoine_savine_priest_and_companions_martyrs: 'Blessed Jean-Antoine Savine, Priest, and Companions, Martyrs',
     jean_antoine_segonds_priest: 'Blessed Jean-Antoine Segonds, Priest and Martyr',
     jean_baptiste_turpin_du_cormier_priest_martyr: 'Blessed Jean-Baptiste Turpin du Cormier, Priest and Martyr', // src: mr_fr_1998_ed1_laval
     jean_chevillard_and_companions_martyrs: 'Blessed Jean Chevillard and Companions, Religious and Martyrs', // mr_fr_2022_ed3_angers
@@ -744,6 +757,9 @@ export const locale: Locale = {
     marcel_callo_martyr: 'Blessed Marcel Callo, Martyr',
     marcelina_darowska_religious: 'Blessed Marcelina Darowska, Religious',
     marcellin_champagnat_priest: 'Saint Marcellin Champagnat, Priest',
+    marcellinus_of_embrun_bishop: 'Saint Marcellinus, First Bishop of Embrun',
+    marcellinus_of_embrun_bishop_second_patron_of_the_diocese_of_gap_and_embrun:
+      'Saint Marcellinus, First Bishop of Embrun, Second Patron of the Diocese of Gap and Embrun',
     marcellinus_of_rome_and_peter_the_exorcist_martyrs: 'Saints Marcellinus and Peter, Martyrs',
     marcellus_of_paris_bishop: 'Saint Marcellus of Paris, Bishop',
     marculf_of_normandy_abbot: 'Saint Marculf, Abbot',
@@ -823,6 +839,7 @@ export const locale: Locale = {
     maurus_of_glanfeuil_abbot: 'Saint Maurus, Abbot', // mr_fr_2022_ed3_angers
     maurus_of_pecs_bishop: 'Saint Maurus, Bishop',
     maximilian_mary_raymund_kolbe_priest: 'Saint Maximilian Mary Kolbe, Priest and Martyr',
+    may_of_bodon_abbot: 'Saint May of Bodon, Abbot',
     mederic_of_autun_and_droctoveus_of_autun_abbots: 'Saints Mederic and Droctoveus, Abbots',
     meinrad_of_einsiedeln_martyr: 'Saint Meinrad of Einsiedeln, Martyr',
     mel_of_ardagh_bishop: 'Saint Mel, Bishop',
@@ -905,6 +922,7 @@ export const locale: Locale = {
     our_lady_of_knock: 'Our Lady of Knock',
     our_lady_of_la_salette: 'Our Lady of La Salette', // src: https://en.wikipedia.org/wiki/Our_Lady_of_La_Salette
     our_lady_of_lanka: 'Our Lady of Lanka',
+    our_lady_of_laus: 'Our Lady of Laus',
     our_lady_of_lebanon: 'Our Lady of Lebanon',
     our_lady_of_loreto: 'Our Lady of Loreto',
     our_lady_of_lourdes: 'Our Lady of Lourdes',
@@ -956,6 +974,7 @@ export const locale: Locale = {
     paulinus_of_york_bishop: 'Saint Paulinus of York, Bishop',
     pavel_peter_gojdic_bishop: 'Blessed Pavel Peter Gojdič, Bishop and Martyr',
     pedro_calungsod_martyr: 'Saint Pedro Calungsod, Martyr',
+    peladius_of_embrun_bishop: 'Saint Peladius of Embrun, Bishop',
     pelagius_of_cordoba_martyr: 'Saint Pelagius of Córdoba, Martyr',
     pentecost_sunday: 'Pentecost Sunday',
     perpetua_of_carthage_and_felicity_of_carthage_martyrs: 'Saints Perpetua and Felicity, Martyrs',
@@ -1023,6 +1042,8 @@ export const locale: Locale = {
     raymond_gayrard_religious: 'Saint Raymond Gayrard, Religious',
     raymond_of_barbastro_bishop: 'Saint Raymond of Barbastro, Bishop',
     raymond_of_penyafort_priest: 'Saint Raymond of Penyafort, Priest',
+    remigius_of_gap_and_tigidius_of_gap_bishops: 'Saints Remigius and Tigidius, Bishops',
+    remigius_of_gap_bishop: 'Saint Remigius of Gap, Bishop',
     remigius_of_reims_bishop: 'Saint Remigius, Bishop',
     rene_goupil_religious: 'Saint René Goupil, Religious and Martyr', // mr_fr_2022_ed3_angers
     richard_gwyn_martyr: 'Saint Richard Gwyn, Martyr',
@@ -1039,6 +1060,7 @@ export const locale: Locale = {
     rose_of_lima_virgin: 'Saint Rose of Lima, Virgin',
     rose_of_lima_virgin_copatroness_of_the_philippines: 'Saint Rose of Lima, Virgin, Copatroness of the Philippines',
     rose_philippine_duchesne_virgin: 'Saint Rose Philippine Duchesne, Virgin',
+    roseline_of_villeneuve_virgin: 'Saint Roseline of Villeneuve, Virgin',
     rumpharius_of_coutances_bishop: 'Saint Rumpharius, Bishop',
     rupert_of_salzburg_and_virgilius_of_salzburg_bishops: 'Saints Rupert and Virgilius of Salzburg, Bishops',
     salomea_of_poland_religious: 'Blessed Salomea of Poland, Religious',
@@ -1126,6 +1148,7 @@ export const locale: Locale = {
     thorfinn_of_hamar_bishop: 'Saint Thorfinn, Bishop',
     thorlac_of_iceland_bishop: 'Saint Thorlac, Bishop',
     thursday_of_the_lords_supper: 'Thursday of the Lord’s Supper',
+    tigidius_of_gap_bishop: 'Saint Tigidius of Gap, Bishop',
     timothy_of_ephesus_and_titus_of_crete_bishops: 'Saints Timothy and Titus, Bishops',
     transfiguration_of_the_lord: 'The Transfiguration of the Lord',
     translation_of_the_relics_of_odile_of_alsace_abbess: 'Translation of the Relics of Saint Odile',

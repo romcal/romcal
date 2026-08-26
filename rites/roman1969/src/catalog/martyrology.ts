@@ -266,6 +266,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'All Saints of the Diocese of Coutances and Avranches',
       count: 'many',
     },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://www.diocesedegap.fr/diocese-de-gap-embrun/actualite/10144-faire-memoire-des-saints-du-diocese/
+    // - https://nominis.cef.fr/contenus/saint/13014/Saints-du-dioc%C3%A8se-de-Gap-et-d-Embrun.html
+    all_saints_of_the_diocese_of_gap_and_embrun: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'All Saints of the Diocese of Gap and Embrun',
+      count: 'many',
+    },
     all_saints_of_the_diocese_of_saint_denis: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'All Saints of the Diocese of Saint-Denis',
@@ -599,12 +609,35 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 678,
     },
     // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/1067/Saint-Arey.html
+    // - https://en.wikipedia.org/wiki/Aredius_of_Gap
+    aredius_of_gap_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Aredius of Gap',
+      titles: [Title.Bishop],
+      dateOfBirth: 535,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: 604,
+    },
+    // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://nominis.cef.fr/contenus/SaintsPamiers.pdf
     arnere_of_lezat_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Arnère of Lézat',
       titles: [Title.Abbot],
+    },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/1879/Saint-Arnoul-de-Gap.html
+    // - https://www.santopedia.com/en/saints/saint-arnulf-of-gap
+    arnulf_of_gap_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Arnulf of Gap',
+      titles: [Title.Bishop],
+      dateOfDeath: 1078,
+      dateOfDeathIsApproximative: true,
     },
     asaph_of_wales_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1407,6 +1440,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 570,
       dateOfDeathIsApproximative: true,
     },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/6529/Saint-Constantin.html
+    constantine_of_gap_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Constantine of Gap',
+      titles: [Title.Bishop],
+      dateOfDeath: 456,
+      dateOfDeathIsApproximative: true,
+    },
     conversion_of_saint_paul_the_apostle: {
       name: 'Conversion of Saint Paul the Apostle',
     },
@@ -1511,6 +1554,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Declan',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/13018/D%C3%A9dicace-de-la-cath%C3%A9drale-de-Gap.html
+    dedication_of_the_cathedral_of_gap_france: {
+      dateOfDedication: '1895-09-21',
     },
     // src:
     // - mr_fr_1982_ed2_coutances
@@ -1661,6 +1710,25 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Dominic of the Mother of God Barberi',
       titles: [Title.Priest],
     },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/5704/Saint-Domnin.html
+    domninus_of_digne_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Domninus of Digne',
+      titles: [Title.Bishop],
+      dateOfDeath: 379,
+    },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/1694/Saint-Donat.html
+    donatus_of_sisteron_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Donatus of Sisteron',
+      titles: [Title.Priest, Title.Hermit],
+      dateOfDeath: 522,
+      dateOfDeathIsApproximative: true,
+    },
     droctoveus_of_autun_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Droctoveus',
@@ -1702,6 +1770,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     edward_the_confessor: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Edward the Confessor',
+    },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/6103/Saint-Eldrade.html
+    eldrad_of_novalesa_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Eldrad of Novalesa',
+      titles: [Title.Abbot],
+      dateOfBirth: { century: 8 },
+      dateOfDeath: 875,
     },
     eligius_of_noyon_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1841,11 +1919,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
         century: 3,
       },
     },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/1191/Saint-Eug%C3%A8ne-de-Mazenod.html
+    // - https://www.vatican.va/news_services/liturgy/saints/ns_lit_doc_19951203_de-mazenod_en.html
     eugene_de_mazenod_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Eugène de Mazenod',
       titles: [Title.Bishop],
-      dateOfDeath: 1861,
+      dateOfBirth: '1782-08-01',
+      dateOfDeath: '1861-05-21',
+      dateOfBeatification: '1975-10-19',
+      dateOfCanonization: '1995-12-03',
     },
     eugenia_of_alsace_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2855,6 +2940,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Jarlath',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saints/13017/Bienheureux-Jean-Antoine-Savine.html
+    jean_antoine_savine_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Jean-Antoine Savine',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1760-06-26',
+      dateOfDeath: '1792-09-02',
+      dateOfBeatification: '1926-10-17',
     },
     // src:
     // - ordo_fr_2025_province_ecclesiastique_de_toulouse
@@ -3875,6 +3971,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: 1789,
       dateOfDeath: '1840-6-6',
     },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/1009/Saint-Marcellin-d-Embrun.html
+    // - https://en.wikipedia.org/wiki/Marcellinus_of_Gaul
+    marcellinus_of_embrun_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Marcellinus of Embrun',
+      titles: [Title.FirstBishop],
+      dateOfDeath: 374,
+      dateOfDeathIsApproximative: true,
+    },
     marcellinus_of_rome_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Marcellinus',
@@ -4303,6 +4410,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest, Title.Martyr],
       dateOfDeath: 1941,
     },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/1694/Saint-Donat.html
+    may_of_bodon_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'May of Bodon',
+      titles: [Title.Abbot],
+      dateOfDeath: 550,
+      dateOfDeathIsApproximative: true,
+    },
     mederic_of_autun_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Mederic',
@@ -4654,6 +4771,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     our_lady_of_lanka: {
       name: 'Our Lady of Lanka',
     },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/13015/Notre-Dame-du-Laus.html
+    our_lady_of_laus: {
+      name: 'Our Lady of Laus',
+    },
     our_lady_of_lebanon: {
       name: 'Our Lady of Lebanon',
     },
@@ -4861,6 +4984,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Pedro Calungsod',
       titles: [Title.Martyr],
+    },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/10672/Saint-Pelade.html
+    peladius_of_embrun_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Peladius of Embrun',
+      titles: [Title.Bishop],
+      dateOfDeath: 538,
+      dateOfDeathIsApproximative: true,
     },
     pelagius_of_cordoba_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5227,6 +5360,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Religious],
       dateOfDeath: '1118-07-03',
     },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/559/Saints-Tigris-et-Rem%C3%A8ze.html
+    remigius_of_gap_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Remigius of Gap',
+      titles: [Title.Bishop],
+    },
     remigius_of_reims_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Remigius',
@@ -5322,6 +5463,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Rose Philippine Duchesne',
       titles: [Title.Virgin],
+    },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/447/Sainte-Roseline-de-Villeneuve.html
+    roseline_of_villeneuve_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Roseline of Villeneuve',
+      titles: [Title.Virgin],
+      dateOfBirth: 1263,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '1329-01-17',
     },
     // src:
     // - mr_fr_1982_ed2_coutances
@@ -5794,6 +5946,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     thorlac_of_iceland_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Thorlac',
+      titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_2016_ed1_gap_embrun
+    // - https://nominis.cef.fr/contenus/saint/559/Saints-Tigris-et-Rem%C3%A8ze.html
+    tigidius_of_gap_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Tigidius of Gap',
       titles: [Title.Bishop],
     },
     timothy_of_ephesus_bishop: {
