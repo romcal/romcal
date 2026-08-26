@@ -1,4 +1,4 @@
-import { sanitizeLocaleId, toScreamingSnakeCase } from './string';
+import { sanitizeLocaleId, toPackageName, toScreamingSnakeCase } from './string';
 
 describe('string.ts', () => {
   describe('toScreamingSnakeCase', () => {
@@ -38,6 +38,12 @@ describe('string.ts', () => {
       expect(sanitizeLocaleId('fr-fr')).toBe('fr-FR');
       expect(sanitizeLocaleId('EN-GB')).toBe('en-GB');
       expect(sanitizeLocaleId('aa-abc')).toBe('aa-AB');
+    });
+  });
+
+  describe('toPackageName', () => {
+    it('formats multiword calendar namespaces and jurisdiction names', () => {
+      expect(toPackageName('WesternSahara_ApostolicPrefecture')).toBe('western-sahara.apostolic-prefecture');
     });
   });
 });

@@ -1,5 +1,6 @@
 import type { CalendarDef } from '../models/calendar-def';
 
+import { Algeria_Algiers, Algeria_Constantine, Algeria_Laghouat, Algeria_Oran } from './countries/algeria';
 import { Argentina } from './countries/argentina';
 import { Australia } from './countries/australia';
 import { Austria } from './countries/austria';
@@ -52,11 +53,13 @@ import { Ireland } from './countries/ireland';
 import { Italy } from './countries/italy';
 import { Japan } from './countries/japan';
 import { Lebanon } from './countries/lebanon';
+import { Libya_Benghazi, Libya_Derna, Libya_Misurata, Libya_Tripoli } from './countries/libya';
 import { Lithuania } from './countries/lithuania';
 import { Luxembourg } from './countries/luxembourg';
 import { Malta } from './countries/malta';
 import { Mexico } from './countries/mexico';
 import { Monaco } from './countries/monaco';
+import { Morocco_Rabat, Morocco_Tangier } from './countries/morocco';
 import { Netherlands } from './countries/netherlands';
 import { NewZealand } from './countries/new-zealand';
 import { Norway } from './countries/norway';
@@ -76,20 +79,27 @@ import { Spain } from './countries/spain';
 import { SriLanka } from './countries/sri-lanka';
 import { Sweden } from './countries/sweden';
 import { Switzerland } from './countries/switzerland';
+import { Tunisia_Tunis } from './countries/tunisia';
 import { Ukraine } from './countries/ukraine';
 import { UnitedStates } from './countries/united-states';
 import { Uruguay } from './countries/uruguay';
 import { Venezuela } from './countries/venezuela';
 import { Vietnam } from './countries/vietnam';
 import { Wales } from './countries/wales';
+import { WesternSahara_ApostolicPrefecture } from './countries/western-sahara';
 import { GeneralRoman } from './general-roman';
 import { Africa } from './regions/africa';
 import { Americas } from './regions/americas';
 import { Asia } from './regions/asia';
 import { Europe } from './regions/europe';
+import { NorthAfrica } from './regions/north-africa';
 
 export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   Africa,
+  Algeria_Algiers,
+  Algeria_Constantine,
+  Algeria_Laghouat,
+  Algeria_Oran,
   Americas,
   Asia,
   Argentina,
@@ -146,14 +156,21 @@ export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   Italy,
   Japan,
   Lebanon,
+  Libya_Benghazi,
+  Libya_Derna,
+  Libya_Misurata,
+  Libya_Tripoli,
   Lithuania,
   Luxembourg,
   Malta,
   Mexico,
   Monaco,
+  Morocco_Rabat,
+  Morocco_Tangier,
   Netherlands,
   NewZealand,
   Norway,
+  NorthAfrica,
   Panama,
   Paraguay,
   Peru,
@@ -172,10 +189,12 @@ export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   SriLanka,
   Sweden,
   Switzerland,
+  Tunisia_Tunis,
   Ukraine,
   UnitedStates,
   Uruguay,
   Venezuela,
   Vietnam,
   Wales,
+  WesternSahara_ApostolicPrefecture,
 };
