@@ -542,7 +542,7 @@ export const locale: Locale = {
     marianne_cope_virgin: 'Sv. Mariany z Molokai, řeholnice',
     marie_anne_blondin_virgin: 'Bl. Marie Anny Blondin, panny',
     marie_eugenie_of_jesus_milleret_de_brou_virgin: 'Sv. Marie Evženie Milleretové de Brou, panny a zakladatelky',
-    marie_leonie_paradis_virgin: 'Bl. Marie Léonie Paradis, panny',
+    marie_leonie_paradis_virgin: 'Sv. Marie Léonie Paradis, panny',
     marie_rose_durocher_virgin: 'Bl. Marie Rose Durocher, panny',
     mark_evangelist: 'Sv. Marka, evangelisty',
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests:

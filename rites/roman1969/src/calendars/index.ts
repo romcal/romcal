@@ -7,7 +7,7 @@ import { Belgium } from './countries/belgium';
 import { Bolivia } from './countries/bolivia';
 import { BosniaHerzegovina } from './countries/bosnia-herzegovina';
 import { Brazil } from './countries/brazil';
-import { Canada } from './countries/canada';
+import { Canada, Canada_Quebec } from './countries/canada';
 import { Chile } from './countries/chile';
 import { China } from './countries/china';
 import { CostaRica } from './countries/costa-rica';
@@ -97,6 +97,7 @@ export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   BosniaHerzegovina,
   Brazil,
   Canada,
+  Canada_Quebec,
   Chile,
   China,
   CostaRica,

@@ -4414,8 +4414,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin],
       dateOfDeath: 1898,
     },
+    // src: https://www.vatican.va/content/francesco/fr/events/event.dir.html/content/vaticanevents/fr/2024/10/20/messa-canonizzazione.html
     marie_leonie_paradis_virgin: {
-      canonizationLevel: CanonizationLevels.Blessed,
+      canonizationLevel: CanonizationLevels.Saint,
       name: 'Marie-Léonie Paradis',
       titles: [Title.Virgin],
       dateOfDeath: 1912,

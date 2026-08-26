@@ -547,7 +547,7 @@ export const locale: Locale = {
     marianne_cope_virgin: 'S. Mariæ Annæ Cope, virginis',
     marie_anne_blondin_virgin: 'B. Mariæ Annæ Blondin, virginis',
     marie_eugenie_of_jesus_milleret_de_brou_virgin: 'S. Mariæ Eugeniæ a Iesu Milleret de Brou, virginis et fundatricis',
-    marie_leonie_paradis_virgin: 'B. Mariæ Leoniæ Paradis, virginis',
+    marie_leonie_paradis_virgin: 'S. Mariæ Leoniæ Paradis, virginis',
     marie_rose_durocher_virgin: 'B. Mariæ Rosæ Durocher, virginis',
     mark_evangelist: 'S. Marci, evangelistæ',
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests:

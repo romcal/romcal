@@ -567,7 +567,7 @@ export const locale: Locale = {
     marianne_cope_virgin: 'புனித மேரியான் கோப் - கன்னி',
     marie_anne_blondin_virgin: 'முத்திபேறுபெற்ற மேரி-ஆன் புளொடின் - கன்னி',
     marie_eugenie_of_jesus_milleret_de_brou_virgin: 'புனித மேரி-யூஹினி டி ஜீசஸ் - துறவி, நிறுவநர்',
-    marie_leonie_paradis_virgin: 'முத்திப்பேறுபெற்ற மாரி-லியோனி பாரதிஸ் - கன்னி',
+    marie_leonie_paradis_virgin: 'புனித மாரி-லியோனி பாரதிஸ் - கன்னி',
     marie_rose_durocher_virgin: 'முத்திப்பேறுபெற்ற மாரி ரோஸ் துரோச்சர் - கன்னி',
     mark_evangelist: 'புனித மாற்கு - நற்செய்தியாளர்',
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests:
