@@ -153,6 +153,8 @@ export const locale: Locale = {
     ascension_of_the_lord: 'Ascension du Seigneur',
     ash_wednesday: 'Mercredi des Cendres',
     assumption_of_the_blessed_virgin_mary: 'Assomption de la bienheureuse Vierge Marie',
+    assumption_of_the_blessed_virgin_mary_copatroness_of_the_diocese_of_arundel_and_brighton:
+      'Assomption de la bienheureuse Vierge Marie, copatronne du diocèse d’Arundel et Brighton',
     assumption_of_the_blessed_virgin_mary_patroness_of_france:
       'Assomption de la bienheureuse Vierge Marie, patronne principale de la France',
     assumption_of_the_blessed_virgin_mary_patroness_of_france_and_principal_patroness_of_the_diocese_of_montauban:
@@ -208,6 +210,7 @@ export const locale: Locale = {
     blessed_martyrs_of_angers: 'Bienheureux Martyrs d’Angers († 1793-1794)', // mr_fr_2022_ed3_angers
     blessed_martyrs_of_douai: 'Bienheureux martyrs de Douai',
     blessed_martyrs_of_paris: 'Bienheureux Martyrs de Paris († du 2 au 6 septembre 1792)',
+    blessed_martyrs_of_sussex: 'Bienheureux Martyrs du Sussex',
     blessed_martyrs_of_the_french_revolution: 'Bienheureux martyrs de la Révolution',
     blessed_religious_martyrs_of_orange: 'Les Bienheureuses religieuses martyres d’Orange', // src: mr_fr_1984_ed1_nimes
     bonaventure_of_bagnoregio_bishop: 'Saint Bonaventure, évêque d’Albano et docteur de l’Église († 1274)',
@@ -230,6 +233,7 @@ export const locale: Locale = {
     // src: https://press.vatican.va/content/salastampa/en/bollettino/pubblico/2024/12/18/241218d.html
     carmelites_of_compiegne_virgins_and_martyrs:
       'Sainte Thérèse de Saint-Augustin et ses 15 compagnes, vierges et martyres († guillotinées en 1794)',
+    carthusian_martyrs: 'Les Martyrs chartreux',
     casimir_of_poland: 'Saint Casimir († 1484)',
     castor_of_apt_bishop: 'Saint Castor, évêque', // src: mr_fr_1984_ed1_nimes
     catherine_jarrige_virgin: 'Bienheureuse Catherine Jarrige, vierge († 1836)',
@@ -297,6 +301,7 @@ export const locale: Locale = {
     daniel_brottier_priest: 'Bienheureux Daniel Brottier, prêtre, apôtre des Orphelins d’Auteuil († 1936 à Paris)',
     day_of_prayer_for_the_legal_protection_of_unborn_children:
       'Journée de prière pour la protection juridique des enfants à naître',
+    dedication_of_arundel_cathedral_england: 'Dédicace de la cathédrale d’Arundel',
     dedication_of_consecrated_churches:
       'Dédicace des églises consacrées dont on ne connaît pas la date de consécration', // src: mr_fr_2021_ed3
     dedication_of_notre_dame_cathedral_luxembourg: 'Dédicace de la cathédrale Notre-Dame de Luxembourg', // src: mr_fr_2021_ed3
@@ -378,7 +383,7 @@ export const locale: Locale = {
     epipodius_of_lyon_and_alexander_of_lyon_martyrs: 'Saints Épipode et Alexandre, martyrs († 178)', // src: mr_fr_2014_ed2_lyon
     erembert_of_toulouse_bishop: 'Saint Érembert, évêque († v. 672)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     erkenwald_of_london_and_mellitus_of_canterbury_bishops: 'Saints Erkenwald et Mellitus, évêques',
-    erkenwald_of_london_bishop: 'Saint Erkenwald de Londres, évêque',
+    erkenwald_of_london_bishop: 'Saint Erkenwald de Londres, évêque († 693)',
     eucharius_of_trier_bishop: 'Saint Euchaire, évêque († IVème s.)',
     eucherius_of_lyon_bishop: 'Saint Eucher, évêque († v. 449)', // src: mr_fr_2014_ed2_lyon
     eugene_de_mazenod_bishop:
@@ -866,6 +871,9 @@ export const locale: Locale = {
     peter_of_castelnau_priest: 'Bienheureux Pierre de Castelnau, prêtre et martyr († 1208)',
     peter_of_luxembourg_bishop: 'Bienheureux Pierre de Luxembourg, évêque', // src: mr_fr_1984_ed1_nimes
     philip_and_james_apostles: 'Saint Philippe et Saint Jacques le Mineur, apôtres',
+    philip_howard_martyr: 'Saint Philippe Howard, martyr († 1595)',
+    philip_howard_martyr_patron_of_the_diocese_of_arundel_and_brighton:
+      'Saint Philippe Howard, martyr et patron du diocèse d’Arundel et Brighton († 1595)',
     philip_neri_priest: 'Saint Philippe Néri, prêtre († 1595)',
     phoebadius_of_agen_bishop: 'Saint Phébade, évêque',
     piatus_of_seclin_martyr: 'Saint Piat, missionnaire et martyr (IIIe s.)',
@@ -911,11 +919,14 @@ export const locale: Locale = {
     remigius_of_reims_bishop: 'Saint Remi, évêque de Reims († 530)',
     remy_isore_priest: 'Saint Rémy Isoré, prêtre et martyr († 1900)',
     rene_goupil_religious: 'Saint René Goupil, religieux et martyr († 1642)', // mr_fr_2022_ed3_angers
+    richard_of_chichester_bishop_secondary_patron_of_the_diocese_of_arundel_and_brighton:
+      'Saint Richard de Chichester, évêque et patron secondaire du diocèse d’Arundel et Brighton',
     richardis_of_swabia_empress: 'Sainte Richarde, impératrice († 894 ou 896)',
     rita_of_cascia_religious: 'Sainte Rita da Cascia, veuve puis religieuse († 1456)',
     robert_bellarmine_bishop: 'Saint Robert Bellarmin, Jésuite, évêque et docteur de l’Église († 1621)',
     robert_of_arbrissel_priest: 'Bienheureux Robert d’Arbrissel, prêtre et ermite († 1116)', // src: mr_fr_1998_ed1_laval
     robert_of_turlande_abbot: 'Saint Robert de Turlande, abbé († 1067)',
+    robert_southwell_priest: 'Saint Robert Southwell, prêtre et martyr († 1595)',
     roch_of_montpellier: 'Saint Roch, pèlerin († v. 1379)', // src: mr_fr_1974_ed1_region_apostolique_du_midi, mr_fr_1984_ed1_nimes
     romanus_ostiarius_martyr: 'Saint Roman, martyr († 258)', // src: mr_fr_2021_ed3
     romuald_of_ravenna_abbot: 'Saint Romuald, anachorète et père des moines Camaldules († 1027)',
@@ -975,6 +986,7 @@ export const locale: Locale = {
     thomas_aquinas_priest: 'Saint Thomas d’Aquin, prêtre et docteur de l’Église († 1274)', // src: mr_fr_2021_ed3, mr_fr_1974_ed1_region_apostolique_du_midi
     thomas_becket_bishop: 'Saint Thomas Becket, évêque et martyr († 1170)',
     thomas_dubuisson_and_louis_lanier_priests_martyrs: 'Bienheureux Thomas Dubuisson et Louis Lanier, prêtres, martyrs', // src: mr_fr_1998_ed1_laval
+    thomas_garnet_priest: 'Saint Thomas Garnet, prêtre et martyr († 1608)',
     thomas_helye_priest: 'Bienheureux Thomas Hélye, prêtre († 1257)', // src: mr_fr_1982_ed2_coutances
     thomas_jean_georges_rehm_priest: 'Bienheureux Jean-Georges Rehm, prêtre et martyr († 1794)',
     thomas_rene_dubuisson_priest_martyr: 'Bienheureux Thomas-René Dubuisson, prêtre et martyr († 1792)', // src: mr_fr_1998_ed1_laval
@@ -1017,6 +1029,8 @@ export const locale: Locale = {
     wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation:
       'Saint Venceslas, martyr et patron de la nation tchèque († 929)',
     wendelin_of_trier_hermit: 'Saint Wendelin, ermite',
+    wilfrid_of_york_bishop_secondary_patron_of_the_diocese_of_arundel_and_brighton:
+      'Saint Wilfrid, évêque et patron secondaire du diocèse d’Arundel et Brighton',
     william_firmatus_abbot: 'Saint Guillaume Firmat, abbé († 1103)', // src: mr_fr_1982_ed2_coutances
     william_firmatus_robert_of_arbrissel_bernard_of_tiron_raoul_de_la_futaie_and_vitalis_of_savigny_hermits:
       'Saints Guillaume Firmat, Bernard de Tiron et Vital de Mortain, et les bienheureux Robert d’Arbrissel et Raoul de la Futaie, ermites', // src: mr_fr_1998_ed1_laval

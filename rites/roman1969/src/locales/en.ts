@@ -181,6 +181,8 @@ export const locale: Locale = {
     ash_wednesday: 'Ash Wednesday',
     asicus_of_elphin_bishop: 'Saint Asicus, Bishop',
     assumption_of_the_blessed_virgin_mary: 'The Assumption of the Blessed Virgin Mary',
+    assumption_of_the_blessed_virgin_mary_copatroness_of_the_diocese_of_arundel_and_brighton:
+      'The Assumption of the Blessed Virgin Mary, Co-Patroness of the Diocese of Arundel and Brighton',
     assumption_of_the_blessed_virgin_mary_patroness_of_france:
       'The Assumption of the Blessed Virgin Mary, Patroness of France',
     assumption_of_the_blessed_virgin_mary_patroness_of_france_and_principal_patroness_of_the_diocese_of_montauban:
@@ -243,6 +245,7 @@ export const locale: Locale = {
     blessed_martyrs_of_angers: 'Blessed Martyrs of Angers', // mr_fr_2022_ed3_angers
     blessed_martyrs_of_douai: 'Blessed Martyrs of Douai',
     blessed_martyrs_of_paris: 'Blessed Martyrs of Paris',
+    blessed_martyrs_of_sussex: 'Blessed Martyrs of Sussex',
     blessed_martyrs_of_the_french_revolution: 'Blessed Martyrs of the French Revolution',
     blessed_religious_martyrs_of_orange: 'Blessed Religious Martyrs of Orange', // src: mr_fr_1984_ed1_nimes
     bogumilus_of_dobrow_bishop: 'Blessed Bogumilus, Bishop',
@@ -275,6 +278,7 @@ export const locale: Locale = {
     carmelites_of_compiegne_virgins_and_martyrs: 'Saint Teresa of Saint Augustine and Companions, Virgins and Martyrs',
     caroline_kozka_virgin: 'Blessed Caroline Kózka, Virgin and Martyr',
     carthage_of_lismore_bishop: 'Saint Carthage, Bishop',
+    carthusian_martyrs: 'The Carthusian Martyrs',
     casimir_of_poland: 'Saint Casimir',
     castor_of_apt_bishop: 'Saint Castor of Apt, Bishop', // src: mr_fr_1984_ed1_nimes
     catherine_jarrige_virgin: 'Blessed Catherine Jarrige, Virgin',
@@ -371,6 +375,7 @@ export const locale: Locale = {
     day_of_prayer_for_the_legal_protection_of_unborn_children:
       'Day of Prayer for the Legal Protection of Unborn Children', // src: mr_en_2011_ed3_us
     declan_of_ardmore_bishop: 'Saint Declan, Bishop',
+    dedication_of_arundel_cathedral_england: 'The Dedication of Arundel Cathedral',
     dedication_of_consecrated_churches: 'The Dedication of Consecrated Churches Whose Date of Consecration is Unknown',
     dedication_of_notre_dame_cathedral_luxembourg: 'Dedication of Notre-Dame Cathedral, Luxembourg',
     dedication_of_the_basilica_of_mont_saint_michel_france:
@@ -1197,6 +1202,9 @@ export const locale: Locale = {
     peter_wu_guosheng_martyr: 'Saint Peter Wu Guosheng, Martyr',
     philip_and_james_apostles: 'Saints Philip and James, Apostles',
     philip_evans_and_john_lloyd_priests: 'Saints Philip Evans and John Lloyd, Priests and Martyrs',
+    philip_howard_martyr: 'Saint Philip Howard, Martyr',
+    philip_howard_martyr_patron_of_the_diocese_of_arundel_and_brighton:
+      'Saint Philip Howard, Martyr and Patron of the Diocese of Arundel and Brighton',
     philip_neri_priest: 'Saint Philip Neri, Priest',
     philip_of_jesus_de_las_casas_martyr: 'Saint Philip of Jesus de las Casas, Martyr',
     philip_of_jesus_de_las_casas_paul_miki_and_companions_martyrs:
@@ -1256,11 +1264,14 @@ export const locale: Locale = {
     rene_goupil_religious: 'Saint René Goupil, Religious and Martyr', // mr_fr_2022_ed3_angers
     richard_gwyn_martyr: 'Saint Richard Gwyn, Martyr',
     richard_of_chichester_bishop: 'Saint Richard of Chichester, Bishop',
+    richard_of_chichester_bishop_secondary_patron_of_the_diocese_of_arundel_and_brighton:
+      'Saint Richard of Chichester, Bishop and Secondary Patron of the Diocese of Arundel and Brighton',
     richardis_of_swabia_empress: 'Saint Richardis, Empress',
     rita_of_cascia_religious: 'Saint Rita of Cascia, Religious',
     robert_bellarmine_bishop: 'Saint Robert Bellarmine, Bishop and Doctor of the Church',
     robert_of_arbrissel_priest: 'Blessed Robert of Arbrissel, Priest and Hermit', // src: mr_fr_1998_ed1_laval
     robert_of_turlande_abbot: 'Saint Robert of Turlande, Abbot',
+    robert_southwell_priest: 'Saint Robert Southwell, Priest and Martyr',
     roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests:
       'Saints Roch González, Alphonsus Rodríguez and John del Castillo, Priests and Martyrs',
     roch_of_montpellier: 'Saint Roch, Pilgrim', // src: mr_fr_1974_ed1_region_apostolique_du_midi, mr_fr_1984_ed1_nimes
@@ -1354,6 +1365,7 @@ export const locale: Locale = {
     thomas_becket_bishop: 'Saint Thomas Becket, Bishop and Martyr',
     thomas_dubuisson_and_louis_lanier_priests_martyrs:
       'Blesseds Thomas Dubuisson and Louis Lanier, Priests and Martyrs', // src: mr_fr_1998_ed1_laval
+    thomas_garnet_priest: 'Saint Thomas Garnet, Priest and Martyr',
     thomas_helye_priest: 'Blessed Thomas Hélye, Priest',
     thomas_hioji_rokuzayemon_nishi_priest_and_companions_martyrs:
       'Saint Thomas Hioji Rokuzayemon Nishi, Priest, and Companions, Martyrs',
@@ -1411,6 +1423,8 @@ export const locale: Locale = {
     wenceslaus_i_of_bohemia_martyr_patron_of_the_czech_nation: 'Saint Wenceslaus, Martyr, Patron of the Czech nation',
     wendelin_of_trier_hermit: 'Saint Wendelin, Hermit',
     wilfrid_of_york_bishop: 'Saint Wilfrid, Bishop',
+    wilfrid_of_york_bishop_secondary_patron_of_the_diocese_of_arundel_and_brighton:
+      'Saint Wilfrid, Bishop and Secondary Patron of the Diocese of Arundel and Brighton',
     william_apor_bishop: 'Blessed William Apor, Bishop and Martyr',
     william_firmatus_abbot: 'Saint William Firmatus, Abbot',
     william_firmatus_robert_of_arbrissel_bernard_of_tiron_raoul_de_la_futaie_and_vitalis_of_savigny_hermits:

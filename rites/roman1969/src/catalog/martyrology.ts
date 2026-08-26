@@ -1184,6 +1184,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       hideTitles: true,
     },
     // src:
+    // - https://cdn.prod.website-files.com/5ed93a8802f9816a9341c2a2/690c6cb4519d8389bb813f7f_Ordo%202026.pdf
+    // - https://universalis.com/20261003/today.htm
+    blessed_martyrs_of_sussex: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Martyrs of Sussex',
+      count: 10,
+      titles: [Title.Martyr],
+      hideTitles: true,
+    },
+    // src:
     // - mr_fr_1984_ed1_nimes
     // - https://www.nimes-catholique.fr/wp-content/uploads/2025/05/32-bienheureuses-martyres-dorange-livret-mai-2025.pdf
     // - https://www.canonisation-32-martyres-orange.fr/
@@ -1346,6 +1356,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Carthage',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - https://cdn.prod.website-files.com/5ed93a8802f9816a9341c2a2/690c6cb4519d8389bb813f7f_Ordo%202026.pdf
+    // - https://en.wikipedia.org/wiki/Carthusian_Martyrs_of_London
+    carthusian_martyrs: {
+      name: 'Carthusian Martyrs',
+      count: 18,
+      titles: [Title.Martyr],
+      hideTitles: true,
     },
     casimir_of_poland: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1862,6 +1881,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Dedication of the Cathedral of Tunis, Tunisia',
     },
     // src:
+    // - https://cdn.prod.website-files.com/5ed93a8802f9816a9341c2a2/690c6cb4519d8389bb813f7f_Ordo%202026.pdf
+    // - https://www.abdiocese.org.uk/diocese/arundel-cathedral
+    // - https://universalis.com/Europe.England.Arundel/20270701/today.htm
+    // The diocesan anniversary remains on the date of the church's opening, 1 July 1873.
+    dedication_of_arundel_cathedral_england: {
+      dateOfDedication: '1952-05-14',
+    },
+    // src:
     // - mr_fr_2021_ed3
     // - https://sip.gouvernement.lu/dam-assets/publications/bulletin/1963/BID_1963_17/BID_1963_17.pdf
     dedication_of_notre_dame_cathedral_luxembourg: {
@@ -2296,6 +2323,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     // src:
     // - https://rcdow.org.uk/liturgy/
+    // - https://cdn.prod.website-files.com/5ed93a8802f9816a9341c2a2/690c6cb4519d8389bb813f7f_Ordo%202026.pdf
     // - https://en.wikipedia.org/wiki/Earconwald
     erkenwald_of_london_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -6160,6 +6188,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Philip Evans',
       titles: [Title.Priest, Title.Martyr],
     },
+    // src:
+    // - https://www.abdiocese.org.uk/diocese/arundel-cathedral
+    // - https://en.wikipedia.org/wiki/Philip_Howard,_13th_Earl_of_Arundel
+    philip_howard_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Philip Howard',
+      titles: [Title.Martyr],
+      dateOfBirth: '1557-06-28',
+      dateOfDeath: '1595-10-19',
+      dateOfBeatification: '1929-12-15',
+      dateOfCanonization: '1970-10-25',
+    },
     philip_neri_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Philip Neri',
@@ -6532,6 +6572,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Robert of Turlande',
       titles: [Title.Abbot],
       dateOfDeath: '1067-04-17',
+    },
+    // src:
+    // - https://www.jesuits.global/saint-blessed/saint-robert-southwell/
+    // - https://en.wikipedia.org/wiki/Robert_Southwell_(priest)
+    robert_southwell_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Robert Southwell',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: 1561,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '1595-02-21',
+      dateOfBeatification: '1929-12-15',
+      dateOfCanonization: '1970-10-25',
     },
     roch_gonzalez_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -7043,6 +7096,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
         or: ['1118-12-21', '1120-12-21'],
       },
       dateOfDeath: '1170-12-29',
+    },
+    // src:
+    // - https://www.jesuits.global/saint-blessed/saint-thomas-garnet/
+    // - https://en.wikipedia.org/wiki/Thomas_Garnet
+    thomas_garnet_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Thomas Garnet',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: 1575,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '1608-06-23',
+      dateOfBeatification: '1929-12-15',
+      dateOfCanonization: '1970-10-25',
     },
     // src:
     // - mr_fr_1982_ed2_coutances

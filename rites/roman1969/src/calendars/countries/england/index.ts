@@ -7,6 +7,7 @@ import { Inputs, ParticularConfig } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
 import { England_Westminster } from './archdiocese-of-westminster';
+import { England_ArundelBrighton } from './diocese-of-arundel-and-brighton';
 
 export class England extends CalendarDef {
   ParentCalendars = [Europe];
@@ -298,4 +299,4 @@ export class England extends CalendarDef {
   };
 }
 
-export { England_Westminster };
+export { England_ArundelBrighton, England_Westminster };
