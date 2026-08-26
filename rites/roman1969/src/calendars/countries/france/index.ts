@@ -5,14 +5,22 @@ import { CalendarDef } from '../../../models/calendar-def';
 import type { Inputs, ParticularConfig } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
+import { France_Albi } from './archdiocese-of-albi';
+import { France_Auch } from './archdiocese-of-auch';
 import { France_Lyon } from './archdiocese-of-lyon';
 import { France_Paris } from './archdiocese-of-paris';
 import { France_Toulouse } from './archdiocese-of-toulouse';
 import { France_Angers } from './diocese-of-angers';
+import { France_Cahors } from './diocese-of-cahors';
 import { France_Coutances } from './diocese-of-coutances';
 import { France_Laval } from './diocese-of-laval';
+import { France_Montauban } from './diocese-of-montauban';
+import { France_Pamiers } from './diocese-of-pamiers';
+import { France_Rodez } from './diocese-of-rodez';
 import { France_SaintDenis } from './diocese-of-saint-denis';
 import { France_Strasbourg } from './diocese-of-strasbourg';
+import { France_TarbesLourdes } from './diocese-of-tarbes-and-lourdes';
+import { France_LourdesSanctuary } from './sanctuary-of-our-lady-of-lourdes';
 
 export class France extends CalendarDef {
   ParentCalendars = [Europe];
@@ -143,12 +151,20 @@ export class France extends CalendarDef {
 }
 
 export {
+  France_Albi,
+  France_Auch,
   France_Lyon,
   France_Paris,
   France_Angers,
+  France_Cahors,
   France_Coutances,
   France_Laval,
+  France_Montauban,
+  France_Pamiers,
+  France_Rodez,
   France_SaintDenis,
   France_Strasbourg,
+  France_TarbesLourdes,
   France_Toulouse,
+  France_LourdesSanctuary,
 };
