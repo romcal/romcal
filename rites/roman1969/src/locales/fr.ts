@@ -276,6 +276,8 @@ export const locale: Locale = {
     damasus_i_pope: 'Saint Damase Ier, pape († 384)',
     damien_de_veuster_priest: 'Saint Père Damien, prêtre et Missionnaire Picpus († 1889)',
     daniel_brottier_priest: 'Bienheureux Daniel Brottier, prêtre, apôtre des Orphelins d’Auteuil († 1936 à Paris)',
+    day_of_prayer_for_the_legal_protection_of_unborn_children:
+      'Journée de prière pour la protection juridique des enfants à naître',
     dedication_of_consecrated_churches:
       'Dédicace des églises consacrées dont on ne connaît pas la date de consécration', // src: mr_fr_2021_ed3
     dedication_of_notre_dame_cathedral_luxembourg: 'Dédicace de la cathédrale Notre-Dame de Luxembourg', // src: mr_fr_2021_ed3
@@ -339,6 +341,7 @@ export const locale: Locale = {
     eleutherius_of_tournai_bishop: 'Saint Éleuthère, évêque de Tournai († v. 536)',
     eligius_of_noyon_bishop: 'Saint Éloi, évêque',
     elijah_prophet: 'Saint Élie, prophète († IXe s. av. J.-C.)',
+    elizabeth_ann_seton_religious: 'Sainte Élisabeth-Anne Seton, religieuse',
     elizabeth_bichier_des_ages_virgin: 'Sainte Élisabeth Bichier des Âges, vierge († 1838)',
     elizabeth_of_hungary_religious: 'Sainte Élisabeth de Hongrie († 1231)',
     elizabeth_of_portugal: 'Sainte Élisabeth du Portugal, reine († 1336)',
@@ -384,6 +387,7 @@ export const locale: Locale = {
       'Saints Fraimbault, Constantien et Céneré, ermites', // src: mr_fr_1998_ed1_laval
     fraimbault_of_lassay_hermit: 'Saint Fraimbault de Lassay, ermite († 550)', // src: mr_fr_1998_ed1_laval
     frances_of_rome_religious: 'Sainte Françoise Romaine, religieuse († 1440)',
+    frances_xavier_cabrini_virgin: 'Sainte Françoise-Xavière Cabrini, vierge',
     francis_de_sales_bishop: 'Saint François de Sales, évêque et docteur de l’Église († 1622)',
     francis_de_sales_bishop_patron_of_the_clergy_of_the_archdiocese_of_lyon:
       'Saint François de Sales, évêque et docteur de l’Église, patron du clergé lyonnais († 1622)', // src: mr_fr_2014_ed2_lyon
@@ -392,6 +396,7 @@ export const locale: Locale = {
       'Saint François d’Assise, fondateur de l’ordre des Frères mineurs, patron de l’Italie († 1226)',
     francis_of_paola_hermit: 'Saint François de Paule, ermite, fondateur de l’ordre des Minimes († 1507)',
     francis_xavier_priest: 'Saint François-Xavier, prêtre, Jésuite Missionnaire († 1552)',
+    francis_xavier_seelos_priest: 'Bienheureux François-Xavier Seelos, prêtre',
     francois_dardan_priest_and_companions_martyrs:
       'Bienheureux François Dardan, prêtre, et ses compagnons, martyrs († 1792)',
     francois_de_montmorency_laval_bishop: 'Saint François de Laval, premier évêque de Québec († 1708)',
@@ -462,9 +467,12 @@ export const locale: Locale = {
     ignatius_of_antioch_bishop: 'Saint Ignace d’Antioche, évêque et martyr, père et docteur de l’Église († 115)',
     ignatius_of_loyola_priest: 'Saint Ignace de Loyola, prêtre, fondateur de la Compagnie de Jésus († 1556)',
     immaculate_conception_of_the_blessed_virgin_mary: 'Immaculée Conception de la vierge Marie',
+    immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_usa:
+      'Immaculée Conception de la bienheureuse Vierge Marie, patronne des États-Unis d’Amérique',
     immaculate_conception_of_the_blessed_virgin_mary_principal_patroness_of_the_diocese_of_laval:
       'Immaculée Conception de la Vierge Marie, patronne principale du diocèse', // src: mr_fr_1998_ed1_laval
     immaculate_heart_of_mary: 'Cœur immaculé de Marie',
+    independence_day: 'Jour de l’Indépendance',
     innocent_v_pope: 'Bienheureux Innocent V, pape († 1276)',
     irenaeus_of_lyon_bishop: 'Saint Irénée, évêque, martyr et docteur de l’Église († v. 201)',
     irenaeus_of_lyon_bishop_patron_of_the_archdiocese_of_lyon_and_companions_martyrs:
@@ -472,6 +480,7 @@ export const locale: Locale = {
     irmina_of_oeren_abbess: 'Sainte Irmine, religieuse († v. 710)', // src: mr_fr_2021_ed3
     isabelle_of_france_virgin: 'Bienheureuse Isabelle de France, sœur de saint Louis, vierge († 1270)',
     isidore_of_seville_bishop: 'Saint Isidore de Séville, docteur de l’Église, évêque et Confesseur († 636)',
+    isidore_the_farmer: 'Saint Isidore le Laboureur',
     ivo_of_kermartin_priest: 'Saint Yves Hélory, prêtre et juge en Bretagne († 1303)',
     jacques_berthieu_priest: 'Saint Jacques Berthieu, prêtre et martyr († 1896)',
     jacques_francois_lefranc_martyr_and_martyrs_of_the_revolution:
@@ -536,6 +545,7 @@ export const locale: Locale = {
     john_i_pope: 'Saint Jean Ier, pape et martyr († 526)',
     john_leonardi_priest: 'Saint Jean Léonardi, prêtre († 1609)',
     john_mary_vianney_priest: 'Saint Jean-Marie Vianney, prêtre, curé d’Ars († 1859)',
+    john_nepomucene_neumann_bishop: 'Saint Jean-Népomucène Neumann, évêque',
     john_nepomucene_priest: 'Saint Jean Népomucène, prêtre et martyr († 1393)',
     john_of_avila_priest: 'Saint Jean d’Avila, prêtre et docteur de l’Église († 1569)',
     john_of_capistrano_priest: 'Saint Jean de Capistran, prêtre de l’Ordre des Mineurs († 1456)',
@@ -567,10 +577,12 @@ export const locale: Locale = {
     juliana_of_liege_virgin: 'Sainte Julienne de Cornillon, religieuse Augustine († 1258)',
     julie_billiart_virgin:
       'Sainte Julie Billiart, religieuse, fondatrice de l’Institut des Sœurs de Notre-Dame († 1816)',
+    junipero_serra_priest: 'Saint Junípero Serra, prêtre',
     justin_martyr: 'Saint Justin, martyr († 165)',
     justin_of_bigorre_priest: 'Saint Justin de Bigorre, prêtre († IVe s.)',
     justus_of_lyon_bishop: 'Saint Just, évêque († v. 389)', // src: mr_fr_2014_ed2_lyon
     kateri_tekakwitha_virgin: 'Sainte Kateri Tekakwitha, vierge Amérindienne († 1680)',
+    katharine_drexel_virgin: 'Sainte Katharine Drexel, vierge',
     labor_day: 'Fête du travail', // src: mr_fr_2021_ed3
     lambert_of_maastricht_bishop: 'Saint Lambert, évêque et martyr († 705)',
     landry_of_paris_bishop: 'Saint Landry, évêque de Paris († au 7e s.)',
@@ -625,6 +637,7 @@ export const locale: Locale = {
     marguerite_dyouville_religious:
       'Sainte Marguerite d’Youville, religieuse, fondatrice des Sœurs de la Charité de Montréal († 1771)',
     maria_goretti_virgin: 'Sainte Maria Goretti, vierge et martyre († 1902)',
+    marianne_cope_virgin: 'Sainte Marianne Cope, vierge',
     marie_anne_blondin_virgin:
       'Bienheureuse Marie-Anne Blondin, religieuse, fondatrice des Sœurs de Sainte-Anne († 1890)',
     marie_eugenie_of_jesus_milleret_de_brou_virgin:
@@ -680,6 +693,7 @@ export const locale: Locale = {
     mellitus_of_canterbury_bishop: 'Saint Mellitus de Cantorbéry, évêque',
     michael_gabriel_and_raphael_archangels: 'Saints Michel, Gabriel and Raphaël, archanges',
     michael_garicoits_priest: 'Saint Michel Garicoïts, prêtre († 1863)',
+    miguel_agustin_pro_priest: 'Bienheureux Miguel Agustín Pro, prêtre et martyr',
     misselin_of_tarbes_priest: 'Saint Misselin, prêtre († Ve s.)',
     modestus_andlauer_and_andrew_bauer_martyrs: 'Saints Modeste Andlauer et André Bauer, martyrs († 1900)',
     modestus_andlauer_martyr: 'Saint Modeste Andlauer, martyr († 1900)',
@@ -829,6 +843,7 @@ export const locale: Locale = {
     romuald_of_ravenna_abbot: 'Saint Romuald, anachorète et père des moines Camaldules († 1027)',
     rosalie_jeanne_marie_rendu_virgin: 'Bienheureuse Rosalie Rendu, vierge († 1856)',
     rose_of_lima_virgin: 'Sainte Rose de Lima, vierge († 1617)',
+    rose_philippine_duchesne_virgin: 'Sainte Rose-Philippine Duchesne, vierge',
     roseline_of_villeneuve_virgin: 'Sainte Roseline de Villeneuve, vierge († 1329)', // src: mr_fr_2016_ed1_gap_embrun
     rumpharius_of_coutances_bishop: 'Saint Romphaire, évêque de Coutance († VIème s.)', // src: mr_fr_1982_ed2_coutances
     salome_disciple: 'Sainte Marie Salomé, disciple du Seigneur', // src: mr_fr_1984_ed1_nimes

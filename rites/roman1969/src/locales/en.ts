@@ -351,6 +351,8 @@ export const locale: Locale = {
     david_of_wales_bishop: 'Saint David, Bishop',
     david_of_wales_bishop_patron_of_wales: 'Saint David, Bishop, Patron of Wales',
     davnet_of_sliabh_beagh_virgin: 'Saint Davnet, Virgin',
+    day_of_prayer_for_the_legal_protection_of_unborn_children:
+      'Day of Prayer for the Legal Protection of Unborn Children', // src: mr_en_2011_ed3_us
     declan_of_ardmore_bishop: 'Saint Declan, Bishop',
     dedication_of_consecrated_churches: 'The Dedication of Consecrated Churches Whose Date of Consecration is Unknown',
     dedication_of_notre_dame_cathedral_luxembourg: 'Dedication of Notre-Dame Cathedral, Luxembourg',
@@ -523,7 +525,7 @@ export const locale: Locale = {
     francis_of_paola_hermit: 'Saint Francis of Paola, Hermit',
     francis_solanus_priest: 'Saint Francis Solanus, Priest',
     francis_xavier_priest: 'Saint Francis Xavier, Priest',
-    francis_xavier_seelos_priest: 'Blessed Francis Xavier Seelos, priest',
+    francis_xavier_seelos_priest: 'Blessed Francis Xavier Seelos, Priest',
     francois_dardan_priest_and_companions_martyrs: 'Blessed François Dardan, Priest, and Companions, Martyrs',
     francois_de_montmorency_laval_bishop: 'Saint François de Laval, Bishop',
     francois_louis_meallet_de_fargues_priest: 'Blessed François-Louis Méallet de Fargues, Priest and Martyr',
@@ -639,6 +641,7 @@ export const locale: Locale = {
     immaculate_conception_of_the_blessed_virgin_mary_principal_patroness_of_the_diocese_of_laval:
       'The Immaculate Conception of the Blessed Virgin Mary, Principal Patroness of the Diocese of Laval', // src: mr_fr_1998_ed1_laval
     immaculate_heart_of_mary: 'The Immaculate Heart of the Blessed Virgin Mary',
+    independence_day: 'Independence Day', // src: mr_en_2011_ed3_us
     innocent_v_pope: 'Blessed Innocent V, Pope',
     innocent_xi_pope: 'Blessed Innocent XI, Pope',
     irenaeus_of_lyon_bishop: 'Saint Irenaeus, Bishop, Martyr and Doctor of the Church',

@@ -48,6 +48,7 @@ export const locale: Locale = {
     amandus_of_strasbourg_bishop: 'San Amand de Estrasburgo, obispo',
     amarin_of_alsace_abbot: 'San Amarino, Abad y mártir',
     ambrose_of_milan_bishop: 'San Ambrosio, obispo y doctor de la Iglesia',
+    andre_bessette_religious: 'San Andrés Bessette, religioso',
     andrew_apostle: 'San Andrés, apóstol',
     andrew_apostle_patron_of_scotland: 'San Andrés, apóstol y Patrono de Escocia',
     andrew_dung_lac_priest_and_companions_martyrs: 'Santos Andrés Dung-Lac, presbítero, y compañeros, mártires',
@@ -149,9 +150,12 @@ export const locale: Locale = {
     cyril_of_alexandria_bishop: 'San Cirilio de Alexandria, obispo y doctor de la Iglesia',
     cyril_of_jerusalem_bishop: 'San Cirilio de Jerusalén, obispo y doctor de la Iglesia',
     damasus_i_pope: 'San Dámaso I, papa',
+    damien_de_veuster_priest: 'San Damián de Veuster, presbítero',
     daniel_brottier_priest: 'Beato Daniel Brottier, presbítero',
     david_of_wales_bishop: 'San David, obispo',
     david_of_wales_bishop_patron_of_wales: 'San David, obispo y Patrono de Gales',
+    day_of_prayer_for_the_legal_protection_of_unborn_children:
+      'Día de oración por la protección legal de la criatura en el vientre materno', // src: https://www.usccb.org/resources/2027cal.pdf
     dedication_of_consecrated_churches: 'Dedicación de iglesias consagradas cuya fecha de Consagración se desconoce', // TODO: l10n to review: Dedication of Consecrated Churches Whose Date of Consecration is Unknown
     dedication_of_the_basilica_of_saint_mary_major: 'Dedicación de la Basílica de Santa María Mayor',
     dedication_of_the_basilicas_of_saints_peter_and_paul_apostles:
@@ -173,6 +177,7 @@ export const locale: Locale = {
     easter_sunday: 'Domingo de Pascua',
     eligius_of_noyon_bishop: 'San Eligio, obispo',
     elijah_prophet: 'San Elías, profeta',
+    elizabeth_ann_seton_religious: 'Santa Isabel Ana Seton, religiosa',
     elizabeth_of_hungary_religious: 'Santa Isabel de Hungría, religiosa',
     elizabeth_of_portugal: 'Santa Isabel de Portugal',
     ephrem_the_syrian_deacon: 'San Efrén de Siria, Diácono y doctor de la Iglesia',
@@ -192,6 +197,7 @@ export const locale: Locale = {
     first_martyrs_of_the_holy_roman_church: 'Primeros mártires de la Iglesia de Roma',
     florentius_of_strasbourg_bishop: 'San Florencio, obispo',
     frances_of_rome_religious: 'Santa Francisca Romana, religiosa',
+    frances_xavier_cabrini_virgin: 'Santa Francisca Javier Cabrini, virgen',
     francis_borgia_priest: 'San Francisco de Borja, presbítero',
     francis_de_sales_bishop: 'San Francisco de Sales, obispo y doctor de la Iglesia',
     francis_diaz_del_rincon_priest_and_companions_martyrs: 'San Francisco Díaz, presbítero y Compañeros, mártires',
@@ -201,6 +207,7 @@ export const locale: Locale = {
     francis_of_paola_hermit: 'San Francisco de Paula, ermitaño',
     francis_solanus_priest: 'San Francisco Solano, presbítero',
     francis_xavier_priest: 'San Francisco Javier, presbítero',
+    francis_xavier_seelos_priest: 'Beato Francisco Javier Seelos, presbítero',
     frederic_ozanam_founder: 'Beato Federico Ozanam, fundador',
     friday_of_the_passion_of_the_lord: 'Viernes Santo',
     fructuosus_of_tarragona_bishop_and_augurius_of_tarragona_and_eulogius_of_tarragona_deacons_martyrs:
@@ -231,7 +238,10 @@ export const locale: Locale = {
     ignatius_of_loyola_priest: 'San Ignacio de Loyola, presbítero',
     ildephonsus_of_toledo_bishop: 'San Ildefonso, obispo de Toledo',
     immaculate_conception_of_the_blessed_virgin_mary: 'Inmaculada Concepción de María',
+    immaculate_conception_of_the_blessed_virgin_mary_patroness_of_the_usa:
+      'Inmaculada Concepción de la Bienaventurada Virgen María, patrona de los Estados Unidos de América',
     immaculate_heart_of_mary: 'Inmaculado Corazón de María',
+    independence_day: 'Día de la Independencia de los Estados Unidos', // src: https://www.usccb.org/es/prayer-and-worship/the-mass/musica-para-el-misal-romano
     innocent_v_pope: 'Beato Inocencio V, papa',
     innocent_xi_pope: 'Beato Inocencio XI, papa',
     irenaeus_of_lyon_bishop: 'San Ireneo de Lyon, obispo, mártir y doctor de la Iglesia',
@@ -262,6 +272,7 @@ export const locale: Locale = {
     john_i_pope: 'San Juan I, papa y mártir',
     john_leonardi_priest: 'San Juan Leonardi, presbítero',
     john_mary_vianney_priest: 'San Juan María Vianney, presbítero',
+    john_nepomucene_neumann_bishop: 'San Juan Nepomuceno Neumann, obispo',
     john_of_avila_priest: 'San Juan de Ávila, presbítero y doctor de la Iglesia',
     john_of_capistrano_priest: 'San Juan de Capistrano, presbítero',
     john_of_god_duarte_cidade_religious: 'San Juan de Dios, religioso',
@@ -281,6 +292,8 @@ export const locale: Locale = {
     juan_diego_cuauhtlatoatzin: 'San Juan Diego Cuauhtlatoatzin',
     junipero_serra_priest: 'San Junípero Serra, presbítero',
     justin_martyr: 'San Justino, mártir',
+    kateri_tekakwitha_virgin: 'Santa Kateri Tekakwitha, virgen',
+    katharine_drexel_virgin: 'Santa Catalina Drexel, virgen',
     landry_of_paris_bishop: 'San Landerico de París, obispo',
     laura_vicuna_virgin: 'Beata Laura Vicuna, virgen',
     lawrence_of_brindisi_priest: 'San Lorenzo de Brindis, presbítero y doctor de la Iglesia',
@@ -306,8 +319,10 @@ export const locale: Locale = {
     maria_guadalupe_garcia_zavala_virgin: 'Santa María Guadalupe García Zavala, virgen',
     maria_micaela_of_the_blessed_sacrament_desmaisieres_virgin: 'Santa María Micaela del Santísimo Sacramento, virgen',
     mariana_of_jesus_de_paredes_virgin: 'Santa Mariana de Jesús de Paredes, virgen',
+    marianne_cope_virgin: 'Santa Mariana Cope, virgen',
     marie_eugenie_of_jesus_milleret_de_brou_virgin:
       'Santa María Eugenia de Jesús Milleret de Brou, virgen y Fundatrice',
+    marie_rose_durocher_virgin: 'Beata María Rosa Durocher, virgen',
     mark_evangelist: 'San Marcos, evangelista',
     martha_of_bethany_mary_of_bethany_and_lazarus_of_bethany: 'Santos Marta, María y Lázaro', // src: https://liturgiapapal.org/attachments/article/1093/PROPIO%20DE%20LOS%20SANTOS.pdf#page=9
     martin_de_porres_religious: 'San Martín de Porres, religioso',
@@ -439,6 +454,7 @@ export const locale: Locale = {
     romuald_of_ravenna_abbot: 'San Romualdo, Abad',
     rosalie_jeanne_marie_rendu_virgin: 'Beata Rosalía Rendu, virgen',
     rose_of_lima_virgin: 'Santa Rosa de Lima, virgen',
+    rose_philippine_duchesne_virgin: 'Santa Rosa Filipina Duchesne, virgen',
     scholastica_of_nursia_virgin: 'Santa Escolástica, virgen',
     sebastian_de_aparicio_religious: 'Beato Sebastián de Aparicio, religioso',
     sebastian_of_milan_martyr: 'San Sebastián, mártir',
@@ -458,6 +474,7 @@ export const locale: Locale = {
     teresa_of_jesus_jornet_ibars_virgin: 'Santa Teresa de Jesús Jornet e Ibars, virgen',
     teresa_of_jesus_of_avila_virgin: 'Santa Teresa de Jesús, virgen y doctora de la Iglesia',
     teresa_of_jesus_of_los_andes_virgin: 'Santa Teresa de Los Andes, virgen',
+    thanksgiving_day: 'Día de Acción de Gracias', // src: https://www.usccb.org/es/prayer-and-worship/the-mass/musica-para-el-misal-romano
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin:
       'Santa Teresita del Niño Jesús, virgen y doctora de la Iglesia',
     therese_of_the_child_jesus_and_the_holy_face_of_lisieux_virgin_copatroness_of_france:
