@@ -1,3 +1,4 @@
+import { CommonDefinition as Common } from '../../../constants/commons';
 import { PatronTitle, Title } from '../../../constants/martyrology-metadata';
 import { Precedences } from '../../../constants/precedences';
 import { CalendarDef } from '../../../models/calendar-def';
@@ -12,6 +13,7 @@ export class France_SaintDenis extends CalendarDef {
   inputs: Inputs = {
     genevieve_of_paris_virgin: {
       precedence: Precedences.ProperMemorial_11b,
+      commonsDef: Common.None,
     },
 
     most_holy_name_of_jesus: {
@@ -25,6 +27,7 @@ export class France_SaintDenis extends CalendarDef {
 
     louise_de_marillac_religious: {
       dateDef: { month: 3, date: 15 },
+      commonsDef: Common.Religious,
     },
 
     our_lady_mediatrix_of_all_grace: {
@@ -35,6 +38,7 @@ export class France_SaintDenis extends CalendarDef {
     mary_of_the_sacred_heart_sophie_therese_de_soubiran_la_louviere_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 7 },
+      commonsDef: Common.Virgins,
     },
 
     dedication_of_the_cathedral_basilica_of_saint_denis_france: {
@@ -49,6 +53,7 @@ export class France_SaintDenis extends CalendarDef {
     audoen_of_rouen_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 23 },
+      commonsDef: Common.Bishops,
     },
 
     louis_ix_of_france: {
@@ -62,6 +67,7 @@ export class France_SaintDenis extends CalendarDef {
     blessed_martyrs_of_paris: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 2 },
+      commonsDef: Common.Martyrs,
     },
 
     denis_of_paris_bishop: {
@@ -79,6 +85,7 @@ export class France_SaintDenis extends CalendarDef {
     eligius_of_noyon_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 12, date: 1 },
+      commonsDef: Common.Bishops,
     },
   };
 }

@@ -13,9 +13,11 @@ import { France_Toulouse } from './archdiocese-of-toulouse';
 import { France_Angers } from './diocese-of-angers';
 import { France_Cahors } from './diocese-of-cahors';
 import { France_Coutances } from './diocese-of-coutances';
+import { France_Creteil } from './diocese-of-creteil';
 import { France_GapEmbrun } from './diocese-of-gap-and-embrun';
 import { France_Laval } from './diocese-of-laval';
 import { France_Montauban } from './diocese-of-montauban';
+import { France_Nanterre } from './diocese-of-nanterre';
 import { France_Pamiers } from './diocese-of-pamiers';
 import { France_Rodez } from './diocese-of-rodez';
 import { France_SaintDenis } from './diocese-of-saint-denis';
@@ -159,9 +161,11 @@ export {
   France_Angers,
   France_Cahors,
   France_Coutances,
+  France_Creteil,
   France_GapEmbrun,
   France_Laval,
   France_Montauban,
+  France_Nanterre,
   France_Pamiers,
   France_Rodez,
   France_SaintDenis,
