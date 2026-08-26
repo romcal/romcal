@@ -97,6 +97,7 @@ export const locale: Locale = {
     aloysius_stepinac_bishop: 'Blessed Aloysius Stepinac, Bishop and Martyr',
     aloysius_versiglia_bishop_and_callistus_caravario_priest_martyrs:
       'Saints Aloysius Versiglia, Bishop and Callistus Caravario, Priest, Martyrs',
+    alphege_of_canterbury_bishop: 'Saint Alphege, Bishop and Martyr',
     alphonsa_of_the_immaculate_conception_muttathupadathu_virgin:
       'Saint Alphonsa of the Immaculate Conception Muttathupadathu, Virgin',
     alphonsus_mary_liguori_bishop: 'Saint Alphonsus Mary Liguori, Bishop and Doctor of the Church',
@@ -215,6 +216,7 @@ export const locale: Locale = {
     beuno_of_wales_abbot: 'Saint Beuno, Abbot',
     blaise_of_sebaste_bishop: 'Saint Blaise, Bishop and Martyr',
     blessed_martyrs_of_angers: 'Blessed Martyrs of Angers', // mr_fr_2022_ed3_angers
+    blessed_martyrs_of_douai: 'Blessed Martyrs of Douai',
     blessed_martyrs_of_paris: 'Blessed Martyrs of Paris',
     bogumilus_of_dobrow_bishop: 'Blessed Bogumilus, Bishop',
     boleslawa_mary_lament_virgin: 'Blessed Boleslawa Mary Lament, Virgin',
@@ -377,6 +379,7 @@ export const locale: Locale = {
     dedication_of_the_lateran_basilica: 'The Dedication of the Lateran Basilica',
     dedication_of_the_notre_dame_de_paris_cathedral_paris_france:
       'The Dedication of the Notre-Dame de Paris Cathedral, Paris',
+    dedication_of_westminster_cathedral_england: 'The Dedication of Westminster Cathedral',
     deiniol_of_bangor_bishop: 'Saint Deiniol, Bishop',
     demetrius_of_thessaloniki_martyr: 'Saint Demetrius of Thessaloniki, Martyr',
     denis_of_paris_bishop_and_companions_martyrs: 'Saint Denis, Bishop, and Companions, Martyrs',
@@ -429,6 +432,8 @@ export const locale: Locale = {
     epipodius_of_lyon_and_alexander_of_lyon_martyrs: 'Saints Epipodius and Alexander, Martyrs',
     erembert_of_toulouse_bishop: 'Saint Erembert of Toulouse, Bishop',
     eric_ix_of_sweden_martyr: 'Saint Eric IX of Sweden, Martyr',
+    erkenwald_of_london_and_mellitus_of_canterbury_bishops: 'Saints Erkenwald and Mellitus, Bishops',
+    erkenwald_of_london_bishop: 'Saint Erkenwald, Bishop',
     etheldreda_of_ely_abbess: 'Saint Etheldreda, Abbess',
     eucharistic_celebration_on_lunar_new_year_day: 'Eucharistic Celebration on Lunar New Year Day',
     eucharius_of_trier_bishop: 'Saint Eucharius, Bishop',
@@ -699,6 +704,7 @@ export const locale: Locale = {
     john_roberts_priest: 'Saint John Roberts, Priest and Martyr',
     john_sarkander_priest: 'Saint John Sarkander, Priest and Martyr',
     john_scheffler_bishop: 'Blessed John Scheffler, Bishop and Martyr',
+    john_southworth_priest: 'Saint John Southworth, Priest and Martyr',
     john_xxiii_pope: 'Saint John XXIII, Pope',
     josaphat_kuntsevych_bishop: 'Saint Josaphat, Bishop and Martyr',
     jose_maria_de_yermo_y_parres_priest: 'Saint José Maria de Yermo y Parres, Priest',
@@ -750,6 +756,9 @@ export const locale: Locale = {
     laud_of_coutances_bishop_patron_of_the_diocese_of_coutances:
       'Saint Laud, Bishop, Patron of the Diocese of Coutances',
     laura_vicuna_virgin: 'Blessed Laura Vicuña, Virgin',
+    laurence_of_canterbury_bishop: 'Saint Laurence of Canterbury, Bishop',
+    laurence_of_canterbury_dunstan_of_canterbury_and_theodore_of_canterbury_bishops:
+      'Saints Laurence, Dunstan and Theodore, Archbishops of Canterbury',
     laurence_otoole_bishop: 'Saint Laurence O’Toole, Bishop',
     laurence_wang_bing_and_companions_martyrs: 'Saint Laurence Wang Bing and Companions, Martyrs',
     lawrence_bai_xiaoman_martyr: 'Saint Lawrence Bai Xiaoman, Martyr',
@@ -889,6 +898,7 @@ export const locale: Locale = {
     meinrad_of_einsiedeln_martyr: 'Saint Meinrad of Einsiedeln, Martyr',
     mel_of_ardagh_bishop: 'Saint Mel, Bishop',
     melchior_grodziecki_priest: 'Saint Melchior Grodziecki, Priest and Martyr',
+    mellitus_of_canterbury_bishop: 'Saint Mellitus, Bishop',
     michael_gabriel_and_raphael_archangels: 'Saints Michael, Gabriel and Raphael, Archangels',
     michael_garicoits_priest: 'Saint Michael Garicoïts, Priest',
     michael_kozal_bishop: 'Blessed Michael Kozal, Bishop and Martyr',

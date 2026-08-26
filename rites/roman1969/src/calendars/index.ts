@@ -14,7 +14,7 @@ import { CostaRica } from './countries/costa-rica';
 import { Croatia } from './countries/croatia';
 import { CzechRepublic } from './countries/czech-republic';
 import { Denmark } from './countries/denmark';
-import { England } from './countries/england';
+import { England, England_Westminster } from './countries/england';
 import { Finland } from './countries/finland';
 import {
   France,
@@ -104,6 +104,7 @@ export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   CzechRepublic,
   Denmark,
   England,
+  England_Westminster,
   Europe,
   Finland,
   France,

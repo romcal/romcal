@@ -79,6 +79,7 @@ export const locale: Locale = {
     all_saints_of_the_diocese_of_nanterre: 'Tous les Saints du diocèse de Nanterre', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     all_saints_of_the_diocese_of_saint_denis: 'Tous les Saints du diocèse de Saint-Denis',
     aloysius_gonzaga_religious: 'Saint Louis de Gonzague, religieux Jésuite († 1591)',
+    alphege_of_canterbury_bishop: 'Saint Alphège, évêque et martyr',
     alphonsus_mary_liguori_bishop: 'Saint Alphonse-Marie de Liguori, évêque et docteur de l’Église',
     alpinien: 'Saint Alpinien',
     amand_of_maastricht_bishop: 'Saint Amand d’Elnone, Missionnaire, évêque de Maastricht († v. 676)',
@@ -179,6 +180,7 @@ export const locale: Locale = {
     bertrand_of_comminges_bishop: 'Saint Bertrand de Comminges, évêque († 1126)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     blaise_of_sebaste_bishop: 'Saint Blaise de Sébaste, évêque et martyr († 316)',
     blessed_martyrs_of_angers: 'Bienheureux Martyrs d’Angers († 1793-1794)', // mr_fr_2022_ed3_angers
+    blessed_martyrs_of_douai: 'Bienheureux martyrs de Douai',
     blessed_martyrs_of_paris: 'Bienheureux Martyrs de Paris († du 2 au 6 septembre 1792)',
     bonaventure_of_bagnoregio_bishop: 'Saint Bonaventure, évêque d’Albano et docteur de l’Église († 1274)',
     boniface_of_mainz_bishop: 'Saint Boniface, évêque et martyr († 754)',
@@ -289,6 +291,7 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_the_holy_trinity_laval_france: 'Dédicace de la cathédrale de Laval', // src: mr_fr_1998_ed1_laval
     dedication_of_the_lateran_basilica: 'Dédicace de la Basilique du Latran',
     dedication_of_the_notre_dame_de_paris_cathedral_paris_france: 'Dédicace de la cathédrale de Paris',
+    dedication_of_westminster_cathedral_england: 'Dédicace de la cathédrale de Westminster',
     denis_of_paris_bishop_and_companions_martyrs:
       'Saint Denis, évêque, et ses compagnons, martyrs à Paris († IIIème s.)',
     denis_of_paris_bishop_patron_of_the_archdiocese_of_paris: 'Saint Denis, martyr, premier évêque, patron du diocèse',
@@ -324,6 +327,8 @@ export const locale: Locale = {
     epiphany_of_the_lord: 'Épiphanie du Seigneur',
     epipodius_of_lyon_and_alexander_of_lyon_martyrs: 'Saints Épipode et Alexandre, martyrs († 178)', // src: mr_fr_2014_ed2_lyon
     erembert_of_toulouse_bishop: 'Saint Érembert, évêque († v. 672)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
+    erkenwald_of_london_and_mellitus_of_canterbury_bishops: 'Saints Erkenwald et Mellitus, évêques',
+    erkenwald_of_london_bishop: 'Saint Erkenwald de Londres, évêque',
     eucharius_of_trier_bishop: 'Saint Euchaire, évêque († IVème s.)',
     eucherius_of_lyon_bishop: 'Saint Eucher, évêque († v. 449)', // src: mr_fr_2014_ed2_lyon
     eugene_de_mazenod_bishop:
@@ -502,6 +507,7 @@ export const locale: Locale = {
     john_of_kanty_priest: 'Saint Jean de Kenty, prêtre († 1473)',
     john_of_the_cross_priest: 'Saint Jean de la Croix, prêtre et docteur de l’Église († 1591)',
     john_paul_ii_pope: 'Saint Jean-Paul II, pape († 2005)',
+    john_southworth_priest: 'Saint John Southworth, prêtre et martyr',
     john_xxiii_pope: 'Saint Jean XXIII, pape († 1963)',
     josaphat_kuntsevych_bishop: 'Saint Josaphat Kuntsevych, évêque Basilien et martyr († 1623)',
     joseph_henri_chamayou_religious: 'Bienheureux Joseph-Henri Chamayou, religieux et martyr († 1936)', // src: https://albi.catholique.fr/wp-content/uploads/sites/24/2026/04/calendrier-liturgique-propre-du-diocese-dalbi.pdf
@@ -531,6 +537,9 @@ export const locale: Locale = {
     laud_of_coutances_bishop: 'Saint Lô, évêque de Coutances († 566)', // src: mr_fr_1982_ed2_coutances
     laud_of_coutances_bishop_patron_of_the_diocese_of_coutances:
       'Saint Lô, évêque de Coutances, patron du diocèse († 566)', // src: mr_fr_1982_ed2_coutances
+    laurence_of_canterbury_bishop: 'Saint Laurent de Cantorbéry, évêque',
+    laurence_of_canterbury_dunstan_of_canterbury_and_theodore_of_canterbury_bishops:
+      'Saints Laurent, Dunstan et Théodore, archevêques de Cantorbéry',
     lawrence_of_brindisi_priest: 'Saint Laurent de Brindisi, prêtre et docteur de l’Église († 1619)',
     lawrence_of_rome_deacon: 'Saint Laurent de Rome, diacre et martyr († 258)',
     lawrence_ruiz_and_companions_martyrs:
@@ -619,6 +628,7 @@ export const locale: Locale = {
     maximilian_mary_raymund_kolbe_priest: 'Saint Maximilien-Marie Kolbe, prêtre et martyr († 1941)',
     may_of_bodon_abbot: 'Saint May, abbé († v. 550)', // src: mr_fr_2016_ed1_gap_embrun
     mederic_of_autun_and_droctoveus_of_autun_abbots: 'Saint Merry et Saint Droctovée, Abbés',
+    mellitus_of_canterbury_bishop: 'Saint Mellitus de Cantorbéry, évêque',
     michael_gabriel_and_raphael_archangels: 'Saints Michel, Gabriel and Raphaël, archanges',
     michael_garicoits_priest: 'Saint Michel Garicoïts, prêtre († 1863)',
     misselin_of_tarbes_priest: 'Saint Misselin, prêtre († Ve s.)',
