@@ -2,11 +2,18 @@ import { ProperCycles } from '../../../constants/cycles';
 import { PatronTitle } from '../../../constants/martyrology-metadata';
 import { Precedences } from '../../../constants/precedences';
 import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { Inputs, ParticularConfig } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Wales extends CalendarDef {
   ParentCalendars = [Europe];
+
+  // src: https://www.liturgyoffice.org.uk/Calendar/2027/Ordo-2027.pdf
+  particularConfig: ParticularConfig = {
+    epiphanyOnSunday: false,
+    ascensionOnSunday: false,
+    corpusChristiOnSunday: true,
+  };
 
   inputs: Inputs = {
     teilo_of_llandaff_bishop: {
@@ -42,9 +49,10 @@ export class Wales extends CalendarDef {
       dateDef: { month: 7, date: 12 },
     },
 
+    // src: https://www.liturgyoffice.org.uk/Calendar/National/Wales1.shtml
     philip_evans_and_john_lloyd_priests: {
       precedence: Precedences.OptionalMemorial_12,
-      dateDef: { month: 7, date: 25 },
+      dateDef: { month: 7, date: 23 },
       martyrology: ['philip_evans_priest', 'john_lloyd_priest'],
     },
 
@@ -65,7 +73,6 @@ export class Wales extends CalendarDef {
 
     john_henry_newman_priest: {
       precedence: Precedences.ProperFeast_8f,
-      dateDef: { month: 10, date: 9 },
     },
 
     denis_of_paris_bishop_and_companions_martyrs: {
@@ -119,9 +126,10 @@ export class Wales extends CalendarDef {
       },
     },
 
+    // src: https://www.liturgyoffice.org.uk/Calendar/National/Wales1.shtml
     all_saints_of_wales: {
       precedence: Precedences.ProperFeast_8f,
-      dateDef: { month: 11, date: 6 },
+      dateDef: { month: 11, date: 8 },
     },
 
     dyfrig_of_wales_bishop: {
