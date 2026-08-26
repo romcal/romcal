@@ -126,7 +126,6 @@ export class France extends CalendarDef {
     // src: mr_fr_2021_ed3
     joseph_of_calasanz_priest: {
       dateDef: { month: 8, date: 26 },
-      commonsDef: Common.Saints,
     },
 
     // src: mr_fr_2021_ed3
