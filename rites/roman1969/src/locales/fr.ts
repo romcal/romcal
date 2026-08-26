@@ -148,11 +148,13 @@ export const locale: Locale = {
     augustine_zhao_rong_priest_and_companions_martyrs:
       'Saints Augustin Zhao Rong et ses compagnons, martyrs en Chine († entre 1648 et 1930)',
     augustus_chapdelaine_priest: 'Saint Auguste Chapdelaine, prêtre et martyr († 1856)', // src: mr_fr_1982_ed2_coutances
+    aurelia_of_rome_virgin: 'Sainte Aurélie, vierge et martyre († v. 260)', // src: mr_fr_2021_ed3
     aurelia_of_strasbourg_virgin: 'Sainte Aurélie, vierge († IVème s.)',
     austinde_of_auch_bishop: 'Saint Austinde, évêque d’Auch († 1068)',
     aventin_of_larboust_martyr: 'Saint Aventin, martyr († VIIIème s.)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     baldomerus_of_lyon_religious: 'Saint Galmier, religieux († v. 630)', // src: mr_fr_2014_ed2_lyon
     baptism_of_the_lord: 'Baptême du Seigneur',
+    barbara_of_heliopolis_virgin: 'Sainte Barbe, vierge et martyre', // src: mr_fr_2021_ed3
     barnabas_apostle: 'Saint Barnabé, apôtre',
     bartholomew_apostle: 'Saint Barthélemy, apôtre',
     basil_the_great_and_gregory_nazianzen_bishops:
@@ -260,6 +262,8 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_notre_dame_de_strasbourg_france: 'Dédicace de la cathédrale de Strasbourg',
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france: 'Dédicace de la cathédrale de Coutances', // src: mr_fr_1982_ed2_coutances
     dedication_of_the_cathedral_of_notre_dame_of_creteil_france: 'Dédicace de la cathédrale de Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    dedication_of_the_cathedral_of_our_lady_immaculate_monaco:
+      'Dédicace de la cathédrale Notre-Dame-Immaculée de Monaco', // src: mr_fr_2021_ed3
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
       'Dédicace de la cathédrale Notre-Dame-de-l’Assomption de Montauban',
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_rodez_france:
@@ -286,6 +290,9 @@ export const locale: Locale = {
       'Saint Denis, évêque et martyr, patron secondaire du diocèse de Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     denis_of_paris_bishop_second_patron_of_the_diocese_of_nanterre:
       'Saint Denis, évêque et martyr, patron secondaire du diocèse de Nanterre', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    devota_of_corsica_virgin: 'Sainte Dévote, vierge et martyre († 304)', // src: mr_fr_2021_ed3
+    devota_of_corsica_virgin_principal_patroness_of_monaco:
+      'Sainte Dévote, vierge et martyre, patronne principale de l’archidiocèse et de la Principauté († 304)', // src: mr_fr_2021_ed3
     didier_of_cahors_bishop: 'Saint Didier, évêque de Cahors († 655)',
     dina_belanger_virgin: 'Bienheureuse Dina Bélanger, religieuse de la congrégation des Sœurs de Jésus-Marie († 1929)',
     dismas_the_good_thief: 'Saint Dismas (le Bon Larron)', // src: mr_fr_2014_ed2_lyon
@@ -394,6 +401,8 @@ export const locale: Locale = {
     holy_innocents_martyrs: 'Saints Innocents, martyrs († Ier s.)',
     holy_saturday: 'Samedi Saint',
     holy_thursday: 'Jeudi Saint',
+    honoratus_of_arles_bishop: 'Saint Honorat, évêque († 430)', // src: mr_fr_2021_ed3
+    hospitius_of_nice_hermit: 'Saint Hospice, ermite († 581)', // src: mr_fr_2021_ed3
     hubert_of_liege_bishop: 'Saint Hubert, évêque († 727)',
     ignatius_of_antioch_bishop: 'Saint Ignace d’Antioche, évêque et martyr, père et docteur de l’Église († 115)',
     ignatius_of_loyola_priest: 'Saint Ignace de Loyola, prêtre, fondateur de la Compagnie de Jésus († 1556)',
@@ -687,6 +696,7 @@ export const locale: Locale = {
     placide_eulalie_victoire_jacqueline_viel_virgin: 'Bienheureuse Placide Viel, vierge († 1877)', // src: mr_fr_1982_ed2_coutances
     polycarp_of_smyrna_bishop: 'Saint Polycarpe, évêque et martyr († 167)',
     pontian_i_pope_and_hippolytus_of_rome_priest: 'Saints Pontien, pape, et Hippolyte, prêtre de Rome, martyrs († 235)',
+    pontius_of_cimiez_martyr: 'Saint Pons, martyr († 257)', // src: mr_fr_2021_ed3
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs:
       'Saint Pothin, évêque, Sainte Blandine, vierge, et leurs compagnons, martyrs († 177)',
     pothinus_of_lyon_bishop_patron_the_city_of_lyon_blandina_of_lyon_virgin_and_companions_martyrs:
@@ -713,6 +723,7 @@ export const locale: Locale = {
     robert_bellarmine_bishop: 'Saint Robert Bellarmin, Jésuite, évêque et docteur de l’Église († 1621)',
     robert_of_arbrissel_priest: 'Bienheureux Robert d’Arbrissel, prêtre et ermite († 1116)', // src: mr_fr_1998_ed1_laval
     roch_of_montpellier: 'Saint Roch, pèlerin († v. 1379)', // src: mr_fr_1974_ed1_region_apostolique_du_midi, mr_fr_1984_ed1_nimes
+    romanus_ostiarius_martyr: 'Saint Roman, martyr († 258)', // src: mr_fr_2021_ed3
     romuald_of_ravenna_abbot: 'Saint Romuald, anachorète et père des moines Camaldules († 1027)',
     rosalie_jeanne_marie_rendu_virgin: 'Bienheureuse Rosalie Rendu, vierge († 1856)',
     rose_of_lima_virgin: 'Sainte Rose de Lima, vierge († 1617)',

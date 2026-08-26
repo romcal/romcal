@@ -179,6 +179,7 @@ export const locale: Locale = {
     augustine_zhao_rong_priest: 'Saint Augustine Zhao Rong, Priest and Martyr',
     augustine_zhao_rong_priest_and_companions_martyrs: 'Saint Augustine Zhao Rong, Priest, and Companions, Martyrs',
     augustus_chapdelaine_priest: 'Saint Auguste Chapdelaine, Priest and Martyr',
+    aurelia_of_rome_virgin: 'Saint Aurelia of Rome, Virgin and Martyr', // src: mr_fr_2021_ed3
     aurelia_of_strasbourg_virgin: 'Saint Aurelia of Strasbourg, Virgin',
     austinde_of_auch_bishop: 'Saint Austinde of Auch, Bishop',
     aventin_of_larboust_martyr: 'Saint Aventin of Larboust, Martyr',
@@ -340,6 +341,8 @@ export const locale: Locale = {
     dedication_of_the_cathedral_of_notre_dame_of_coutances_france:
       'The Dedication of the Cathedral of Coutances, France',
     dedication_of_the_cathedral_of_notre_dame_of_creteil_france: 'The Dedication of the Cathedral of Créteil, France', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    dedication_of_the_cathedral_of_our_lady_immaculate_monaco:
+      'The Dedication of the Cathedral of Our Lady Immaculate, Monaco', // src: mr_fr_2021_ed3
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france:
       'The Dedication of the Cathedral of Our Lady of the Assumption, Montauban, France',
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_rodez_france:
@@ -377,6 +380,9 @@ export const locale: Locale = {
       'Saint Denis, Bishop and Martyr, Secondary Patron of the Diocese of Créteil', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
     denis_of_paris_bishop_second_patron_of_the_diocese_of_nanterre:
       'Saint Denis, Bishop and Martyr, Secondary Patron of the Diocese of Nanterre', // src: mr_fr_2009_ed2_paris_creteil_nanterre_saint_denis
+    devota_of_corsica_virgin: 'Saint Devota, Virgin and Martyr', // src: mr_fr_2021_ed3
+    devota_of_corsica_virgin_principal_patroness_of_monaco:
+      'Saint Devota, Virgin and Martyr, Principal Patroness of the Archdiocese and the Principality of Monaco', // src: mr_fr_2021_ed3
     didier_of_cahors_bishop: 'Saint Didier of Cahors, Bishop',
     dina_belanger_virgin: 'Blessed Dina Bélanger, Virgin',
     dionysius_the_areopagite_bishop: 'Saint Dionysius the Areopagite, Bishop and Martyr',
@@ -557,7 +563,9 @@ export const locale: Locale = {
     holy_saturday: 'Holy Saturday/Easter Vigil',
     holy_thursday: 'Holy Thursday',
     honorat_kozminski_priest: 'Blessed Honorat Koźmiński, Priest',
+    honoratus_of_arles_bishop: 'Saint Honoratus of Arles, Bishop', // src: mr_fr_2021_ed3
     hosanna_of_cattaro_virgin: 'Blessed Hosanna of Cattaro, Virgin',
+    hospitius_of_nice_hermit: 'Saint Hospitius of Nice, Hermit', // src: mr_fr_2021_ed3
     hroznata_of_bohemia_martyr: 'Blessed Hroznata, Martyr',
     hubert_of_liege_bishop: 'Saint Hubert, Bishop',
     hugh_of_lincoln_bishop: 'Saint Hugh of Lincoln, Bishop',
@@ -1040,6 +1048,7 @@ export const locale: Locale = {
     placide_eulalie_victoire_jacqueline_viel_virgin: 'Blessed Placide Viel, Virgin',
     polycarp_of_smyrna_bishop: 'Saint Polycarp, Bishop and Martyr',
     pontian_i_pope_and_hippolytus_of_rome_priest: 'Saints Pontian, Pope, and Hippolytus, Priest, Martyrs',
+    pontius_of_cimiez_martyr: 'Saint Pontius of Cimiez, Martyr', // src: mr_fr_2021_ed3
     pothinus_of_lyon_bishop_blandina_of_lyon_virgin_and_companions_martyrs:
       'Saints Pothinus, Bishop, Blandina, Virgin, and Companions, Martyrs',
     pothinus_of_lyon_bishop_patron_the_city_of_lyon_blandina_of_lyon_virgin_and_companions_martyrs:
@@ -1078,6 +1087,7 @@ export const locale: Locale = {
     roch_gonzalez_alphonsus_rodriguez_and_john_del_castillo_priests:
       'Saints Roch González, Alphonsus Rodríguez and John del Castillo, Priests and Martyrs',
     roch_of_montpellier: 'Saint Roch, Pilgrim', // src: mr_fr_1974_ed1_region_apostolique_du_midi, mr_fr_1984_ed1_nimes
+    romanus_ostiarius_martyr: 'Saint Romanus Ostiarius, Martyr', // src: mr_fr_2021_ed3
     romuald_of_ravenna_abbot: 'Saint Romuald, Abbot',
     rosalie_jeanne_marie_rendu_virgin: 'Blessed Rosalie Rendu, Virgin',
     rose_of_lima_virgin: 'Saint Rose of Lima, Virgin',
