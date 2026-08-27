@@ -1,17 +1,20 @@
 {
-  // Linters & Prettier extensions settings
+  // ESLint owns formatting for every file type in this repo (see .config/eslint.config.mjs).
   "files.trimTrailingWhitespace": true,
-  "eslint.validate": ["typescript", "json"],
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.tslint": "never"
+  "eslint.validate": ["typescript", "javascript", "json", "yaml", "markdown"],
+  "eslint.options": {
+    "overrideConfigFile": ".config/eslint.config.mjs"
   },
-  "eslint.format.enable": false, // let prettier do it, it is faster and safer
+  "eslint.workingDirectories": ["."],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.format.enable": true,
   // Jest extension settings
   "jest.runMode": "on-demand",
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   }
 }

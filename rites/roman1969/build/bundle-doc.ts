@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import chalk from 'chalk';
-import prettier from 'prettier';
+import { ESLint } from 'eslint';
 
 import { calendarDefinitions } from '../src/calendars';
 import { CalendarDef } from '../src/models/calendar-def';
@@ -17,7 +17,33 @@ log(chalk.bold(`\n✓ Update the documentation of all calendar plugins in ${chal
 
 const allCalendars: (typeof CalendarDef)[] = Object.values(calendarDefinitions);
 
-let mdTemplate = `# Calendar plugins
+const repoRoot = path.resolve(__dirname, '../../../');
+
+const outputPath = path.resolve(repoRoot, 'docs/', 'calendar-plugins.md');
+
+/**
+ * Render a GitHub-flavoured markdown table with columns padded to their widest cell.
+ * ESLint applies rule-based fixes rather than reprinting markdown, so the alignment
+ * that a formatter used to add has to be produced here.
+ */
+const renderTable = (headers: string[], rows: string[][]): string => {
+  const widths = headers.map((header, column) =>
+    Math.max(header.length, ...rows.map((row) => row[column].length), 3)
+  );
+  const renderRow = (cells: string[]): string =>
+    `| ${cells.map((cell, column) => cell.padEnd(widths[column])).join(' | ')} |`;
+
+  return [renderRow(headers), `| ${widths.map((width) => '-'.repeat(width)).join(' | ')} |`, ...rows.map(renderRow)].join(
+    '\n'
+  );
+};
+
+const rows = allCalendars.map((calendar) => [
+  calendar.name.replace(/([A-Z])/g, ' $1').replace('_', ' /').trim(),
+  `\`@romcal/calendar.${toPackageName(calendar.name)}@dev\``,
+]);
+
+const mdTemplate = `# Calendar plugins
 
 The complete **General Roman Calendar**, and any other **particular calendar** (for a country, a region or a diocese) are available as **separated plugins**, that contain a bundle of the calendar data, localizations, and a martyrology catalog (containing extra metadata).
 
@@ -35,23 +61,34 @@ yarn add @romcal/calendar.france@dev
 
 Below the list of all available calendar plugins:
 
-| Name | NPM Package name |
-| -----|------------------|\n`;
+${renderTable(['Name', 'NPM Package name'], rows)}
+`;
 
-for (let i = 0; i < allCalendars.length; i += 1) {
-  const calendar = allCalendars[i];
-  const humanName = calendar.name.replace(/([A-Z])/g, ' $1').replace('_', ' /');
-  mdTemplate += `|${humanName}|\`@romcal/calendar.${toPackageName(calendar.name)}@dev\`|\n`;
-}
+/**
+ * Normalize the generated documentation with the repository ESLint configuration,
+ * so this file matches what `npm run lint` expects.
+ */
+const formatAndWrite = async (): Promise<void> => {
+  // This script runs with the workspace as cwd, and ESLint does not look inside `.config/`,
+  // so both the working directory and the config file have to be pointed at the repository root.
+  const eslint = new ESLint({
+    cwd: repoRoot,
+    fix: true,
+    overrideConfigFile: path.resolve(repoRoot, '.config/eslint.config.mjs'),
+  });
+  const [result] = await eslint.lintText(mdTemplate, { filePath: outputPath });
 
-// Prettify the generated documentation
-prettier.format(mdTemplate, { parser: 'markdown' }).then((mdFormatted) => {
-  fs.writeFileSync(path.resolve(__dirname, '../../../docs/', 'calendar-plugins.md'), mdFormatted, 'utf-8');
+  // `output` is only set when at least one fixable problem was found.
+  fs.writeFileSync(outputPath, result?.output ?? mdTemplate, 'utf-8');
 
-  /**
-   * Init and display duration helpers
-   */
   const duration = getDuration(time);
   log(chalk.green(`\n✨ Done in ${chalk.bold(duration)}`));
-  process.exit(0);
-});
+};
+
+formatAndWrite().then(
+  () => process.exit(0),
+  (e) => {
+    log(chalk.red(e));
+    process.exit(1);
+  }
+);

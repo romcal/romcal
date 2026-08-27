@@ -1,4 +1,4 @@
 {
   "extends": "./tsconfig.base.json",
-  "files": [".commitlintrc.ts"]
+  "files": [".config/commitlint.config.ts"]
 }

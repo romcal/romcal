@@ -14,14 +14,9 @@ coverage/
 .husky/
 rites/*/*
 packages/
-.commitlintrc.ts
+.config/
 .editorconfig
-.eslintignore
-.eslintrc.js
-.lintstagedrc.yaml
 .nvmrc
-.prettierignore
-.prettierrc
 docs/CODE_OF_CONDUCT.md
 global.d.ts
 packages/easter/jest.config.mjs

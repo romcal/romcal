@@ -28,13 +28,13 @@ jobs:
 
       - name: Validate with commitlint (push)
         if: github.event_name == 'push'
-        run: npx commitlint --last --verbose
+        run: npx commitlint --config .config/commitlint.config.ts --last --verbose
 
       - name: Lint Title (pull_request)
         if: github.event_name == 'pull_request'
         env:
           TITLE: ${{ github.event.pull_request.title }}
-        run: npx --no-install commitlint <<< "$TITLE"
+        run: npx --no-install commitlint --config .config/commitlint.config.ts <<< "$TITLE"
 
   build:
     runs-on: ubuntu-latest
@@ -55,11 +55,8 @@ jobs:
       - name: Install Dependencies
         run: npm -q --no-progress ci --no-audit && npm i -g tsx
 
-      - name: Lint
+      - name: Lint and formatting
         run: npm run lint
-
-      - name: Formatting
-        run: npm run prettier
 
       - name: Build
         run: npm run build

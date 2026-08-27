@@ -7,11 +7,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.release.json",
     "clean": "rimraf coverage dist",
-    "prettier": "prettier -c .",
     "test": "TZ=UTC jest"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@internal/config": "file:../../packages/config"
-  }
+  "dependencies": {}
 }

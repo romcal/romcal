@@ -59,9 +59,7 @@ And you're bootstrapped. Thanks for contributing!
 
 #### Code Style
 
-We leverage `@typescript-eslint` and `prettier` to enforce code style. You can run the following command to check if your code is compliant:
-
-Code style:
+We leverage `@typescript-eslint` for code style and `@stylistic/eslint-plugin` for formatting, so ESLint handles both. TypeScript, JavaScript, JSON, YAML and Markdown files are all covered by the same command:
 
 ```shell
 $ npm run lint
@@ -70,11 +68,8 @@ $ npm run lint
 $ npm run lint:fix
 ```
 
-File formatting (Prettier):
+The ESLint configuration lives in [`.config/eslint.config.mjs`](../.config/eslint.config.mjs). ESLint does not search the `.config` folder on its own, so the npm scripts pass `--config` explicitly. Run it the same way if you invoke `eslint` directly:
 
 ```shell
-$ npm run prettier
-
-# to fix it
-$ npm run prettier:fix
+$ npx eslint --config .config/eslint.config.mjs .
 ```
