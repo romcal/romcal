@@ -785,6 +785,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: '1814-01-06',
       dateOfDeath: '1856-02-29',
     },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://fr.wikipedia.org/wiki/Aur%C3%A9lie_de_Rome
+    aurelia_of_rome_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Aurelia of Rome',
+      titles: [Title.Virgin, Title.Martyr],
+      dateOfDeath: 260,
+      dateOfDeathIsApproximative: true,
+    },
     aurelia_of_strasbourg_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Aurelia',
@@ -819,6 +829,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     baptism_of_the_lord: {
       name: 'The Baptism of the Lord',
     },
+    // src: mr_fr_2021_ed3
     barbara_of_heliopolis_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Barbara',
@@ -1627,6 +1638,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDedication: '2015-09-20',
     },
     // src:
+    // - mr_fr_2021_ed3
+    // - https://saintedevote.diocese.mc/annuaire_diocesain_2026_v2.pdf
+    dedication_of_the_cathedral_of_our_lady_immaculate_monaco: {
+      dateOfDedication: '1911-06-11',
+    },
+    // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://www.diocese-montauban.fr/grand-montauban/paroisses/paroisse-montauban-ville-haute/eglises-et-paroisses/cathedrale-centre-ville/
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france: {
@@ -1715,6 +1732,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: {
         or: [250, 258, 270],
       },
+    },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://saintedevote.diocese.mc/presentation
+    devota_of_corsica_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Devota',
+      titles: [Title.Virgin, Title.Martyr],
+      dateOfDeath: 304,
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -2799,10 +2825,28 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Honorat Koźmiński',
       titles: [Title.Priest],
     },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://nominis.cef.fr/contenus/saint/444/Saint-Honorat.html
+    honoratus_of_arles_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Honoratus of Arles',
+      titles: [Title.Bishop],
+      dateOfDeath: 430,
+    },
     hosanna_of_cattaro_virgin: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Hosanna of Cattaro',
       titles: [Title.Virgin],
+    },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://nominis.cef.fr/contenus/saint/1193/Saint-Hospice.html
+    hospitius_of_nice_hermit: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Hospitius of Nice',
+      titles: [Title.Hermit],
+      dateOfDeath: 581,
     },
     hroznata_of_bohemia_martyr: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -5312,6 +5356,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop, Title.Martyr],
       dateOfDeath: 167,
     },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://nominis.cef.fr/contenus/saint/6956/Saint-Ponce-%28Pons--Pontius%29.html
+    pontius_of_cimiez_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Pontius of Cimiez',
+      titles: [Title.Martyr],
+      dateOfDeath: 257,
+    },
     pontian_i_pope: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Pontian',
@@ -5524,6 +5577,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - mr_fr_1984_ed1_nimes
+    // - mr_fr_2021_ed3
     // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes/
     // - https://nominis.cef.fr/contenus/saint/1678/Saint-Roch.html
     roch_of_montpellier: {
@@ -5532,6 +5586,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Pilgrim],
       dateOfDeath: 1379,
       dateOfDeathIsApproximative: true,
+    },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://www.mairie.mc/la-saint-roman
+    romanus_ostiarius_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Romanus Ostiarius',
+      titles: [Title.Martyr],
+      dateOfDeath: 258,
     },
     romuald_of_ravenna_abbot: {
       canonizationLevel: CanonizationLevels.Saint,

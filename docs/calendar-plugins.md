@@ -72,6 +72,7 @@ Below the list of all available calendar plugins:
 | Lithuania                  | `@romcal/calendar.lithuania@dev`                |
 | Malta                      | `@romcal/calendar.malta@dev`                    |
 | Mexico                     | `@romcal/calendar.mexico@dev`                   |
+| Monaco                     | `@romcal/calendar.monaco@dev`                   |
 | Netherlands                | `@romcal/calendar.netherlands@dev`              |
 | New Zealand                | `@romcal/calendar.new-zealand@dev`              |
 | Norway                     | `@romcal/calendar.norway@dev`                   |

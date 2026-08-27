@@ -51,6 +51,7 @@ import { Lebanon } from './countries/lebanon';
 import { Lithuania } from './countries/lithuania';
 import { Malta } from './countries/malta';
 import { Mexico } from './countries/mexico';
+import { Monaco } from './countries/monaco';
 import { Netherlands } from './countries/netherlands';
 import { NewZealand } from './countries/new-zealand';
 import { Norway } from './countries/norway';
@@ -137,6 +138,7 @@ export const calendarDefinitions: Record<string, typeof CalendarDef> = {
   Lithuania,
   Malta,
   Mexico,
+  Monaco,
   Netherlands,
   NewZealand,
   Norway,
