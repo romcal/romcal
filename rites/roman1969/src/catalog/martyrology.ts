@@ -43,6 +43,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: '999-12-16',
     },
     // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/novembre/
+    adeltrude_of_aurillac: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Adeltrude of Aurillac',
+      dateOfDeath: { century: 10 },
+    },
+    // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/sainte-adeline-de-mortain-et-les-saints-de-savigny
     // - https://fr.wikipedia.org/wiki/Adeline#:~:text=Adeline%20(%E2%80%A0%201125)%2C%20s%C5%93ur,tout%20l'Ordre%20de%20Savigny
@@ -105,6 +113,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Agnes Cao Guiying',
       titles: [Title.Martyr],
+    },
+    // src:
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/octobre/
+    // - https://www.vatican.va/content/john-paul-ii/fr/speeches/1994/november/documents/hf_jp-ii_spe_19941121_pellegrini-beatificazioni.html
+    agnes_of_jesus_galand_virgin: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Agnes of Jesus Galand',
+      titles: [Title.Virgin],
+      dateOfBirth: '1602-11-17',
+      dateOfDeath: '1634-10-19',
+      dateOfBeatification: '1994-11-20',
     },
     agnes_of_bohemia_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -802,6 +821,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/novembre/
+    austremonius_of_clermont_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Austremonius of Clermont',
+      titles: [Title.FirstBishop],
+      dateOfDeath: { century: 4 },
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://bordeaux.catholique.fr/le-diocese/decouvrir-le-diocese/presentation/les-saints-du-diocese/saint-austinde/
     austinde_of_auch_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -898,6 +926,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: '1524-03-31',
       dateOfDeath: '1589-04-04',
       dateOfCanonization: '1807-05-24',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/aout/
+    // - https://www.causesanti.va/it/santi-e-beati/benildo-romancon.html
+    benildus_romancon_religious: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Benildus Romançon',
+      titles: [Title.Religious],
+      dateOfBirth: '1805-06-14',
+      dateOfDeath: '1862-08-13',
+      dateOfBeatification: '1948-04-04',
+      dateOfCanonization: '1967-10-29',
     },
     benedict_of_skalka_hermit: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1179,6 +1220,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Virgin, Title.Martyr],
       dateOfDeath: 305,
       dateOfDeathIsApproximative: true,
+    },
+    // src:
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/juillet/
+    // - https://www.vatican.va/content/john-paul-ii/fr/speeches/1996/november/documents/hf_jp-ii_spe_19961125_beatificazioni.html
+    catherine_jarrige_virgin: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Catherine Jarrige',
+      titles: [Title.Virgin],
+      dateOfBirth: 1754,
+      dateOfDeath: '1836-07-04',
+      dateOfBeatification: '1996-11-24',
     },
     catherine_of_siena_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1709,6 +1761,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/decembre/
+    // - https://diocese15.fr/diocese/histoire-du-diocese/
+    dedication_of_the_cathedral_of_saint_peter_saint_flour_france: {
+      dateOfDedication: '1466-12-07',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://en.wikipedia.org/wiki/Toulouse_Cathedral
     dedication_of_the_cathedral_of_saint_stephen_of_toulouse_france: {
       dateOfDedication: '1592-08-30',
@@ -2190,6 +2249,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/diocese/histoire-du-diocese/les-grandes-figures-du-diocese/saint-florus/
+    // The identification of Saint Flour as the first bishop of Lodève and his association with the fifth
+    // century belong to a medieval tradition; the diocesan source says that little is historically certain.
+    flour_of_saint_flour: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Florus',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://nominis.cef.fr/contenus/saint/1963/Sainte-Fleur.html
     // - https://www.persee.fr/doc/cafan_0575-061x_2006_act_41_1_1893
     fleur_of_issendolus_virgin: {
@@ -2332,6 +2400,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     francisco_marto: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Francisco Marto',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/septembre/
+    francois_louis_meallet_de_fargues_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'François-Louis Méallet de Fargues',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: 1764,
+      dateOfDeath: '1792-09-02',
+      dateOfBeatification: '1926-10-17',
     },
     francois_de_montmorency_laval_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2530,6 +2609,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Gerald of Braga',
       titles: [Title.Bishop],
       dateOfDeath: 1108,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/diocese/histoire-du-diocese/les-grandes-figures-du-diocese/saint-geraud-daurillac/
+    gerald_of_aurillac: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Gerald of Aurillac',
+      dateOfBirth: 856,
+      dateOfDeath: 909,
     },
     gerard_of_csanad_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3024,6 +3112,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Martyr],
       dateOfBirth: '1739-03-30',
       dateOfDeath: '1792-09-02',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/juin/
+    // - https://www.vatican.va/content/benedict-xvi/fr/homilies/2012/documents/hf_ben-xvi_hom_20121021_canonizzazioni.html
+    jacques_berthieu_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Jacques Berthieu',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1838-11-27',
+      dateOfDeath: '1896-06-08',
+      dateOfBeatification: '1965-10-17',
+      dateOfCanonization: '2012-10-21',
     },
     // src: mr_fr_2014_ed2_lyon
     jacques_jules_bonnaud_priest: {
@@ -4425,6 +4526,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Mary of Jesus the Good Shepherd Siedliska',
       titles: [Title.Virgin],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/juin/
+    mary_of_montjournal_hermit: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Mary of Montjournal',
+      titles: [Title.Hermit],
+    },
     mary_of_the_cross_mackillop_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Mary of the Cross MacKillop',
@@ -4797,10 +4906,32 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 720,
       dateOfDeathIsApproximative: true,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/janvier/
+    odilo_of_cluny_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Odilo of Cluny',
+      titles: [Title.Abbot],
+      dateOfBirth: 962,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '1049-01-01',
+    },
     odoric_of_pordenone_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Odoric of Pordenone',
       titles: [Title.Priest],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/novembre/
+    odo_of_cluny_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Odo of Cluny',
+      titles: [Title.Abbot],
+      dateOfBirth: 880,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '942-11-18',
     },
     olaf_ii_of_norway_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4965,6 +5096,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     our_lady_of_mercy: {
       name: 'Our Lady of Mercy',
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/mai/
+    our_lady_of_miracles_of_mauriac: {
+      name: 'Our Lady of Miracles of Mauriac',
+    },
     our_lady_of_mount_carmel: {
       name: 'Our Lady of Mount Carmel',
     },
@@ -4989,6 +5126,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     our_lady_of_the_miraculous_medal: {
       name: 'Our Lady of the Miraculous Medal',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/aout/
+    our_lady_of_the_olives: {
+      name: 'Our Lady of the Olives',
     },
     our_lady_of_the_pillar: {
       name: 'Our Lady of the Pillar',
@@ -5600,6 +5743,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest, Title.Hermit],
       dateOfDeath: 1116,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/avril/
+    robert_of_turlande_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Robert of Turlande',
+      titles: [Title.Abbot],
+      dateOfDeath: '1067-04-17',
+    },
     roch_gonzalez_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Roch González',
@@ -6011,6 +6163,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: 840,
       dateOfDeath: '893-05-01',
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/juin/
+    theodechilde_of_sens_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Theodechilde of Sens',
+      titles: [Title.Virgin],
+      dateOfDeath: 568,
+      dateOfDeathIsApproximative: true,
+    },
     theodore_of_canterbury_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Theodore of Canterbury',
@@ -6151,6 +6313,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Tigidius of Gap',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://diocese15.fr/janvier/
+    till_of_solignac_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Till of Solignac',
+      titles: [Title.Abbot],
+      dateOfDeath: '700-01-07',
     },
     timothy_of_ephesus_bishop: {
       canonizationLevel: CanonizationLevels.Saint,

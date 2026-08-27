@@ -55,6 +55,7 @@ Below the list of all available calendar plugins:
 | France / Paris             | `@romcal/calendar.france.paris@dev`             |
 | France / Rodez             | `@romcal/calendar.france.rodez@dev`             |
 | France / Saint Denis       | `@romcal/calendar.france.saint-denis@dev`       |
+| France / Saint Flour       | `@romcal/calendar.france.saint-flour@dev`       |
 | France / Strasbourg        | `@romcal/calendar.france.strasbourg@dev`        |
 | France / Tarbes Lourdes    | `@romcal/calendar.france.tarbes-lourdes@dev`    |
 | France / Toulouse          | `@romcal/calendar.france.toulouse@dev`          |

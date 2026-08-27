@@ -21,6 +21,7 @@ import { France_Nanterre } from './diocese-of-nanterre';
 import { France_Pamiers } from './diocese-of-pamiers';
 import { France_Rodez } from './diocese-of-rodez';
 import { France_SaintDenis } from './diocese-of-saint-denis';
+import { France_SaintFlour } from './diocese-of-saint-flour';
 import { France_Strasbourg } from './diocese-of-strasbourg';
 import { France_TarbesLourdes } from './diocese-of-tarbes-and-lourdes';
 import { France_LourdesSanctuary } from './sanctuary-of-our-lady-of-lourdes';
@@ -168,6 +169,7 @@ export {
   France_Pamiers,
   France_Rodez,
   France_SaintDenis,
+  France_SaintFlour,
   France_Strasbourg,
   France_TarbesLourdes,
   France_Toulouse,
