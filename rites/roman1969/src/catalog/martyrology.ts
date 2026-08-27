@@ -3372,10 +3372,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'John Neumann',
       titles: [Title.Bishop],
     },
+    // src: https://www.liturgie.ch/images/liturgie/praxis/dokumente/pdf/DBK_577.pdf
     john_nepomucene_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John Nepomucene',
       titles: [Title.Priest, Title.Martyr],
+      dateOfDeath: 1393,
     },
     john_of_avila_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4655,10 +4657,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest],
       dateOfDeath: '1686-5-31',
     },
+    // src: mr_fr_2021_ed3
     nicholas_of_flue_hermit: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Nicholas of Flüe',
       titles: [Title.Hermit],
+      dateOfBirth: 1417,
+      dateOfDeath: 1487,
     },
     nicholas_of_myra_bishop: {
       canonizationLevel: CanonizationLevels.Saint,

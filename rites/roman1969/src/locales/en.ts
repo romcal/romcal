@@ -896,6 +896,8 @@ export const locale: Locale = {
     nicetius_of_lyon_bishop: 'Saint Nicetius, Bishop',
     nicholas_barre_priest: 'Blessed Nicholas Barré, Priest',
     nicholas_of_flue_hermit: 'Saint Nicholas of Flüe, Hermit',
+    nicholas_of_flue_hermit_patron_of_switzerland:
+      'Saint Nicholas of Flüe, Principal Patron of the Swiss Confederation',
     nicholas_of_myra_bishop: 'Saint Nicholas, Bishop',
     nicholas_steno_bishop: 'Blessed Nicholas Steno, Bishop',
     nicholas_tavelic_priest: 'Saint Nicholas Tavelić, Priest and Martyr',
