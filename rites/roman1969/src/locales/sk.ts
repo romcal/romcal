@@ -562,7 +562,7 @@ export const locale: Locale = {
     marianne_cope_virgin: 'Svätej Marianny z Molokai, rehoľníčky',
     marie_anne_blondin_virgin: 'Blahoslavenej Márie Anny Blondinovej, panny',
     marie_eugenie_of_jesus_milleret_de_brou_virgin: 'Svätej Márie Eugénie Milleretovej de Brou, panny a zakladateľky',
-    marie_leonie_paradis_virgin: 'Blahoslavenej Márie Leónie Paradisovej, panny',
+    marie_leonie_paradis_virgin: 'Svätej Márie Leónie Paradisovej, panny',
     marie_rose_durocher_virgin: 'Blahoslavenej Márie Ruženy Durocherovej, panny',
     mark_evangelist: 'Svätého Marka, evanjelistu',
     marko_krizin_melchior_grodziecki_and_stephen_pongracz_priests:

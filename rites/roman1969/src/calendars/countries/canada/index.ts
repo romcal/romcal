@@ -5,6 +5,8 @@ import { CalendarDef } from '../../../models/calendar-def';
 import { Inputs, ParticularConfig } from '../../../types/calendar-def';
 import { Americas } from '../../regions/americas';
 
+import { Canada_Quebec } from './quebec';
+
 export class Canada extends CalendarDef {
   ParentCalendars = [Americas];
 
@@ -74,7 +76,10 @@ export class Canada extends CalendarDef {
       dateDef: { month: 5, date: 1 },
     },
 
-    // src: mr_fr_2021_ed3
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://www.cccb.ca/wp-content/uploads/2026/03/CanLitCalUpdated_2025_04_01.pdf
+    // - https://www.cccb.ca/wp-content/uploads/2026/07/Ordo_2025_2026_Updates.pdf
     marie_leonie_paradis_virgin: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 5, date: 4 },
@@ -224,5 +229,16 @@ export class Canada extends CalendarDef {
       isOptional: true,
       commonsDef: Common.DedicationAnniversary_Inside,
     },
+
+    // src: mr_fr_2021_ed3
+    remembrance_day: {
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 11, date: 11 },
+      // One Remembrance Day Mass may be celebrated; the other Masses remain those of Saint Martin of Tours.
+      isOptional: true,
+      commonsDef: Common.None,
+    },
   };
 }
+
+export { Canada_Quebec };

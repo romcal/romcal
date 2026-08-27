@@ -29,6 +29,7 @@ Below the list of all available calendar plugins:
 | Bosnia Herzegovina         | `@romcal/calendar.bosnia-herzegovina@dev`       |
 | Brazil                     | `@romcal/calendar.brazil@dev`                   |
 | Canada                     | `@romcal/calendar.canada@dev`                   |
+| Canada / Quebec            | `@romcal/calendar.canada.quebec@dev`            |
 | Chile                      | `@romcal/calendar.chile@dev`                    |
 | China                      | `@romcal/calendar.china@dev`                    |
 | Costa Rica                 | `@romcal/calendar.costa-rica@dev`               |

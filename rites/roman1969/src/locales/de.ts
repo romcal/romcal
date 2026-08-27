@@ -585,7 +585,7 @@ export const locale: Locale = {
     marie_anne_blondin_virgin: 'Sel. Marie-Anne Blondin, Jungfrau',
     marie_eugenie_of_jesus_milleret_de_brou_virgin:
       'Hl. Marie-Eugénie von Jesus Milleret de Brou, Jungfrau und Gründerin',
-    marie_leonie_paradis_virgin: 'Sel. Marie-Léonie Paradis, Jungfrau',
+    marie_leonie_paradis_virgin: 'Hl. Marie-Léonie Paradis, Jungfrau',
     marie_of_saint_ignatius_claudine_thevenet_religious: 'Hl. Claudine Thévenet, Ordensfrau',
     marie_rose_durocher_virgin: 'Sel. Marie Rose Durocher, Jungfrau',
     mark_evangelist: 'Hl. Markus, Evangelist',

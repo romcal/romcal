@@ -104,6 +104,8 @@ export const locale: Locale = {
       'Saints André Svorad († 1009) et Benoît Stojislav († 1012), ermites',
     angela_merici_virgin:
       'Sainte Angèle Mérici, religieuse, fondatrice de la Compagnie de Sainte Ursule de Brescia († 1540)',
+    anne_mother_of_mary_patroness_of_the_province_of_quebec:
+      'Sainte Anne, mère de la Bienheureuse Vierge Marie, patronne de la province, tant ecclésiastique que civile, de Québec',
     annemund_of_lyon_bishop: 'Saint Ennemond (Chamond), évêque et martyr († v. 658)', // src: mr_fr_2014_ed2_lyon
     annette_pelras_virgin: 'Sainte Annette Pelras, vierge et martyre († 1794)',
     annette_pelras_virgin_and_companions_martyrs:
@@ -589,7 +591,7 @@ export const locale: Locale = {
     marie_eugenie_of_jesus_milleret_de_brou_virgin:
       'Sainte Marie-Eugénie Milleret, vierge, fondatrice des Sœurs de l’Assomption († 1898 à Paris)',
     marie_leonie_paradis_virgin:
-      'Bienheureuse Marie-Léonie Paradis, religieuse, fondatrice de la Congrégation des Petites Sœurs de la Sainte Famille († 1912)',
+      'Sainte Marie-Léonie Paradis, religieuse, fondatrice de la Congrégation des Petites Sœurs de la Sainte Famille († 1912)',
     marie_madeleine_julie_francoise_catherine_postel_virgin: 'Sainte Marie Madeleine Postel, vierge († 1846)', // src: mr_fr_1982_ed2_coutances
     marie_of_saint_ignatius_claudine_thevenet_religious: 'Sainte Claudine Thévenet, religieuse († 1837)', // src: mr_fr_2014_ed2_lyon
     marie_rose_durocher_virgin:
@@ -754,6 +756,7 @@ export const locale: Locale = {
     raymond_gayrard_religious: 'Saint Raymond Gayrard, religieux († 1118)', // src: mr_fr_1974_ed1_region_apostolique_du_midi
     raymond_of_barbastro_bishop: 'Saint Raymond de Barbastro, évêque († 1126)',
     raymond_of_penyafort_priest: 'Saint Raymond de Peñafort, prêtre († 1275)',
+    remembrance_day: 'Jour du souvenir',
     remigius_of_gap_and_tigidius_of_gap_bishops: 'Saint Rémi et saint Tigide, évêques', // src: mr_fr_2016_ed1_gap_embrun
     remigius_of_gap_bishop: 'Saint Rémi, évêque de Gap', // src: mr_fr_2016_ed1_gap_embrun
     remigius_of_reims_bishop: 'Saint Remi, évêque de Reims († 530)',

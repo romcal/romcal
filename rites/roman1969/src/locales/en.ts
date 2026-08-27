@@ -126,6 +126,8 @@ export const locale: Locale = {
     andrew_zorard_of_nitra_and_benedict_of_skalka_hermits: 'Saints Andrew Zorard and Benedict, Hermits',
     angela_merici_virgin: 'Saint Angela Merici, Virgin',
     angela_salawa_virgin: 'Blessed Angela Salawa, Virgin',
+    anne_mother_of_mary_patroness_of_the_province_of_quebec:
+      'Saint Anne, Mother of the Blessed Virgin Mary, Patroness of the Province of Quebec, both Ecclesiastical and Civil',
     annemund_of_lyon_bishop: 'Saint Annemund, Bishop and Martyr',
     annette_pelras_virgin: 'Saint Annette Pelras, Virgin and Martyr',
     annette_pelras_virgin_and_companions_martyrs:
@@ -837,7 +839,7 @@ export const locale: Locale = {
     marie_anne_blondin_virgin: 'Blessed Marie-Anne Blondin, Virgin',
     marie_eugenie_of_jesus_milleret_de_brou_virgin:
       'Saint Marie-Eugénie of Jesus Milleret de Brou, Virgin and Foundress',
-    marie_leonie_paradis_virgin: 'Blessed Marie-Léonie Paradis, Virgin',
+    marie_leonie_paradis_virgin: 'Saint Marie-Léonie Paradis, Virgin',
     marie_madeleine_julie_francoise_catherine_postel_virgin: 'Saint Marie Madeleine Postel, Virgin',
     marie_of_saint_ignatius_claudine_thevenet_religious: 'Saint Claudine Thévenet, Religious',
     marie_rose_durocher_virgin: 'Blessed Marie Rose Durocher, Virgin',
@@ -1112,6 +1114,7 @@ export const locale: Locale = {
     raymond_gayrard_religious: 'Saint Raymond Gayrard, Religious',
     raymond_of_barbastro_bishop: 'Saint Raymond of Barbastro, Bishop',
     raymond_of_penyafort_priest: 'Saint Raymond of Penyafort, Priest',
+    remembrance_day: 'Remembrance Day',
     remigius_of_gap_and_tigidius_of_gap_bishops: 'Saints Remigius and Tigidius, Bishops',
     remigius_of_gap_bishop: 'Saint Remigius of Gap, Bishop',
     remigius_of_reims_bishop: 'Saint Remigius, Bishop',
