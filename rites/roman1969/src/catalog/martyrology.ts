@@ -358,6 +358,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Aloysius Versiglia',
       titles: [Title.Bishop, Title.Martyr],
     },
+    // src:
+    // - https://rcdow.org.uk/liturgy/
+    // - https://saintalphege.org.uk/history/
+    alphege_of_canterbury_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Alphege of Canterbury',
+      titles: [Title.Bishop, Title.Martyr],
+      dateOfBirth: { or: [953, 954] },
+      dateOfDeath: '1012-04-19',
+    },
     alphonsa_of_the_immaculate_conception_muttathupadathu_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Alphonsa of the Immaculate Conception Muttathupadathu',
@@ -1047,6 +1057,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     blessed_martyrs_of_angers: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Martyrs of Angers',
+      count: 'many',
+      titles: [Title.Martyr],
+      hideTitles: true,
+    },
+    // src:
+    // - https://rcdow.org.uk/liturgy/
+    // - https://rcdow.org.uk/bishop-john-sherrington/homily-for-the-mass-of-acolytate/
+    blessed_martyrs_of_douai: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Martyrs of Douai',
       count: 'many',
       titles: [Title.Martyr],
       hideTitles: true,
@@ -1785,6 +1805,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     dedication_of_the_lateran_basilica: {
       name: 'Dedication of the Lateran Basilica',
     },
+    // src: https://westminstercathedral.org.uk/the-cathedral/history-of-the-cathedral/
+    dedication_of_westminster_cathedral_england: {
+      dateOfDedication: '1910-06-28',
+    },
     deiniol_of_bangor_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Deiniol',
@@ -2049,6 +2073,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Eric IX of Sweden',
       titles: [Title.Martyr],
+    },
+    // src:
+    // - https://rcdow.org.uk/liturgy/
+    // - https://en.wikipedia.org/wiki/Earconwald
+    erkenwald_of_london_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Erkenwald of London',
+      titles: [Title.Bishop],
+      dateOfDeath: 693,
     },
     etheldreda_of_ely_abbess: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3614,6 +3647,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'John Scheffler',
       titles: [Title.Bishop, Title.Martyr],
     },
+    // src:
+    // - https://rcdow.org.uk/liturgy/
+    // - https://rcdow.org.uk/news/st-john-southworth/
+    john_southworth_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'John Southworth',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: 1592,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '1654-06-28',
+      dateOfBeatification: 1929,
+      dateOfCanonization: 1970,
+    },
     john_xxiii_pope: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John XXIII',
@@ -3879,6 +3925,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Laura Vicuña',
       titles: [Title.Virgin],
+    },
+    // src:
+    // - https://rcdow.org.uk/liturgy/
+    // - https://en.wikipedia.org/wiki/Laurence_of_Canterbury
+    laurence_of_canterbury_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Laurence of Canterbury',
+      titles: [Title.Bishop],
+      dateOfDeath: '619-02-02',
     },
     laurence_otoole_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4697,6 +4752,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Melchior Grodziecki',
       titles: [Title.Priest, Title.Martyr],
+    },
+    // src:
+    // - https://rcdow.org.uk/liturgy/
+    // - https://www.newadvent.org/cathen/10168b.htm
+    mellitus_of_canterbury_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Mellitus of Canterbury',
+      titles: [Title.Bishop],
+      dateOfDeath: '624-04-24',
     },
     methodius_michael_of_thessaloniki_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
