@@ -64,10 +64,13 @@
     "prepare": "husky",
     "prettier": "prettier -c .",
     "prettier:fix": "prettier -w .",
+    "publish:new": "cd rites/roman1969 && tsx build/publish.ts --only-new",
     "test": "npm run test --workspaces --if-present",
     "test:snapshot:update": "npm run test:snapshot:update -w=@internal/rite-roman1969",
     "test:watch": "npm run test:watch -w=@internal/rite-roman1969",
-    "test:without-coverage": "npm run test:without-coverage -w=@internal/rite-roman1969"
+    "test:without-coverage": "npm run test:without-coverage -w=@internal/rite-roman1969",
+    "trust:check": "cd rites/roman1969 && tsx build/trusted-publishing.ts",
+    "trust:sync": "cd rites/roman1969 && tsx build/trusted-publishing.ts --sync"
   },
   "dependencies": {
     "i18next": "^26.4.0"
