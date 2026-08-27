@@ -357,6 +357,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Alpinien',
     },
+    // src: mr_fr_2021_ed3
+    alypius_of_thagaste_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Alypius of Thagaste',
+      titles: [Title.Bishop],
+      dateOfDeath: 430,
+      dateOfDeathIsApproximative: true,
+    },
     aloysius_gonzaga_religious: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Aloysius Gonzaga',
@@ -1014,6 +1022,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Benno of Meissen',
       titles: [Title.Bishop],
     },
+    // src: mr_fr_2021_ed3
+    berard_of_carbio_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Berard of Carbio',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfDeath: '1220-01-16',
+    },
     bernadette_soubirous_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Bernadette Soubirous',
@@ -1366,6 +1381,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Cedd',
       titles: [Title.Bishop],
     },
+    // src: mr_fr_2021_ed3
+    celerina_of_carthage_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Celerina of Carthage',
+      titles: [Title.Martyr],
+      dateOfDeath: { between: [203, 212] },
+    },
     ceferino_gimenez_malla_martyr: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Ceferino Giménez Malla',
@@ -1697,6 +1719,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Cosmas',
       titles: [Title.Martyr],
     },
+    // src: mr_fr_2021_ed3
+    crispina_of_thagora_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Crispina of Thagora',
+      titles: [Title.Martyr],
+      dateOfDeath: '304-12-05',
+    },
     // src:
     // - mr_fr_2021_ed3
     // - https://www.cathol.lu/fileadmin/user_upload/DOCUMENTS/ORDO/ORDO_2025-2026_WEB.pdf
@@ -1713,7 +1742,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     cyprian_of_carthage_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
-      name: 'Cornelius',
+      name: 'Cyprian of Carthage',
       titles: [Title.Bishop, Title.Martyr],
       dateOfDeath: '258-09-14',
     },
@@ -1787,6 +1816,22 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Declan',
       titles: [Title.Bishop],
+    },
+    // src: mr_fr_2021_ed3
+    dedication_of_the_cathedral_of_algiers_algeria: {
+      name: 'Dedication of the Cathedral of Algiers, Algeria',
+    },
+    // src: mr_fr_2021_ed3
+    dedication_of_the_cathedral_of_oran_algeria: {
+      name: 'Dedication of the Cathedral of Oran, Algeria',
+    },
+    // src: mr_fr_2021_ed3
+    dedication_of_the_cathedral_of_tripoli_libya: {
+      name: 'Dedication of the Cathedral of Tripoli, Libya',
+    },
+    // src: mr_fr_2021_ed3
+    dedication_of_the_cathedral_of_tunis_tunisia: {
+      name: 'Dedication of the Cathedral of Tunis, Tunisia',
     },
     // src:
     // - mr_fr_2021_ed3
@@ -1916,6 +1961,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // src: https://westminstercathedral.org.uk/the-cathedral/history-of-the-cathedral/
     dedication_of_westminster_cathedral_england: {
       dateOfDedication: '1910-06-28',
+    },
+    // src: mr_fr_2021_ed3
+    deogratias_of_carthage_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Deogratias of Carthage',
+      titles: [Title.Bishop],
+      dateOfDeath: 457,
     },
     deiniol_of_bangor_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2701,6 +2753,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Fructuosus',
       titles: [Title.Bishop, Title.Martyr],
     },
+    // src: mr_fr_2021_ed3
+    fulgentius_of_ruspe_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Fulgentius of Ruspe',
+      titles: [Title.Bishop],
+      dateOfBirth: 462,
+      dateOfDeath: '527-01-01',
+    },
     fursa_of_peronne_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Fursa',
@@ -2786,6 +2846,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Gebhard of Constance',
       titles: [Title.Bishop],
+    },
+    // src: mr_fr_2021_ed3
+    gelasius_i_pope: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Gelasius I',
+      titles: [Title.Pope],
+      dateOfDeath: 496,
     },
     genevieve_of_paris_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3412,6 +3479,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'James',
       titles: [Title.Apostle],
       dateOfDeath: 44,
+    },
+    // src: mr_fr_2021_ed3
+    james_of_lambaesis_deacon: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'James of Lambaesis',
+      titles: [Title.Deacon, Title.Martyr],
+      dateOfDeath: '259-05-06',
     },
     james_strzemie_bishop: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -4356,6 +4430,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfDeath: { century: 6 },
     },
+    // src: mr_fr_2021_ed3
+    longinus_of_pomaria_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Longinus of Pomaria',
+      titles: [Title.Bishop],
+    },
     louis_bertrand_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Louis Bertrand',
@@ -4571,6 +4651,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: 1789,
       dateOfDeath: '1840-6-6',
     },
+    // src: mr_fr_2021_ed3
+    marcellinus_of_carthage_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Marcellinus of Carthage',
+      titles: [Title.Martyr],
+      dateOfDeath: '413-09-13',
+    },
     // src:
     // - mr_fr_2016_ed1_gap_embrun
     // - https://nominis.cef.fr/contenus/saint/1009/Saint-Marcellin-d-Embrun.html
@@ -4595,6 +4682,20 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: {
         century: 5,
       },
+    },
+    // src: mr_fr_2021_ed3
+    marcellus_of_tangier_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Marcellus of Tangier',
+      titles: [Title.Martyr],
+      dateOfDeath: 298,
+    },
+    // src: mr_fr_2021_ed3
+    marciana_of_mauretania_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Marciana of Mauretania',
+      titles: [Title.Virgin, Title.Martyr],
+      dateOfDeath: { century: 4 },
     },
     // src:
     // - mr_fr_1982_ed2_coutances
@@ -4678,6 +4779,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'María Micaela of the Blessed Sacrament Desmaisières',
       titles: [Title.Virgin],
+    },
+    // src: mr_fr_2021_ed3
+    marian_of_lambaesis_lector: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Marian of Lambaesis',
+      titles: [Title.Lector, Title.Martyr],
+      dateOfDeath: '259-05-06',
     },
     mariana_of_jesus_de_paredes_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5058,6 +5166,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest, Title.Martyr],
       dateOfDeath: 1941,
     },
+    // src: mr_fr_2021_ed3
+    maximilian_of_tebessa_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Maximilian of Tebessa',
+      titles: [Title.Martyr],
+      dateOfDeath: '295-03-12',
+    },
     // src:
     // - mr_fr_2016_ed1_gap_embrun
     // - https://nominis.cef.fr/contenus/saint/1694/Saint-Donat.html
@@ -5136,6 +5251,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Miguel Febres Cordero',
       titles: [Title.Religious],
+    },
+    // src: mr_fr_2021_ed3
+    miltiades_i_pope: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Miltiades',
+      titles: [Title.Pope],
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -5233,6 +5354,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Nazaria Ignacia of Saint Teresa of Jesus March Mesa',
       titles: [Title.Virgin],
+    },
+    // src: mr_fr_2021_ed3
+    nemesianus_of_thubunae_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Nemesianus of Thubunae',
+      titles: [Title.Bishop, Title.Martyr],
+      dateOfDeath: { between: [258, 259] },
     },
     nereus_of_terracina_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5364,6 +5492,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Oliver Plunket',
       titles: [Title.Bishop, Title.Martyr],
     },
+    // src: mr_fr_2021_ed3
+    optatus_of_milevis_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Optatus of Milevis',
+      titles: [Title.Bishop],
+      dateOfDeath: { century: 4 },
+    },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://catholique65.fr/les-saints-de-nos-vallees/
@@ -5425,6 +5560,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     our_lady_of_angels: {
       name: 'Our Lady of Angels',
     },
+    // src: mr_fr_2021_ed3
+    our_lady_of_africa: {
+      name: 'Our Lady of Africa',
+    },
     our_lady_of_aparecida: {
       name: 'Our Lady of Aparecida',
     },
@@ -5436,6 +5575,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // - https://enpelerinage.diocese92.fr/notre-dame-de-boulogne/
     our_lady_of_boulogne: {
       name: 'Our Lady of Boulogne',
+    },
+    // src: mr_fr_2021_ed3
+    our_lady_of_carthage: {
+      name: 'Our Lady of Carthage',
     },
     // src:
     // - ordo_fr_2025_province_ecclesiastique_de_toulouse
@@ -5918,6 +6061,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Phoebadius of Agen',
       titles: [Title.Bishop],
     },
+    // src: mr_fr_2021_ed3
+    pierre_claverie_bishop: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Pierre Claverie',
+      titles: [Title.Bishop, Title.Martyr],
+      dateOfBirth: '1938-05-08',
+      dateOfDeath: 1996,
+    },
     // src:
     // - https://albi.catholique.fr/liturgie-art-et-culture/histoire-du-diocese/saints-du-diocese/bienheureux-pierre-francois-jamet/
     // - https://www.vatican.va/content/john-paul-ii/fr/homilies/1987/documents/hf_jp-ii_hom_19870510_rito-beatificazione.html
@@ -6024,6 +6175,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop, Title.Martyr],
       dateOfDeath: 177,
     },
+    // src: mr_fr_2021_ed3
+    possidius_of_calama_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Possidius of Calama',
+      titles: [Title.Bishop],
+    },
     presentation_of_the_blessed_virgin_mary: {
       name: 'The Presentation of the Blessed Virgin Mary',
     },
@@ -6042,6 +6199,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     queenship_of_the_blessed_virgin_mary: {
       name: 'The Queenship of the Blessed Virgin Mary',
+    },
+    // src: mr_fr_2021_ed3
+    quodvultdeus_of_carthage_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Quodvultdeus of Carthage',
+      titles: [Title.Bishop],
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -6524,6 +6687,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Pope, Title.Martyr],
       dateOfDeath: 258,
     },
+    // src: mr_fr_2021_ed3
+    speratus_of_scillium_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Speratus of Scillium',
+      titles: [Title.Martyr],
+      dateOfDeath: '180-07-17',
+    },
     spyridon_of_trimythous_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Spyridon',
@@ -6961,6 +7131,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 389,
       dateOfDeathIsApproximative: true,
     },
+    // src: mr_fr_2021_ed3
+    victor_i_pope: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Victor I',
+      titles: [Title.Pope],
+      dateOfDeath: 199,
+    },
     vincent_de_paul_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Vincent de Paul',
@@ -6988,6 +7165,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Vincent',
       titles: [Title.Deacon, Title.Martyr],
       dateOfDeath: 304,
+    },
+    // src: mr_fr_2021_ed3
+    vindemialis_of_capsa_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Vindemialis of Capsa',
+      titles: [Title.Bishop],
     },
     vincent_pallotti_priest: {
       canonizationLevel: CanonizationLevels.Saint,
