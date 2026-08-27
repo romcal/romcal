@@ -19,6 +19,7 @@ import { France_GapEmbrun } from './diocese-of-gap-and-embrun';
 import { France_Laval } from './diocese-of-laval';
 import { France_Montauban } from './diocese-of-montauban';
 import { France_Nanterre } from './diocese-of-nanterre';
+import { France_Nimes } from './diocese-of-nimes';
 import { France_Pamiers } from './diocese-of-pamiers';
 import { France_Rodez } from './diocese-of-rodez';
 import { France_SaintDenis } from './diocese-of-saint-denis';
@@ -168,6 +169,7 @@ export {
   France_Laval,
   France_Montauban,
   France_Nanterre,
+  France_Nimes,
   France_Pamiers,
   France_Rodez,
   France_SaintDenis,

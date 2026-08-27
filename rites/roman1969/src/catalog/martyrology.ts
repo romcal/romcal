@@ -325,6 +325,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'All Saints of the Diocese of Nanterre',
       count: 'many',
     },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    all_saints_of_the_diocese_of_nimes: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'All Saints of the Diocese of Nîmes',
+      count: 'many',
+    },
     all_saints_of_the_diocese_of_saint_denis: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'All Saints of the Diocese of Saint-Denis',
@@ -902,6 +911,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Bartholomew of the Martyrs Fernandes',
       titles: [Title.Bishop],
     },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    // - https://en.wikipedia.org/wiki/Baudilus
+    baudilus_of_nimes_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Baudilus of Nîmes',
+      titles: [Title.Martyr],
+      dateOfDeath: { century: 3 },
+    },
     basil_the_great_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Basil the Great',
@@ -964,6 +983,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Benedict',
       titles: [Title.Hermit],
       dateOfDeath: 1012,
+    },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    // - https://en.wikipedia.org/wiki/B%C3%A9n%C3%A9zet
+    benezet_of_avignon: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Bénézet of Avignon',
+      dateOfDeath: 1184,
     },
     benno_of_meissen_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1043,6 +1071,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBeatificationIsApproximative: true,
       dateOfCanonization: 1309,
     },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    bertrand_of_garrigues_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Bertrand of Garrigues',
+      titles: [Title.Priest, Title.Religious],
+      dateOfDeath: 1230,
+    },
     beuno_of_wales_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Beuno',
@@ -1086,6 +1123,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       count: 'many',
       titles: [Title.Martyr],
       hideTitles: true,
+    },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/wp-content/uploads/2025/05/32-bienheureuses-martyres-dorange-livret-mai-2025.pdf
+    // - https://www.canonisation-32-martyres-orange.fr/
+    blessed_religious_martyrs_of_orange: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Religious Martyrs of Orange',
+      titles: [Title.Religious, Title.Martyr],
+      hideTitles: true,
+      count: 32,
+      dateOfDeath: 1794,
+      dateOfBeatification: '1925-05-10',
     },
     bogumilus_of_dobrow_bishop: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -1242,6 +1292,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Casimir',
       dateOfDeath: 1484,
+    },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    // - https://en.wikipedia.org/wiki/Castor_of_Apt
+    castor_of_apt_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Castor of Apt',
+      titles: [Title.Bishop],
+      dateOfDeath: 420,
+      dateOfDeathIsApproximative: true,
     },
     catherine_of_alexandria_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1793,6 +1854,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDedication: 1096,
     },
     // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes/
+    // - https://en.wikipedia.org/wiki/N%C3%AEmes_Cathedral
+    dedication_of_the_cathedral_of_our_lady_and_saint_castor_nimes_france: {
+      // A former cathedral was consecrated by Urban II in 1096; the current anniversary commemorates
+      // the solemn consecration after restoration on October 26, 1882.
+      dateOfDedication: '1882-10-26',
+    },
+    // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/decembre/
     // - https://diocese15.fr/diocese/histoire-du-diocese/
@@ -2263,6 +2333,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Ferdinand III of Castile',
     },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    // - https://en.wikipedia.org/wiki/Ferr%C3%A9ol_of_Uz%C3%A8s
+    ferreolus_of_uzes_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Ferreolus of Uzès',
+      titles: [Title.Bishop],
+      dateOfDeath: '581-01-04',
+    },
     fiacre_of_breuil_monk: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Fiacre',
@@ -2281,6 +2361,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     finding_of_the_holy_cross: {
       name: 'Finding of the Holy Cross',
+    },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes/
+    firminus_of_uzes_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Firminus of Uzès',
+      titles: [Title.Bishop],
+      dateOfDeath: 553,
     },
     finnian_of_clonard_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2708,6 +2797,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Gerard of Csanád',
       titles: [Title.Bishop, Title.Martyr],
     },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    gerard_of_lunel_hermit: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Gerard of Lunel',
+      titles: [Title.Hermit],
+    },
     germain_of_paris_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Germain of Paris',
@@ -2780,6 +2877,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     gisela_of_hungary: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Gisela',
+    },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    giles_of_saint_gilles_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Giles of Saint-Gilles',
+      titles: [Title.Abbot, Title.Hermit],
+      dateOfDeath: { century: 8 },
     },
     gleb_of_kiev_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -4125,6 +4231,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Leonid Feodorov',
       titles: [Title.Priest, Title.Martyr],
     },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes/
+    // - https://en.wikipedia.org/wiki/Leontius_of_Fr%C3%A9jus
+    leontius_of_frejus_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Leontius of Fréjus',
+      titles: [Title.Bishop],
+      dateOfDeath: 443,
+      dateOfDeathIsApproximative: true,
+    },
     leopold_iii_of_babenberg: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Leopold III of Babenberg',
@@ -4665,6 +4782,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       },
     },
     // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes/
+    mary_of_clopas_disciple: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Mary of Clopas',
+    },
+    // src:
     // - https://diocese64.org/site/wp-content/uploads/2025/02/VIII.-Sainte-Mariam-de-Jesus-Crucifie.pdf
     // - https://www.vatican.va/content/francesco/fr/events/event.dir.html/content/vaticanevents/fr/2015/5/17/canonizzazioni.html
     mary_of_jesus_crucified_baouardy_virgin: {
@@ -4725,6 +4849,19 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Mary Thérèse de Soubiran La Louvière',
       titles: [Title.Virgin],
       dateOfDeath: 1889,
+    },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes/
+    // - https://www.vatican.va/news_services/liturgy/2022/documents/ns_lit_doc_20220515_notificazione_it.html
+    mary_rivier_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Mary Rivier',
+      titles: [Title.Virgin],
+      dateOfBirth: '1768-12-19',
+      dateOfDeath: '1838-02-03',
+      dateOfBeatification: '1982-05-23',
+      dateOfCanonization: '2022-05-15',
     },
     mary_soledad_torres_acosta_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5507,6 +5644,18 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Peter',
       titles: [Title.Apostle],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    // - https://www.nimes-catholique.fr/wp-content/uploads/2026/01/2026.01.feuille.paroissiale.pdf
+    // - https://nominis.cef.fr/contenus/saint/5200/Bienheureux-Pierre-de-Castelnau.html
+    peter_of_castelnau_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Peter of Castelnau',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfDeath: '1208-01-15',
+    },
     peter_baptist_blasquez_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Peter Baptist Blásquez',
@@ -5584,6 +5733,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Peter of Alcántara',
       titles: [Title.Priest],
+    },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    // - https://en.wikipedia.org/wiki/Peter_of_Luxembourg
+    peter_of_luxembourg_bishop: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Peter of Luxembourg',
+      titles: [Title.Bishop],
+      dateOfBirth: '1369-07-19',
+      dateOfDeath: '1387-07-02',
     },
     peter_sanz_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5716,6 +5876,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Pontian',
       titles: [Title.Pope, Title.Martyr],
       dateOfDeath: 235,
+    },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    pons_of_villeneuve_les_avignon_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Pons of Villeneuve-lès-Avignon',
+      titles: [Title.Abbot],
+      dateOfDeath: 1087,
     },
     pothinus_of_lyon_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5850,6 +6019,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Raymond Gayrard',
       titles: [Title.Religious],
       dateOfDeath: '1118-07-03',
+    },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes-uzes-et-ales/
+    // - https://en.wikipedia.org/wiki/Reginald_of_Orleans
+    reginald_of_orleans_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Reginald of Orléans',
+      titles: [Title.Priest, Title.Religious],
+      dateOfDeath: 1220,
     },
     // src:
     // - mr_fr_2016_ed1_gap_embrun
@@ -6004,6 +6183,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'The Saints of Lindisfarne',
       count: 'many',
+    },
+    // src:
+    // - mr_fr_1984_ed1_nimes
+    // - https://www.nimes-catholique.fr/saints-du-diocese-de-nimes/
+    salome_disciple: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Salome',
     },
     salomea_of_poland_religious: {
       canonizationLevel: CanonizationLevels.Blessed,
