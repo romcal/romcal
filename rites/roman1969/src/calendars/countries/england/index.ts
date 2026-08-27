@@ -1,12 +1,20 @@
+import { CommonDefinition as Common } from '../../../constants/commons';
 import { ProperCycles } from '../../../constants/cycles';
 import { PatronTitle } from '../../../constants/martyrology-metadata';
 import { Precedences } from '../../../constants/precedences';
 import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { Inputs, ParticularConfig } from '../../../types/calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class England extends CalendarDef {
   ParentCalendars = [Europe];
+
+  // src: https://www.liturgyoffice.org.uk/Calendar/2027/Ordo-2027.pdf
+  particularConfig: ParticularConfig = {
+    epiphanyOnSunday: false,
+    ascensionOnSunday: false,
+    corpusChristiOnSunday: true,
+  };
 
   inputs: Inputs = {
     aelred_of_rievaulx_abbot: {
@@ -81,11 +89,6 @@ export class England extends CalendarDef {
       dateDef: { month: 6, date: 5 },
     },
 
-    ephrem_the_syrian_deacon: {
-      precedence: Precedences.OptionalMemorial_12,
-      dateDef: { month: 6, date: 9 },
-    },
-
     columba_of_iona_abbot: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 9 },
@@ -146,9 +149,12 @@ export class England extends CalendarDef {
       dateDef: { month: 9, date: 19 },
     },
 
+    // src: https://www.liturgyoffice.org.uk/Calendar/Sanctoral/September/Walsingham.pdf
     our_lady_of_walsingham: {
-      precedence: Precedences.ProperMemorial_11b,
+      // This celebration was a Memorial before the Holy See confirmed its elevation in 2024.
+      precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 9, date: 24 },
+      commonsDef: Common.None,
     },
 
     john_henry_newman_priest: {
