@@ -83,6 +83,7 @@ export enum PatronTitle {
   CopatronessOfIreland = 'COPATRONESS_OF_IRELAND',
   CopatronessOfItalyAndEurope = 'COPATRONESS_OF_ITALY_AND_EUROPE',
   CopatronessOfThePhilippines = 'COPATRONESS_OF_THE_PHILIPPINES',
+  CopatronessOfTheDiocese = 'COPATRONESS_OF_THE_DIOCESE',
   PatronOfBelgium = 'PATRON_OF_BELGIUM',
   PatronOfCanada = 'PATRON_OF_CANADA',
   PatronOfEngland = 'PATRON_OF_ENGLAND',

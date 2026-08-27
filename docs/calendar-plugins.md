@@ -41,6 +41,7 @@ Below the list of all available calendar plugins:
 | Czech Republic                        | `@romcal/calendar.czech-republic@dev`                      |
 | Denmark                               | `@romcal/calendar.denmark@dev`                             |
 | England                               | `@romcal/calendar.england@dev`                             |
+| England / Arundel Brighton            | `@romcal/calendar.england.arundel-brighton@dev`            |
 | England / Westminster                 | `@romcal/calendar.england.westminster@dev`                 |
 | Europe                                | `@romcal/calendar.europe@dev`                              |
 | Finland                               | `@romcal/calendar.finland@dev`                             |
