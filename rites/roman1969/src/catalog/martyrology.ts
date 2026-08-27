@@ -289,6 +289,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'All Saints of Ireland',
       count: 'many',
     },
+    // src: https://lille.catholique.fr/app/uploads/2026/01/1108-Saints-du-diocese.docx
+    all_saints_of_the_archdiocese_of_lille: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'All Saints of the Archdiocese of Lille',
+      count: 'many',
+    },
     all_saints_of_the_archdiocese_of_paris: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'All Saints of the Archdiocese of Paris',
@@ -466,6 +472,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'André Grasset',
       titles: [Title.Priest, Title.Martyr],
       dateOfDeath: 1792,
+    },
+    // src:
+    // - https://lille.catholique.fr/retour-sur-la-beatification-des-50-martyrs-de-lapostolat/
+    // - https://dioceseparis.fr/andre-parsy.html
+    andre_parsy_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'André Parsy',
+      titles: [Title.Martyr],
+      dateOfBirth: '1922-12-24',
+      dateOfDeath: '1944-12-26',
     },
     andrew_apostle: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1479,6 +1495,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: '1272-10-31',
       dateOfBeatification: 1905,
     },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/0207-Saint-Chrysole.docx
+    // - https://fr.wikipedia.org/wiki/Saint_Chrysole
+    chrysolius_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Chrysolius',
+      titles: [Title.Martyr],
+      dateOfDeath: { century: 3 },
+    },
     ciaran_of_clonmacnoise_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Ciaran',
@@ -2053,6 +2078,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: { century: 8 },
       dateOfDeath: 875,
     },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/0220-Saint-Eleuthere.docx
+    // - https://fr.wikipedia.org/wiki/%C3%89leuth%C3%A8re_de_Tournai
+    eleutherius_of_tournai_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Eleutherius of Tournai',
+      titles: [Title.Bishop],
+      dateOfDeath: 536,
+      dateOfDeathIsApproximative: true,
+    },
     eligius_of_noyon_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Eloi',
@@ -2251,6 +2286,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Eulogius of Córdoba',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/1216-Saint-Evrard.docx
+    // - https://fr.wikipedia.org/wiki/%C3%89vrard_de_Frioul
+    everard_of_friuli: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Everard of Friuli',
+      dateOfDeath: 869,
+      dateOfDeathIsApproximative: true,
     },
     eulogius_of_tarragona_deacon: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2476,6 +2520,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfBirth: 280,
       dateOfBirthIsApproximative: true,
       dateOfDeath: '296-09-17',
+    },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/1215-Saint-Folquin.docx
+    // - https://fr.wikipedia.org/wiki/Folquin_de_Th%C3%A9rouanne
+    folquin_of_therouanne_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Folquin of Thérouanne',
+      titles: [Title.Bishop],
+      dateOfDeath: '856-12-14',
     },
     // src:
     // - mr_fr_1998_ed1_laval
@@ -2717,6 +2770,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Gaud',
       titles: [Title.Bishop],
       dateOfDeath: 491,
+      dateOfDeathIsApproximative: true,
+    },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/0812-Saint-Gery.docx
+    // - https://fr.wikipedia.org/wiki/G%C3%A9ry_de_Cambrai
+    gaugericus_of_cambrai_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Gaugericus of Cambrai',
+      titles: [Title.Bishop],
+      dateOfDeath: 625,
       dateOfDeathIsApproximative: true,
     },
     gebhard_of_constance_bishop: {
@@ -3797,6 +3860,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'John of Triora',
       titles: [Title.Priest, Title.Martyr],
     },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/0127-Bx-Jean-de-Warneton.docx
+    // - https://fr.wikipedia.org/wiki/Jean_Ier_de_Warneton
+    john_of_warneton_bishop: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'John of Warneton',
+      titles: [Title.Bishop],
+      dateOfBirth: 1065,
+      dateOfBirthIsApproximative: true,
+      dateOfDeath: '1130-01-27',
+    },
     john_ogilvie_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'John Ogilvie',
@@ -4286,6 +4360,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Louis Bertrand',
       titles: [Title.Priest],
+    },
+    // src:
+    // - https://lille.catholique.fr/retour-sur-la-beatification-des-50-martyrs-de-lapostolat/
+    // - https://dioceseparis.fr/louis-didion.html
+    louis_didion_martyr: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Louis Didion',
+      titles: [Title.Martyr],
+      dateOfBirth: '1917-05-02',
+      dateOfDeath: '1945-02-16',
     },
     // src:
     // - https://diocese64.org/site/wp-content/uploads/2025/02/VII.-Le-Bienheureux-Louis-Edouard-Cestac.pdf
@@ -4945,6 +5029,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: '453-09-13',
     },
     // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/0505-Saint-Mauront.docx
+    // - https://outlook.office365.com/owa/calendar/1f2e166da9174b55a65c9cda84c3c320@lille.catholique.fr/24a55cb359634519af9f314246d73f5314084572960167166925/calendar.ics
+    mauront_of_breuil_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Mauront of Breuil',
+      titles: [Title.Abbot],
+      dateOfDeath: { or: [701, 708] },
+    },
+    // src:
     // - mr_fr_2022_ed3_angers
     // - https://en.wikipedia.org/wiki/Saint_Maurus
     maurus_of_glanfeuil_abbot: {
@@ -5058,6 +5151,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Modestus Andlauer',
       titles: [Title.Martyr],
       dateOfDeath: '1900-6-19',
+    },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/1016-Saint-Momelin.docx
+    // - https://fr.wikipedia.org/wiki/Mommelin_de_Noyon
+    momelin_of_noyon_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Momelin of Noyon',
+      titles: [Title.Bishop],
+      dateOfDeath: 686,
+      dateOfDeathIsApproximative: true,
     },
     monica_of_hippo: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5430,6 +5533,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     our_lady_of_the_discovery_of_the_hidden_christians: {
       name: 'Our Lady of the Discovery of the Hidden Christians',
     },
+    // src: https://lille.catholique.fr/app/uploads/2026/01/0908-ND-des-Dunes.docx
+    our_lady_of_the_dunes: {
+      name: 'Our Lady of the Dunes',
+    },
     our_lady_of_the_gate_of_dawn: {
       name: 'Our Lady of the Gate of Dawn',
     },
@@ -5447,6 +5554,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     our_lady_of_the_rosary: {
       name: 'Our Lady of the Rosary',
+    },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/1000-ND-de-la-Treille.docx
+    // - https://fr.wikipedia.org/wiki/Cath%C3%A9drale_Notre-Dame-de-la-Treille
+    our_lady_of_the_treille: {
+      name: 'Our Lady of the Treille',
     },
     our_lady_of_the_valley: {
       name: 'Our Lady of the Valley',
@@ -5536,6 +5649,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: {
         between: [1745, 1862],
       },
+    },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/0720-Bx-Paul-Denn-et-Remy-Isore.docx
+    // - https://www.jesuits.global/fr/saint-blessed/saint-paul-denn/
+    paul_denn_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Paul Denn',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1847-04-01',
+      dateOfDeath: '1900-07-20',
     },
     paul_liu_hanzuo_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5822,6 +5945,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Abbot],
       dateOfDeath: '753-11-3',
     },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/1003-Saint-Piat.docx
+    // - https://fr.wikipedia.org/wiki/Piat_de_Seclin
+    piatus_of_seclin_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Piatus of Seclin',
+      titles: [Title.Missionary, Title.Martyr],
+      dateOfDeath: { century: 3 },
+    },
     pius_francesco_forgione_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Pius of Pietrelcina',
@@ -6043,6 +6175,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Remigius',
       titles: [Title.Bishop],
       dateOfDeath: 530,
+    },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/0720-Bx-Paul-Denn-et-Remy-Isore.docx
+    // - https://fr.wikipedia.org/wiki/R%C3%A9my_Isor%C3%A9
+    remy_isore_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Rémy Isoré',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1852-01-22',
+      dateOfDeath: '1900-06-19',
     },
     // src:
     // - mr_fr_2022_ed3_angers
@@ -6777,6 +6919,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Ursula',
       titles: [Title.Virgin, Title.Martyr],
     },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/0206-Saint-Vaast.docx
+    // - https://fr.wikipedia.org/wiki/Vaast_d%27Arras
+    vaast_of_arras_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Vaast of Arras',
+      titles: [Title.Bishop],
+      dateOfDeath: 540,
+    },
     valentine_of_raetia_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Valentine of Raetia',
@@ -6887,6 +7038,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfDeath: { century: 5 },
     },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/0720-Saint-Vulmar.docx
+    // - https://www.ville-samer.fr/abbaye_saint_wulmer.html
+    vulmar_of_samer_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Vulmar of Samer',
+      titles: [Title.Priest, Title.Hermit, Title.Abbot],
+      dateOfDeath: 700,
+      dateOfDeathIsApproximative: true,
+    },
     waitangi_day: {
       name: 'Waitangi Day',
     },
@@ -6946,6 +7107,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Winefride',
       titles: [Title.Virgin],
+    },
+    // src:
+    // - https://lille.catholique.fr/app/uploads/2026/01/1106-Saint-Winnoc.docx
+    // - https://fr.wikipedia.org/wiki/Abbaye_Saint-Winoc_de_Bergues
+    winnoc_of_wormhout_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Winnoc of Wormhout',
+      titles: [Title.Abbot],
+      dateOfDeath: 717,
+      dateOfDeathIsApproximative: true,
     },
     wladyslaw_bladzinski_priest: {
       canonizationLevel: CanonizationLevels.Blessed,

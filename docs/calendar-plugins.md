@@ -50,6 +50,7 @@ Below the list of all available calendar plugins:
 | France / Creteil               | `@romcal/calendar.france.creteil@dev`               |
 | France / Gap Embrun            | `@romcal/calendar.france.gap-embrun@dev`            |
 | France / Laval                 | `@romcal/calendar.france.laval@dev`                 |
+| France / Lille                 | `@romcal/calendar.france.lille@dev`                 |
 | France / Lyon                  | `@romcal/calendar.france.lyon@dev`                  |
 | France / Lourdes Sanctuary     | `@romcal/calendar.france.lourdes-sanctuary@dev`     |
 | France / Montauban             | `@romcal/calendar.france.montauban@dev`             |

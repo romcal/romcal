@@ -7,6 +7,7 @@ import { Europe } from '../../regions/europe';
 
 import { France_Albi } from './archdiocese-of-albi';
 import { France_Auch } from './archdiocese-of-auch';
+import { France_Lille } from './archdiocese-of-lille';
 import { France_Lyon } from './archdiocese-of-lyon';
 import { France_Paris } from './archdiocese-of-paris';
 import { France_Toulouse } from './archdiocese-of-toulouse';
@@ -158,6 +159,7 @@ export class France extends CalendarDef {
 export {
   France_Albi,
   France_Auch,
+  France_Lille,
   France_Lyon,
   France_Paris,
   France_Angers,
