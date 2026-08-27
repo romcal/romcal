@@ -383,6 +383,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Alphonsus Rodríguez',
       titles: [Title.Priest, Title.Martyr],
     },
+    // src: https://diocese64.org/site/wp-content/uploads/2025/02/I.-Les-saints-eveques-des-premiers-temps-des-dioceses-de-Bayonne-Lescar-et-Oloron.pdf
     amand_of_maastricht_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Amand',
@@ -485,6 +486,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: {
         between: [1745, 1862],
       },
+    },
+    // src: https://diocese64.org/site/wp-content/uploads/2025/04/IV.-Saint-Andre-Hubert-Fournet.pdf
+    andrew_hubert_fournet_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Andrew-Hubert Fournet',
+      titles: [Title.Priest],
+      dateOfBirth: '1752-12-06',
+      dateOfDeath: '1834-05-13',
     },
     andrew_kim_tae_gon_priest: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1760,6 +1769,10 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Apostle],
       count: 2,
     },
+    // src: https://diocese64.org/site/wp-content/uploads/2026/03/ANNUAIRE-DIOCESE-2025-2026-en-ligne-au-13-03-2026.pdf#page=341
+    dedication_of_the_cathedral_of_saint_mary_of_bayonne_france: {
+      name: 'Dedication of Saint Mary Cathedral, Bayonne',
+    },
     // src:
     // - ordo_fr_2025_province_ecclesiastique_de_toulouse
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -1985,6 +1998,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Elizabeth Ann Seton',
       titles: [Title.Religious],
+    },
+    // src:
+    // - https://diocese64.org/site/wp-content/uploads/2025/02/V.-Sainte-Jeanne-Elisabeth-Bichier-des-Ages.pdf
+    // - https://www.vatican.va/content/pius-xii/fr/speeches/1947/documents/hf_p-xii_spe_19470707_beati-garicoits-bichier-des-ages.html
+    elizabeth_bichier_des_ages_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Elizabeth Bichier des Ages',
+      titles: [Title.Virgin],
+      dateOfBirth: '1773-07-05',
+      dateOfDeath: '1838-08-26',
     },
     elizabeth_hesselblad_religious: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2445,6 +2468,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Francisco Marto',
     },
+    // src: https://diocese64.org/site/wp-content/uploads/2025/02/III.-Le-bienheureux-Francois-Dardan.pdf
+    francois_dardan_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'François Dardan',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfBirth: '1733-06-03',
+      dateOfDeath: '1792-09-02',
+    },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://diocese15.fr/accueil/vivre-sa-foi/vie-spirituelle/les-grandes-fetes-du-diocese/septembre/
@@ -2548,6 +2579,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Gabriele Maria Allegra',
       titles: [Title.Priest],
+    },
+    // src:
+    // - https://diocese64.org/les-saints-du-diocese/
+    // - https://diocese64.org/site/wp-content/uploads/2025/02/I.-Les-saints-eveques-des-premiers-temps-des-dioceses-de-Bayonne-Lescar-et-Oloron.pdf
+    // - https://fr.wikipedia.org/wiki/Galactoire_de_Lescar
+    galactorius_of_lescar_bishop_and_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Galactorius of Lescar',
+      titles: [Title.Bishop, Title.Martyr],
     },
     gall_of_switzerland_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2763,6 +2803,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     gotthard_of_hildesheim_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Gotthard',
+      titles: [Title.Bishop],
+    },
+    // src:
+    // - https://diocese64.org/les-saints-du-diocese/
+    // - https://diocese64.org/site/wp-content/uploads/2025/02/I.-Les-saints-eveques-des-premiers-temps-des-dioceses-de-Bayonne-Lescar-et-Oloron.pdf
+    grat_of_oloron_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Grat of Oloron',
       titles: [Title.Bishop],
     },
     gratia_of_cattaro_religious: {
@@ -3259,6 +3307,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Religious, Title.Martyr],
       dateOfBirth: '1925-08-27',
       dateOfDeath: '1994-12-27',
+    },
+    // src:
+    // - https://diocese64.org/les-saints-du-diocese/
+    // - https://diocese64.org/site/wp-content/uploads/2025/06/II.-Le-bienheureux-Jean-de-Mayorga-et-ses-compagnons.pdf
+    // - https://www.jesuits.global/fr/saint-blessed/le-bienheureux-juan-de-mayorga/
+    jean_de_mayorga_religious: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Jean de Mayorga',
+      titles: [Title.Religious, Title.Martyr],
+      dateOfBirth: 1533,
+      dateOfDeath: '1570-07-15',
     },
     // src:
     // - ordo_fr_2025_province_ecclesiastique_de_toulouse
@@ -3803,6 +3862,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfDeath: { century: 4 },
     },
+    // src:
+    // - https://diocese64.org/les-saints-du-diocese/
+    // - https://diocese64.org/site/wp-content/uploads/2025/02/I.-Les-saints-eveques-des-premiers-temps-des-dioceses-de-Bayonne-Lescar-et-Oloron.pdf
+    // - https://fr.wikipedia.org/wiki/Julien_de_Lescar
+    julian_of_lescar_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Julian of Lescar',
+      titles: [Title.Bishop],
+    },
     juliana_of_liege_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Juliana of Liège',
@@ -4039,6 +4107,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 890,
       dateOfDeathIsApproximative: true,
     },
+    // src:
+    // - https://diocese64.org/les-saints-du-diocese/
+    // - https://diocese64.org/site/wp-content/uploads/2025/02/I.-Les-saints-eveques-des-premiers-temps-des-dioceses-de-Bayonne-Lescar-et-Oloron.pdf
+    leon_of_bayonne_bishop_and_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Leo of Bayonne',
+      titles: [Title.Bishop, Title.Martyr],
+    },
     leonard_of_noblac_hermit: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Leonard of Noblac',
@@ -4093,6 +4169,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Louis Bertrand',
       titles: [Title.Priest],
+    },
+    // src:
+    // - https://diocese64.org/site/wp-content/uploads/2025/02/VII.-Le-Bienheureux-Louis-Edouard-Cestac.pdf
+    // - https://www.vatican.va/content/francesco/fr/angelus/2015/documents/papa-francesco_angelus_20150531.html
+    louis_edouard_cestac_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Louis-Édouard Cestac',
+      titles: [Title.Priest],
+      dateOfBirth: '1801-01-06',
+      dateOfDeath: '1868-03-27',
     },
     louis_flores_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
@@ -4577,6 +4663,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: {
         century: 1,
       },
+    },
+    // src:
+    // - https://diocese64.org/site/wp-content/uploads/2025/02/VIII.-Sainte-Mariam-de-Jesus-Crucifie.pdf
+    // - https://www.vatican.va/content/francesco/fr/events/event.dir.html/content/vaticanevents/fr/2015/5/17/canonizzazioni.html
+    mary_of_jesus_crucified_baouardy_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Mary of Jesus Crucified Baouardy',
+      titles: [Title.Virgin],
+      dateOfBirth: '1846-01-05',
+      dateOfDeath: '1878-08-26',
     },
     mary_of_jesus_crucified_petkovic_virgin: {
       canonizationLevel: CanonizationLevels.Blessed,
