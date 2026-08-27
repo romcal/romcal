@@ -869,10 +869,10 @@ export class Dates {
               : lateOrdinaryStartWeekCount + Math.floor(idx / 7);
           const earlyOrdinaryTime = item.getUTCDay() === 0 ? Math.floor(idx / 7) + 2 : Math.floor(idx / 7) + 1;
           let weekNumber = isEarlyOrdinaryTime
-            ? // Early Ordinary Time
-              earlyOrdinaryTime
-            : // Late Ordinary Time
-              lateOrdinaryTime;
+            // Early Ordinary Time
+            ? earlyOrdinaryTime
+            // Late Ordinary Time
+            : lateOrdinaryTime;
 
           // When the Baptism of the Lord is observed on Monday, Ordinary Time starts on Tuesday.
           // So in this case, the Monday (from the group of 7 days computed above) takes place in the next week.
@@ -1060,10 +1060,10 @@ export class Dates {
     const id = year + ascensionOnSunday.toString();
     if (this.#ascension[id]) return this.#ascension[id];
     return (this.#ascension[id] = ascensionOnSunday
-      ? // If specified, move Ascension to Sunday
-        addDays(this.easterSunday(year), 42)
-      : // else by default, Ascension on Thursday
-        addDays(this.easterSunday(year), 39));
+      // If specified, move Ascension to Sunday
+      ? addDays(this.easterSunday(year), 42)
+      // else by default, Ascension on Thursday
+      : addDays(this.easterSunday(year), 39));
   };
 
   #ascension: Record<string, Date> = {};
@@ -1108,10 +1108,10 @@ export class Dates {
     const id = year + corpusChristiOnSunday.toString();
     if (this.#corpusChristi[id]) return this.#corpusChristi[id];
     return (this.#corpusChristi[id] = corpusChristiOnSunday
-      ? // By default Corpus Christi on Sunday
-        addDays(this.easterSunday(year), 63)
-      : // If specified, move Corpus Christi to Thursday
-        addDays(this.easterSunday(year), 60));
+      // By default Corpus Christi on Sunday
+      ? addDays(this.easterSunday(year), 63)
+      // If specified, move Corpus Christi to Thursday
+      : addDays(this.easterSunday(year), 60));
   };
 
   #corpusChristi: Record<string, Date> = {};
@@ -1159,10 +1159,10 @@ export class Dates {
     if (this.#holyFamily[year]) return this.#holyFamily[year];
     return (this.#holyFamily[year] =
       this.christmas(year).getUTCDay() === 0
-        ? // If Christmas is on Sunday, then Holy Family is on the 30th Dec
-          getUtcDate(year, 12, 30)
-        : // Holy Family is 1 week after Christmas when Christmas is on a weekday
-          startOfWeek(addDays(this.christmas(year), 7)));
+        // If Christmas is on Sunday, then Holy Family is on the 30th Dec
+        ? getUtcDate(year, 12, 30)
+        // Holy Family is 1 week after Christmas when Christmas is on a weekday
+        : startOfWeek(addDays(this.christmas(year), 7)));
   };
 
   #holyFamily: Record<string, Date> = {};

@@ -162,20 +162,24 @@ export class Calendar implements BaseCalendar {
           // since a LiturgicalDay is generated for each day of the Liturgical Year.
           // In the case the LiturgicalDayDef is coming from the Proper of Time,
           // the baseData must be null.
-          const baseData: LiturgicalDay | null = isFromProperOfTime
-            ? null
-            : builtData.byIds[builtData.datesIndex[dateStr][0]]
-                // Look up for the right LiturgicalDay item, according to its date.
-                // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
-                // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical year 2012, which starts on 27 November 2011 and ends 1 December 2012.
-                .find((d) => d.date === date.toISOString().substr(0, 10)) || null;
+          let baseData: LiturgicalDay | null = null;
+          if (!isFromProperOfTime) {
+            // Look up for the right LiturgicalDay item, according to its date.
+            // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
+            // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical
+            // year 2012, which starts on 27 November 2011 and ends 1 December 2012.
+            baseData =
+              builtData.byIds[builtData.datesIndex[dateStr][0]].find(
+                (d) => d.date === date.toISOString().substr(0, 10)
+              ) || null;
+          }
 
           // Retrieve calendar metadata from the proper of time
           const calendar: RomcalCalendarMetadata = isFromProperOfTime
             ? this.#buildCalendarMetadata(def, date, baseData)
-            : // TODO: refactor this to avoir non-null assertion
-              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-              baseData!.calendar;
+            // TODO: refactor this to avoid the non-null assertion
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            : baseData!.calendar;
 
           /**
            * For Memorial and Feast celebrations only, the weekday property is added
