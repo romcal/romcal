@@ -3,7 +3,7 @@
 # Install, Build, Run and Test romcal Locally
 
 This section describes how to run the romcal source code in your machine, and how to contribute to this project.
-You might also be interested in reading the general [contribution guide](../CONTRIBUTING.md).
+You might also be interested in reading the general [contribution guide](CONTRIBUTING.md).
 
 - [Retrieve the codebase](#retrieve-the-codebase)
 - [Install](#install)
