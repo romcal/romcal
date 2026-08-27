@@ -52,6 +52,7 @@ Below the list of all available calendar plugins:
 | France / Bayonne Lescar Oloron        | `@romcal/calendar.france.bayonne-lescar-oloron@dev`        |
 | France / Beauvais                     | `@romcal/calendar.france.beauvais@dev`                     |
 | France / Cahors                       | `@romcal/calendar.france.cahors@dev`                       |
+| France / Carcassonne Narbonne         | `@romcal/calendar.france.carcassonne-narbonne@dev`         |
 | France / Coutances                    | `@romcal/calendar.france.coutances@dev`                    |
 | France / Creteil                      | `@romcal/calendar.france.creteil@dev`                      |
 | France / Gap Embrun                   | `@romcal/calendar.france.gap-embrun@dev`                   |
@@ -59,11 +60,13 @@ Below the list of all available calendar plugins:
 | France / Lille                        | `@romcal/calendar.france.lille@dev`                        |
 | France / Lyon                         | `@romcal/calendar.france.lyon@dev`                         |
 | France / Lourdes Sanctuary            | `@romcal/calendar.france.lourdes-sanctuary@dev`            |
+| France / Mende                        | `@romcal/calendar.france.mende@dev`                        |
 | France / Montauban                    | `@romcal/calendar.france.montauban@dev`                    |
 | France / Nanterre                     | `@romcal/calendar.france.nanterre@dev`                     |
 | France / Nimes                        | `@romcal/calendar.france.nimes@dev`                        |
 | France / Pamiers                      | `@romcal/calendar.france.pamiers@dev`                      |
 | France / Paris                        | `@romcal/calendar.france.paris@dev`                        |
+| France / Perpignan Elne               | `@romcal/calendar.france.perpignan-elne@dev`               |
 | France / Rodez                        | `@romcal/calendar.france.rodez@dev`                        |
 | France / Saint Denis                  | `@romcal/calendar.france.saint-denis@dev`                  |
 | France / Saint Flour                  | `@romcal/calendar.france.saint-flour@dev`                  |

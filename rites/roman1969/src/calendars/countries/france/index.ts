@@ -15,14 +15,17 @@ import { France_Angers } from './diocese-of-angers';
 import { France_BayonneLescarOloron } from './diocese-of-bayonne-lescar-and-oloron';
 import { France_Beauvais } from './diocese-of-beauvais';
 import { France_Cahors } from './diocese-of-cahors';
+import { France_CarcassonneNarbonne } from './diocese-of-carcassonne-and-narbonne';
 import { France_Coutances } from './diocese-of-coutances';
 import { France_Creteil } from './diocese-of-creteil';
 import { France_GapEmbrun } from './diocese-of-gap-and-embrun';
 import { France_Laval } from './diocese-of-laval';
+import { France_Mende } from './diocese-of-mende';
 import { France_Montauban } from './diocese-of-montauban';
 import { France_Nanterre } from './diocese-of-nanterre';
 import { France_Nimes } from './diocese-of-nimes';
 import { France_Pamiers } from './diocese-of-pamiers';
+import { France_PerpignanElne } from './diocese-of-perpignan-and-elne';
 import { France_Rodez } from './diocese-of-rodez';
 import { France_SaintDenis } from './diocese-of-saint-denis';
 import { France_SaintFlour } from './diocese-of-saint-flour';
@@ -167,14 +170,17 @@ export {
   France_BayonneLescarOloron,
   France_Beauvais,
   France_Cahors,
+  France_CarcassonneNarbonne,
   France_Coutances,
   France_Creteil,
   France_GapEmbrun,
   France_Laval,
+  France_Mende,
   France_Montauban,
   France_Nanterre,
   France_Nimes,
   France_Pamiers,
+  France_PerpignanElne,
   France_Rodez,
   France_SaintDenis,
   France_SaintFlour,

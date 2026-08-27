@@ -282,6 +282,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       hideTitles: true,
     },
     // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/LessaintsdudiocesedeMende.pdf
+    all_holy_bishops_of_the_diocese_of_mende: {
+      canonizationLevel: CanonizationLevels.Saint,
+      hideCanonizationLevel: true,
+      name: 'All Holy Bishops of the Diocese of Mende',
+      count: 'many',
+      titles: [Title.Bishop],
+      hideTitles: true,
+    },
+    // src:
     // - mr_fr_1982_ed2_coutances
     // - https://www.diocese50.fr/les-paroisses-et-les-doyennes/notre-dame-coutances/les-saints-du-diocese/saints-eveques-de-coutances-et-davranches
     all_holy_priest_of_the_diocese_of_coutances: {
@@ -979,6 +990,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop, Title.DoctorOfTheChurch],
       dateOfDeath: 379,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://www.newadvent.org/cathen/08556b.htm
+    basilissa_of_antioch_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Basilissa of Antioch',
+      titles: [Title.Virgin],
+    },
     beatrice_da_silva_meneses_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Beatrice da Silva Meneses',
@@ -1056,6 +1075,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Berard of Carbio',
       titles: [Title.Priest, Title.Martyr],
       dateOfDeath: '1220-01-16',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/1221/Saint-Berenger.html
+    berenger_of_saint_papoul_monk: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Bérenger of Saint-Papoul',
+      titles: [Title.Monk],
+      dateOfDeath: 1093,
     },
     bernadette_soubirous_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -1449,6 +1477,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Céneré of Saulges',
       titles: [Title.Hermit],
       dateOfDeath: 680,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/1582/Saints-Nazaire-et-Celse.html
+    celsus_of_milan_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Celsus of Milan',
+      titles: [Title.Martyr],
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -1923,6 +1959,13 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://www.diocese-mende.fr/jubile-des-401-ans-de-la-cathedrale/
+    dedication_of_the_cathedral_of_our_lady_and_saint_privat_mende_france: {
+      name: 'Dedication of the Cathedral of Our Lady and Saint Privat, Mende',
+      dateOfDedication: '1620-10-10',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://www.diocese-montauban.fr/grand-montauban/paroisses/paroisse-montauban-ville-haute/eglises-et-paroisses/cathedrale-centre-ville/
     dedication_of_the_cathedral_of_our_lady_of_the_assumption_montauban_france: {
       dateOfDedication: '1739-11-01',
@@ -2277,6 +2320,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Enda',
       titles: [Title.Abbot],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/LessaintsdudiocesedeMende.pdf
+    enimie_of_gevaudan_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Énimie of Gévaudan',
+      titles: [Title.Virgin],
+    },
     english_martyrs: {
       name: 'English Martyrs',
       titles: [Title.Martyr],
@@ -2386,10 +2437,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 505,
       dateOfDeathIsApproximative: true,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/242/Sainte-Eulalie.html
     eulalia_of_merida_virgin: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Eulalia of Merida',
       titles: [Title.Virgin, Title.Martyr],
+      dateOfDeath: 304,
     },
     eulogius_of_cordoba_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -2548,6 +2603,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Firmin of Amiens',
       titles: [Title.Bishop, Title.Martyr],
       dateOfDeath: { century: 4 },
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/LessaintsdudiocesedeMende.pdf
+    firmin_of_mende_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Firmin of Mende',
+      titles: [Title.Bishop],
+      dateOfDeath: 402,
+      dateOfDeathIsApproximative: true,
     },
     first_martyrs_of_the_holy_roman_church: {
       name: 'First Martyrs of the Holy Roman Church',
@@ -2793,6 +2858,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Frédéric Ozanam',
       dateOfBirth: '1813-4-23',
       dateOfDeath: '1853-9-8',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/LessaintsdudiocesedeMende.pdf
+    frezal_of_mende_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Frézal of Mende',
+      titles: [Title.Bishop],
+      dateOfDeath: '826-09-04',
     },
     friday_of_the_passion_of_the_lord: {
       name: 'Friday of the Passion of the Lord',
@@ -3087,6 +3161,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://www.aude.catholique.fr/vivre-sa-foi/les-figures-de-la-misericorde-dans-laude/saint-gimer/
+    gimer_of_carcassonne_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Gimer of Carcassonne',
+      titles: [Title.Bishop],
+      dateOfDeath: 932,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://nominis.cef.fr/contenus/saint/6796/Saint-Girons.html
     girons_of_hagetmau_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -3288,6 +3371,24 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 360,
       dateOfDeathIsApproximative: true,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://saint-hilaire-aude.fr/abbaye/1000-ans-dhistoire
+    hilary_of_carcassonne_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Hilary of Carcassonne',
+      titles: [Title.Bishop],
+      dateOfDeath: { century: 6 },
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/LessaintsdudiocesedeMende.pdf
+    hilary_of_mende_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Hilary of Mende',
+      titles: [Title.Bishop],
+      dateOfDeath: { century: 6 },
+    },
     hilary_of_poitiers_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Hilary',
@@ -3441,6 +3542,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Illtud',
       titles: [Title.Abbot],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/LessaintsdudiocesedeMende.pdf
+    ilpide_of_mende_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Ilpide of Mende',
+      titles: [Title.Martyr],
+      dateOfDeath: { century: 3 },
     },
     immaculate_conception_of_the_blessed_virgin_mary: {
       name: 'The Immaculate Conception of the Blessed Virgin Mary',
@@ -3686,6 +3796,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Priest, Title.Martyr],
       dateOfBirth: '1738-09-05',
       dateOfDeath: '1792-09-03',
+      dateOfBeatification: '1926-10-17',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/12392/Bienheureux-Jean-Fran%C3%A7ois-Bousquet.html
+    jean_francois_bousquet_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Jean-François Bousquet',
+      titles: [Title.Priest, Title.Martyr],
+      dateOfDeath: '1792-09-02',
       dateOfBeatification: '1926-10-17',
     },
     // src:
@@ -4229,6 +4349,23 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeathIsApproximative: true,
     },
     // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/242/Sainte-Eulalie.html
+    julia_of_merida_virgin: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Julia of Merida',
+      titles: [Title.Virgin, Title.Martyr],
+      dateOfDeath: 304,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://www.newadvent.org/cathen/08556b.htm
+    julian_of_antioch_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Julian of Antioch',
+      titles: [Title.Martyr],
+    },
+    // src:
     // - mr_fr_1998_ed1_laval
     // - https://diocesedelaval.fr/le-propre-du-diocese-de-laval/
     // - https://nominis.cef.fr/contenus/saints/516/Saint-Julien-du-Mans.html
@@ -4284,6 +4421,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Justin',
       titles: [Title.Martyr],
       dateOfDeath: 165,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Justus_and_Pastor
+    justus_of_alcala_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Justus of Alcalá',
+      titles: [Title.Martyr],
+      dateOfDeath: 304,
+      dateOfDeathIsApproximative: true,
     },
     // src: mr_fr_2014_ed2_lyon
     justus_of_lyon_bishop: {
@@ -4559,6 +4706,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Longinus of Pomaria',
       titles: [Title.Bishop],
     },
+    // src:
+    // - https://www.aude.catholique.fr/vivre-sa-foi/les-figures-de-la-misericorde-dans-laude/louis-antoine-ormieres/
+    // - https://www.causesanti.va/it/santi-e-beati/luis-antonio-rosa-ormieres.html
+    louis_antoine_ormieres_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Louis-Antoine Ormières',
+      titles: [Title.Priest],
+      dateOfBirth: '1809-07-14',
+      dateOfDeath: '1890-01-16',
+      dateOfBeatification: '2017-04-22',
+    },
     louis_bertrand_priest: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Louis Bertrand',
@@ -4639,6 +4797,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Louise de Marillac',
       titles: [Title.Religious],
       dateOfDeath: 1660,
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/LessaintsdudiocesedeMende.pdf
+    louvent_of_saint_privat_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Louvent of Saint-Privat',
+      titles: [Title.Abbot, Title.Martyr],
+      dateOfDeath: 584,
     },
     // src: https://nominis.cef.fr/contenus/saint/392/Saint-Lucien-de-Beauvais.html
     lucian_of_beauvais_bishop: {
@@ -5501,6 +5668,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Nazaria Ignacia of Saint Teresa of Jesus March Mesa',
       titles: [Title.Virgin],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/1582/Saints-Nazaire-et-Celse.html
+    nazarius_of_milan_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Nazarius of Milan',
+      titles: [Title.Martyr],
+    },
     // src: mr_fr_2021_ed3
     nemesianus_of_thubunae_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5894,6 +6069,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Pantaleon of Nicomedia',
       titles: [Title.Martyr],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/181/Saint-Papoul.html
+    papoul_of_lauragais_priest: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Papoul of Lauragais',
+      titles: [Title.Priest, Title.Martyr],
+    },
     paschal_baylon_religious: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Paschal Baylón',
@@ -5901,6 +6084,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     passion_of_saint_john_the_baptist: {
       name: 'Passion of Saint John the Baptist',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://en.wikipedia.org/wiki/Justus_and_Pastor
+    pastor_of_alcala_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Pastor of Alcalá',
+      titles: [Title.Martyr],
+      dateOfDeath: 304,
+      dateOfDeathIsApproximative: true,
     },
     // src:
     // - mr_fr_1982_ed2_coutances
@@ -6173,6 +6366,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Peter To Rot',
       titles: [Title.Martyr],
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/407/Saint-Pierre-Orseolo.html
+    // - https://www.newadvent.org/cathen/11776a.htm
+    peter_urseolus_monk: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Peter Urseolus',
+      titles: [Title.Monk],
+      dateOfDeath: 987,
+    },
     peter_wu_guosheng_martyr: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Peter Wu Guosheng',
@@ -6344,6 +6547,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     presentation_of_the_lord: {
       name: 'The Presentation of the Lord',
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/LessaintsdudiocesedeMende.pdf
+    privat_of_mende_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Privatus of Mende',
+      titles: [Title.Bishop, Title.Martyr],
+      dateOfDeath: 258,
+      dateOfDeathIsApproximative: true,
     },
     procopius_of_sazava_abbot: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -6661,6 +6874,15 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Rupert Salzburg',
       titles: [Title.Bishop],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://www.aude.catholique.fr/vivre-sa-foi/les-figures-de-la-misericorde-dans-laude/saint-rustique/
+    rusticus_of_narbonne_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Rusticus of Narbonne',
+      titles: [Title.Bishop],
+      dateOfDeath: 461,
     },
     saints_of_lindisfarne: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -7259,13 +7481,14 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://en.wikipedia.org/wiki/Pope_Urban_V
+    // - https://nominis.cef.fr/contenus/LessaintsdudiocesedeMende.pdf
     urban_v_pope: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Urban V',
       titles: [Title.Pope],
       dateOfBirth: 1310,
       dateOfDeath: '1370-12-19',
-      dateOfBeatification: '1870-05-10',
+      dateOfBeatification: '1870-03-10',
     },
     // src:
     // - mr_fr_1974_ed1_region_apostolique_du_midi
@@ -7313,6 +7536,16 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop, Title.Martyr],
       dateOfDeath: 1973,
     },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/LessaintsdudiocesedeMende.pdf
+    veran_of_cavaillon_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Veranus of Cavaillon',
+      titles: [Title.Bishop],
+      dateOfDeath: 590,
+      dateOfDeathIsApproximative: true,
+    },
     // src: mr_fr_2014_ed2_lyon
     viator_of_lyon: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -7350,6 +7583,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Vincent Lewoniuk',
       titles: [Title.Martyr],
+    },
+    // src:
+    // - mr_fr_1974_ed1_region_apostolique_du_midi
+    // - https://nominis.cef.fr/contenus/saint/6660/Saint-Vincent-de-Collioure.html
+    // - https://fr.wikipedia.org/wiki/Vincent_de_Collioure
+    vincent_of_collioure_martyr: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Vincent of Collioure',
+      titles: [Title.Martyr],
+      dateOfDeath: 303,
+      dateOfDeathIsApproximative: true,
     },
     vincent_of_saragossa_deacon: {
       canonizationLevel: CanonizationLevels.Saint,
