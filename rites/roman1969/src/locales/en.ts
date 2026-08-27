@@ -412,6 +412,7 @@ export const locale: Locale = {
     edmund_campion_priest: 'Saint Edmund Campion, Priest and Martyr',
     edmund_ignatius_rice_religious: 'Blessed Edmund Rice, Religious',
     edmund_of_abingdon_bishop: 'Saint Edmund of Abingdon, Bishop',
+    edward_poppe_priest: 'Blessed Edward Poppe, Priest',
     edward_the_confessor: 'Saint Edward the Confessor',
     eldrad_of_novalesa_abbot: 'Saint Eldrad of Novalesa, Abbot',
     eligius_of_noyon_bishop: 'Saint Eligius, Bishop',
@@ -721,6 +722,8 @@ export const locale: Locale = {
     joseph_sebastian_pelczar_bishop: 'Saint Joseph Sebastian Pelczar, Bishop',
     joseph_spouse_of_mary: 'Saint Joseph, Spouse of the Blessed Virgin Mary',
     joseph_spouse_of_mary_patron_of_canada: 'Saint Joseph, Spouse of the Blessed Virgin Mary, Patron of Canada',
+    joseph_spouse_of_mary_principal_patron_of_belgium:
+      'Saint Joseph, Spouse of the Blessed Virgin Mary, Principal Patron of Belgium',
     joseph_the_worker: 'Saint Joseph the Worker',
     joseph_vaz_priest: 'Saint Joseph Vaz, Priest',
     joseph_yuan_gengyin_priest: 'Saint Joseph Yuan Gengyin, Priest and Martyr',

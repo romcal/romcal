@@ -314,6 +314,7 @@ export const locale: Locale = {
     donatus_of_sisteron_priest_and_may_of_bodon_abbot:
       'Saint Donat, prêtre et ermite († v. 522), et saint May, abbé († v. 550)', // src: mr_fr_2016_ed1_gap_embrun
     easter_sunday: 'Dimanche de Pâques - La résurrection du Seigneur',
+    edward_poppe_priest: 'Bienheureux Édouard Poppe, prêtre († 1924)',
     eldrad_of_novalesa_abbot: 'Saint Eldrad, abbé de la Novalaise († 875)', // src: mr_fr_2016_ed1_gap_embrun
     eligius_of_noyon_bishop: 'Saint Éloi, évêque',
     elijah_prophet: 'Saint Élie, prophète († IXe s. av. J.-C.)',
@@ -518,6 +519,8 @@ export const locale: Locale = {
     joseph_of_calasanz_priest: 'Saint Joseph de Calasanz, prêtre († 1648)',
     joseph_spouse_of_mary: 'Saint Joseph, Époux de la vierge Marie',
     joseph_spouse_of_mary_patron_of_canada: 'Saint Joseph, Époux de la Bienheureuse vierge Marie, patron du Canada',
+    joseph_spouse_of_mary_principal_patron_of_belgium:
+      'Saint Joseph, Époux de la Bienheureuse Vierge Marie, patron principal de la Belgique',
     joseph_the_worker: 'Saint Joseph, Artisan († Ier s.)',
     josephine_bakhita_virgin: 'Sainte Joséphine Bakhita, vierge et religieuse († 1947)',
     juan_diego_cuauhtlatoatzin: 'Saint Juan Diego Cuauhtlatoatzin († 1548)',

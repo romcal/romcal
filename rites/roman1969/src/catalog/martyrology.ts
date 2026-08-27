@@ -1945,6 +1945,17 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Edmund of Abingdon',
       titles: [Title.Bishop],
     },
+    // src:
+    // - mr_fr_2021_ed3
+    // - https://www.vatican.va/content/john-paul-ii/la/apost_letters/1999/documents/hf_jp-ii_apl_19991003_qui-manet.html
+    edward_poppe_priest: {
+      canonizationLevel: CanonizationLevels.Blessed,
+      name: 'Edward Poppe',
+      titles: [Title.Priest],
+      dateOfBirth: '1890-12-18',
+      dateOfDeath: '1924-06-10',
+      dateOfBeatification: '1999-10-03',
+    },
     edward_the_confessor: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Edward the Confessor',
