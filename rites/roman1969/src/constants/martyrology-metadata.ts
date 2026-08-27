@@ -28,6 +28,7 @@ export enum Title {
   Bishop = 'BISHOP',
   Deacon = 'DEACON',
   DoctorOfTheChurch = 'DOCTOR_OF_THE_CHURCH',
+  Emperor = 'EMPEROR',
   Empress = 'EMPRESS',
   Evangelist = 'EVANGELIST',
   FirstBishop = 'FIRST_BISHOP',
@@ -100,6 +101,7 @@ export enum PatronTitle {
   PatronessOfArgentina = 'PATRONESS_OF_ARGENTINA',
   PatronessOfBrazil = 'PATRONESS_OF_BRAZIL',
   PatronessOfHungary = 'PATRONESS_OF_HUNGARY',
+  PrincipalPatronessOfLuxembourg = 'PRINCIPAL_PATRONESS_OF_LUXEMBOURG',
   PatronessOfPuertoRico = 'PATRONESS_OF_PUERTO_RICO',
   PatronessOfSlovakia = 'PATRONESS_OF_SLOVAKIA',
   PatronessOfTheAmericas = 'PATRONESS_OF_THE_AMERICAS',
@@ -112,6 +114,7 @@ export enum PatronTitle {
   PatronOfThePriestsOfTheArchdioceseOfAlbi = 'PATRON_OF_THE_PRIESTS_OF_THE_ARCHDIOCESE_OF_ALBI',
   PatronessOfCostaRica = 'PATRONESS_OF_COSTA_RICA',
   PrincipalPatronOfTheDiocese = 'PRINCIPAL_PATRON_OF_THE_DIOCESE',
+  SecondPatronOfLuxembourg = 'SECOND_PATRON_OF_LUXEMBOURG',
   SecondPatronOfTheDiocese = 'SECOND_PATRON_OF_THE_DIOCESE',
 }
 
