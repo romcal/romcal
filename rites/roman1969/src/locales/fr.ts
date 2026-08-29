@@ -584,6 +584,7 @@ export const locale: Locale = {
     jean_lacan_priest: 'Bienheureux Jean Lacan, prêtre et martyr († 1792)',
     jean_louis_bonnard_priest: 'Saint Jean-Louis Bonnard, prêtre et martyr († 1841)', // src: mr_fr_2014_ed2_lyon
     jean_marie_du_lau_bishop: 'Bienheureux Jean-Marie du Lau, évêque et martyr († 1792)',
+    // eslint-disable-next-line @stylistic/max-len -- locale key cannot be reflowed
     jean_marie_du_lau_bishop_jean_francois_bonnel_de_pradal_francois_urbain_salins_de_niart_priests_and_companions_martyrs:
       'Bienheureux martyrs de septembre : Jean-Marie du Lau, évêque, Jean-François Bonnel de Pradal et François-Urbain de Niart, prêtres, et leurs compagnons († 1792)',
     jean_pierre_neel_priest: 'Saint Jean-Pierre Néel, prêtre et martyr († 1862)', // src: mr_fr_2014_ed2_lyon

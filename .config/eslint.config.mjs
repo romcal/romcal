@@ -90,7 +90,7 @@ export default [
       '@stylistic/indent-binary-ops': 'off',
       // `printWidth` has no lint equivalent: @stylistic reports long lines, it cannot reflow them.
       '@stylistic/max-len': [
-        'warn',
+        'error',
         {
           code: 120,
           ignoreComments: true,

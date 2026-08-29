@@ -99,12 +99,6 @@ jobs:
       - name: Run tests
         run: npm run data:checks && npm run test:without-coverage
 
-      - name: Check trusted publishing configuration
-        # Fails with the list of packages missing a trusted publisher, instead of
-        # a 403 in the middle of publishing. Run `npm run trust:sync` to fix.
-        working-directory: rites/roman1969
-        run: tsx build/trusted-publishing.ts
-
       - name: Npm publish a new 'dev' version (romcal + all calendar bundles)
         working-directory: rites/roman1969
         run: tsx build/publish.ts

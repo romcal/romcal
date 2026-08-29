@@ -363,6 +363,7 @@ export const locale: Locale = {
       'Saints Cyril, Monk, and Methodius, Bishop',
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_copatrons_of_europe:
       'Saints Cyril, Monk, and Methodius, Bishop, Copatrons of Europe',
+    // eslint-disable-next-line @stylistic/max-len -- locale key cannot be reflowed
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe:
       'Saints Cyril, Monk, and Methodius, Bishop, Slavic Missionaries, Copatrons of Europe',
     cyril_of_alexandria_bishop: 'Saint Cyril of Alexandria, Bishop and Doctor of the Church',
@@ -756,6 +757,7 @@ export const locale: Locale = {
     jean_lacan_priest: 'Blessed Jean Lacan, Priest and Martyr',
     jean_louis_bonnard_priest: 'Saint Jean-Louis Bonnard, Priest and Martyr',
     jean_marie_du_lau_bishop: 'Blessed Jean-Marie du Lau, Bishop and Martyr',
+    // eslint-disable-next-line @stylistic/max-len -- locale key cannot be reflowed
     jean_marie_du_lau_bishop_jean_francois_bonnel_de_pradal_francois_urbain_salins_de_niart_priests_and_companions_martyrs:
       'Blesseds Jean-Marie du Lau, Bishop, Jean-François Bonnel de Pradal and François-Urbain Salins de Niart, Priests, and Companions, Martyrs',
     jean_pierre_neel_priest: 'Saint Jean Pierre Néel, Priest and Martyr',

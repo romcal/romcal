@@ -34,11 +34,12 @@ const publishedVersions = async (name: string): Promise<string[] | null> => {
 };
 
 /**
- * Publish with OIDC (trusted publishing) when the workflow provides an ID token,
- * otherwise fall back to the credentials in the environment (NPM_TOKEN).
+ * Publish with OIDC (trusted publishing) when the workflow provides an ID token.
+ * Token-based publishes rely on setup-node writing `.npmrc` from `NODE_AUTH_TOKEN`
+ * via `registry-url`; the npm CLI does not read `NPM_TOKEN`.
  */
 const publish = (target: Target): boolean => {
-  const args = ['publish', '--access', 'public', '--tag', tag];
+  const args = ['publish', '--access', 'public', '--tag', tag, '--ignore-scripts'];
   if (process.env.ACTIONS_ID_TOKEN_REQUEST_URL) args.push('--provenance');
   if (dryRun) args.push('--dry-run');
 
@@ -61,17 +62,34 @@ const publish = (target: Target): boolean => {
   });
 
   let failures = 0;
+  let selected = 0;
+  const skippedNew: string[] = [];
 
   for (const target of targets) {
-    const versions = await publishedVersions(target.name);
+    let versions: string[] | null;
+    try {
+      versions = await publishedVersions(target.name);
+    } catch (err) {
+      failures += 1;
+      log(`${chalk.red(' ✗')} Package "${target.name}": ${(err as Error).message}\n`);
+      continue;
+    }
+
     const isNew = versions === null;
 
     if (onlyNew && !isNew) continue;
+    if (isNew && !onlyNew) {
+      skippedNew.push(target.name);
+      log(`${chalk.yellow(' •')} Package "${target.name}" is not on the registry yet; skip (run npm run publish:new)\n`);
+      continue;
+    }
+
     if (!isNew && versions.includes(target.version)) {
       log(` ✓ Package "${target.name}" is already published: ${target.version} (${tag})\n`);
       continue;
     }
 
+    selected += 1;
     log(` - Publishing ${target.name}@${target.version}${dryRun ? chalk.gray(' (dry-run)') : ''}${isNew ? chalk.gray(' (new package)') : ''}`);
     if (publish(target)) {
       log(` ✓ Package "${target.name}" published: ${target.version} (${tag})\n`);
@@ -81,7 +99,13 @@ const publish = (target: Target): boolean => {
     }
   }
 
-  if (onlyNew && !targets.length) log(chalk.dim('No packages found to publish.'));
+  if (skippedNew.length) {
+    log(chalk.yellow(`${skippedNew.length} new package(s) skipped (not yet on the registry):`));
+    skippedNew.forEach((name) => log(chalk.dim(`  ${name}`)));
+    log(chalk.dim('  First-publish them with npm run publish:new, then npm run trust:sync.\n'));
+  }
+
+  if (onlyNew && selected === 0) log(chalk.dim('No packages found to publish.'));
 
   if (failures > 0) {
     log(chalk.red(`${failures} package(s) failed to publish.`));
