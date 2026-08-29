@@ -1,8 +1,39 @@
 import { i18n } from 'i18next';
 
+import { Weekday } from '../constants/weekdays';
+
 import { RomcalBundleObject } from './bundle';
 import { CalendarDefInstance } from './calendar-def';
 import { Id } from './common';
+
+/**
+ * Temporal dates that can receive calendar-specific exception rules.
+ */
+export type ShiftableAnchor = 'epiphany';
+
+/**
+ * Calendar target supported when an anchor exception is applied.
+ */
+export type AnchorTransferTarget = 'sunday';
+
+/**
+ * Moves an anchor when its calculated date falls on the configured weekday.
+ */
+export interface AnchorException {
+  readonly when: {
+    readonly dayOfWeek: Weekday;
+  };
+  readonly then: {
+    readonly transferTo: AnchorTransferTarget;
+  };
+}
+
+/**
+ * Calendar-specific exceptions applied after temporal anchor dates are calculated.
+ */
+export interface TemporalOverrides {
+  readonly anchorExceptions: Partial<Record<ShiftableAnchor, readonly AnchorException[]>>;
+}
 
 /**
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
@@ -13,6 +44,11 @@ export interface BaseRomcalConfig {
    * The localized calendar bundle object.
    */
   readonly localizedCalendar?: RomcalBundleObject;
+
+  /**
+   * Exceptions applied to dates calculated from temporal anchors.
+   */
+  readonly temporalOverrides?: TemporalOverrides;
 
   /**
    * If `false`, fixes Epiphany on January 6th. Usually, Epiphany will be set to a
@@ -108,7 +144,10 @@ export type RomcalConfigInput = Omit<Partial<BaseRomcalConfig>, 'localeId' | 'ca
 /**
  * Output object of the romcal config.
  */
-export type RomcalConfigOutput = Required<Omit<BaseRomcalConfig, 'localizedCalendar' | 'calendarsDef'>>;
+export type RomcalConfigOutput = Required<
+  Omit<BaseRomcalConfig, 'localizedCalendar' | 'calendarsDef' | 'temporalOverrides'>
+> &
+  Pick<BaseRomcalConfig, 'temporalOverrides'>;
 
 export type CalendarScope = 'gregorian' | 'liturgical';
 

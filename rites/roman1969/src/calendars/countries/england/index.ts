@@ -12,9 +12,20 @@ import { England_ArundelBrighton } from './diocese-of-arundel-and-brighton';
 export class England extends CalendarDef {
   ParentCalendars = [Europe];
 
-  // src: https://www.liturgyoffice.org.uk/Calendar/2027/Ordo-2027.pdf
+  // src:
+  // - https://www.liturgyoffice.org.uk/Calendar/Info/Holydays-Decree-CDW.pdf
+  // - https://www.liturgyoffice.org.uk/Calendar/Holydays.shtml
+  // - https://www.liturgyoffice.org.uk/Calendar/2027/Ordo-2027.pdf
   particularConfig: ParticularConfig = {
     epiphanyOnSunday: false,
+    temporalOverrides: {
+      anchorExceptions: {
+        epiphany: [
+          { when: { dayOfWeek: 'saturday' }, then: { transferTo: 'sunday' } },
+          { when: { dayOfWeek: 'monday' }, then: { transferTo: 'sunday' } },
+        ],
+      },
+    },
     ascensionOnSunday: false,
     corpusChristiOnSunday: true,
   };
@@ -265,17 +276,27 @@ export class England extends CalendarDef {
       dateDef: { month: 11, date: 30 },
     },
 
-    // In England and Wales when All Saints (1 November) falls on a Saturday
-    // and is transferred to Sunday, All Souls is transferred to Monday 3 November.
+    // src:
+    // - https://www.liturgyoffice.org.uk/Calendar/Holydays.shtml
+    // - https://www.liturgyoffice.org.uk/Calendar/2024/Calendar-2024.pdf
+    // In England and Wales when All Saints (1 November) falls on a Saturday or Monday,
+    // it is transferred to the adjacent Sunday. If that Sunday is 2 November,
+    // All Souls is transferred to Monday 3 November.
     // Like Ash Wednesday, All Souls is, technically, without rank.
     // However, in countries (not England & Wales) where it falls
     // on a Sunday it replaces the Sunday.
     all_saints: {
       dateDef: { month: 11, date: 1 },
-      dateExceptions: {
-        ifIsDayOfWeek: 6, // if is a Saturday
-        setDate: { addDay: 1 },
-      },
+      dateExceptions: [
+        {
+          ifIsDayOfWeek: 1, // if is a Monday
+          setDate: { subtractDay: 1 },
+        },
+        {
+          ifIsDayOfWeek: 6, // if is a Saturday
+          setDate: { addDay: 1 },
+        },
+      ],
     },
 
     commemoration_of_all_the_faithful_departed: {

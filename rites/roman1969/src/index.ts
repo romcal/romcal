@@ -56,7 +56,15 @@ import {
   ParticularConfig,
 } from './types/calendar-def';
 import { Id } from './types/common';
-import { CalendarScope, RomcalConfigInput, RomcalConfigOutput } from './types/config';
+import {
+  AnchorException,
+  AnchorTransferTarget,
+  CalendarScope,
+  RomcalConfigInput,
+  RomcalConfigOutput,
+  ShiftableAnchor,
+  TemporalOverrides,
+} from './types/config';
 import { BaseCyclesMetadata, PartialCyclesDef, PlainCyclesMetadata } from './types/cycles-metadata';
 import {
   BaseLiturgicalDay,
@@ -472,8 +480,12 @@ export {
   RomcalBundleObject,
   RomcalCalendarMetadata,
   // types/config.ts
+  AnchorException,
+  AnchorTransferTarget,
   RomcalConfigInput,
   RomcalConfigOutput,
+  ShiftableAnchor,
+  TemporalOverrides,
   RomcalTitles,
   // types/martyrology.ts
   SaintCount,
