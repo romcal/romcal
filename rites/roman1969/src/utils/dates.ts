@@ -2,8 +2,9 @@ import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate 
 import { calculateLunarNewYear } from '@internal/lunar-new-year';
 
 import { Season } from '../constants/seasons';
+import { WEEKDAYS } from '../constants/weekdays';
 import { RomcalConfig } from '../models/config';
-import { EasterCalculationType } from '../types/config';
+import { EasterCalculationType, ShiftableAnchor } from '../types/config';
 
 const { isNaN } = Number;
 
@@ -108,6 +109,29 @@ export class Dates {
     this.#config = config;
     this.#year = year;
     this.#isLiturgicalYear = this.#config.scope === 'liturgical';
+  }
+
+  #epiphanyModeCacheKey(year: number, epiphanyOnSunday?: boolean): string {
+    const mode = epiphanyOnSunday === undefined ? 'configured' : `explicit_${epiphanyOnSunday.toString()}`;
+    return `${year}_${mode}`;
+  }
+
+  #applyAnchorExceptions(anchor: ShiftableAnchor, date: Date): Date {
+    const exception = this.#config.temporalOverrides?.anchorExceptions[anchor]?.find(
+      ({ when }) => when.dayOfWeek === WEEKDAYS[date.getUTCDay()]
+    );
+
+    if (!exception) return date;
+
+    if (exception.then.transferTo === 'sunday') {
+      const daysAfterSunday = date.getUTCDay();
+      const daysBeforeSunday = 7 - daysAfterSunday;
+      return daysAfterSunday <= daysBeforeSunday
+        ? subtractsDays(date, daysAfterSunday)
+        : addDays(date, daysBeforeSunday);
+    }
+
+    return date;
   }
 
   /**
@@ -313,13 +337,13 @@ export class Dates {
    * Presentation of the Lord, 40 days after Dec. 25) (Candlemass).*
    *
    * @param year Gregorian year
-   * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
+   * @param epiphanyOnSunday Whether Epiphany follows the Sunday rule. When omitted, calendar anchor exceptions apply.
    */
   allDatesOfChristmasTime = (
     year = this.#isLiturgicalYear ? this.#year - 1 : this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday
+    epiphanyOnSunday?: boolean
   ): Date[] => {
-    const id = year + epiphanyOnSunday.toString();
+    const id = this.#epiphanyModeCacheKey(year, epiphanyOnSunday);
     if (this.#allDatesOfChristmasTime[id]) return this.#allDatesOfChristmasTime[id];
     const start = this.christmas(year);
     const end = this.baptismOfTheLord(year + 1, epiphanyOnSunday);
@@ -333,14 +357,16 @@ export class Dates {
    * which is not the Epiphany or the Baptism of the Lord.
    * This can occur only when Epiphany is celebrated the 6 January.
    * @param year Gregorian year
-   * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
+   * @param epiphanyOnSunday Whether Epiphany follows the Sunday rule. When omitted, calendar anchor exceptions apply.
    */
-  secondSundayAfterChristmas = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date | null => {
-    const id = year + epiphanyOnSunday.toString();
+  secondSundayAfterChristmas = (year = this.#year, epiphanyOnSunday?: boolean): Date | null => {
+    const id = this.#epiphanyModeCacheKey(year, epiphanyOnSunday);
     if (this.#secondSundayAfterChristmas[id] !== undefined) {
       return this.#secondSundayAfterChristmas[id];
     }
-    if (epiphanyOnSunday) return (this.#secondSundayAfterChristmas[id] = null);
+    if (epiphanyOnSunday ?? this.#config.epiphanyOnSunday) {
+      return (this.#secondSundayAfterChristmas[id] = null);
+    }
     const date =
       this.allDatesBeforeEpiphany(year, epiphanyOnSunday).find((d) => d.getUTCDay() === 0) ??
       this.allDatesAfterEpiphany(year, epiphanyOnSunday).find((d) => d.getUTCDay() === 0);
@@ -352,10 +378,10 @@ export class Dates {
   /**
    * Get all the date before Epiphany (and from January 2)
    * @param year Gregorian year
-   * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
+   * @param epiphanyOnSunday Whether Epiphany follows the Sunday rule. When omitted, calendar anchor exceptions apply.
    */
-  allDatesBeforeEpiphany = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
-    const id = year + epiphanyOnSunday.toString();
+  allDatesBeforeEpiphany = (year = this.#year, epiphanyOnSunday?: boolean): Date[] => {
+    const id = this.#epiphanyModeCacheKey(year, epiphanyOnSunday);
     if (this.#allDatesBeforeEpiphany[id]) return this.#allDatesBeforeEpiphany[id];
     const start = addDays(this.maryMotherOfGod(year), 1);
     const epiphany = this.epiphany(year, epiphanyOnSunday);
@@ -373,14 +399,10 @@ export class Dates {
    * Get the date of a weekday before Epiphany (and from January 2)
    * @param day Nth day of month
    * @param year Gregorian year
-   * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
+   * @param epiphanyOnSunday Whether Epiphany follows the Sunday rule. When omitted, calendar anchor exceptions apply.
    */
-  weekdayBeforeEpiphany = (
-    day: number,
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday
-  ): Date | null => {
-    const id = `${day}_${year}_${epiphanyOnSunday.toString()}`;
+  weekdayBeforeEpiphany = (day: number, year = this.#year, epiphanyOnSunday?: boolean): Date | null => {
+    const id = `${day}_${this.#epiphanyModeCacheKey(year, epiphanyOnSunday)}`;
     if (this.#weekdayBeforeEpiphany[id] !== undefined) return this.#weekdayBeforeEpiphany[id];
     if (day < 2 || day > 8) return (this.#weekdayBeforeEpiphany[id] = null);
     return (this.#weekdayBeforeEpiphany[id] =
@@ -398,17 +420,17 @@ export class Dates {
    * - *Epiphany is always celebrated on Jan 6.
    *
    * @param year Gregorian year
-   * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
+   * @param epiphanyOnSunday Whether Epiphany follows the Sunday rule. When omitted, calendar anchor exceptions apply.
    */
-  epiphany = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date => {
-    const id = year + epiphanyOnSunday.toString();
+  epiphany = (year = this.#year, epiphanyOnSunday?: boolean): Date => {
+    const id = this.#epiphanyModeCacheKey(year, epiphanyOnSunday);
     if (this.#epiphany[id]) return this.#epiphany[id];
 
     // Get the first day of the year
     const firstDay = getUtcDate(year, 1, 1);
     let date = getUtcDate(year, 1, 6);
 
-    if (epiphanyOnSunday) {
+    if (epiphanyOnSunday ?? this.#config.epiphanyOnSunday) {
       switch (firstDay.getUTCDay()) {
         // If first day of the year is a Saturday, Mary Mother of God is on that day
         // and Epiphany is on the next day
@@ -428,6 +450,8 @@ export class Dates {
       }
     }
 
+    if (epiphanyOnSunday === undefined) date = this.#applyAnchorExceptions('epiphany', date);
+
     return (this.#epiphany[id] = date);
   };
 
@@ -436,10 +460,10 @@ export class Dates {
   /**
    * Get all the dates after Epiphany, until the day before the Baptism of the Lord.
    * @param year Gregorian year
-   * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
+   * @param epiphanyOnSunday Whether Epiphany follows the Sunday rule. When omitted, calendar anchor exceptions apply.
    */
-  allDatesAfterEpiphany = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
-    const id = year + epiphanyOnSunday.toString();
+  allDatesAfterEpiphany = (year = this.#year, epiphanyOnSunday?: boolean): Date[] => {
+    const id = this.#epiphanyModeCacheKey(year, epiphanyOnSunday);
     if (this.#allDatesAfterEpiphany[id]) return this.#allDatesAfterEpiphany[id];
     const start = addDays(this.epiphany(year, epiphanyOnSunday), 1);
     const baptismOfTheLord = this.baptismOfTheLord(year, epiphanyOnSunday);
@@ -457,14 +481,10 @@ export class Dates {
    * Get the date of a weekday after Epiphany (and before the Baptism of the Lord)
    * @param dow Day of week
    * @param year Gregorian year
-   * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
+   * @param epiphanyOnSunday Whether Epiphany follows the Sunday rule. When omitted, calendar anchor exceptions apply.
    */
-  weekdayAfterEpiphany = (
-    dow: number,
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday
-  ): Date | null => {
-    const id = `${dow}_${year}_${epiphanyOnSunday.toString()}`;
+  weekdayAfterEpiphany = (dow: number, year = this.#year, epiphanyOnSunday?: boolean): Date | null => {
+    const id = `${dow}_${this.#epiphanyModeCacheKey(year, epiphanyOnSunday)}`;
     if (this.#weekdayAfterEpiphany[id] !== undefined) return this.#weekdayAfterEpiphany[id];
     if (dow < 1 || dow > 6) return (this.#weekdayAfterEpiphany[id] = null);
     return (this.#weekdayAfterEpiphany[id] =
@@ -755,10 +775,10 @@ export class Dates {
   /**
    * Get all the dates occurring in Ordinary Time
    * @param year Gregorian year
-   * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
+   * @param epiphanyOnSunday Whether Epiphany follows the Sunday rule. When omitted, calendar anchor exceptions apply.
    */
-  allDatesOfOrdinaryTime = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
-    const id = year + epiphanyOnSunday.toString();
+  allDatesOfOrdinaryTime = (year = this.#year, epiphanyOnSunday?: boolean): Date[] => {
+    const id = this.#epiphanyModeCacheKey(year, epiphanyOnSunday);
     if (this.#allDatesOfOrdinaryTime[id]) return this.#allDatesOfOrdinaryTime[id];
     return (this.#allDatesOfOrdinaryTime[id] = [
       ...this.allDatesOfEarlyOrdinaryTime(year, epiphanyOnSunday),
@@ -777,10 +797,10 @@ export class Dates {
    * the day before Ash Wednesday.*
    *
    * @param year Gregorian year
-   * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
+   * @param epiphanyOnSunday Whether Epiphany follows the Sunday rule. When omitted, calendar anchor exceptions apply.
    */
-  allDatesOfEarlyOrdinaryTime = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date[] => {
-    const id = year + epiphanyOnSunday.toString();
+  allDatesOfEarlyOrdinaryTime = (year = this.#year, epiphanyOnSunday?: boolean): Date[] => {
+    const id = this.#epiphanyModeCacheKey(year, epiphanyOnSunday);
     if (this.#allDatesOfEarlyOrdinaryTime[id]) return this.#allDatesOfEarlyOrdinaryTime[id];
     const start = addDays(this.baptismOfTheLord(year, epiphanyOnSunday), 1);
     const end = subtractsDays(this.ashWednesday(year), 1);
@@ -843,19 +863,14 @@ export class Dates {
 
   #christTheKingSunday: Record<string, Date> = {};
 
-  dateOfOrdinaryTime = (
-    dow: number,
-    week: number,
-    year = this.#year,
-    epiphanyOnSunday = this.#config.epiphanyOnSunday
-  ): Date | null => {
-    const id = year + epiphanyOnSunday.toString();
+  dateOfOrdinaryTime = (dow: number, week: number, year = this.#year, epiphanyOnSunday?: boolean): Date | null => {
+    const id = this.#epiphanyModeCacheKey(year, epiphanyOnSunday);
 
     if (this.#dateOfOrdinaryTime[id] === undefined) {
       const early = this.allDatesOfEarlyOrdinaryTime(year, epiphanyOnSunday);
       const late = this.allDatesOfLateOrdinaryTime(year);
       const lateOrdinaryStartWeekCount = Math.floor(35 - (late.length + 1) / 7);
-      const baptismOfTheLordIsMonday = this.baptismOfTheLord(year).getUTCDay() === 1;
+      const baptismOfTheLordIsMonday = this.baptismOfTheLord(year, epiphanyOnSunday).getUTCDay() === 1;
 
       const trinitySunday = this.trinitySunday(year).getTime();
       const corpusChristi = this.corpusChristi(year).getTime();
@@ -1180,10 +1195,10 @@ export class Dates {
    * Sunday following The Epiphany of Our Lord (6 January).*
    *
    * @param year Gregorian year
-   * @param epiphanyOnSunday Is Epiphany is fixed on a Sunday
+   * @param epiphanyOnSunday Whether Epiphany follows the Sunday rule. When omitted, calendar anchor exceptions apply.
    */
-  baptismOfTheLord = (year = this.#year, epiphanyOnSunday = this.#config.epiphanyOnSunday): Date => {
-    const id = year + epiphanyOnSunday.toString();
+  baptismOfTheLord = (year = this.#year, epiphanyOnSunday?: boolean): Date => {
+    const id = this.#epiphanyModeCacheKey(year, epiphanyOnSunday);
     if (this.#baptismOfTheLord[id]) return this.#baptismOfTheLord[id];
 
     const epiphany = this.epiphany(year, epiphanyOnSunday);
@@ -1191,12 +1206,12 @@ export class Dates {
     // If Epiphany is celebrated on Jan. 6
     // the Baptism of the Lord occurs on the Sunday following Jan. 6.
     if (epiphany.getUTCDate() === 6) {
-      return startOfWeek(addDays(epiphany, 7));
+      return (this.#baptismOfTheLord[id] = startOfWeek(addDays(epiphany, 7)));
     }
     // If Epiphany occurs on Sunday Jan. 7 or Sunday Jan. 8,
     //  then the Baptism of the Lord is the next day (Monday)
     if ((epiphany.getUTCDay() === 0 && epiphany.getUTCDate() === 7) || epiphany.getUTCDate() === 8) {
-      return addDays(epiphany, 1);
+      return (this.#baptismOfTheLord[id] = addDays(epiphany, 1));
     }
     // If Epiphany occurs before Jan. 6, the Sunday
     // following Epiphany is the Baptism of the Lord.

@@ -9,6 +9,7 @@ import { Id } from '../types/common';
 import { RomcalConfigInput } from '../types/config';
 import { LiturgicalDayBundleInput } from '../types/liturgical-day';
 import { Dates } from '../utils/dates';
+import { cloneTemporalOverrides, omitTemporalOverrideAnchor } from '../utils/temporal-overrides';
 
 import { RomcalConfig } from './config';
 import { LiturgicalDayDef } from './liturgical-day-def';
@@ -72,6 +73,17 @@ export class CalendarDef implements BaseCalendarDef {
 
     this.#config.epiphanyOnSunday =
       input?.epiphanyOnSunday ?? this.particularConfig?.epiphanyOnSunday ?? this.#config.epiphanyOnSunday;
+
+    if (input?.temporalOverrides !== undefined) {
+      this.#config.temporalOverrides = cloneTemporalOverrides(input.temporalOverrides);
+    } else if (input?.epiphanyOnSunday !== undefined) {
+      this.#config.temporalOverrides = omitTemporalOverrideAnchor(
+        this.particularConfig?.temporalOverrides ?? this.#config.temporalOverrides,
+        'epiphany'
+      );
+    } else if (this.particularConfig?.temporalOverrides !== undefined) {
+      this.#config.temporalOverrides = cloneTemporalOverrides(this.particularConfig.temporalOverrides);
+    }
 
     this.#config.ascensionOnSunday =
       input?.ascensionOnSunday ?? this.particularConfig?.ascensionOnSunday ?? this.#config.ascensionOnSunday;

@@ -19,6 +19,11 @@ new Romcal({
   scope: 'gregorian' | 'liturgical',
   localizedCalendar: UnitedStates_En,
   epiphanyOnSunday: true | false,
+  temporalOverrides: {
+    anchorExceptions: {
+      epiphany: [{ when: { dayOfWeek: 'saturday' }, then: { transferTo: 'sunday' } }],
+    },
+  },
   corpusChristiOnSunday: true | false,
   ascensionOnSunday: true | false,
 }).generateCalendar(2020);
@@ -137,6 +142,27 @@ Default:
 
 - `true` (Epiphany is always celebrated a Sunday).
 - Or if provided, defaults to the setting defined in the particular calendar you are fetching through romcal.
+
+Providing `epiphanyOnSunday` explicitly disables inherited Epiphany exceptions unless `temporalOverrides` is also
+provided.
+
+### `temporalOverrides`
+
+Defines calendar-specific exceptions applied after a temporal date has been calculated. For example, this moves an
+Epiphany that falls on Saturday to the adjacent Sunday:
+
+```typescript
+new Romcal({
+  temporalOverrides: {
+    anchorExceptions: {
+      epiphany: [{ when: { dayOfWeek: 'saturday' }, then: { transferTo: 'sunday' } }],
+    },
+  },
+});
+```
+
+An explicitly supplied `temporalOverrides` block takes precedence over both the localized calendar exceptions and
+the `epiphanyOnSunday` option. An empty `anchorExceptions` object therefore disables inherited exceptions.
 
 ### `corpusChristiOnSunday`
 

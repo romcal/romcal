@@ -1,6 +1,7 @@
 import { AsianRussia_En } from '@dist/rite-roman1969/bundles/asian-russia';
 import { CzechRepublic_Cs } from '@dist/rite-roman1969/bundles/czech-republic';
 import { England_En } from '@dist/rite-roman1969/bundles/england';
+import { England_Westminster_En } from '@dist/rite-roman1969/bundles/england.westminster';
 import { Europe_En } from '@dist/rite-roman1969/bundles/europe';
 import { EuropeanRussia_En } from '@dist/rite-roman1969/bundles/european-russia';
 import { France_Fr } from '@dist/rite-roman1969/bundles/france';
@@ -113,6 +114,77 @@ describe('Testing national calendar overrides', () => {
       expect(getUtcDateFromString(epiphanySlovakia!.date).getUTCDay()).toEqual(0);
       expect(getUtcDateFromString(epiphanySlovakia!.date).getUTCMonth()).toEqual(0);
     });
+
+    test('Bundles without temporal anchor exceptions omit the optional configuration', () => {
+      expect(France_Fr.particularConfig).not.toHaveProperty('temporalOverrides');
+    });
+  });
+
+  describe.each([
+    { calendarName: 'England', localizedCalendar: England_En },
+    { calendarName: 'Wales', localizedCalendar: Wales_En },
+  ])('The Epiphany season in $calendarName', ({ localizedCalendar }) => {
+    test('declares the Saturday and Monday transfers in its bundle', () => {
+      expect(localizedCalendar.particularConfig.temporalOverrides).toEqual({
+        anchorExceptions: {
+          epiphany: [
+            { when: { dayOfWeek: 'saturday' }, then: { transferTo: 'sunday' } },
+            { when: { dayOfWeek: 'monday' }, then: { transferTo: 'sunday' } },
+          ],
+        },
+      });
+    });
+
+    test('follows the Saturday transfer and its dependent dates in 2024', async () => {
+      const dates = Object.values(await new Romcal({ localizedCalendar }).generateCalendar(2024)).flat();
+
+      expect(dates.find((d) => d.id === 'christmas_time_january_6')?.date).toEqual('2024-01-06');
+      expect(dates.find((d) => d.id === 'epiphany_of_the_lord')?.date).toEqual('2024-01-07');
+      expect(dates.find((d) => d.id === 'baptism_of_the_lord')?.date).toEqual('2024-01-08');
+      expect(dates.find((d) => d.id === 'ordinary_time_1_tuesday')?.date).toEqual('2024-01-09');
+    });
+
+    test('follows the Monday transfer and its dependent dates in 2025', async () => {
+      const dates = Object.values(await new Romcal({ localizedCalendar }).generateCalendar(2025)).flat();
+
+      expect(dates.find((d) => d.id === 'epiphany_of_the_lord')?.date).toEqual('2025-01-05');
+      expect(dates.find((d) => d.id === 'second_sunday_after_christmas')).toBeUndefined();
+      expect(
+        dates
+          .filter((d) => d.id.endsWith('_after_epiphany'))
+          .map((d) => d.date)
+          .sort()
+      ).toEqual(['2025-01-06', '2025-01-07', '2025-01-08', '2025-01-09', '2025-01-10', '2025-01-11']);
+      expect(dates.find((d) => d.id === 'baptism_of_the_lord')?.date).toEqual('2025-01-12');
+      expect(dates.find((d) => d.id === 'ordinary_time_1_monday')?.date).toEqual('2025-01-13');
+    });
+
+    test('keeps a midweek Epiphany unchanged in 2021', async () => {
+      const dates = Object.values(await new Romcal({ localizedCalendar }).generateCalendar(2021)).flat();
+
+      expect(dates.find((d) => d.id === 'epiphany_of_the_lord')?.date).toEqual('2021-01-06');
+      expect(dates.find((d) => d.id === 'baptism_of_the_lord')?.date).toEqual('2021-01-10');
+      expect(dates.find((d) => d.id === 'ordinary_time_1_monday')?.date).toEqual('2021-01-11');
+    });
+  });
+
+  test('An England child calendar inherits the Epiphany exceptions through its generated bundle', () => {
+    const romcal = new Romcal({ localizedCalendar: England_Westminster_En });
+
+    expect(romcal.config.temporalOverrides).toEqual(England_En.particularConfig.temporalOverrides);
+    expect(romcal.dates(2024).epiphany().toISOString()).toEqual('2024-01-07T00:00:00.000Z');
+  });
+
+  test('Reading and mutating config output does not alter a shared calendar bundle', () => {
+    const exposedExceptions = new Romcal({ localizedCalendar: England_En }).config.temporalOverrides?.anchorExceptions
+      .epiphany as unknown as unknown[] | undefined;
+
+    exposedExceptions?.splice(0);
+
+    expect(England_En.particularConfig.temporalOverrides?.anchorExceptions.epiphany).toHaveLength(2);
+    expect(new Romcal({ localizedCalendar: England_En }).dates(2024).epiphany().toISOString()).toEqual(
+      '2024-01-07T00:00:00.000Z'
+    );
   });
 
   describe('Testing the Feast of Saints Cyril and Methodius with locale specific settings', () => {
@@ -225,6 +297,16 @@ describe('Testing national calendar overrides', () => {
       expect(getUtcDateFromString(allSaintsEngland!.date).getUTCDay()).toEqual(0);
       expect(getUtcDateFromString(allSaintsWales!.date).getUTCDay()).toEqual(0);
     });
+
+    test('If All Saints is on Monday, it will be moved to the previous Sunday', async () => {
+      const englandDates = Object.values(
+        await new Romcal({ localizedCalendar: England_En }).generateCalendar(2021)
+      ).flat();
+      const walesDates = Object.values(await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2021)).flat();
+
+      expect(englandDates.find((d) => d.id === 'all_saints')?.date).toEqual('2021-10-31');
+      expect(walesDates.find((d) => d.id === 'all_saints')?.date).toEqual('2021-10-31');
+    });
   });
 
   describe('The feast of All Souls in England and Wales', () => {
@@ -240,6 +322,32 @@ describe('Testing national calendar overrides', () => {
       const allSaintsWales = walesDates.find((d) => d.id === 'commemoration_of_all_the_faithful_departed');
       expect(getUtcDateFromString(allSaintsEngland!.date).getUTCDay()).toEqual(1);
       expect(getUtcDateFromString(allSaintsWales!.date).getUTCDay()).toEqual(1);
+    });
+
+    test('It remains on November 2 when All Saints is transferred to the previous Sunday', async () => {
+      const englandDates = Object.values(
+        await new Romcal({ localizedCalendar: England_En }).generateCalendar(2021)
+      ).flat();
+      const walesDates = Object.values(await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2021)).flat();
+
+      expect(englandDates.find((d) => d.id === 'commemoration_of_all_the_faithful_departed')?.date).toEqual(
+        '2021-11-02'
+      );
+      expect(walesDates.find((d) => d.id === 'commemoration_of_all_the_faithful_departed')?.date).toEqual('2021-11-02');
+    });
+
+    test('It is transferred to Monday when All Saints occupies Sunday November 2', async () => {
+      const englandDates = Object.values(
+        await new Romcal({ localizedCalendar: England_En }).generateCalendar(2025)
+      ).flat();
+      const walesDates = Object.values(await new Romcal({ localizedCalendar: Wales_En }).generateCalendar(2025)).flat();
+
+      expect(englandDates.find((d) => d.id === 'all_saints')?.date).toEqual('2025-11-02');
+      expect(walesDates.find((d) => d.id === 'all_saints')?.date).toEqual('2025-11-02');
+      expect(englandDates.find((d) => d.id === 'commemoration_of_all_the_faithful_departed')?.date).toEqual(
+        '2025-11-03'
+      );
+      expect(walesDates.find((d) => d.id === 'commemoration_of_all_the_faithful_departed')?.date).toEqual('2025-11-03');
     });
   });
 

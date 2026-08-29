@@ -191,6 +191,7 @@ export const RomcalBundler = (): void => {
           epiphanyOnSunday: builder.config.epiphanyOnSunday,
           ascensionOnSunday: builder.config.ascensionOnSunday,
           corpusChristiOnSunday: builder.config.corpusChristiOnSunday,
+          ...(builder.config.temporalOverrides ? { temporalOverrides: builder.config.temporalOverrides } : {}),
         },
         inputs: definitions,
         martyrology,

@@ -13,6 +13,7 @@ import {
   OutputOptions,
   RomcalConfigInput,
   RomcalConfigOutput,
+  TemporalOverrides,
 } from '../types/config';
 import { BaseCyclesMetadata } from '../types/cycles-metadata';
 import { Locale } from '../types/locale';
@@ -20,6 +21,7 @@ import { MartyrologyCatalog } from '../types/martyrology';
 import { Dates } from '../utils/dates';
 import { toRomanNumber } from '../utils/numbers';
 import { sanitizeLocaleId } from '../utils/string';
+import { cloneTemporalOverrides, omitTemporalOverrideAnchor } from '../utils/temporal-overrides';
 
 import { CalendarDef } from './calendar-def';
 
@@ -40,6 +42,8 @@ export class RomcalConfig implements IRomcalConfig {
   corpusChristiOnSunday: boolean;
 
   ascensionOnSunday: boolean;
+
+  temporalOverrides?: TemporalOverrides;
 
   elevatedMemorialIds: string[] = [];
 
@@ -65,7 +69,10 @@ export class RomcalConfig implements IRomcalConfig {
    * Clone the RomcalConfig object
    */
   clone(): RomcalConfig {
-    return new RomcalConfig({ ...this.#input });
+    return new RomcalConfig({
+      ...this.#input,
+      temporalOverrides: cloneTemporalOverrides(this.temporalOverrides),
+    });
   }
 
   /**
@@ -81,7 +88,12 @@ export class RomcalConfig implements IRomcalConfig {
     locale?: Locale,
     ParticularCalendar?: typeof CalendarDef
   ) {
-    this.#input = config || {};
+    this.#input = config
+      ? {
+          ...config,
+          temporalOverrides: cloneTemporalOverrides(config.temporalOverrides),
+        }
+      : {};
 
     if (config?.localizedCalendar) {
       this.localizedCalendar = config.localizedCalendar;
@@ -96,6 +108,16 @@ export class RomcalConfig implements IRomcalConfig {
       config?.corpusChristiOnSunday ?? this.localizedCalendar?.particularConfig.corpusChristiOnSunday ?? true;
     this.ascensionOnSunday =
       config?.ascensionOnSunday ?? this.localizedCalendar?.particularConfig.ascensionOnSunday ?? false;
+    if (config?.temporalOverrides !== undefined) {
+      this.temporalOverrides = cloneTemporalOverrides(config.temporalOverrides);
+    } else if (config?.epiphanyOnSunday !== undefined) {
+      this.temporalOverrides = omitTemporalOverrideAnchor(
+        this.localizedCalendar?.particularConfig.temporalOverrides,
+        'epiphany'
+      );
+    } else {
+      this.temporalOverrides = cloneTemporalOverrides(this.localizedCalendar?.particularConfig.temporalOverrides);
+    }
 
     this.elevatedMemorialIds = config?.elevatedMemorialIds ?? [];
 
@@ -209,6 +231,7 @@ export class RomcalConfig implements IRomcalConfig {
       epiphanyOnSunday: this.epiphanyOnSunday,
       corpusChristiOnSunday: this.corpusChristiOnSunday,
       ascensionOnSunday: this.ascensionOnSunday,
+      ...(this.temporalOverrides ? { temporalOverrides: cloneTemporalOverrides(this.temporalOverrides) } : {}),
       elevatedMemorialIds: this.elevatedMemorialIds,
       localeId: this.localeId,
       calendarName: this.calendarName,

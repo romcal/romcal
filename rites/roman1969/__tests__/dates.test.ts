@@ -1,3 +1,4 @@
+import { England_En } from '@dist/rite-roman1969/bundles/england';
 import { France_Fr } from '@dist/rite-roman1969/bundles/france';
 import { UnitedStates_En } from '@dist/rite-roman1969/bundles/united-states';
 import { Romcal } from '@src/rite-roman1969';
@@ -564,6 +565,69 @@ describe('Testing specific liturgical date functions', () => {
   });
 
   describe('Epiphany of the Lord', () => {
+    describe('With configured temporal anchor exceptions', () => {
+      test('England transfers a Saturday or Monday Epiphany to the adjacent Sunday', () => {
+        const dates = new Romcal({ localizedCalendar: England_En }).dates();
+
+        expect(isSameDate(dates.epiphany(2024), getUtcDate(2024, 1, 7))).toBeTruthy();
+        expect(isSameDate(dates.epiphany(2025), getUtcDate(2025, 1, 5))).toBeTruthy();
+        expect(isSameDate(dates.epiphany(2021), getUtcDate(2021, 1, 6))).toBeTruthy();
+      });
+
+      test('an explicit argument remains independent from configured exceptions and cache order', () => {
+        const configuredFirst = new Romcal({ localizedCalendar: England_En }).dates(2024);
+        expect(isSameDate(configuredFirst.epiphany(2024), getUtcDate(2024, 1, 7))).toBeTruthy();
+        expect(isSameDate(configuredFirst.epiphany(2024, false), getUtcDate(2024, 1, 6))).toBeTruthy();
+        expect(isSameDate(configuredFirst.epiphany(2024), getUtcDate(2024, 1, 7))).toBeTruthy();
+
+        const explicitFirst = new Romcal({ localizedCalendar: England_En }).dates(2024);
+        expect(isSameDate(explicitFirst.epiphany(2024, false), getUtcDate(2024, 1, 6))).toBeTruthy();
+        expect(isSameDate(explicitFirst.epiphany(2024), getUtcDate(2024, 1, 7))).toBeTruthy();
+        expect(isSameDate(explicitFirst.epiphany(2024, false), getUtcDate(2024, 1, 6))).toBeTruthy();
+      });
+
+      test('an explicit epiphanyOnSunday option preserves its historical meaning', () => {
+        const dates = new Romcal({ localizedCalendar: England_En, epiphanyOnSunday: false }).dates(2024);
+        expect(isSameDate(dates.epiphany(), getUtcDate(2024, 1, 6))).toBeTruthy();
+      });
+
+      test('an explicit true epiphanyOnSunday option uses the general Sunday rule', () => {
+        const dates = new Romcal({ localizedCalendar: England_En, epiphanyOnSunday: true }).dates(2026);
+        expect(isSameDate(dates.epiphany(), getUtcDate(2026, 1, 4))).toBeTruthy();
+      });
+
+      test('keeps Epiphany unchanged when January 6 is already a Sunday', () => {
+        const dates = new Romcal({ localizedCalendar: England_En }).dates(2030);
+        expect(isSameDate(dates.epiphany(), getUtcDate(2030, 1, 6))).toBeTruthy();
+      });
+
+      test('uses an explicit Epiphany mode consistently for Ordinary Time dates', () => {
+        const dates = new Romcal({ epiphanyOnSunday: false }).dates(2024);
+        expect(isSameDate(dates.dateOfOrdinaryTime(1, 2, 2024, true)!, getUtcDate(2024, 1, 15))).toBeTruthy();
+      });
+
+      test('an explicit empty temporal override clears the calendar exceptions', () => {
+        const dates = new Romcal({
+          localizedCalendar: England_En,
+          temporalOverrides: { anchorExceptions: {} },
+        }).dates(2024);
+        expect(isSameDate(dates.epiphany(), getUtcDate(2024, 1, 6))).toBeTruthy();
+      });
+
+      test('explicit temporal overrides take precedence over epiphanyOnSunday', () => {
+        const dates = new Romcal({
+          localizedCalendar: England_En,
+          epiphanyOnSunday: false,
+          temporalOverrides: {
+            anchorExceptions: {
+              epiphany: [{ when: { dayOfWeek: 'saturday' }, then: { transferTo: 'sunday' } }],
+            },
+          },
+        }).dates(2024);
+        expect(isSameDate(dates.epiphany(), getUtcDate(2024, 1, 7))).toBeTruthy();
+      });
+    });
+
     describe('If Epiphany of the Lord is always celebrated on Jan 6', () => {
       test('Epiphany of the Lord in 2001 will be on a Saturday', () => {
         expect(new Romcal().dates().epiphany(2001, false).getUTCDay()).toEqual(6);
