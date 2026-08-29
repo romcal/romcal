@@ -1,4 +1,4 @@
-import i18next, { i18n } from 'i18next';
+import i18next, { FormatFunction, i18n, InterpolationOptions } from 'i18next';
 
 import { Color } from '../constants/colors';
 import { Season } from '../constants/seasons';
@@ -24,6 +24,22 @@ import { cloneTemporalOverrides, omitTemporalOverrideAnchor } from '../utils/tem
 
 import { getBaseCalendar } from './base-calendar';
 import { CalendarDef } from './calendar-def';
+
+/**
+ * Interpolation formats used by the locale files: `{{value, romanize}}` and friends.
+ *
+ * i18next 26 dropped `format` from `InterpolationOptions`, but its interpolator still
+ * reads the option, so the cast at the call site keeps the behaviour the locales rely
+ * on. Naming the function `FormatFunction` is what types the arguments; inline, they
+ * were implicitly `any`.
+ */
+const interpolationFormat: FormatFunction = (value, format) => {
+  if (value === '') return value;
+  if (format === 'romanize') return toRomanNumber(parseInt(value, 10));
+  if (format === 'uppercase') return value.toUpperCase();
+  if (format === 'capitalize') return value[0].toUpperCase() + value.slice(1);
+  return value;
+};
 
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
@@ -131,15 +147,7 @@ export class RomcalConfig implements IRomcalConfig {
         lng: this.localeId,
         initAsync: false,
         // contextSeparator: '__',
-        interpolation: {
-          format(value, format) {
-            if (value === '') return value;
-            if (format === 'romanize') return toRomanNumber(parseInt(value, 10));
-            if (format === 'uppercase') return value.toUpperCase();
-            if (format === 'capitalize') return value[0].toUpperCase() + value.slice(1);
-            return value;
-          },
-        },
+        interpolation: { format: interpolationFormat } as InterpolationOptions,
       },
       (err) => {
         if (err) throw new Error(err);
