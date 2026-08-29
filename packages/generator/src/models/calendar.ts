@@ -6,12 +6,25 @@ import { Season } from '../constants/seasons';
 import { BaseCalendar, ByIds, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
 import { Id } from '../types/common';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
-import { Dates, dateDifference, isValidDate } from '../utils/dates';
+import { Dates, isValidDate } from '../utils/dates';
 
 import { RomcalConfig } from './config';
 import { LiturgicalDay } from './liturgical-day';
 import { LiturgicalDayConfig } from './liturgical-day-config';
 import { LiturgicalDayDef } from './liturgical-day-def';
+
+/**
+ * The boundary of the season a rite says its year opens or closes with.
+ *
+ * Looked up by name rather than by a fixed key, so the rite that declares the season
+ * is the one that has to have supplied a date for it. Saying so here beats the
+ * `undefined.toISOString()` a mismatch would otherwise produce four frames away.
+ */
+const boundary = (boundaries: Record<string, Date>, season: string): Date => {
+  const date = boundaries[season];
+  if (!date) throw new Error(`The rite declares the liturgical year to run to "${season}", which has no boundary.`);
+  return date;
+};
 
 export class Calendar implements BaseCalendar {
   readonly #config: RomcalConfig;
@@ -24,13 +37,10 @@ export class Calendar implements BaseCalendar {
 
   readonly #endOfSeasonsDic: Record<number, Record<Season, Date>> = {};
 
-  readonly #startOfLaterOrdinaryTime: Date;
-
   constructor(config: RomcalConfig, liturgicalDayConfig: LiturgicalDayConfig) {
     this.#config = config;
     this.#liturgicalDayConfig = liturgicalDayConfig;
     this.dates = new Dates(config, liturgicalDayConfig.year);
-    this.#startOfLaterOrdinaryTime = this.dates.maryMotherOfTheChurch();
   }
 
   /**
@@ -40,6 +50,7 @@ export class Calendar implements BaseCalendar {
    * @param baseData
    */
   #buildCalendarMetadata(def: LiturgicalDayDef, date: Date, baseData: LiturgicalDay | null): RomcalCalendarMetadata {
+    const seasonRules = this.#config.rubrics.seasons;
     let currentYear = this.#liturgicalDayConfig.year;
 
     if (
@@ -60,36 +71,17 @@ export class Calendar implements BaseCalendar {
     const startOfSeason = def.seasons.length ? startOfSeasonsDic[def.seasons[0]] : undefined;
     const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
 
-    const isLent = (baseData?.seasons ?? def.seasons).includes(Season.Lent);
-    const isLateOrdinaryTime =
-      (baseData?.seasons ?? def.seasons).includes(Season.OrdinaryTime) &&
-      date.getTime() >= this.#startOfLaterOrdinaryTime.getTime();
-
-    let dayOfSeason =
-      baseData?.calendar.dayOfSeason ??
-      def.calendarMetadata.dayOfSeason ??
-      (startOfSeason ? dateDifference(date, startOfSeason) + 1 : NaN);
-
-    // In late Ordinary Time, we need to subtract the days of Lent, Paschal Triduum and Easter Time,
-    // from the first day of Ordinary Time (the day after the Baptism of the Lord).
-    if (isLateOrdinaryTime) {
-      dayOfSeason -= 96;
-    }
-
-    // In the season of Lent, the first week starts from zero (week of Ash Wednesday)
-    // then the week 1 is the week of the first Sunday of Lent.
-    // This variable below allows shifting the right week number, if we are during Lent or not.
-    const weekOfSeasonOffset = isLent ? -1 : 0;
-
-    let weekOfSeason =
-      baseData?.calendar.weekOfSeason ??
-      def.calendarMetadata.weekOfSeason ??
-      (startOfSeason ? Math.ceil((dayOfSeason + startOfSeason.getUTCDay()) / 7) + weekOfSeasonOffset : NaN);
-
-    // In late Ordinary Time, we need to compute the week number from the remaining days of the liturgical year
-    if (isLateOrdinaryTime) {
-      weekOfSeason = endOfSeason ? Math.ceil(34 - dateDifference(date, endOfSeason) / 7) : NaN;
-    }
+    // How a season is counted is the rite's business: the seasons themselves differ,
+    // and so does what a week number means within them.
+    const { dayOfSeason, weekOfSeason } = seasonRules.numbering({
+      date,
+      dates: this.#liturgicalDayConfig.dates,
+      declaredDayOfSeason: baseData?.calendar.dayOfSeason ?? def.calendarMetadata.dayOfSeason,
+      declaredWeekOfSeason: baseData?.calendar.weekOfSeason ?? def.calendarMetadata.weekOfSeason,
+      endOfSeason,
+      seasons: baseData?.seasons ?? def.seasons,
+      startOfSeason,
+    });
 
     return {
       weekOfSeason,
@@ -98,8 +90,8 @@ export class Calendar implements BaseCalendar {
       nthDayOfWeekInMonth: Math.ceil(date.getUTCDate() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
-      startOfLiturgicalYear: startOfSeasonsDic[Season.Advent].toISOString().substr(0, 10),
-      endOfLiturgicalYear: endOfSeasonsDic[Season.OrdinaryTime].toISOString().substr(0, 10),
+      startOfLiturgicalYear: boundary(startOfSeasonsDic, seasonRules.firstSeason).toISOString().substr(0, 10),
+      endOfLiturgicalYear: boundary(endOfSeasonsDic, seasonRules.lastSeason).toISOString().substr(0, 10),
       seasons: baseData?.seasons ?? def.seasons,
     };
   }

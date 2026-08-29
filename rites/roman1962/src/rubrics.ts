@@ -1,7 +1,8 @@
-import { Rank, Rubrics } from '@internal/generator';
+import { dateDifference, Rank, Rubrics, SeasonNumbering, SeasonNumberingInput } from '@internal/generator';
 
 import { PRECEDENCES_1962, Precedences1962 } from './constants/precedences';
 import { Ranks1962 } from './constants/ranks';
+import { Season1962 } from './constants/seasons';
 
 /**
  * The Rubricae Breviarii et Missalis Romani of 1960, as used by the 1962 Missal.
@@ -34,7 +35,41 @@ const RANK_BY_PRECEDENCE: Record<string, Rank> = {
   [Precedences1962.OrdinaryCommemoration_1962_20]: Ranks1962.Commemoration,
 };
 
+/**
+ * Where a day falls in its season, under the 1962 numbering.
+ *
+ * Simpler than 1969, because every season here begins on a Sunday and is counted
+ * straight through from it: the Sundays after Epiphany and after Pentecost are
+ * numbered from the first of their series, and nothing resumes later in the year.
+ *
+ * The one irregular season is Lent, which begins on Ash Wednesday. The four days from
+ * Ash Wednesday to the Saturday following belong to no week of Lent, and the first
+ * Sunday of Lent opens week I, so the count runs one behind — the same shift 1969
+ * inherited from these rubrics.
+ */
+const numbering = ({
+  date,
+  declaredDayOfSeason,
+  declaredWeekOfSeason,
+  seasons,
+  startOfSeason,
+}: SeasonNumberingInput): SeasonNumbering => {
+  const dayOfSeason = declaredDayOfSeason ?? (startOfSeason ? dateDifference(date, startOfSeason) + 1 : NaN);
+
+  const weekOfSeasonOffset = seasons.includes(Season1962.Lent) ? -1 : 0;
+  const weekOfSeason =
+    declaredWeekOfSeason ??
+    (startOfSeason ? Math.ceil((dayOfSeason + startOfSeason.getUTCDay()) / 7) + weekOfSeasonOffset : NaN);
+
+  return { dayOfSeason, weekOfSeason };
+};
+
 export const Rubricae1960Rubrics: Rubrics = {
   precedences: PRECEDENCES_1962,
   rankOf: (precedence) => RANK_BY_PRECEDENCE[precedence],
+  seasons: {
+    firstSeason: Season1962.Advent,
+    lastSeason: Season1962.TimeAfterPentecost,
+    numbering,
+  },
 };
