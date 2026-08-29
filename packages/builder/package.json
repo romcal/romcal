@@ -1,0 +1,44 @@
+{
+  "name": "@internal/builder",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Argument-driven build, bundle, check and publish tooling for the romcal rites.",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "bin": {
+    "romcal-build": "./bin/romcal-build.mjs"
+  },
+  "scripts": {
+    "clean": "rimraf coverage",
+    "test": "TZ=UTC jest"
+  },
+  "dependencies": {
+    "@internal/generator": "file:../generator",
+    "@jsdevtools/rehype-url-inspector": "^2.0.2",
+    "cli-progress": "^3.12.0",
+    "consola": "^3.4.2",
+    "diff": "^9.0.0",
+    "dts-bundle-generator": "^9.5.1",
+    "esbuild": "~0.28.2",
+    "eslint": "^9.39.5",
+    "glob": "^13.0.6",
+    "humanize-duration": "^3.34.1",
+    "rehype-slug": "^6.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "remark-stringify": "^11.0.0",
+    "rimraf": "^6.1.3",
+    "ts-deepmerge": "^8.0.0",
+    "tsx": "^4.23.12",
+    "type-fest": "^5.8.0",
+    "typescript": "~5.9.3",
+    "unified": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.6",
+    "@types/humanize-duration": "^3.27.4"
+  }
+}

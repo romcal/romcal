@@ -23,13 +23,15 @@
       "@internal/rite-roman1969": ["./rites/roman1969"],
       "@dist/rite-roman1969/*": ["./rites/roman1969/dist/*"],
       "@src/rite-roman1969": ["./rites/roman1969/src"],
+      "@internal/builder": ["./packages/builder"],
       "@internal/easter": ["./packages/easter"],
       "@internal/lunar-new-year": ["./packages/lunar-new-year"],
       "@internal/proper-of-time": ["./packages/proper-of-time"],
+      "@internal/generator": ["./packages/generator"],
       "@internal/package.json": ["./package.json"]
     }
   },
-  "exclude": ["node_modules", "rites/roman1969/build/docs/**", "**/*/dist"],
-  "include": ["rites/roman1969/build/**/*", "tmp/bundles/**/*", "tmp/constants/**/*"],
+  "exclude": ["node_modules", "packages/builder/src/commands/docs/**", "**/*/dist"],
+  "include": ["packages/builder/src/**/*", "rites/*/romcal.build.ts", "tmp/bundles/**/*", "tmp/constants/**/*"],
   "files": ["global.d.ts"]
 }

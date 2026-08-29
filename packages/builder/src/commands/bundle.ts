@@ -2,11 +2,6 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { inspect } from 'node:util';
 
-import chalk from 'chalk';
-import cliProgress from 'cli-progress';
-import { rimraf } from 'rimraf';
-import { merge } from 'ts-deepmerge';
-
 import {
   BundleInputs,
   CalendarDef,
@@ -16,19 +11,22 @@ import {
   Locale,
   LocaleLiturgicalDayNames,
   MartyrologyCatalog,
+  PROPER_OF_TIME_NAME,
   RomcalBundle,
   RomcalConfig,
   RomcalConfigInput,
   RomcalConfigOutput,
-} from '../src';
-import { calendarDefinitions } from '../src/calendars';
-import { GeneralRoman } from '../src/calendars/general-roman';
-import { Martyrology } from '../src/catalog/martyrology';
-import { PROPER_OF_TIME_NAME } from '../src/constants/general-calendar-names';
-import { locales } from '../src/locales';
-import { sanitizeLocaleId, toPackageName, toPascalCase } from '../src/utils/string';
+  registerBaseCalendar,
+  sanitizeLocaleId,
+  toPackageName,
+  toPascalCase,
+} from '@internal/generator';
+import cliProgress from 'cli-progress';
+import { rimraf } from 'rimraf';
+import { merge } from 'ts-deepmerge';
 
-const { log } = console;
+import { ResolvedOptions } from '../types';
+import { Logger } from '../utils/logger';
 
 /**
  * Class helper, used to build the localized calendar bundles.
@@ -36,11 +34,14 @@ const { log } = console;
 export class RomcalBuilder {
   readonly #config: RomcalConfig;
 
+  readonly #martyrologyCatalog: MartyrologyCatalog;
+
   #martyrologyIds: string[] = [];
 
-  constructor(locale: Locale, particularCalendar?: typeof CalendarDef) {
+  constructor(martyrology: MartyrologyCatalog, locale: Locale, particularCalendar?: typeof CalendarDef) {
     const scope: RomcalConfigInput = { scope: 'liturgical' };
-    this.#config = new RomcalConfig(scope, Martyrology.catalog, locale, particularCalendar);
+    this.#martyrologyCatalog = martyrology;
+    this.#config = new RomcalConfig(scope, martyrology, locale, particularCalendar);
   }
 
   get martyrologyIds(): string[] {
@@ -84,7 +85,7 @@ export class RomcalBuilder {
         def.input.flatMap(
           (i) =>
             i.martyrology?.flatMap((m) => (typeof m === 'string' ? m : m.id)) ??
-            (Martyrology.catalog[def.id] ? [def.id] : []) ??
+            (this.#martyrologyCatalog[def.id] ? [def.id] : []) ??
             []
         )
       );
@@ -97,8 +98,15 @@ export class RomcalBuilder {
   }
 }
 
-export const RomcalBundler = (): void => {
-  rimraf.sync(resolve('tmp/bundles'));
+export const RomcalBundler = (options: ResolvedOptions, log: Logger): void => {
+  const { manifest, riteRoot } = options;
+  const bundlesDir = resolve(riteRoot, manifest.tmpDir, 'bundles');
+
+  // The rite's own calendars inherit from its base calendar, which the engine only
+  // knows about once the rite registers it.
+  registerBaseCalendar(manifest.baseCalendar);
+
+  rimraf.sync(bundlesDir);
   const isCI = process.env.CI === 'true';
 
   const gauge = new cliProgress.SingleBar(
@@ -109,10 +117,13 @@ export const RomcalBundler = (): void => {
     },
     cliProgress.Presets.shades_classic
   );
-  const allCalendars: (typeof CalendarDef)[] = Object.values(calendarDefinitions);
-  const allLocaleIds = Object.keys(locales);
+  // A filtered run builds a subset, but the English locale stays reachable: every
+  // other locale is merged over it, and a missing name there is an error.
+  const { locales } = manifest;
+  const allCalendars: (typeof CalendarDef)[] = options.calendars.map((name) => manifest.calendars[name]);
+  const allLocaleIds = [...options.locales];
 
-  log(chalk.bold(`\n✓ Generate calendar bundle files into ${chalk.cyan('./tmp/bundles/')}`));
+  log.step(`Generate calendar bundle files into ${manifest.tmpDir}/bundles/`);
   if (!isCI) gauge.start(allCalendars.length * allLocaleIds.length - 1, 0);
   let gaugeCount = 0;
 
@@ -123,8 +134,10 @@ export const RomcalBundler = (): void => {
       const locale = locales[allLocaleIds[j]];
 
       // Init config
-      const isGRC = calendar.name === GeneralRoman.name;
-      const builder = isGRC ? new RomcalBuilder(locale) : new RomcalBuilder(locale, calendar);
+      const isBase = calendar.name === manifest.baseCalendar.name;
+      const builder = isBase
+        ? new RomcalBuilder(manifest.martyrology, locale)
+        : new RomcalBuilder(manifest.martyrology, locale, calendar);
 
       // Init calendars
       const outputFilenameArr = builder.getOutputFilename().split('.');
@@ -139,7 +152,7 @@ export const RomcalBundler = (): void => {
       // Provide CLI feedback
       if (!isCI) {
         gauge.update((gaugeCount += 1), { filename: `${enclosingDir}/${filename}` });
-      } else if (j === 0) log(chalk.dim(`  - ${calendarName}`));
+      } else if (j === 0) log.detail(`- ${calendarName}`);
 
       // Build and get definitions & martyrology items
       const inputs = builder.getAllInputs();
@@ -157,7 +170,7 @@ export const RomcalBundler = (): void => {
           const update: LocaleLiturgicalDayNames = { ...obj };
           if (locales.En && !Object.prototype.hasOwnProperty.call(locales.En.names, id)) {
             throw new Error(
-              `Locale ID 'names:${id}' is missing in the locale 'en'. Ensure the value is included in rites/roman1969/src/locales/en.ts.`
+              `Locale ID 'names:${id}' is missing in the locale 'en'. Ensure the value is included in the rite's src/locales/en.ts.`
             );
           }
           if (locale.names && Object.prototype.hasOwnProperty.call(locale.names, id)) {
@@ -172,7 +185,7 @@ export const RomcalBundler = (): void => {
 
       // Extract martyrology items
       const martyrology: MartyrologyCatalog = Object.fromEntries(
-        Object.entries(Martyrology.catalog)
+        Object.entries(manifest.martyrology)
           .filter(([id]) => martyrologyIds.includes(id))
           .map(([id, data]) => [
             id,
@@ -210,7 +223,7 @@ export const RomcalBundler = (): void => {
       });
 
       // Prepare the bundled calendars file content.
-      const dir = resolve(__dirname, '../tmp/bundles/', enclosingDir);
+      const dir = resolve(bundlesDir, enclosingDir);
       const calVarName = `${calendarConstructorName}_${toPascalCase(locale.id)}`;
       calVarObj[locale.id] = calVarName;
       const data = inspect(bundle, false, 99)
@@ -219,7 +232,7 @@ export const RomcalBundler = (): void => {
         .replace(/\n\s*(!:seasons|periods)\s:\[],/gi, ''); // Remove empty arrays
       const jsOutput =
         '/* eslint-disable */\n' +
-        "import { RomcalBundleObject } from '../../../src';\n\n" +
+        `import { RomcalBundleObject } from '${manifest.bundleTypeImport}';\n\n` +
         `export const ${calVarName}: RomcalBundleObject = ${data}`;
 
       // Write the calendar bundle file.
@@ -236,7 +249,7 @@ export const RomcalBundler = (): void => {
 
     // Define package name, variable name and package dist.
     const pkgName = toPackageName(calendar.name);
-    const dir = resolve(__dirname, '../tmp/bundles/', pkgName);
+    const dir = resolve(bundlesDir, pkgName);
 
     /**
      * Write index.ts file within all calendar directories
@@ -246,7 +259,7 @@ export const RomcalBundler = (): void => {
       return `${acc}import { ${varName} } from './${importFileName}.js';\n`;
     }, '');
     const indexExports = Object.entries(calVarObj).reduce((acc, [, varName]) => `${acc}    ${varName},\n`, '');
-    const indexOutput = `import { RomcalBundleObject } from '../../../src';\n${indexImports}\nexport {\n${indexExports}};`;
+    const indexOutput = `import { RomcalBundleObject } from '${manifest.bundleTypeImport}';\n${indexImports}\nexport {\n${indexExports}};`;
     writeFileSync(resolve(dir, 'index.ts'), indexOutput, 'utf-8');
 
     /**
@@ -261,5 +274,7 @@ export const RomcalBundler = (): void => {
   }
 
   if (!isCI) gauge.stop();
-  log(chalk.dim(`  generated ${allCalendars.length} calendars in ${allLocaleIds.length} locales in ./tmp/bundles/`));
+  log.detail(
+    `generated ${allCalendars.length} calendars in ${allLocaleIds.length} locales in ${manifest.tmpDir}/bundles/`
+  );
 };

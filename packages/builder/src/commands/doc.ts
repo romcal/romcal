@@ -1,25 +1,12 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
-import chalk from 'chalk';
+import { toPackageName } from '@internal/generator';
 import { ESLint } from 'eslint';
 
-import { calendarDefinitions } from '../src/calendars';
-import { CalendarDef } from '../src/models/calendar-def';
-import { toPackageName } from '../src/utils/string';
-
-import { getDuration } from './time';
-
-const { log } = console;
-const time = new Date();
-
-log(chalk.bold(`\n✓ Update the documentation of all calendar plugins in ${chalk.cyan('./docs/calendar-plugins.md')}`));
-
-const allCalendars: (typeof CalendarDef)[] = Object.values(calendarDefinitions);
-
-const repoRoot = path.resolve(__dirname, '../../../');
-
-const outputPath = path.resolve(repoRoot, 'docs/', 'calendar-plugins.md');
+import { ResolvedOptions } from '../types';
+import { Logger } from '../utils/logger';
+import { getDuration } from '../utils/time';
 
 /**
  * Render a GitHub-flavoured markdown table with columns padded to their widest cell.
@@ -38,12 +25,20 @@ const renderTable = (headers: string[], rows: string[][]): string => {
   );
 };
 
-const rows = allCalendars.map((calendar) => [
-  calendar.name.replace(/([A-Z])/g, ' $1').replace('_', ' /').trim(),
-  `\`@romcal/calendar.${toPackageName(calendar.name)}@dev\``,
-]);
+export const runDoc = async (options: ResolvedOptions, log: Logger): Promise<void> => {
+  const { dryRun, manifest, repoRoot } = options;
+  const time = new Date();
+  const outputPath = path.resolve(repoRoot, manifest.docOutput);
 
-const mdTemplate = `# Calendar plugins
+  log.step(`Update the documentation of all calendar plugins in ${manifest.docOutput}`);
+
+  // The table lists everything the rite ships, whatever subset a build was narrowed to.
+  const rows = Object.values(manifest.calendars).map((calendar) => [
+    calendar.name.replace(/([A-Z])/g, ' $1').replace('_', ' /').trim(),
+    `\`${manifest.packageNameTemplate.replace('[calendar]', toPackageName(calendar.name))}@dev\``,
+  ]);
+
+  const mdTemplate = `# Calendar plugins
 
 The complete **General Roman Calendar**, and any other **particular calendar** (for a country, a region or a diocese) are available as **separated plugins**, that contain a bundle of the calendar data, localizations, and a martyrology catalog (containing extra metadata).
 
@@ -64,13 +59,12 @@ Below the list of all available calendar plugins:
 ${renderTable(['Name', 'NPM Package name'], rows)}
 `;
 
-/**
- * Normalize the generated documentation with the repository ESLint configuration,
- * so this file matches what `npm run lint` expects.
- */
-const formatAndWrite = async (): Promise<void> => {
-  // This script runs with the workspace as cwd, and ESLint does not look inside `.config/`,
-  // so both the working directory and the config file have to be pointed at the repository root.
+  /**
+   * Normalize the generated documentation with the repository ESLint configuration,
+   * so this file matches what `npm run lint` expects.
+   */
+  // ESLint does not look inside `.config/`, so both the working directory and the
+  // config file have to be pointed at the repository root.
   const eslint = new ESLint({
     cwd: repoRoot,
     fix: true,
@@ -79,16 +73,13 @@ const formatAndWrite = async (): Promise<void> => {
   const [result] = await eslint.lintText(mdTemplate, { filePath: outputPath });
 
   // `output` is only set when at least one fixable problem was found.
-  fs.writeFileSync(outputPath, result?.output ?? mdTemplate, 'utf-8');
+  const content = result?.output ?? mdTemplate;
 
-  const duration = getDuration(time);
-  log(chalk.green(`\n✨ Done in ${chalk.bold(duration)}`));
-};
-
-formatAndWrite().then(
-  () => process.exit(0),
-  (e) => {
-    log(chalk.red(e));
-    process.exit(1);
+  if (dryRun) {
+    log.detail(`would write ${rows.length} rows to ${manifest.docOutput}`);
+  } else {
+    fs.writeFileSync(outputPath, content, 'utf-8');
   }
-);
+
+  log.success(`Done in ${getDuration(time)}`);
+};
