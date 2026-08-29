@@ -1,4 +1,4 @@
-import i18next, { FormatFunction, i18n, InterpolationOptions } from 'i18next';
+import i18next, { i18n } from 'i18next';
 
 import { Color } from '../constants/colors';
 import { Season } from '../constants/seasons';
@@ -26,23 +26,39 @@ import { getBaseCalendar } from './base-calendar';
 import { CalendarDef } from './calendar-def';
 
 /**
- * Interpolation formats used by the locale files: `{{value, romanize}}` and friends.
+ * Interpolation formats the locale files use: `{{week, romanize}}`, and `capitalize`
+ * and `uppercase` applied to nested weekday, month and ordinal lookups.
  *
- * i18next 26 dropped `format` from `InterpolationOptions`, so the call site casts.
- * Naming the function `FormatFunction` is what types the arguments; inline, they were
- * implicitly `any`.
- *
- * The dropped type was upstream signalling that the option no longer works: i18next
- * overwrites it with its formatter service during init, so none of these formats are
- * applied and the locales render their raw values. That is #1226, and predates this
- * package; the cast preserves the behaviour rather than changing it here.
+ * These were passed as `interpolation.format` until i18next 26, which reads that
+ * option and then overwrites it with its own formatter service during init, silently
+ * discarding them. Registering each one with the service is how a custom format is
+ * declared now, and it is also addressable: an unknown `{{value, whatever}}` warns
+ * instead of falling through a chain of comparisons.
  */
-const interpolationFormat: FormatFunction = (value, format) => {
-  if (value === '') return value;
-  if (format === 'romanize') return toRomanNumber(parseInt(value, 10));
-  if (format === 'uppercase') return value.toUpperCase();
-  if (format === 'capitalize') return value[0].toUpperCase() + value.slice(1);
-  return value;
+const addInterpolationFormats = (instance: i18n): void => {
+  const { formatter } = instance.services;
+  if (!formatter) return;
+
+  // An empty value has nothing to romanize or capitalize, and `''[0]` is undefined.
+  const whenPresent =
+    (format: (value: string) => string) =>
+      (value: unknown): string => {
+        const text = String(value ?? '');
+        return text === '' ? text : format(text);
+      };
+
+  formatter.add(
+    'romanize',
+    whenPresent((value) => toRomanNumber(parseInt(value, 10)))
+  );
+  formatter.add(
+    'uppercase',
+    whenPresent((value) => value.toUpperCase())
+  );
+  formatter.add(
+    'capitalize',
+    whenPresent((value) => value[0].toUpperCase() + value.slice(1))
+  );
 };
 
 /**
@@ -151,12 +167,13 @@ export class RomcalConfig implements IRomcalConfig {
         lng: this.localeId,
         initAsync: false,
         // contextSeparator: '__',
-        interpolation: { format: interpolationFormat } as InterpolationOptions,
       },
       (err) => {
         if (err) throw new Error(err);
       }
     );
+
+    addInterpolationFormats(this.i18next);
 
     // If another locale is specified, load associated resources in the
     // i18next library.
