@@ -53,7 +53,7 @@
   ],
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "npm run build -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/generator -w=@internal/proper-of-time -w=@internal/rite-roman1969",
+    "build": "npm run build -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/proper-of-time -w=@internal/generator -w=@internal/rite-roman1969",
     "clean": "rimraf coverage dist tmp && npm run clean -w=@internal/builder -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/generator -w=@internal/proper-of-time -w=@internal/rite-roman1969",
     "data:checks": "npm run data:checks -w=@internal/rite-roman1969",
     "doc": "npm run doc -w=@internal/rite-roman1969",
