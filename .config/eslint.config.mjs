@@ -195,6 +195,7 @@ export default [
         parser: '@typescript-eslint/parser',
         project: [
           './tsconfig.base.json',
+          './packages/builder/tsconfig.json',
           './packages/easter/tsconfig.json',
           './packages/lunar-new-year/tsconfig.json',
           './rites/roman1962/tsconfig.json',
@@ -226,6 +227,7 @@ export default [
         parser: '@typescript-eslint/parser',
         project: [
           './tsconfig.base.json',
+          './packages/builder/tsconfig.json',
           './packages/easter/tsconfig.json',
           './packages/lunar-new-year/tsconfig.json',
           './rites/roman1962/tsconfig.json',
@@ -288,6 +290,25 @@ export default [
       'import/no-default-export': 'off',
       'import/no-extraneous-dependencies': 'off',
       'no-console': 'off',
+    },
+  }),
+  // The builder is development tooling that runs in Node. A rite's src is bundled
+  // into cjs, esm and iife for consumers, so importing the builder from there would
+  // pull the whole toolchain into a published artifact.
+  ...tseslint.config({
+    files: ['rites/*/src/**/*.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@internal/builder', '@internal/builder/*'],
+              message: 'The builder is build-time tooling. Importing it from a rite would bundle it for consumers.',
+            },
+          ],
+        },
+      ],
     },
   }),
   ...tseslint.config({

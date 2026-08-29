@@ -23,6 +23,7 @@
       "@internal/rite-roman1969": ["./rites/roman1969"],
       "@dist/rite-roman1969/*": ["./rites/roman1969/dist/*"],
       "@src/rite-roman1969": ["./rites/roman1969/src"],
+      "@internal/builder": ["./packages/builder"],
       "@internal/easter": ["./packages/easter"],
       "@internal/lunar-new-year": ["./packages/lunar-new-year"],
       "@internal/package.json": ["./package.json"]

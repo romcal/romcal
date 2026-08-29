@@ -1,0 +1,16 @@
+{
+  "name": "@internal/builder",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Argument-driven build, bundle, check and publish tooling for the romcal rites.",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "clean": "rimraf coverage",
+    "test": "TZ=UTC jest"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "consola": "^3.4.2"
+  }
+}
