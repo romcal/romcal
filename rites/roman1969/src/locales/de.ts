@@ -232,6 +232,7 @@ export const locale: Locale = {
       'Hl. Cyrill, Mönch, und Methodius, Bischof',
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_copatrons_of_europe:
       'Hl. Cyrill, Mönch, und Methodius, Bischof, Mitpatrone Europas',
+    // eslint-disable-next-line @stylistic/max-len -- locale key cannot be reflowed
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe:
       'Hl. Cyrill, Mönch, und Methodius, Bischof, Slawenapostel, Mitpatrone Europas',
     cyril_of_alexandria_bishop: 'Hl. Cyrill von Alexandrien, Bischof und Kirchenlehrer',

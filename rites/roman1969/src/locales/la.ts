@@ -212,6 +212,7 @@ export const locale: Locale = {
       'Ss. Cyrilli, monachi, et Methodii, episcopi',
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_copatrons_of_europe:
       'Ss. Cyrilli, monachi, et Methodii, episcopi, patronorum secundariorum Europæ',
+    // eslint-disable-next-line @stylistic/max-len -- locale key cannot be reflowed
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe:
       'Ss. Cyrilli, monachi, et Methodii, episcopi, missionariorum Slavorum, patronorum secundariorum Europæ',
     cyril_of_alexandria_bishop: 'S. Cyrilli Alexandrini, episcopi et Ecclesiæ doctoris',

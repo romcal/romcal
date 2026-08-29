@@ -449,7 +449,10 @@ const sync = async (entries: Entry[]): Promise<boolean> => {
     return true;
   }
 
-  const rl = !options.yes && process.stdin.isTTY ? readline.createInterface({ input: process.stdin, output: process.stdout }) : null;
+  const rl =
+    !options.yes && process.stdin.isTTY
+      ? readline.createInterface({ input: process.stdin, output: process.stdout })
+      : null;
   let allDone = true;
 
   for (let i = 0; i < todo.length; i += 1) {
@@ -489,7 +492,8 @@ const sync = async (entries: Entry[]): Promise<boolean> => {
     const created = createTrust(entry.name);
     if (created.ok) {
       log(`${chalk.green('✓')} ${entry.name}${options.dryRun ? chalk.dim(' (dry-run)') : ''}`);
-      entry.status = 'ok';
+      // `--dry-run` exits 0 without creating anything; do not cache that as configured
+      if (!options.dryRun) entry.status = 'ok';
     } else if (/already exists|EEXIST|E409|conflict/i.test(created.output)) {
       // The reused check was stale: something configured this package meanwhile
       log(`${chalk.yellow('•')} ${entry.name}: a trust configuration already exists, re-run the check`);
@@ -588,6 +592,9 @@ const scan = async (interactive: boolean, prior?: Entry[]): Promise<Entry[]> => 
   writeStepSummary(entries);
   saveCache(entries);
 
-  const actionable = entries.filter((e) => e.status !== 'ok').length;
+  // `unpublished` is expected until the first token-based publish; it is not a failed check
+  const actionable = entries.filter(
+    (e) => e.status === 'missing' || e.status === 'mismatch' || e.status === 'error'
+  ).length;
   process.exit(actionable > 0 ? 1 : 0);
 })();

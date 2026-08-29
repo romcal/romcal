@@ -231,6 +231,7 @@ export const locale: Locale = {
       'புனித சிரில் - துறவி, புனித் மெதோடியஸ் - ஆயர்',
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_copatrons_of_europe:
       'புனித சிரில் - துறவி, புனித மெதோடியஸ் - ஆயர், ஐரோப்பாவின் பாதுகாவலர்கள்',
+    // eslint-disable-next-line @stylistic/max-len -- locale key cannot be reflowed
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe:
       'புனித சிரில், புனித் மெதோடியஸ் - ஸ்லாவிக்கின் மறை போதகர்கள்',
     cyril_of_alexandria_bishop: 'அலெக்சாந்திரியா நகர புனித சிரில் - ஆயர், மறைவல்லுநர்',

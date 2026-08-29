@@ -226,6 +226,7 @@ export const locale: Locale = {
       'Svätých Cyrila, mnícha, a Metoda, biskupa',
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_copatrons_of_europe:
       'Svätých Cyrila, mnícha, a Metoda, biskupa, patrónov Európy',
+    // eslint-disable-next-line @stylistic/max-len -- locale key cannot be reflowed
     cyril_constantine_the_philosopher_monk_and_methodius_michael_of_thessaloniki_bishop_slavic_missionaries_copatrons_of_europe:
       'Svätých Cyrila, mnícha, a Metoda, biskupa, slovanských vierozvestov, patrónov Európy',
     cyril_of_alexandria_bishop: 'Svätého Cyrila Alexandrijského, biskupa a učiteľa Cirkvi',

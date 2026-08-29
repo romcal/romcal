@@ -133,6 +133,7 @@ export class France_Pamiers extends CalendarDef {
     // - ordo_fr_2025_province_ecclesiastique_de_toulouse
     // - mr_fr_1974_ed1_region_apostolique_du_midi
     // - https://nominis.cef.fr/contenus/saint/1784/Bienheureux-Martyrs-des-Carmes.html
+    // eslint-disable-next-line @stylistic/max-len -- calendar id cannot be reflowed
     jean_marie_du_lau_bishop_jean_francois_bonnel_de_pradal_francois_urbain_salins_de_niart_priests_and_companions_martyrs:
       {
         precedence: Precedences.OptionalMemorial_12,
