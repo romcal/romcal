@@ -28,10 +28,14 @@ import { CalendarDef } from './calendar-def';
 /**
  * Interpolation formats used by the locale files: `{{value, romanize}}` and friends.
  *
- * i18next 26 dropped `format` from `InterpolationOptions`, but its interpolator still
- * reads the option, so the cast at the call site keeps the behaviour the locales rely
- * on. Naming the function `FormatFunction` is what types the arguments; inline, they
- * were implicitly `any`.
+ * i18next 26 dropped `format` from `InterpolationOptions`, so the call site casts.
+ * Naming the function `FormatFunction` is what types the arguments; inline, they were
+ * implicitly `any`.
+ *
+ * The dropped type was upstream signalling that the option no longer works: i18next
+ * overwrites it with its formatter service during init, so none of these formats are
+ * applied and the locales render their raw values. That is #1226, and predates this
+ * package; the cast preserves the behaviour rather than changing it here.
  */
 const interpolationFormat: FormatFunction = (value, format) => {
   if (value === '') return value;
