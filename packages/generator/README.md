@@ -44,3 +44,11 @@ The repository sets `importHelpers`, which the rite gets away with because its r
 build only emits declarations and esbuild supplies its own helpers. This package emits
 JavaScript that ends up inside the published bundles, so it turns `importHelpers` off
 and inlines them instead of adding a `tslib` dependency to every consumer.
+
+`main` points at TypeScript source while `types` points into `dist`, here and in the
+other internal packages. Every tool in this repository already reaches the sources
+directly, through the tsconfig paths or Jest's `moduleNameMapper`, so the entry point
+only matters to plain Node — which is how the commitlint config loads the rite's
+calendar ids, before anything has been built. TypeScript is the one consumer that must
+not see the sources: it would pull them into whichever program imported them and fail
+that program's `rootDir`, so it gets the declarations instead.

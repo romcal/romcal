@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "Calculate the date of Lunar New Year using Meeus's astronomical algorithms.",
   "license": "MIT",
-  "main": "dist/src/index.js",
+  "main": "src/index.ts",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "tsc --project tsconfig.release.json",
     "clean": "rimraf coverage dist",

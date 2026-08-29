@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "The calendar engine shared by every Roman Rite: contracts, the build pipeline and the Proper of Time.",
   "license": "MIT",
-  "main": "dist/src/index.js",
+  "main": "src/index.ts",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "tsc --project tsconfig.release.json",
     "clean": "rimraf coverage dist",
