@@ -5,8 +5,9 @@ import { GENERAL_ROMAN_ID, GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../co
 import { isMartyr } from '../constants/martyrology-metadata';
 import { Period } from '../constants/periods';
 import { Precedence, Precedences } from '../constants/precedences';
-import { Rank, Ranks, RanksFromPrecedence } from '../constants/ranks';
+import { Rank } from '../constants/ranks';
 import { Season } from '../constants/seasons';
+import { Unly1969Rubrics } from '../rubrics/unly-1969';
 import { Id } from '../types/common';
 import { PartialCyclesDef } from '../types/cycles-metadata';
 import {
@@ -152,7 +153,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
         fromCalendarId === GENERAL_ROMAN_ID ? Precedences.GeneralMemorial_10 : Precedences.ProperMemorial_11b;
     }
 
-    this.rank = LiturgicalDayDef.precedenceToRank(this.precedence, id);
+    this.rank = this.#config.rubrics.rankOf(this.precedence, id);
 
     this.allowSimilarRankItems = input.allowSimilarRankItems ?? previousDef?.allowSimilarRankItems ?? false;
 
@@ -250,12 +251,10 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @private
    */
   static precedenceToRank(precedence: Precedence, id: string): Rank {
-    // Easter Sunday
-    if (precedence === Precedences.Triduum_1 && id === 'easter_sunday') {
-      return Ranks.Solemnity;
-    }
-
-    return RanksFromPrecedence[precedence];
+    // Part of the public surface, and static, so it cannot consult the rite in force:
+    // it answers for the 1969 norms whatever rubrics a calendar was built under. The
+    // engine itself goes through `config.rubrics`.
+    return Unly1969Rubrics.rankOf(precedence, id);
   }
 
   /**

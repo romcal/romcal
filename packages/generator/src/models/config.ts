@@ -3,6 +3,7 @@ import i18next, { i18n } from 'i18next';
 import { Color } from '../constants/colors';
 import { Season } from '../constants/seasons';
 import { ProperOfTime } from '../proper-of-time/proper-of-time';
+import { Unly1969Rubrics } from '../rubrics/unly-1969';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
 import {
@@ -17,6 +18,7 @@ import {
 import { BaseCyclesMetadata } from '../types/cycles-metadata';
 import { Locale } from '../types/locale';
 import { MartyrologyCatalog } from '../types/martyrology';
+import { Rubrics } from '../types/rubrics';
 import { Dates } from '../utils/dates';
 import { toRomanNumber } from '../utils/numbers';
 import { sanitizeLocaleId } from '../utils/string';
@@ -91,6 +93,12 @@ export class RomcalConfig implements IRomcalConfig {
 
   readonly dates: typeof Dates;
 
+  /**
+   * The rules of precedence in force. Defaults to the 1969 norms, so a rite that has
+   * no opinion behaves exactly as romcal always has.
+   */
+  readonly rubrics: Rubrics;
+
   readonly martyrologyCatalog: MartyrologyCatalog;
 
   readonly cyclesCache: Record<number, Pick<BaseCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> = {};
@@ -105,10 +113,16 @@ export class RomcalConfig implements IRomcalConfig {
    * Clone the RomcalConfig object
    */
   clone(): RomcalConfig {
-    return new RomcalConfig({
-      ...this.#input,
-      temporalOverrides: cloneTemporalOverrides(this.temporalOverrides),
-    });
+    return new RomcalConfig(
+      {
+        ...this.#input,
+        temporalOverrides: cloneTemporalOverrides(this.temporalOverrides),
+      },
+      undefined,
+      undefined,
+      undefined,
+      this.rubrics
+    );
   }
 
   /**
@@ -117,13 +131,17 @@ export class RomcalConfig implements IRomcalConfig {
    * @param martyrologyCatalog
    * @param locale
    * @param ParticularCalendar
+   * @param rubrics The rules of precedence of the rite. Defaults to the 1969 norms.
    */
   constructor(
     config?: RomcalConfigInput,
     martyrologyCatalog?: MartyrologyCatalog,
     locale?: Locale,
-    ParticularCalendar?: typeof CalendarDef
+    ParticularCalendar?: typeof CalendarDef,
+    rubrics: Rubrics = Unly1969Rubrics
   ) {
+    this.rubrics = rubrics;
+
     this.#input = config
       ? {
           ...config,

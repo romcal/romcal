@@ -204,4 +204,16 @@ export const PRECEDENCES = [
   Precedences.OptionalMemorial_12,
 ];
 
-export type Precedence = (typeof PRECEDENCES)[number];
+export type Precedence1969 = (typeof PRECEDENCES)[number];
+
+/**
+ * Any precedence the engine may be handed.
+ *
+ * The engine compares precedences by their position in the rite's ordered list and
+ * never interprets the value, so it does not care which rite a value comes from. The
+ * union with `string` is what lets a second rite name its own classes without the
+ * engine importing them; intersecting with an empty object is the usual way to stop
+ * TypeScript collapsing the whole union to `string`, which would lose the
+ * autocompletion the 1969 calendar definitions are written with.
+ */
+export type Precedence = Precedence1969 | (string & NonNullable<unknown>);

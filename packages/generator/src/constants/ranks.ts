@@ -1,4 +1,4 @@
-import { Precedence, Precedences } from './precedences';
+import { Precedence1969, Precedences } from './precedences';
 
 /**
  * Rank of liturgical days.
@@ -79,9 +79,12 @@ export const RANKS = [
   Ranks.Weekday,
 ] as const;
 
-export type Rank = (typeof RANKS)[number];
+export type Rank1969 = (typeof RANKS)[number];
 
-export const RanksFromPrecedence: Record<Precedence, Rank> = {
+/** Any rank the engine may be handed. See the note on {@link Precedence}. */
+export type Rank = Rank1969 | (string & NonNullable<unknown>);
+
+export const RanksFromPrecedence: Record<Precedence1969, Rank1969> = {
   [Precedences.Triduum_1]: Ranks.Weekday,
   [Precedences.ProperOfTimeSolemnity_2]: Ranks.Solemnity,
   [Precedences.PrivilegedSunday_2]: Ranks.Sunday,

@@ -173,7 +173,7 @@ export class LiturgicalDay implements BaseLiturgicalDay {
      */
     this.colors =
       weekday?.precedence === Precedences.PrivilegedWeekday_9 &&
-      [Ranks.Memorial, Ranks.OptionalMemorial].includes(this.rank)
+      ([Ranks.Memorial, Ranks.OptionalMemorial] as Rank[]).includes(this.rank)
         ? []
         : def.colors;
 

@@ -1,6 +1,6 @@
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { Period } from '../constants/periods';
-import { PRECEDENCES, Precedences } from '../constants/precedences';
+import { Precedences } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
 import { Season } from '../constants/seasons';
 import { BaseCalendar, ByIds, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
@@ -257,6 +257,10 @@ export class Calendar implements BaseCalendar {
 
     const builtData = this.#buildDatesData();
 
+    // Priority is position in the rite's precedence list, not a property of the value.
+    const { precedences } = this.#config.rubrics;
+    const precedenceIndex = (precedence: string): number => precedences.indexOf(precedence);
+
     Object.keys(builtData.datesIndex).forEach((dateStr) => {
       // Order the LiturgicalDays objects, following the precedence rules defined in the UNLY #49.
       const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
@@ -279,8 +283,8 @@ export class Calendar implements BaseCalendar {
           ) => {
             if (firstIsOptional === nextIsOptional) {
               if (firstAllowSimilarRankItems === nextAllowSimilarRankItems) {
-                const type1 = PRECEDENCES.indexOf(firstPrecedence);
-                const type2 = PRECEDENCES.indexOf(nextPrecedence);
+                const type1 = precedenceIndex(firstPrecedence);
+                const type2 = precedenceIndex(nextPrecedence);
                 if (type1 < type2) return -1;
                 if (type1 > type2) return 1;
                 return 0;
@@ -411,14 +415,14 @@ export class Calendar implements BaseCalendar {
       // e.g. The dedication of consecrated Churches is an optional solemnity.
       if (dates.length > 1) {
         const optionalDayIds = optionalMemorials.map((d) => d.id);
-        const defaultPrecedenceIndex = PRECEDENCES.indexOf(defaultLiturgicalDay.precedence);
+        const defaultPrecedenceIndex = precedenceIndex(defaultLiturgicalDay.precedence);
         optionalMemorials = optionalMemorials.concat(
           dates
             .slice(1)
             .filter(
               (d) =>
                 d.isOptional &&
-                PRECEDENCES.indexOf(d.precedence) >= defaultPrecedenceIndex &&
+                precedenceIndex(d.precedence) >= defaultPrecedenceIndex &&
                 !optionalDayIds.includes(d.id)
             )
         );
