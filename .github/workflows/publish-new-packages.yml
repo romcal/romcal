@@ -1,0 +1,75 @@
+name: Publish new packages
+
+# New calendar bundles cannot use trusted publishing for their first release:
+# npm only accepts a trust configuration for a package that already exists.
+# This workflow publishes the missing packages with a token, then configures
+# trusted publishing so that dev-publishing.yml can take over with OIDC.
+#
+# No credential is ever passed as a workflow input: workflow_dispatch inputs are
+# stored in the run record and displayed in the Actions UI and API.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Report what would happen without publishing or configuring trust'
+        type: boolean
+        default: true
+      ref:
+        description: 'Git ref to build from'
+        type: string
+        default: 'dev'
+
+jobs:
+  publish_new_packages:
+    runs-on: ubuntu-latest
+
+    environment: npm-publish
+
+    if: github.repository == 'romcal/romcal'
+
+    permissions:
+      contents: read
+      id-token: write
+
+    env:
+      CI: true
+      DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TRUST_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TRUST_TOKEN }}
+
+    steps:
+      - name: Check credentials
+        run: |
+          if [[ -z "${NPM_TOKEN}" ]]; then
+            echo "The NPM_TRUST_TOKEN secret is missing from the npm-publish environment."
+            echo "Add a token from an npm account with 2FA enabled (tokens that bypass 2FA cannot manage trust)."
+            exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Install Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install Dependencies
+        run: npm -q --no-progress ci --no-audit && npm i -g tsx
+
+      - name: Build romcal project (romcal + all calendar bundles)
+        run: npm run build
+
+      - name: Publish packages that don't exist on the registry yet
+        working-directory: rites/roman1969
+        run: tsx build/publish.ts --only-new ${{ env.DRY_RUN }}
+
+      - name: Configure trusted publishing for unconfigured packages
+        # npm rejects trust changes made with tokens that bypass 2FA, so this may
+        # need to be finished locally with `npm run trust:sync`.
+        continue-on-error: true
+        working-directory: rites/roman1969
+        run: tsx build/trusted-publishing.ts --sync --yes ${{ env.DRY_RUN }}

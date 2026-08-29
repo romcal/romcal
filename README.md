@@ -30,7 +30,7 @@
 > [!NOTE]
 > This project is still in beta (using the `dev` npm distribution tag) until it reaches final version 3.0.0.
 > There could be breaking changes between minor versions.
-> Please refer to the [changelog](CHANGELOG.md) for significant updates and breaking changes.
+> Please refer to the [changelog](docs/CHANGELOG.md) for significant updates and breaking changes.
 
 ## Documentation
 
@@ -331,14 +331,14 @@ Especially to find bugs or write new tests, verify or complete calendars, or pul
 
 To jump into romcal’s codebase more easily, you might be interested in reading:
 
-- :books: [Contributing Guide](CONTRIBUTING.md).
+- :books: [Contributing Guide](docs/CONTRIBUTING.md).
 - :books: [Install, Build, Run and Test romcal locally](docs/contribute-to-romcal.md).
 - :books: [Localization](/docs/localization.md).
 - :books: [Codebase Documentation](https://romcal.github.io/romcal/).
 
 ## Changelog & Release History <a name="revisions"></a>
 
-See the [changelog](CHANGELOG.md) for the latest updates and important/breaking changes.
+See the [changelog](docs/CHANGELOG.md) for the latest updates and important/breaking changes.
 
 ## Module Robustness & Data Integrity <a name="disclaimer"></a>
 
@@ -351,7 +351,7 @@ If you find an incorrect calendar entry (e.g. wrong date, wrong feast rank, spel
 
 This node module is inspired by the C program [romcal](http://www.romcal.net/) written by Kenneth G. Bath. This module, while exhibiting similar output, is written ground up using different tools and technologies and exposes many new functionalities.
 
-Additional credits for bug fixes, localization and suggestions can be seen at [here](./AUTHORS.md).
+Additional credits for bug fixes, localization and suggestions can be seen at [here](docs/AUTHORS.md).
 
 ## License
 

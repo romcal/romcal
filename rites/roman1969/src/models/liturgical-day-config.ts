@@ -23,21 +23,13 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     this.config = config;
 
     const currentYear = new Date().getUTCFullYear();
+    // Before the first Sunday of Advent, the current year is the liturgical year.
+    // After it, the next Gregorian year represents the main part of this liturgical year.
     const currentLiturgicalYear =
-      new Date().getTime() < Dates.firstSundayOfAdvent(currentYear + 1).getTime()
-        ? // We are before the first Sunday of Advent, taking the current year
-          currentYear
-        : // We are after the first Sunday of Advent, setting the next Gregorian year
-          // hat represent the main part of this Liturgical year
-          currentYear + 1;
-    this.year =
-      year ??
-      // When year is undefined, determine the current year
-      (config.scope === 'gregorian'
-        ? // Current Gregorian year
-          currentYear
-        : // Current Liturgical year
-          currentLiturgicalYear);
+      new Date().getTime() < Dates.firstSundayOfAdvent(currentYear + 1).getTime() ? currentYear : currentYear + 1;
+
+    // When year is undefined, determine the current Gregorian or liturgical year.
+    this.year = year ?? (config.scope === 'gregorian' ? currentYear : currentLiturgicalYear);
 
     // Initialise the Dates class
     this.dates = new Dates(config, this.year);

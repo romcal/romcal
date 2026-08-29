@@ -62,8 +62,8 @@ const processFile = async (filePath, directory) => {
     .use(slug)
     .use(inspectUrls, {
       inspectEach({ node, root, url }) {
-        // Note: We ignore external URLs (HTTP/S).
-        if (url.match(/^(?!https?:\/\/).+/)) {
+        // Note: We ignore external URLs (HTTP/S) and non-navigational schemes (mailto, tel).
+        if (url.match(/^(?!(https?|mailto|tel):).+/)) {
           // Check internal anchor links within the same file
           if (url.startsWith('#')) {
             if (!root.children.some((i) => i.properties?.id === url.substring(1))) {

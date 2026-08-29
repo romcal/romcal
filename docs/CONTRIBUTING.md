@@ -18,7 +18,7 @@ If you found something broken or not working properly, feel free to create an is
 
 ##### Improving the Documentation
 
-Currently, the documentation resides in the [`README.md`](README.md) file, but we plan to move it the GitHub Wiki ([#57](https://github.com/romcal/romcal/issues/57)). Therefore currently, you can improve this documentation by forking the `romcal/romcal` repository, updating the content of [`README.md`](README.md) and creating a pull request.
+Currently, the documentation resides in the [`README.md`](../README.md) file, but we plan to move it the GitHub Wiki ([#57](https://github.com/romcal/romcal/issues/57)). Therefore currently, you can improve this documentation by forking the `romcal/romcal` repository, updating the content of [`README.md`](../README.md) and creating a pull request.
 
 If you are new to the Git workflow, do check out our simple [Contributor’s Guide](https://github.com/romcal/romcal/wiki/Contributor’s-guide).
 
@@ -59,9 +59,7 @@ And you're bootstrapped. Thanks for contributing!
 
 #### Code Style
 
-We leverage `@typescript-eslint` and `prettier` to enforce code style. You can run the following command to check if your code is compliant:
-
-Code style:
+We leverage `@typescript-eslint` for code style and `@stylistic/eslint-plugin` for formatting, so ESLint handles both. TypeScript, JavaScript, JSON, YAML and Markdown files are all covered by the same command:
 
 ```shell
 $ npm run lint
@@ -70,11 +68,8 @@ $ npm run lint
 $ npm run lint:fix
 ```
 
-File formatting (Prettier):
+The ESLint configuration lives in [`.config/eslint.config.mjs`](../.config/eslint.config.mjs). ESLint does not search the `.config` folder on its own, so the npm scripts pass `--config` explicitly. Run it the same way if you invoke `eslint` directly:
 
 ```shell
-$ npm run prettier
-
-# to fix it
-$ npm run prettier:fix
+$ npx eslint --config .config/eslint.config.mjs .
 ```

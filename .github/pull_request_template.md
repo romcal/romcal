@@ -24,4 +24,4 @@ ex:     - Infrastructure
 // Code goes here!
 ```
 
-- [ ] By submitting this pull request, I confirm that I have read and agree to the [Code of Conduct](./CODE_OF_CONDUCT.md).
+- [ ] By submitting this pull request, I confirm that I have read and agree to the [Code of Conduct](../docs/CODE_OF_CONDUCT.md).

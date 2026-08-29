@@ -3,7 +3,7 @@
 # Install, Build, Run and Test romcal Locally
 
 This section describes how to run the romcal source code in your machine, and how to contribute to this project.
-You might also be interested in reading the general [contribution guide](../CONTRIBUTING.md).
+You might also be interested in reading the general [contribution guide](CONTRIBUTING.md).
 
 - [Retrieve the codebase](#retrieve-the-codebase)
 - [Install](#install)
@@ -125,6 +125,50 @@ _pass the `-t` flag and the path of the file_
 ## Coverage Reporting
 
 A coverage report is generated for every core branch build and published to [gh-pages](<>).
+
+## Publishing
+
+Packages are published from the `dev-publishing.yml` workflow using npm trusted publishing (OIDC), so no npm token is
+involved in a regular release. Every published package (`romcal` and each `@romcal/calendar.*` bundle) needs a trusted
+publisher on npm pointing at `romcal/romcal`, the `dev-publishing.yml` workflow file, the `npm-publish` environment,
+and the publish permission.
+
+These commands need npm >= 11.15.0, which is the npm bundled with the Node.js version in `.nvmrc` (`lts/krypton`). Run
+`nvm use` first: an older npm (typically one bundled with a previous Node.js version) has no `trust` command at all.
+
+- To see which packages are missing that configuration:
+
+```bash
+npm run trust:check
+```
+
+- To create the missing configurations (requires `npm login` with an account that has 2FA enabled; tokens that bypass
+  2FA are rejected by the npm trust API):
+
+```bash
+npm run trust:sync
+```
+
+Every trust request is protected by two-factor authentication. Both commands start with a single interactive npm call so
+you can answer that prompt: **when npmjs.com offers to skip two-factor authentication for the next 5 minutes, accept
+it**, otherwise the remaining calls have no terminal to prompt on and will fail.
+
+The sync then runs in batches of 75 with a 2 second delay, since roughly 80 packages fit in that 5 minute window. It
+pauses between batches so you can refresh it. Pass `--force` to replace configurations that exist but don't match,
+`--dry-run` to preview, `--verbose` to see the raw npm output of failures, and `--no-prompt` to skip the interactive
+warm-up.
+
+Results are cached for an hour in `rites/roman1969/tmp/trusted-publishing.json`, so that checking and configuring don't
+each spend a 2FA window on the same 100+ lookups:
+
+- `trust:sync` right after a complete `trust:check` goes straight to configuring the packages it found.
+- A run that was cut short (an expired 2FA window, for instance) only re-checks the packages that stayed unknown.
+- `--fresh` ignores the cache and checks everything again.
+
+New calendar bundles can't start with trusted publishing: npm requires the package to exist before a trusted publisher
+can be attached. Run the **Publish new packages** workflow (`workflow_dispatch`) for those; it publishes only the
+packages that are missing from the registry using the `NPM_TRUST_TOKEN` environment secret, then configures trust for
+them.
 
 ## Committing Changes
 

@@ -5,8 +5,5 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {},
-  "dependencies": {},
-  "devDependencies": {
-    "@internal/config": "file:../../packages/config"
-  }
+  "dependencies": {}
 }
