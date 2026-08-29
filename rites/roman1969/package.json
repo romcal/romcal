@@ -26,6 +26,7 @@
   "dependencies": {
     "@internal/easter": "file:../../packages/easter",
     "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
+    "@internal/proper-of-time": "file:../../packages/proper-of-time",
     "i18next": "^26.4.0",
     "ts-deepmerge": "^8.0.0"
   },

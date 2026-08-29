@@ -17,10 +17,16 @@ package builds the shared anchors on top of them.
 | `easterSunday`, `firstSundayOfAdvent`, `christmas`, `ashWednesday`, `palmSunday`, `pentecostSunday` | `epiphany` and `baptismOfTheLord`, which depend on movable-Sunday options |
 | The fixed solemnities (`annunciation`, `assumption`, `allSaints`, ...) | `holyFamily`, `divineMercySunday`, `christTheKingSunday` |
 | `lunarNewYear`, `sundayOnOrAfterLunarNewYear` | `ascension` and `corpusChristi` transfer options |
-| `MONTHS`, `WEEKDAYS` | `startOfSeasons` / `endOfSeasons`, keyed by a rite's own `Season` enum |
+| | `startOfSeasons` / `endOfSeasons`, keyed by a rite's own `Season` enum |
 
 Anchors are pure `(year: number) => Date` functions. They take no configuration,
-because anything configurable is by definition rite-shaped.
+because anything configurable is by definition rite-shaped. The one argument any of
+them accepts beyond the year is the Easter calculation type, which is a choice of
+computation rather than of rubric, and which both rites need.
+
+`MONTHS` and `WEEKDAYS` stay in the rite for now. They are rite-neutral, but they
+are imported far more widely than the date helpers, so moving them belongs with the
+constants work rather than here.
 
 That survives the `temporalOverrides` mechanism added for the England and Wales
 adjacent-Sunday transfers, because it is applied *after* an anchor is computed:
@@ -30,7 +36,22 @@ stays with the rite, alongside the config that describes it. `ShiftableAnchor` i
 `'epiphany'` today but is written to grow, so any anchor extracted here should be
 assumed to acquire an override layer on the rite side eventually.
 
-## Status
+## How the rite uses it
 
-Scaffolding only. The extraction from `rites/roman1969/src/utils/dates.ts` follows
-in a separate commit, so that the move can be reviewed against unchanged snapshots.
+`rites/roman1969/src/utils/dates.ts` re-exports the primitives, because they are part
+of romcal's public surface and are imported from that path across the rite. The
+`Dates` class keeps its per-year memoisation and its `year` defaulting (which depend
+on the calendar scope) and delegates the computation itself:
+
+```ts
+ashWednesday = (year = this.#year): Date => {
+  if (this.#ashWednesday[year]) return this.#ashWednesday[year];
+  return (this.#ashWednesday[year] = anchors.ashWednesday(year, this.#config.easterCalculationType));
+};
+```
+
+Passing `easterCalculationType` explicitly is what keeps a Julian-configured calendar
+correct, since the package defaults to Gregorian rather than reading a config.
+
+The extraction is behaviour-preserving: the 107 calendar bundles it produces are
+byte-identical to the ones built before it.

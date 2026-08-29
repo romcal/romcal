@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.release.json",
     "clean": "rimraf coverage dist",
-    "test": "TZ=UTC jest --passWithNoTests"
+    "test": "TZ=UTC jest"
   },
   "dependencies": {
     "@internal/easter": "file:../easter",
