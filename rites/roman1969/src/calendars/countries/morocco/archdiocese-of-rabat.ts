@@ -1,5 +1,6 @@
-import { PatronTitle, Precedences, CalendarDef, Inputs } from '@internal/generator';
+import { PatronTitle, Precedences, Inputs } from '@internal/generator';
 
+import { CalendarDef } from '../../../calendar-def';
 import { Africa } from '../../regions/africa';
 import { NorthAfrica } from '../../regions/north-africa';
 

@@ -1,6 +1,7 @@
-import { CommonDefinition as Common, ProperCycles, PatronTitle, Precedences, CalendarDef } from '@internal/generator';
+import { CommonDefinition as Common, ProperCycles, PatronTitle, Precedences } from '@internal/generator';
 import type { Inputs, ParticularConfig } from '@internal/generator';
 
+import { CalendarDef } from '../../../calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Luxembourg extends CalendarDef {

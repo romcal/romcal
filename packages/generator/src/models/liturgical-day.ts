@@ -1,10 +1,8 @@
 import { Color } from '../constants/colors';
 import { CommonDefinition } from '../constants/commons';
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { Period } from '../constants/periods';
-import { Precedence, Precedences } from '../constants/precedences';
-import { Rank, Ranks } from '../constants/ranks';
-import { Season } from '../constants/seasons';
+import { Precedences } from '../constants/precedences';
+import { Ranks } from '../constants/ranks';
 import { Id } from '../types/common';
 import {
   BaseLiturgicalDay,
@@ -19,6 +17,7 @@ import {
 } from '../types/liturgical-day';
 import { LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
 import { MartyrologyItem } from '../types/martyrology';
+import { Vocabulary } from '../types/vocabulary';
 
 import { CyclesMetadata } from './cycles-metadata';
 import { LiturgicalDayConfig } from './liturgical-day-config';
@@ -26,10 +25,10 @@ import { LiturgicalDayDef } from './liturgical-day-def';
 
 const COMPUTED_FIELDS = ['name', 'colorNames', 'seasonNames', 'rankName', 'definition', 'config'];
 
-export class LiturgicalDay implements BaseLiturgicalDay {
-  readonly #liturgicalDayDef: LiturgicalDayDef;
+export class LiturgicalDay<V extends Vocabulary = Vocabulary> implements BaseLiturgicalDay<V> {
+  readonly #liturgicalDayDef: LiturgicalDayDef<V>;
 
-  readonly #liturgicalDayConfig: LiturgicalDayConfig;
+  readonly #liturgicalDayConfig: LiturgicalDayConfig<V>;
 
   readonly id: Id;
 
@@ -41,9 +40,9 @@ export class LiturgicalDay implements BaseLiturgicalDay {
 
   readonly alternativeTransferDateDefs: FullDateDefinition[];
 
-  readonly precedence: Precedence;
+  readonly precedence: V['precedence'];
 
-  readonly rank: Rank;
+  readonly rank: V['rank'];
 
   readonly allowSimilarRankItems: boolean;
 
@@ -53,9 +52,9 @@ export class LiturgicalDay implements BaseLiturgicalDay {
 
   readonly i18nDef: i18nDef;
 
-  readonly seasons: Season[];
+  readonly seasons: V['season'][];
 
-  readonly periods: Period[];
+  readonly periods: V['period'][];
 
   readonly colors: Color[];
 
@@ -65,15 +64,15 @@ export class LiturgicalDay implements BaseLiturgicalDay {
 
   readonly titles: RomcalTitles;
 
-  readonly calendar: RomcalCalendarMetadata;
+  readonly calendar: RomcalCalendarMetadata<V>;
 
-  readonly cycles: CyclesMetadata;
+  readonly cycles: CyclesMetadata<V>;
 
   readonly fromCalendarId: FromCalendarId;
 
   readonly fromExtendedCalendars: LiturgyDayDiff[];
 
-  weekday?: LiturgicalDay;
+  weekday?: LiturgicalDay<V>;
 
   public get name(): string {
     return this.#liturgicalDayDef.name;
@@ -107,17 +106,17 @@ export class LiturgicalDay implements BaseLiturgicalDay {
   /**
    * Get the liturgical day definition
    */
-  public get definition(): LiturgicalDayDef {
+  public get definition(): LiturgicalDayDef<V> {
     return this.#liturgicalDayDef;
   }
 
   constructor(
-    def: LiturgicalDayDef,
+    def: LiturgicalDayDef<V>,
     date: Date,
-    liturgicalDayConfig: LiturgicalDayConfig,
-    calendar: RomcalCalendarMetadata,
-    baseData: LiturgicalDay | null,
-    weekday: LiturgicalDay | null
+    liturgicalDayConfig: LiturgicalDayConfig<V>,
+    calendar: RomcalCalendarMetadata<V>,
+    baseData: LiturgicalDay<V> | null,
+    weekday: LiturgicalDay<V> | null
   ) {
     this.#liturgicalDayDef = def;
     this.#liturgicalDayConfig = liturgicalDayConfig;
@@ -137,24 +136,18 @@ export class LiturgicalDay implements BaseLiturgicalDay {
 
     this.periods = baseData?.periods ?? def.periods;
 
-    // The second Sunday after the Christmas octave can be before or after the Epiphany,
-    // and this can be determined from the definition of the Proper of the Time,
-    // without having a liturgical year context.
-    if (def.fromCalendarId === PROPER_OF_TIME_NAME && this.id === 'second_sunday_after_christmas') {
-      if (date.getTime() >= liturgicalDayConfig.dates.epiphany().getTime()) {
-        this.periods.unshift(Period.DaysFromEpiphany);
-      } else if (date.getTime() > liturgicalDayConfig.dates.maryMotherOfGod().getTime()) {
-        this.periods.unshift(Period.DaysBeforeEpiphany);
-      }
-    }
-
-    // Specify the early/late period of an ordinary time liturgical day item
-    if (def.fromCalendarId === PROPER_OF_TIME_NAME && this.seasons[0] === Season.OrdinaryTime) {
-      if (date.getTime() < liturgicalDayConfig.dates.pentecostSunday().getTime()) {
-        this.periods.unshift(Period.EarlyOrdinaryTime);
-      } else {
-        this.periods.unshift(Period.LateOrdinaryTime);
-      }
+    // Some periods cannot be read off the definition, only off where the date landed
+    // in the year being generated. Which those are is the rite's business.
+    const { periodsOf } = liturgicalDayConfig.config.rubrics;
+    if (def.fromCalendarId === PROPER_OF_TIME_NAME && periodsOf) {
+      this.periods.unshift(
+        ...periodsOf({
+          date,
+          dates: liturgicalDayConfig.dates,
+          id: this.id,
+          seasons: this.seasons,
+        })
+      );
     }
 
     /**
@@ -173,14 +166,14 @@ export class LiturgicalDay implements BaseLiturgicalDay {
      */
     this.colors =
       weekday?.precedence === Precedences.PrivilegedWeekday_9 &&
-      [Ranks.Memorial, Ranks.OptionalMemorial].includes(this.rank)
+      ([Ranks.Memorial, Ranks.OptionalMemorial] as string[]).includes(this.rank)
         ? []
         : def.colors;
 
     this.martyrology = def.martyrology;
     this.titles = def.titles;
     this.calendar = baseData?.calendar ?? calendar;
-    this.cycles = new CyclesMetadata(date, calendar, def.cycles.properCycle, liturgicalDayConfig.config);
+    this.cycles = new CyclesMetadata<V>(date, calendar, def.cycles.properCycle, liturgicalDayConfig.config);
     this.fromCalendarId = def.fromCalendarId;
     this.fromExtendedCalendars = def.fromExtendedCalendars;
 
@@ -194,8 +187,8 @@ export class LiturgicalDay implements BaseLiturgicalDay {
     }
   }
 
-  toJson(): LiturgicalDay {
-    const temp: LiturgicalDay = {
+  toJson(): LiturgicalDay<V> {
+    const temp: LiturgicalDay<V> = {
       ...this,
     };
     // add computed fields to the object
@@ -204,6 +197,6 @@ export class LiturgicalDay implements BaseLiturgicalDay {
         this.#liturgicalDayDef as unknown as Record<string, unknown>
       )[field];
     });
-    return temp satisfies LiturgicalDay;
+    return temp satisfies LiturgicalDay<V>;
   }
 }

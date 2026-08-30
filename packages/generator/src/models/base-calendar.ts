@@ -1,3 +1,5 @@
+import { Vocabulary } from '../types/vocabulary';
+
 import { CalendarDef } from './calendar-def';
 
 /**
@@ -9,15 +11,20 @@ import { CalendarDef } from './calendar-def';
  * registers it as it loads, and the engine asks for it by role rather than by name.
  */
 
-type CalendarDefConstructor = typeof CalendarDef;
+type CalendarDefConstructor<V extends Vocabulary> = typeof CalendarDef<V>;
 
-let baseCalendar: CalendarDefConstructor | undefined;
+/**
+ * Held without its vocabulary: a single registry serves whichever rite is loaded, so the
+ * vocabulary is known to the rite that registers the calendar and to the config that
+ * later asks for it, but not to the slot in between.
+ */
+let baseCalendar: unknown;
 
-export const registerBaseCalendar = (calendar: CalendarDefConstructor): void => {
+export const registerBaseCalendar = <V extends Vocabulary>(calendar: CalendarDefConstructor<V>): void => {
   baseCalendar = calendar;
 };
 
-export const getBaseCalendar = (): CalendarDefConstructor => {
+export const getBaseCalendar = <V extends Vocabulary>(): CalendarDefConstructor<V> => {
   if (!baseCalendar) {
     throw new Error(
       'No base calendar has been registered. A rite must call registerBaseCalendar() before building a calendar; ' +
@@ -25,5 +32,5 @@ export const getBaseCalendar = (): CalendarDefConstructor => {
     );
   }
 
-  return baseCalendar;
+  return baseCalendar as CalendarDefConstructor<V>;
 };

@@ -1,4 +1,6 @@
-import { PatronTitle, Title, Precedences, CalendarDef, Inputs } from '@internal/generator';
+import { PatronTitle, Title, Precedences, Inputs } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 
 export class NewZealand extends CalendarDef {
   inputs: Inputs = {
