@@ -23,11 +23,12 @@
  * to distinguish them from the keys that are directly defined in the source files.
  */
 
-import { COLORS, PROPER_CYCLES, PSALTER_WEEKS, SUNDAY_CYCLES, WEEKDAY_CYCLES, MONTHS, RANKS, SEASONS, WEEKDAYS, CalendarDef, toPackageName } from '@internal/generator';
+import { COLORS, PROPER_CYCLES, PSALTER_WEEKS, SUNDAY_CYCLES, WEEKDAY_CYCLES, MONTHS, RANKS, SEASONS, WEEKDAYS, toPackageName } from '@internal/generator';
 import chalk from 'chalk';
 import { merge } from 'ts-deepmerge';
 
 import { Locale } from '../src';
+import { CalendarDef } from '../src/calendar-def';
 import { calendarDefinitions } from '../src/calendars';
 import { GeneralRoman } from '../src/calendars/general-roman';
 import { Martyrology } from '../src/catalog/martyrology';
