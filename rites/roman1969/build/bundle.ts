@@ -84,8 +84,7 @@ export class RomcalBuilder {
         def.input.flatMap(
           (i) =>
             i.martyrology?.flatMap((m) => (typeof m === 'string' ? m : m.id)) ??
-            (Martyrology.catalog[def.id] ? [def.id] : []) ??
-            []
+            (Martyrology.catalog[def.id] ? [def.id] : [])
         )
       );
 
