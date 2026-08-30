@@ -78,4 +78,4 @@ jobs:
           npm run docs:sort-glossary
 
       - name: Dry run publish
-        run: tsx ./rites/roman1969/build/publish.ts --dry-run
+        run: npx romcal-build publish --rite roman1969 --dry-run

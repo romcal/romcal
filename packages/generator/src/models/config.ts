@@ -1,6 +1,5 @@
 import i18next, { i18n } from 'i18next';
 
-import { GeneralRoman } from '../calendars/general-roman';
 import { Color } from '../constants/colors';
 import { Season } from '../constants/seasons';
 import { ProperOfTime } from '../proper-of-time/proper-of-time';
@@ -23,6 +22,7 @@ import { toRomanNumber } from '../utils/numbers';
 import { sanitizeLocaleId } from '../utils/string';
 import { cloneTemporalOverrides, omitTemporalOverrideAnchor } from '../utils/temporal-overrides';
 
+import { getBaseCalendar } from './base-calendar';
 import { CalendarDef } from './calendar-def';
 
 /**
@@ -195,10 +195,12 @@ export class RomcalConfig implements IRomcalConfig {
     if (config?.localizedCalendar) {
       this.calendarsDef.push(new CalendarDef(this, config.localizedCalendar.inputs));
 
-      // Otherwise, it's mean that the GRC or particular calendar must be computed from scratch,
-      // probably by using the RomcalBuilder class helper, or Romcal without a specific localizedCalendar.
+      // Otherwise, it's mean that the base calendar of the rite or a particular calendar must be
+      // computed from scratch, probably by using the RomcalBuilder class helper, or Romcal without
+      // a specific localizedCalendar.
     } else {
-      this.calendarsDef.push(new GeneralRoman(this));
+      const BaseCalendar = getBaseCalendar();
+      this.calendarsDef.push(new BaseCalendar(this));
       if (ParticularCalendar) {
         this.calendarsDef.push(new ParticularCalendar(this));
       }

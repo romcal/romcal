@@ -25,9 +25,10 @@
     "typecheck": "tsc --noEmit --importHelpers false -p tsconfig.json"
   },
   "dependencies": {
-    "@internal/easter": "file:../../packages/easter",
-    "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
     "@internal/calendar-dates": "file:../../packages/calendar-dates",
+    "@internal/easter": "file:../../packages/easter",
+    "@internal/generator": "file:../../packages/generator",
+    "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
     "i18next": "^26.4.0",
     "ts-deepmerge": "^8.0.0"
   },
