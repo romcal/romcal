@@ -1,6 +1,6 @@
 {
   "name": "romcal",
-  "version": "3.0.0-dev.139",
+  "version": "3.0.0-dev.140",
   "description": "JavaScript library that generates liturgical calendars of the Roman Rite of the Roman Catholic Church.",
   "keywords": [
     "roman",
