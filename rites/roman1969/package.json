@@ -12,12 +12,12 @@
   "module": "dist/esm/romcal.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "tsx build/build.ts",
+    "build": "romcal-build build --rite roman1969",
     "clean": "rimraf coverage dist tmp",
-    "data:checks": "tsx build/data-checks.ts",
-    "doc": "tsx build/bundle-doc.ts",
-    "docs:check-links": "node build/docs/check-broken-links.mjs ../../docs",
-    "docs:sort-glossary": "node build/docs/sort-glossary.mjs",
+    "data:checks": "romcal-build check --rite roman1969",
+    "doc": "romcal-build doc --rite roman1969",
+    "docs:check-links": "node ../../packages/builder/src/commands/docs/check-broken-links.mjs ../../docs",
+    "docs:sort-glossary": "node ../../packages/builder/src/commands/docs/sort-glossary.mjs",
     "test": "TZ=UTC jest --coverage",
     "test:snapshot:update": "TZ=UTC jest -u",
     "test:watch": "TZ=UTC jest --watch",
@@ -25,35 +25,17 @@
     "typecheck": "tsc --noEmit --importHelpers false -p tsconfig.json"
   },
   "dependencies": {
-    "@internal/calendar-dates": "file:../../packages/calendar-dates",
     "@internal/easter": "file:../../packages/easter",
     "@internal/generator": "file:../../packages/generator",
     "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
+    "@internal/calendar-dates": "file:../../packages/calendar-dates",
     "i18next": "^26.4.0",
     "ts-deepmerge": "^8.0.0"
   },
   "devDependencies": {
-    "@jsdevtools/rehype-url-inspector": "^2.0.2",
-    "@types/cli-progress": "^3.11.6",
-    "@types/humanize-duration": "^3.27.4",
+    "@internal/builder": "file:../../packages/builder",
     "@types/jest": "^30.0.0",
     "@types/node": "~26.2.0",
-    "chalk": "^6.0.0",
-    "cli-progress": "^3.12.0",
-    "diff": "^9.0.0",
-    "dts-bundle-generator": "^9.5.1",
-    "esbuild": "~0.28.2",
-    "esbuild-jest": "~0.5.0",
-    "glob": "^13.0.6",
-    "humanize-duration": "^3.34.1",
-    "rehype-slug": "^6.0.0",
-    "rehype-stringify": "^10.0.1",
-    "remark": "^15.0.1",
-    "remark-gfm": "^4.0.0",
-    "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.2",
-    "remark-stringify": "^11.0.0",
-    "type-fest": "^5.8.0",
-    "unified": "^11.0.5"
+    "esbuild-jest": "~0.5.0"
   }
 }

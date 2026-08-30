@@ -54,7 +54,7 @@
   "scripts": {
     "prebuild": "npm run clean",
     "build": "npm run build -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/calendar-dates -w=@internal/generator -w=@internal/rite-roman1969",
-    "clean": "rimraf coverage dist tmp && npm run clean -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/calendar-dates -w=@internal/generator -w=@internal/rite-roman1969",
+    "clean": "rimraf coverage dist tmp && npm run clean -w=@internal/builder -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/generator -w=@internal/calendar-dates -w=@internal/rite-roman1969",
     "data:checks": "npm run data:checks -w=@internal/rite-roman1969",
     "doc": "npm run doc -w=@internal/rite-roman1969",
     "docs:check-links": "npm run docs:check-links -w=@internal/rite-roman1969",
@@ -62,13 +62,15 @@
     "lint": "eslint --config .config/eslint.config.mjs .",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky",
-    "publish:new": "cd rites/roman1969 && tsx build/publish.ts --only-new",
+    "publish:dev": "romcal-build publish --rite roman1969",
+    "publish:dry-run": "romcal-build publish --rite roman1969 --dry-run",
+    "publish:new": "romcal-build publish --rite roman1969 --only-new",
     "test": "npm run test --workspaces --if-present",
     "test:snapshot:update": "npm run test:snapshot:update -w=@internal/rite-roman1969",
     "test:watch": "npm run test:watch -w=@internal/rite-roman1969",
     "test:without-coverage": "npm run test:without-coverage --workspaces --if-present",
-    "trust:check": "cd rites/roman1969 && tsx build/trusted-publishing.ts",
-    "trust:sync": "cd rites/roman1969 && tsx build/trusted-publishing.ts --sync",
+    "trust:check": "romcal-build trust --rite roman1969",
+    "trust:sync": "romcal-build trust --rite roman1969 --sync",
     "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "dependencies": {
