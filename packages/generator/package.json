@@ -1,0 +1,20 @@
+{
+  "name": "@internal/generator",
+  "version": "0.0.0",
+  "description": "The calendar engine shared by every Roman Rite: contracts, the build pipeline and the Proper of Time.",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.release.json",
+    "clean": "rimraf coverage dist",
+    "test": "TZ=UTC jest",
+    "test:without-coverage": "TZ=UTC jest",
+    "typecheck": "tsc --noEmit --importHelpers false -p tsconfig.json"
+  },
+  "dependencies": {
+    "@internal/calendar-dates": "file:../proper-of-time",
+    "i18next": "^26.4.0",
+    "ts-deepmerge": "^8.0.0"
+  }
+}

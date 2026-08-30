@@ -1,5 +1,4 @@
-import { CalendarDef } from '../../models/calendar-def';
-import { Inputs } from '../../types/calendar-def';
+import { CalendarDef, Inputs } from '@internal/generator';
 
 export class Asia extends CalendarDef {
   inputs: Inputs = {};

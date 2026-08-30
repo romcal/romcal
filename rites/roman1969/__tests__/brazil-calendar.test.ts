@@ -1,8 +1,6 @@
 import { Brazil_PtBr } from '@dist/rite-roman1969/bundles/brazil';
+import { Precedences, Ranks } from '@internal/generator';
 import { Romcal } from '@src/rite-roman1969';
-
-import { Precedences } from '../src/constants/precedences';
-import { Ranks } from '../src/constants/ranks';
 
 describe('Testing Brazilian calendar specific celebrations', () => {
   const romcal = new Romcal({ localizedCalendar: Brazil_PtBr });

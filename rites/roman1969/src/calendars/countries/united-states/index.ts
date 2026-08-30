@@ -1,9 +1,5 @@
-import { Colors } from '../../../constants/colors';
-import { CommonDefinition as Common } from '../../../constants/commons';
-import { PatronTitle } from '../../../constants/martyrology-metadata';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs, ParticularConfig } from '../../../types/calendar-def';
+import { Colors, CommonDefinition as Common, PatronTitle, Precedences, CalendarDef, Inputs, ParticularConfig } from '@internal/generator';
+
 import { Americas } from '../../regions/americas';
 
 export class UnitedStates extends CalendarDef {

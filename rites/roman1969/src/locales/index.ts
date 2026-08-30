@@ -1,4 +1,4 @@
-import { Locale } from '../types/locale';
+import { Locale } from '@internal/generator';
 
 import { locale as Cs } from './cs';
 import { locale as De } from './de';
