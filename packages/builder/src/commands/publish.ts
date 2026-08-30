@@ -2,16 +2,12 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import chalk from 'chalk';
+import { ResolvedOptions } from '../types';
+import { Logger } from '../utils/logger';
 
 const REGISTRY = 'https://registry.npmjs.org';
 
 const tag = 'dev';
-const dryRun = process.argv.includes('--dry-run');
-/** Publish only packages that don't exist on the registry yet (first publish of new calendar bundles). */
-const onlyNew = process.argv.includes('--only-new');
-
-const { log } = console;
 
 type Target = {
   /** Directory containing the package.json to publish. */
@@ -38,7 +34,7 @@ const publishedVersions = async (name: string): Promise<string[] | null> => {
  * Token-based publishes rely on setup-node writing `.npmrc` from `NODE_AUTH_TOKEN`
  * via `registry-url`; the npm CLI does not read `NPM_TOKEN`.
  */
-const publish = (target: Target): boolean => {
+const publish = (target: Target, dryRun: boolean): boolean => {
   const args = ['publish', '--access', 'public', '--tag', tag, '--ignore-scripts'];
   if (process.env.ACTIONS_ID_TOKEN_REQUEST_URL) args.push('--provenance');
   if (dryRun) args.push('--dry-run');
@@ -47,16 +43,25 @@ const publish = (target: Target): boolean => {
   return (result.status ?? 1) === 0;
 };
 
-(async (): Promise<void> => {
-  const rootDir = path.join(__dirname, '../../..');
-  const bundlesBasePath = path.join(__dirname, '../dist/bundles');
+export interface PublishOptions {
+  /** Publish only packages that don't exist on the registry yet (first publish of new calendar bundles). */
+  readonly onlyNew: boolean;
+}
+
+export const runPublish = async (
+  options: ResolvedOptions,
+  { onlyNew }: PublishOptions,
+  log: Logger
+): Promise<void> => {
+  const { dryRun, manifest, repoRoot, riteRoot } = options;
+  const bundlesBasePath = path.join(riteRoot, manifest.outDir, 'bundles');
 
   const bundleDirs = fs
     .readdirSync(bundlesBasePath, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => path.join(bundlesBasePath, dirent.name));
 
-  const targets: Target[] = [rootDir, ...bundleDirs].map((dir) => {
+  const targets: Target[] = [repoRoot, ...bundleDirs].map((dir) => {
     const { name, version } = JSON.parse(fs.readFileSync(path.join(dir, 'package.json'), 'utf-8'));
     return { dir, name, version };
   });
@@ -71,7 +76,7 @@ const publish = (target: Target): boolean => {
       versions = await publishedVersions(target.name);
     } catch (err) {
       failures += 1;
-      log(`${chalk.red(' ✗')} Package "${target.name}": ${(err as Error).message}\n`);
+      log.error(`Package "${target.name}": ${(err as Error).message}`);
       continue;
     }
 
@@ -80,35 +85,35 @@ const publish = (target: Target): boolean => {
     if (onlyNew && !isNew) continue;
     if (isNew && !onlyNew) {
       skippedNew.push(target.name);
-      log(`${chalk.yellow(' •')} Package "${target.name}" is not on the registry yet; skip (run npm run publish:new)\n`);
+      log.warn(`Package "${target.name}" is not on the registry yet; skip (run npm run publish:new)`);
       continue;
     }
 
     if (versions?.includes(target.version)) {
-      log(` ✓ Package "${target.name}" is already published: ${target.version} (${tag})\n`);
+      log.success(`Package "${target.name}" is already published: ${target.version} (${tag})`);
       continue;
     }
 
     selected += 1;
-    log(` - Publishing ${target.name}@${target.version}${dryRun ? chalk.gray(' (dry-run)') : ''}${isNew ? chalk.gray(' (new package)') : ''}`);
-    if (publish(target)) {
-      log(` ✓ Package "${target.name}" published: ${target.version} (${tag})\n`);
+    log.info(`Publishing ${target.name}@${target.version}${isNew ? ' (new package)' : ''}`);
+    if (publish(target, dryRun)) {
+      log.success(`Package "${target.name}" published: ${target.version} (${tag})`);
     } else {
       failures += 1;
-      log(`${chalk.red(' ✗')} Package "${target.name}" failed to publish\n`);
+      log.error(`Package "${target.name}" failed to publish`);
     }
   }
 
   if (skippedNew.length) {
-    log(chalk.yellow(`${skippedNew.length} new package(s) skipped (not yet on the registry):`));
-    skippedNew.forEach((name) => log(chalk.dim(`  ${name}`)));
-    log(chalk.dim('  First-publish them with npm run publish:new, then npm run trust:sync.\n'));
+    log.warn(`${skippedNew.length} new package(s) skipped (not yet on the registry):`);
+    skippedNew.forEach((name) => log.detail(name));
+    log.detail('First-publish them with npm run publish:new, then npm run trust:sync.');
   }
 
-  if (onlyNew && selected === 0) log(chalk.dim('No packages found to publish.'));
+  if (onlyNew && selected === 0) log.detail('No packages found to publish.');
 
   if (failures > 0) {
-    log(chalk.red(`${failures} package(s) failed to publish.`));
+    log.error(`${failures} package(s) failed to publish.`);
     process.exit(1);
   }
-})();
+};
