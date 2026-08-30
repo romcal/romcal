@@ -137,24 +137,18 @@ export class LiturgicalDay implements BaseLiturgicalDay {
 
     this.periods = baseData?.periods ?? def.periods;
 
-    // The second Sunday after the Christmas octave can be before or after the Epiphany,
-    // and this can be determined from the definition of the Proper of the Time,
-    // without having a liturgical year context.
-    if (def.fromCalendarId === PROPER_OF_TIME_NAME && this.id === 'second_sunday_after_christmas') {
-      if (date.getTime() >= liturgicalDayConfig.dates.epiphany().getTime()) {
-        this.periods.unshift(Period.DaysFromEpiphany);
-      } else if (date.getTime() > liturgicalDayConfig.dates.maryMotherOfGod().getTime()) {
-        this.periods.unshift(Period.DaysBeforeEpiphany);
-      }
-    }
-
-    // Specify the early/late period of an ordinary time liturgical day item
-    if (def.fromCalendarId === PROPER_OF_TIME_NAME && this.seasons[0] === Season.OrdinaryTime) {
-      if (date.getTime() < liturgicalDayConfig.dates.pentecostSunday().getTime()) {
-        this.periods.unshift(Period.EarlyOrdinaryTime);
-      } else {
-        this.periods.unshift(Period.LateOrdinaryTime);
-      }
+    // Some periods cannot be read off the definition, only off where the date landed
+    // in the year being generated. Which those are is the rite's business.
+    const { periodsOf } = liturgicalDayConfig.config.rubrics;
+    if (def.fromCalendarId === PROPER_OF_TIME_NAME && periodsOf) {
+      this.periods.unshift(
+        ...periodsOf({
+          date,
+          dates: liturgicalDayConfig.dates,
+          id: this.id,
+          seasons: this.seasons,
+        })
+      );
     }
 
     /**

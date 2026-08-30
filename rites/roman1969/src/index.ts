@@ -175,7 +175,9 @@ class Romcal {
     const y = Romcal.#sanitizeYear(year);
     const ldConfig = new LiturgicalDayConfig(this.#config, y);
     if (this.#dates[ldConfig.year]) return this.#dates[ldConfig.year];
-    return (this.#dates[ldConfig.year] = ldConfig.dates);
+    // The engine holds these as the narrow set of dates it needs itself. This rite
+    // supplied the class they were built from, so it can say what they really are.
+    return (this.#dates[ldConfig.year] = ldConfig.dates as Dates);
   }
 
   /**

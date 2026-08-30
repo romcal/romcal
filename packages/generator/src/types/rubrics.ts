@@ -1,5 +1,7 @@
+import { Period } from '../constants/periods';
 import { Rank } from '../constants/ranks';
-import { Dates } from '../utils/dates';
+
+import { DatesProvider } from './dates';
 
 /**
  * Everything a rite needs to number a day within its season.
@@ -13,7 +15,7 @@ import { Dates } from '../utils/dates';
  */
 export interface SeasonNumberingInput {
   readonly date: Date;
-  readonly dates: Dates;
+  readonly dates: DatesProvider;
   readonly endOfSeason?: Date;
   readonly seasons: readonly string[];
   readonly startOfSeason?: Date;
@@ -25,6 +27,21 @@ export interface SeasonNumberingInput {
 export interface SeasonNumbering {
   readonly dayOfSeason: number;
   readonly weekOfSeason: number;
+}
+
+/**
+ * A day of the Proper of Time, and where it fell, for working out its periods.
+ *
+ * Periods are the stretches that cut across seasons — the octaves, the days before
+ * and after the Epiphany, the two halves of Ordinary Time. Most are settled in the
+ * definition itself; the ones here are not, because they depend on where a movable
+ * date landed in the year being generated.
+ */
+export interface PeriodInput {
+  readonly date: Date;
+  readonly dates: DatesProvider;
+  readonly id: string;
+  readonly seasons: readonly string[];
 }
 
 /** How a rite divides and counts its year. */
@@ -80,4 +97,13 @@ export interface Rubrics {
 
   /** How the year is divided, and how a day is numbered within its season. */
   readonly seasons: SeasonRules;
+
+  /**
+   * Periods to add to a day of the Proper of Time that can only be told from the
+   * date it fell on.
+   *
+   * Prepended to whatever the definition already declares. A rite with no such
+   * periods leaves this out.
+   */
+  readonly periodsOf?: (input: PeriodInput) => readonly Period[];
 }

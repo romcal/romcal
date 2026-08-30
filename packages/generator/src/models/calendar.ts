@@ -5,8 +5,9 @@ import { Ranks } from '../constants/ranks';
 import { Season } from '../constants/seasons';
 import { BaseCalendar, ByIds, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
 import { Id } from '../types/common';
+import { DatesProvider } from '../types/dates';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
-import { Dates, isValidDate } from '../utils/dates';
+import { isValidDate } from '../utils/dates';
 
 import { RomcalConfig } from './config';
 import { LiturgicalDay } from './liturgical-day';
@@ -31,7 +32,7 @@ export class Calendar implements BaseCalendar {
 
   readonly #liturgicalDayConfig: LiturgicalDayConfig;
 
-  readonly dates: Dates;
+  readonly dates: DatesProvider;
 
   readonly #startOfSeasonsDic: Record<number, Record<Season, Date>> = {};
 
@@ -40,7 +41,7 @@ export class Calendar implements BaseCalendar {
   constructor(config: RomcalConfig, liturgicalDayConfig: LiturgicalDayConfig) {
     this.#config = config;
     this.#liturgicalDayConfig = liturgicalDayConfig;
-    this.dates = new Dates(config, liturgicalDayConfig.year);
+    this.dates = new config.dates(config, liturgicalDayConfig.year);
   }
 
   /**

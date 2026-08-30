@@ -2,9 +2,9 @@
  * Liturgical Calendar, containing LiturgicalDay objects, within the context of a year
  */
 import { LiturgicalDay } from '../models/liturgical-day';
-import { Dates } from '../utils/dates';
 
 import { Id } from './common';
+import { DatesProvider } from './dates';
 
 export type LiturgicalCalendar = Record<string, LiturgicalDay[]>;
 
@@ -24,6 +24,6 @@ export type LiturgicalBuiltData = {
  * Base [CalendarDef] interface
  */
 export interface BaseCalendar {
-  dates: Dates;
+  dates: DatesProvider;
   generateCalendar: (builtData: LiturgicalBuiltData) => LiturgicalCalendar;
 }

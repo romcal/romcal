@@ -2,8 +2,8 @@ import i18next, { i18n } from 'i18next';
 
 import { Color } from '../constants/colors';
 import { Season } from '../constants/seasons';
+import { Roman1969Rite } from '../default-rite';
 import { ProperOfTime } from '../proper-of-time/proper-of-time';
-import { Unly1969Rubrics } from '../rubrics/unly-1969';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
 import {
@@ -16,10 +16,11 @@ import {
   TemporalOverrides,
 } from '../types/config';
 import { BaseCyclesMetadata } from '../types/cycles-metadata';
+import { DatesConstructor } from '../types/dates';
 import { Locale } from '../types/locale';
 import { MartyrologyCatalog } from '../types/martyrology';
+import { Rite } from '../types/rite';
 import { Rubrics } from '../types/rubrics';
-import { Dates } from '../utils/dates';
 import { toRomanNumber } from '../utils/numbers';
 import { sanitizeLocaleId } from '../utils/string';
 import { cloneTemporalOverrides, omitTemporalOverrideAnchor } from '../utils/temporal-overrides';
@@ -91,7 +92,14 @@ export class RomcalConfig implements IRomcalConfig {
 
   readonly i18next: i18n;
 
-  readonly dates: typeof Dates;
+  /** The rite this calendar is generated under. */
+  readonly rite: Rite;
+
+  /**
+   * The class the engine builds a year's dates from. Defaults to romcal's own, which
+   * computes the 1969 calendar.
+   */
+  readonly dates: DatesConstructor;
 
   /**
    * The rules of precedence in force. Defaults to the 1969 norms, so a rite that has
@@ -121,7 +129,7 @@ export class RomcalConfig implements IRomcalConfig {
       undefined,
       undefined,
       undefined,
-      this.rubrics
+      this.rite
     );
   }
 
@@ -131,16 +139,18 @@ export class RomcalConfig implements IRomcalConfig {
    * @param martyrologyCatalog
    * @param locale
    * @param ParticularCalendar
-   * @param rubrics The rules of precedence of the rite. Defaults to the 1969 norms.
+   * @param rite The dates and rubrics of the rite. Defaults to the Roman Rite of 1969.
    */
   constructor(
     config?: RomcalConfigInput,
     martyrologyCatalog?: MartyrologyCatalog,
     locale?: Locale,
     ParticularCalendar?: typeof CalendarDef,
-    rubrics: Rubrics = Unly1969Rubrics
+    rite: Rite = Roman1969Rite
   ) {
-    this.rubrics = rubrics;
+    this.rite = rite;
+    this.dates = rite.dates;
+    this.rubrics = rite.rubrics;
 
     this.#input = config
       ? {
@@ -196,9 +206,6 @@ export class RomcalConfig implements IRomcalConfig {
     // If another locale is specified, load associated resources in the
     // i18next library.
     if (localeObj) this.#addResourceBundles(localeObj);
-
-    // Initialize the Date library.
-    this.dates = Dates;
 
     // Initiate the CalendarDef objects.
     this.calendarsDef = [];

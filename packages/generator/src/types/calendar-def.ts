@@ -1,9 +1,9 @@
 import { RomcalConfig } from '../models/config';
 import { LiturgicalDayDef } from '../models/liturgical-day-def';
-import { Dates } from '../utils/dates';
 
 import { Id, XOR } from './common';
 import { RomcalConfigInput } from './config';
+import { DatesConstructor } from './dates';
 import { LiturgicalDayBundleInput, LiturgicalDayInput } from './liturgical-day';
 
 /**
@@ -49,7 +49,7 @@ export interface BaseCalendarDef {
    * parent calendars.
    */
   inputs: CalendarDefInputs;
-  dates: typeof Dates;
+  dates: DatesConstructor;
   updateConfig: (config?: RomcalConfigInput) => void;
   buildAllDefinitions: () => void;
   calendarName: Id;

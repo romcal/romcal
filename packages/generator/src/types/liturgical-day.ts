@@ -45,11 +45,19 @@ export type DateDefMonthDate = {
    */
   yearOffset?: number;
 };
+/** See {@link DateDefDateFnAddDay.dateFn}. */
+export type DateFnName = keyof Dates | (string & NonNullable<unknown>);
+
 export type DateDefDateFnAddDay = {
   /**
-   * A date function name from the [Date] class.
+   * The name of a date function on the rite's date class.
+   *
+   * Resolved by name at runtime, so a rite that supplies its own dates can name any
+   * of them here. The union with `string` is what allows that while keeping the 1969
+   * names, which the calendar definitions in this repository are written against,
+   * offered as completions.
    */
-  dateFn: keyof Dates;
+  dateFn: DateFnName;
 
   /**
    * Possible date function arguments that may be required.
@@ -68,9 +76,14 @@ export type DateDefDateFnAddDay = {
 };
 export type DateDefDateFnSubtractDay = {
   /**
-   * A date function name from the [Date] class.
+   * The name of a date function on the rite's date class.
+   *
+   * Resolved by name at runtime, so a rite that supplies its own dates can name any
+   * of them here. The union with `string` is what allows that while keeping the 1969
+   * names, which the calendar definitions in this repository are written against,
+   * offered as completions.
    */
-  dateFn: keyof Dates;
+  dateFn: DateFnName;
 
   /**
    * Possible date function arguments that may be required.

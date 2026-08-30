@@ -2,6 +2,16 @@ import { AnchorException, ParticularConfig, Romcal, TemporalOverrides } from '@s
 
 const { CalendarDef, RomcalConfig, LiturgicalDayConfig } = Romcal;
 
+/**
+ * The engine only promises the handful of dates it uses itself, so reaching for one
+ * of the rite's own means saying which rite's dates these are. Here that is not in
+ * doubt: the config above was built with romcal's default.
+ */
+type Dates = ReturnType<Romcal['dates']>;
+
+const datesOf = (config: InstanceType<typeof RomcalConfig>, year: number): Dates =>
+  new LiturgicalDayConfig(config, year).dates as Dates;
+
 const temporalOverridesFixture: TemporalOverrides = {
   anchorExceptions: {
     epiphany: [{ when: { dayOfWeek: 'saturday' }, then: { transferTo: 'sunday' } }],
@@ -61,7 +71,7 @@ describe('getConfig()', () => {
 
     const config = new RomcalConfig(undefined, undefined, undefined, ChildCalendar);
     expect(config.temporalOverrides).toEqual(temporalOverridesFixture);
-    expect(new LiturgicalDayConfig(config, 2024).dates.epiphany().toISOString()).toEqual('2024-01-07T00:00:00.000Z');
+    expect(datesOf(config, 2024).epiphany().toISOString()).toEqual('2024-01-07T00:00:00.000Z');
   });
 
   test('should preserve resolved temporal overrides when cloned', () => {
@@ -81,7 +91,7 @@ describe('getConfig()', () => {
     expect(clone.temporalOverrides?.anchorExceptions.epiphany).not.toBe(
       config.temporalOverrides?.anchorExceptions.epiphany
     );
-    expect(new LiturgicalDayConfig(clone, 2024).dates.epiphany().toISOString()).toEqual('2024-01-07T00:00:00.000Z');
+    expect(datesOf(clone, 2024).epiphany().toISOString()).toEqual('2024-01-07T00:00:00.000Z');
   });
 
   test('should only remove inherited Epiphany exceptions for an explicit option', () => {
@@ -124,6 +134,6 @@ describe('getConfig()', () => {
 
     const config = new RomcalConfig(undefined, undefined, undefined, ChildCalendar);
     expect(config.temporalOverrides).toEqual({ anchorExceptions: {} });
-    expect(new LiturgicalDayConfig(config, 2024).dates.epiphany().toISOString()).toEqual('2024-01-06T00:00:00.000Z');
+    expect(datesOf(config, 2024).epiphany().toISOString()).toEqual('2024-01-06T00:00:00.000Z');
   });
 });

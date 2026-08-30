@@ -1,8 +1,9 @@
+import { Period } from '../constants/periods';
 import { PRECEDENCES, Precedences } from '../constants/precedences';
 import { Rank, Ranks, RanksFromPrecedence } from '../constants/ranks';
 import { Season } from '../constants/seasons';
-import { Rubrics, SeasonNumbering, SeasonNumberingInput } from '../types/rubrics';
-import { dateDifference } from '../utils/dates';
+import { PeriodInput, Rubrics, SeasonNumbering, SeasonNumberingInput } from '../types/rubrics';
+import { Dates, dateDifference } from '../utils/dates';
 
 /**
  * The table of precedence of the Universal Norms on the Liturgical Year, 1969.
@@ -40,7 +41,8 @@ const numbering = ({
 }: SeasonNumberingInput): SeasonNumbering => {
   const isLent = seasons.includes(Season.Lent);
   const isLateOrdinaryTime =
-    seasons.includes(Season.OrdinaryTime) && date.getTime() >= dates.maryMotherOfTheChurch().getTime();
+    seasons.includes(Season.OrdinaryTime) &&
+    date.getTime() >= (dates as unknown as Dates).maryMotherOfTheChurch().getTime();
 
   let dayOfSeason = declaredDayOfSeason ?? (startOfSeason ? dateDifference(date, startOfSeason) + 1 : NaN);
   if (isLateOrdinaryTime) dayOfSeason -= 96;
@@ -58,7 +60,31 @@ const numbering = ({
   return { dayOfSeason, weekOfSeason };
 };
 
+/**
+ * The periods of a 1969 day of the Proper of Time that depend on the date.
+ *
+ * Two of them. The second Sunday after Christmas falls on either side of the Epiphany
+ * depending on the year, and Ordinary Time is in two stretches, before Lent and after
+ * Pentecost, which are told apart by comparing against Pentecost itself.
+ */
+const periodsOf = ({ date, dates, id, seasons }: PeriodInput): readonly Period[] => {
+  const { epiphany, maryMotherOfGod, pentecostSunday } = dates as unknown as Dates;
+
+  if (id === 'second_sunday_after_christmas') {
+    if (date.getTime() >= epiphany().getTime()) return [Period.DaysFromEpiphany];
+    if (date.getTime() > maryMotherOfGod().getTime()) return [Period.DaysBeforeEpiphany];
+    return [];
+  }
+
+  if (seasons[0] === Season.OrdinaryTime) {
+    return [date.getTime() < pentecostSunday().getTime() ? Period.EarlyOrdinaryTime : Period.LateOrdinaryTime];
+  }
+
+  return [];
+};
+
 export const Unly1969Rubrics: Rubrics = {
+  periodsOf,
   precedences: PRECEDENCES,
   rankOf,
   seasons: {

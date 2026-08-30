@@ -7,8 +7,8 @@ import {
 } from '../types/calendar-def';
 import { Id } from '../types/common';
 import { RomcalConfigInput } from '../types/config';
+import { DatesConstructor } from '../types/dates';
 import { LiturgicalDayBundleInput } from '../types/liturgical-day';
-import { Dates } from '../utils/dates';
 import { cloneTemporalOverrides, omitTemporalOverrideAnchor } from '../utils/temporal-overrides';
 
 import { RomcalConfig } from './config';
@@ -17,7 +17,7 @@ import { LiturgicalDayDef } from './liturgical-day-def';
 export class CalendarDef implements BaseCalendarDef {
   readonly #config: RomcalConfig;
 
-  readonly dates: typeof Dates;
+  readonly dates: DatesConstructor;
 
   ParentCalendars?: CalendarDefInstance[] | null;
 

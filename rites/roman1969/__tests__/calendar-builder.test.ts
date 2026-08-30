@@ -13,6 +13,7 @@ import {
   LiturgicalDay,
   LiturgicalDayDef,
   Period,
+  Rank,
   Romcal,
   RomcalBundleObject,
   Season,
@@ -145,7 +146,7 @@ describe('Testing calendar generation functions', () => {
       defs
         .filter(
           (d) =>
-            [Ranks.Memorial, Ranks.OptionalMemorial].includes(d.rank) &&
+            ([Ranks.Memorial, Ranks.OptionalMemorial] as Rank[]).includes(d.rank) &&
             !d.titles.includes(Titles.Apostle) &&
             !d.titles.includes(Titles.Evangelist)
         )
