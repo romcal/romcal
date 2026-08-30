@@ -1,6 +1,8 @@
 import { Brazil_PtBr } from '@dist/rite-roman1969/bundles/brazil';
 import { France_Fr } from '@dist/rite-roman1969/bundles/france';
+import { GeneralRoman_En } from '@dist/rite-roman1969/bundles/general-roman';
 import { Germany_De } from '@dist/rite-roman1969/bundles/germany';
+import { Italy_It } from '@dist/rite-roman1969/bundles/italy';
 import { Romcal } from '@src/rite-roman1969';
 
 import { laOrdinalNumberGenderFixture } from './fixtures/la-ordinal-number-gender.fixture';
@@ -44,6 +46,21 @@ describe('Testing localization functionality', () => {
         });
       });
     });
+  });
+});
+
+describe('Test the interpolation formats', () => {
+  // These are registered with i18next's formatter service. Passing them as
+  // `interpolation.format` instead left them silently unapplied: i18next overwrites
+  // that option during init, so every name below rendered its raw value (#1226).
+  test('`romanize` and `capitalize` are applied to an Italian weekday', async () => {
+    const calendar = await new Romcal({ localizedCalendar: Italy_It }).generateCalendar(2024);
+    expect(calendar['2024-12-02'][0].name).toBe('Lunedì della I settimana di Avvento');
+  });
+
+  test('`capitalize` is applied to an English ordinal', async () => {
+    const calendar = await new Romcal({ localizedCalendar: GeneralRoman_En }).generateCalendar(2024);
+    expect(calendar['2024-12-01'][0].name).toBe('First Sunday of Advent');
   });
 });
 
