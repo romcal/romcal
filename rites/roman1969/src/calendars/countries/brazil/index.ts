@@ -1,7 +1,5 @@
-import { PatronTitle } from '../../../constants/martyrology-metadata';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { PatronTitle, Precedences, CalendarDef, Inputs } from '@internal/generator';
+
 import { Americas } from '../../regions/americas';
 
 export class Brazil extends CalendarDef {

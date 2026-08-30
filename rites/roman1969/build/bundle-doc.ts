@@ -1,12 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 
+import { CalendarDef, toPackageName } from '@internal/generator';
 import chalk from 'chalk';
 import { ESLint } from 'eslint';
 
 import { calendarDefinitions } from '../src/calendars';
-import { CalendarDef } from '../src/models/calendar-def';
-import { toPackageName } from '../src/utils/string';
 
 import { getDuration } from './time';
 

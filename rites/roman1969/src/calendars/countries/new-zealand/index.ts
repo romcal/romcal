@@ -1,7 +1,4 @@
-import { PatronTitle, Title } from '../../../constants/martyrology-metadata';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { PatronTitle, Title, Precedences, CalendarDef, Inputs } from '@internal/generator';
 
 export class NewZealand extends CalendarDef {
   inputs: Inputs = {

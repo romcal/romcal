@@ -1,8 +1,4 @@
-import { CommonDefinition as Common } from '../../constants/commons';
-import { PatronTitle } from '../../constants/martyrology-metadata';
-import { Precedences } from '../../constants/precedences';
-import { CalendarDef } from '../../models/calendar-def';
-import { Inputs } from '../../types/calendar-def';
+import { CommonDefinition as Common, PatronTitle, Precedences, CalendarDef, Inputs } from '@internal/generator';
 
 import { Africa } from './africa';
 
