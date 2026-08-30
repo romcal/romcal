@@ -1,4 +1,5 @@
-import { CalendarDef } from '../../../models/calendar-def';
+import { CalendarDef } from '@internal/generator';
+
 import { Europe } from '../../regions/europe';
 
 import { Russia } from '.';

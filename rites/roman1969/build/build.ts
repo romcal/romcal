@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { dirname, join, resolve } from 'node:path';
 
+import { toPackageName, toPascalCase } from '@internal/generator';
 import pkg from '@internal/package.json';
 import chalk from 'chalk';
 import { generateDtsBundle } from 'dts-bundle-generator';
@@ -11,7 +12,6 @@ import { PackageJson } from 'type-fest';
 import ts from 'typescript';
 
 import { calendarDefinitions } from '../src/calendars';
-import { toPackageName, toPascalCase } from '../src/utils/string';
 
 import { RomcalBundler } from './bundle';
 import { getDuration } from './time';

@@ -3,11 +3,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import readline from 'node:readline/promises';
 
+import { toPackageName } from '@internal/generator';
 import pkg from '@internal/package.json';
 import chalk from 'chalk';
 
 import { calendarDefinitions } from '../src/calendars';
-import { toPackageName } from '../src/utils/string';
 
 /**
  * Trusted publisher configuration that every published romcal package must have.

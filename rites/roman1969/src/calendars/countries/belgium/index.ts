@@ -1,8 +1,6 @@
-import { CommonDefinition as Common } from '../../../constants/commons';
-import { PatronTitle } from '../../../constants/martyrology-metadata';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import type { Inputs, ParticularConfig } from '../../../types/calendar-def';
+import { CommonDefinition as Common, PatronTitle, Precedences, CalendarDef } from '@internal/generator';
+import type { Inputs, ParticularConfig } from '@internal/generator';
+
 import { Europe } from '../../regions/europe';
 
 export class Belgium extends CalendarDef {

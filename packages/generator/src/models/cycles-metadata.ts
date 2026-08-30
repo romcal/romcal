@@ -1,5 +1,3 @@
-import { Season } from '@src/rite-roman1969';
-
 import {
   PSALTER_WEEKS,
   ProperCycle,
@@ -9,6 +7,7 @@ import {
   WEEKDAY_CYCLES,
   WeekdayCycle,
 } from '../constants/cycles';
+import { Season } from '../constants/seasons';
 import { BaseCyclesMetadata, PlainCyclesMetadata } from '../types/cycles-metadata';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
 import { getUtcDateFromString } from '../utils/dates';
