@@ -1,6 +1,5 @@
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import type { Inputs } from '../../../types/calendar-def';
+import { Precedences, CalendarDef } from '@internal/generator';
+import type { Inputs } from '@internal/generator';
 
 import { France_TarbesLourdes } from './diocese-of-tarbes-and-lourdes';
 
