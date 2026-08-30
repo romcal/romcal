@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs';
 import { resolve } from 'node:path';
 
-import c from 'chalk';
+import { colors as c } from 'consola/utils';
 import { diffTrimmedLines } from 'diff';
 import { remark } from 'remark';
 import gfm from 'remark-gfm';
@@ -10,7 +10,7 @@ import stringify from 'remark-stringify';
 
 const isCI = process.env.CI === 'true';
 const dir = import.meta.dirname;
-const file = resolve(dir, '../../../../docs/glossary.md');
+const file = resolve(dir, '../../../../../docs/glossary.md');
 
 /** Sort second-level headings alphabetically */
 const sortHeadings = (tree) => {
