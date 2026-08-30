@@ -1,7 +1,5 @@
-import { PatronTitle } from '../../../constants/martyrology-metadata';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { PatronTitle, Precedences, CalendarDef, Inputs } from '@internal/generator';
+
 import { Europe } from '../../regions/europe';
 
 export class Scotland extends CalendarDef {

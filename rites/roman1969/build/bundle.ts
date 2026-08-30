@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { inspect } from 'node:util';
 
+import { PROPER_OF_TIME_NAME, sanitizeLocaleId, toPackageName, toPascalCase } from '@internal/generator';
 import chalk from 'chalk';
 import cliProgress from 'cli-progress';
 import { rimraf } from 'rimraf';
@@ -24,9 +25,7 @@ import {
 import { calendarDefinitions } from '../src/calendars';
 import { GeneralRoman } from '../src/calendars/general-roman';
 import { Martyrology } from '../src/catalog/martyrology';
-import { PROPER_OF_TIME_NAME } from '../src/constants/general-calendar-names';
 import { locales } from '../src/locales';
-import { sanitizeLocaleId, toPackageName, toPascalCase } from '../src/utils/string';
 
 const { log } = console;
 

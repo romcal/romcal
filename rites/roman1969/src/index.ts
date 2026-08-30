@@ -1,75 +1,23 @@
 import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
-import { version } from '@internal/package.json';
-
-import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from './constants/calendars';
-import { COLORS, Color, Colors, isColor } from './constants/colors';
-import {
-  PROPER_CYCLES,
-  PSALTER_WEEKS,
-  ProperCycle,
-  ProperCycles,
-  PsalterWeekCycle,
-  PsalterWeekCycles,
-  SUNDAY_CYCLES,
-  SundayCycle,
-  SundayCycles,
-  WEEKDAY_CYCLES,
-  WeekdayCycle,
-  WeekdayCycles,
-} from './constants/cycles';
-import { GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from './constants/general-calendar-names';
-import { LOCALE_IDS, LOCALE_VAR_NAMES, LOCALES } from './constants/locales';
-import {
-  CANONIZATION_LEVEL,
-  CanonizationLevel,
-  CanonizationLevels,
-  PATRON_TITLES,
-  PatronTitle,
-  SEXES,
-  Sex,
-  Sexes,
-  TITLES,
-  Title,
-  isMartyr,
-} from './constants/martyrology-metadata';
-import { MONTHS, Month, MonthIndex } from './constants/months';
-import { PERIODS, Period } from './constants/periods';
-import { PRECEDENCES, Precedence, Precedences } from './constants/precedences';
-import { RANKS, Rank, Ranks, RanksFromPrecedence } from './constants/ranks';
-import { SEASONS, Season } from './constants/seasons';
-import { DayOfWeek, WEEKDAYS, Weekday } from './constants/weekdays';
-import { RomcalBundle } from './models/bundle';
-import { Calendar } from './models/calendar';
-import { CalendarDef } from './models/calendar-def';
-import { RomcalConfig } from './models/config';
-import { CyclesMetadata } from './models/cycles-metadata';
-import { LiturgicalDay } from './models/liturgical-day';
-import { LiturgicalDayConfig } from './models/liturgical-day-config';
-import { LiturgicalDayDef } from './models/liturgical-day-def';
-import { RomcalBundleObject } from './types/bundle';
-import { LiturgicalCalendar } from './types/calendar';
-import {
-  BundleInputs,
-  CalendarDefInputs,
-  Inputs,
-  LiturgicalDayDefinitions,
-  ParticularConfig,
-} from './types/calendar-def';
-import { Id } from './types/common';
 import {
   AnchorException,
   AnchorTransferTarget,
-  CalendarScope,
-  RomcalConfigInput,
-  RomcalConfigOutput,
-  ShiftableAnchor,
-  TemporalOverrides,
-} from './types/config';
-import { BaseCyclesMetadata, PartialCyclesDef, PlainCyclesMetadata } from './types/cycles-metadata';
-import {
+  BaseCyclesMetadata,
   BaseLiturgicalDay,
   BaseLiturgicalDayDef,
+  BundleInputs,
+  CANONIZATION_LEVEL,
+  COLORS,
+  Calendar,
+  CalendarDef,
+  CalendarDefInputs,
   CalendarMetadata,
+  CalendarScope,
+  CanonizationLevel,
+  CanonizationLevels,
+  Color,
+  Colors,
+  CyclesMetadata,
   DateDef,
   DateDefAddDay,
   DateDefDateFnAddDay,
@@ -80,42 +28,110 @@ import {
   DateDefMonthDowNthWeekInMonth,
   DateDefMonthLastDowInMonth,
   DateDefSubtractDay,
+  Dates,
+  DayOfWeek,
   FromCalendarId,
+  GENERAL_ROMAN_NAME,
+  Id,
+  Inputs,
+  LiturgicalCalendar,
+  LiturgicalDay,
+  LiturgicalDayConfig,
+  LiturgicalDayConfigOutput,
+  LiturgicalDayDef,
+  LiturgicalDayDefinitions,
   LiturgicalDayInput,
   LiturgyDayDiff,
-  MartyrologyItemPointer,
-  MartyrologyItemRedefined,
-  RomcalCalendarMetadata,
-  RomcalTitles,
-  TitlesDef,
-  i18nDef,
-} from './types/liturgical-day';
-import { LiturgicalDayConfigOutput } from './types/liturgical-day-config';
-import {
   Locale,
   LocaleColors,
   LocaleLiturgicalDayNames,
   LocaleMonths,
   LocaleOrdinals,
   LocaleWeeks,
-} from './types/locale';
-import { MartyrologyCatalog, MartyrologyItem, SaintCount, SaintDate, SaintDateDef } from './types/martyrology';
-import {
-  Dates,
+  MONTHS,
+  MartyrologyCatalog,
+  MartyrologyItem,
+  MartyrologyItemPointer,
+  MartyrologyItemRedefined,
+  Month,
+  MonthIndex,
+  PATRON_TITLES,
+  PERIODS,
+  PRECEDENCES,
+  PROPER_CYCLES,
+  PROPER_OF_TIME_NAME,
+  PSALTER_WEEKS,
+  PartialCyclesDef,
+  ParticularConfig,
+  PatronTitle,
+  Period,
+  PlainCyclesMetadata,
+  Precedence,
+  Precedences,
+  ProperCycle,
+  ProperCycles,
+  PsalterWeekCycle,
+  PsalterWeekCycles,
+  RANKS,
+  Rank,
+  Ranks,
+  RanksFromPrecedence,
+  RomcalBundle,
+  RomcalBundleObject,
+  RomcalCalendarMetadata,
+  RomcalConfig,
+  RomcalConfigInput,
+  RomcalConfigOutput,
+  RomcalTitles,
+  SEASONS,
+  SEXES,
+  SUNDAY_CYCLES,
+  SaintCount,
+  SaintDate,
+  SaintDateDef,
+  Season,
+  Sex,
+  Sexes,
+  ShiftableAnchor,
+  SundayCycle,
+  SundayCycles,
+  TITLES,
+  TemporalOverrides,
+  Title,
+  TitlesDef,
+  WEEKDAYS,
+  WEEKDAY_CYCLES,
+  Weekday,
+  WeekdayCycle,
+  WeekdayCycles,
   addDays,
   dateDifference,
   daysInMonth,
   getUtcDate,
   getUtcDateFromString,
   getWeekNumber,
+  i18nDef,
+  isColor,
+  isInteger,
+  isMartyr,
   isSameDate,
   isValidDate,
   rangeContainsDate,
   rangeOfDays,
+  registerBaseCalendar,
   startOfWeek,
   subtractsDays,
-} from './utils/dates';
-import { isInteger, toRomanNumber } from './utils/numbers';
+  toRomanNumber,
+} from '@internal/generator';
+import { version } from '@internal/package.json';
+
+import { GeneralRoman } from './calendars/general-roman';
+import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from './constants/calendars';
+import { LOCALE_IDS, LOCALE_VAR_NAMES, LOCALES } from './constants/locales';
+
+// The engine has no rite of its own: it has to be told which calendar sits underneath
+// a particular one when no localized bundle is supplied.
+registerBaseCalendar(GeneralRoman);
 
 class Romcal {
   readonly #config: RomcalConfig;
