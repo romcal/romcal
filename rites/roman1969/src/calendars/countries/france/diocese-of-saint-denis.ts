@@ -1,5 +1,6 @@
-import { CommonDefinition as Common, PatronTitle, Title, Precedences, CalendarDef, Inputs } from '@internal/generator';
+import { CommonDefinition as Common, PatronTitle, Title, Precedences, Inputs } from '@internal/generator';
 
+import { CalendarDef } from '../../../calendar-def';
 import { Europe } from '../../regions/europe';
 
 import { France } from '.';

@@ -1,5 +1,6 @@
-import { Colors, ProperCycles, PatronTitle, Title, Precedences, CalendarDef, Inputs, ParticularConfig } from '@internal/generator';
+import { Colors, ProperCycles, PatronTitle, Title, Precedences, Inputs, ParticularConfig } from '@internal/generator';
 
+import { CalendarDef } from '../../../calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Slovakia extends CalendarDef {

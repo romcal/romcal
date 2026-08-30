@@ -1,4 +1,6 @@
-import { ProperCycles, Precedences, CalendarDef, Inputs } from '@internal/generator';
+import { ProperCycles, Precedences, Inputs } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 
 export class China extends CalendarDef {
   inputs: Inputs = {
