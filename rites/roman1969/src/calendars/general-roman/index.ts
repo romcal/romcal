@@ -1,4 +1,6 @@
-import { Colors, CommonDefinition as Common, ProperCycles, Precedences, CalendarDef, Inputs, ParticularConfig } from '@internal/generator';
+import { Colors, CommonDefinition as Common, ProperCycles, Precedences, Inputs, ParticularConfig } from '@internal/generator';
+
+import { CalendarDef } from '../../calendar-def';
 
 // Note: Liturgical colors are added automatically, leaning on the martyrology catalog.
 // But since Romcal can be run without a localized calendar (so without martyrology and title data),

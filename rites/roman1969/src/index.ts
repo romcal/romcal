@@ -1,142 +1,29 @@
 import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
-import {
-  AnchorException,
-  AnchorTransferTarget,
-  BaseCyclesMetadata,
-  BaseLiturgicalDay,
-  BaseLiturgicalDayDef,
-  BundleInputs,
-  CANONIZATION_LEVEL,
-  COLORS,
-  Calendar,
-  CalendarDef,
-  CalendarDefInputs,
-  CalendarMetadata,
-  CalendarScope,
-  CanonizationLevel,
-  CanonizationLevels,
-  Color,
-  Colors,
-  CyclesMetadata,
-  DateDef,
-  DateDefAddDay,
-  DateDefDateFnAddDay,
-  DateDefDateFnSubtractDay,
-  DateDefException,
-  DateDefExtended,
-  DateDefMonthDate,
-  DateDefMonthDowNthWeekInMonth,
-  DateDefMonthLastDowInMonth,
-  DateDefSubtractDay,
-  Dates,
-  DayOfWeek,
-  FromCalendarId,
-  GENERAL_ROMAN_NAME,
-  Id,
-  Inputs,
-  LiturgicalCalendar,
-  LiturgicalDay,
-  LiturgicalDayConfig,
-  LiturgicalDayConfigOutput,
-  LiturgicalDayDef,
-  LiturgicalDayDefinitions,
-  LiturgicalDayInput,
-  LiturgyDayDiff,
-  Locale,
-  LocaleColors,
-  LocaleLiturgicalDayNames,
-  LocaleMonths,
-  LocaleOrdinals,
-  LocaleWeeks,
-  MONTHS,
-  MartyrologyCatalog,
-  MartyrologyItem,
-  MartyrologyItemPointer,
-  MartyrologyItemRedefined,
-  Month,
-  MonthIndex,
-  PATRON_TITLES,
-  PERIODS,
-  PRECEDENCES,
-  PROPER_CYCLES,
-  PROPER_OF_TIME_NAME,
-  PSALTER_WEEKS,
-  PartialCyclesDef,
-  ParticularConfig,
-  PatronTitle,
-  Period,
-  PlainCyclesMetadata,
-  Precedence,
-  Precedences,
-  ProperCycle,
-  ProperCycles,
-  PsalterWeekCycle,
-  PsalterWeekCycles,
-  RANKS,
-  Rank,
-  Ranks,
-  RanksFromPrecedence,
-  RomcalBundle,
-  RomcalBundleObject,
-  RomcalCalendarMetadata,
-  RomcalConfig,
-  RomcalConfigInput,
-  RomcalConfigOutput,
-  RomcalTitles,
-  SEASONS,
-  SEXES,
-  SUNDAY_CYCLES,
-  SaintCount,
-  SaintDate,
-  SaintDateDef,
-  Season,
-  Sex,
-  Sexes,
-  ShiftableAnchor,
-  SundayCycle,
-  SundayCycles,
-  TITLES,
-  TemporalOverrides,
-  Title,
-  TitlesDef,
-  WEEKDAYS,
-  WEEKDAY_CYCLES,
-  Weekday,
-  WeekdayCycle,
-  WeekdayCycles,
-  addDays,
-  dateDifference,
-  daysInMonth,
-  getUtcDate,
-  getUtcDateFromString,
-  getWeekNumber,
-  i18nDef,
-  isColor,
-  isInteger,
-  isMartyr,
-  isSameDate,
-  isValidDate,
-  rangeContainsDate,
-  rangeOfDays,
-  registerBaseCalendar,
-  startOfWeek,
-  subtractsDays,
-  toRomanNumber,
-} from '@internal/generator';
+import { AnchorException, AnchorTransferTarget, BaseCyclesMetadata, BaseLiturgicalDay, BaseLiturgicalDayDef, BundleInputs, CANONIZATION_LEVEL, COLORS, Calendar, CalendarDefInputs, CalendarMetadata, CalendarScope, CanonizationLevel, CanonizationLevels, Color, Colors, CyclesMetadata, DateDef, DateDefAddDay, DateDefDateFnAddDay, DateDefDateFnSubtractDay, DateDefException, DateDefExtended, DateDefMonthDate, DateDefMonthDowNthWeekInMonth, DateDefMonthLastDowInMonth, DateDefSubtractDay, Dates, DayOfWeek, FromCalendarId, GENERAL_ROMAN_NAME, Id, Inputs, LiturgicalCalendar, LiturgicalDay, LiturgicalDayConfig, LiturgicalDayConfigOutput, LiturgicalDayDef, LiturgicalDayDefinitions, LiturgicalDayInput, LiturgyDayDiff, Locale, LocaleColors, LocaleLiturgicalDayNames, LocaleMonths, LocaleOrdinals, LocaleWeeks, MONTHS, MartyrologyCatalog, MartyrologyItem, MartyrologyItemPointer, MartyrologyItemRedefined, Month, MonthIndex, PATRON_TITLES, PERIODS, PRECEDENCES, PROPER_CYCLES, PROPER_OF_TIME_NAME, PSALTER_WEEKS, PartialCyclesDef, ParticularConfig, PatronTitle, Period, PlainCyclesMetadata, Precedence, Precedences, ProperCycle, ProperCycles, PsalterWeekCycle, PsalterWeekCycles, RANKS, Rank, Ranks, RanksFromPrecedence, RomcalBundle, RomcalBundleObject, RomcalCalendarMetadata, RomcalConfig, RomcalConfigInput, RomcalConfigOutput, RomcalTitles, SEASONS, SEXES, SUNDAY_CYCLES, SaintCount, SaintDate, SaintDateDef, Season, Sex, Sexes, ShiftableAnchor, SundayCycle, SundayCycles, TITLES, TemporalOverrides, Title, TitlesDef, WEEKDAYS, WEEKDAY_CYCLES, Weekday, WeekdayCycle, WeekdayCycles, addDays, dateDifference, daysInMonth, getUtcDate, getUtcDateFromString, getWeekNumber, i18nDef, isColor, isInteger, isMartyr, isSameDate, isValidDate, rangeContainsDate, rangeOfDays, registerBaseCalendar, startOfWeek, subtractsDays, toRomanNumber } from '@internal/generator';
 import { version } from '@internal/package.json';
 
+import { CalendarDef } from './calendar-def';
 import { GeneralRoman } from './calendars/general-roman';
 import { CALENDAR_PKG_NAMES, CALENDAR_VAR_NAMES } from './constants/calendars';
 import { LOCALE_IDS, LOCALE_VAR_NAMES, LOCALES } from './constants/locales';
+import { Roman1969Vocabulary } from './vocabulary';
 
 // The engine has no rite of its own: it has to be told which calendar sits underneath
 // a particular one when no localized bundle is supplied.
-registerBaseCalendar(GeneralRoman);
+registerBaseCalendar<Roman1969Vocabulary>(GeneralRoman);
+
+/**
+ * The vocabularies this rite celebrates under, named for the engine.
+ *
+ * The engine is written against any four strings; naming them here is what puts the
+ * 1969 values back on romcal's public types, so a consumer still gets a `Rank` on a
+ * day's rank rather than a bare string, and a switch over one stays exhaustive.
+ */
 
 class Romcal {
-  readonly #config: RomcalConfig;
+  readonly #config: RomcalConfig<Roman1969Vocabulary>;
 
-  #computedCalendars: Record<number, LiturgicalCalendar> = {};
+  #computedCalendars: Record<number, LiturgicalCalendar<Roman1969Vocabulary>> = {};
 
   #dates: Record<number, Dates> = {};
 
@@ -144,7 +31,7 @@ class Romcal {
    * Utility helpers to compute the date(s) of specific liturgical days or seasons.
    */
   constructor(config?: RomcalConfigInput) {
-    this.#config = new RomcalConfig(config);
+    this.#config = new RomcalConfig<Roman1969Vocabulary>(config);
   }
 
   /**
@@ -173,9 +60,11 @@ class Romcal {
    */
   dates(year?: number | string): Dates {
     const y = Romcal.#sanitizeYear(year);
-    const ldConfig = new LiturgicalDayConfig(this.#config, y);
+    const ldConfig = new LiturgicalDayConfig<Roman1969Vocabulary>(this.#config, y);
     if (this.#dates[ldConfig.year]) return this.#dates[ldConfig.year];
-    return (this.#dates[ldConfig.year] = ldConfig.dates);
+    // The engine holds these as the narrow set of dates it needs itself. This rite
+    // supplied the class they were built from, so it can say what they really are.
+    return (this.#dates[ldConfig.year] = ldConfig.dates as Dates);
   }
 
   /**
@@ -197,15 +86,15 @@ class Romcal {
     options: { year?: number | string; computeInWholeYear?: boolean } = {
       computeInWholeYear: false,
     }
-  ): Promise<LiturgicalDay | null | undefined> {
+  ): Promise<LiturgicalDay<Roman1969Vocabulary> | null | undefined> {
     return new Promise((resolve, reject) => {
       try {
         const y = Romcal.#sanitizeYear(options.year);
-        const ldConfig = new LiturgicalDayConfig(this.#config, y);
+        const ldConfig = new LiturgicalDayConfig<Roman1969Vocabulary>(this.#config, y);
 
         this.getAllDefinitions()
           .then(() => {
-            const partialLd = new Calendar(this.#config, ldConfig).getOneLiturgicalDay(id);
+            const partialLd = new Calendar<Roman1969Vocabulary>(this.#config, ldConfig).getOneLiturgicalDay(id);
             if (!options.computeInWholeYear) return resolve(partialLd);
 
             if (!partialLd) resolve(partialLd);
@@ -227,14 +116,14 @@ class Romcal {
   /**
    * Generate a liturgical calendar, within a Liturgical or Gregorian scope.
    */
-  generateCalendar(year?: number | string): Promise<LiturgicalCalendar> {
+  generateCalendar(year?: number | string): Promise<LiturgicalCalendar<Roman1969Vocabulary>> {
     // Wrap the calendar computing process in a Promise.
     // Even if this method is called with async/await, this makes this method running in a microtask queue:
     // it does not run on the main thread, meaning other things can occur (click events, rendering, etc.).
     return new Promise((resolve, reject) => {
       try {
         const y = Romcal.#sanitizeYear(year);
-        const ldConfig = new LiturgicalDayConfig(this.#config, y);
+        const ldConfig = new LiturgicalDayConfig<Roman1969Vocabulary>(this.#config, y);
 
         // Return cached data, if the calendar has been already computed
         if (this.#computedCalendars[ldConfig.year]) {
@@ -244,7 +133,10 @@ class Romcal {
 
         this.getAllDefinitions()
           .then(() => {
-            this.#computedCalendars[ldConfig.year] = new Calendar(this.#config, ldConfig).generateCalendar();
+            this.#computedCalendars[ldConfig.year] = new Calendar<Roman1969Vocabulary>(
+              this.#config,
+              ldConfig
+            ).generateCalendar();
             resolve(this.#computedCalendars[ldConfig.year]);
           })
           .catch(reject);
@@ -259,7 +151,7 @@ class Romcal {
    * (including all possible inherited calendars until the General Roman Calendar,
    * and the Proper of the Time), outside the context of a specific year.
    */
-  getAllDefinitions(): Promise<LiturgicalDayDefinitions> {
+  getAllDefinitions(): Promise<LiturgicalDayDefinitions<Roman1969Vocabulary>> {
     return new Promise((resolve, reject) => {
       try {
         this.#config.calendarsDef.forEach((cal) => cal.buildAllDefinitions());
@@ -424,6 +316,7 @@ class Romcal {
 
 export {
   Romcal,
+  Roman1969Vocabulary,
   Calendar,
   CalendarDef,
   CyclesMetadata,

@@ -12,6 +12,7 @@ import { Season } from '../constants/seasons';
 import { WEEKDAYS } from '../constants/weekdays';
 import { RomcalConfig } from '../models/config';
 import { EasterCalculationType, ShiftableAnchor } from '../types/config';
+import { Vocabulary } from '../types/vocabulary';
 
 /**
  * The UTC date arithmetic now lives in `@internal/calendar-dates`, so that a second
@@ -34,14 +35,14 @@ export {
   subtractsDays,
 } from '@internal/calendar-dates';
 
-export class Dates {
-  readonly #config: RomcalConfig;
+export class Dates<V extends Vocabulary = Vocabulary> {
+  readonly #config: RomcalConfig<V>;
 
   readonly #year: number;
 
   readonly #isLiturgicalYear: boolean;
 
-  constructor(config: RomcalConfig, year: number) {
+  constructor(config: RomcalConfig<V>, year: number) {
     this.#config = config;
     this.#year = year;
     this.#isLiturgicalYear = this.#config.scope === 'liturgical';

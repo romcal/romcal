@@ -1,4 +1,6 @@
-import { Precedences, CalendarDef, Inputs } from '@internal/generator';
+import { Precedences, Inputs } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 
 export class Vietnam extends CalendarDef {
   inputs: Inputs = {

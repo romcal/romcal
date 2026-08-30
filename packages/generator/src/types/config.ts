@@ -6,6 +6,7 @@ import { Weekday } from '../constants/weekdays';
 import { RomcalBundleObject } from './bundle';
 import { CalendarDefInstance } from './calendar-def';
 import { Id } from './common';
+import { Vocabulary } from './vocabulary';
 
 /**
  * Temporal dates that can receive calendar-specific exception rules.
@@ -40,7 +41,7 @@ export interface TemporalOverrides {
  * The configuration object that is passed either to the [[Calendar.calendarFor]]
  * methods to retrieve an array of [[DateItems]].
  */
-export interface BaseRomcalConfig {
+export interface BaseRomcalConfig<V extends Vocabulary = Vocabulary> {
   /**
    * The localized calendar bundle object.
    */
@@ -114,7 +115,7 @@ export interface BaseRomcalConfig {
   /**
    * All calendar definitions
    */
-  readonly calendarsDef: InstanceType<CalendarDefInstance>[];
+  readonly calendarsDef: InstanceType<CalendarDefInstance<V>>[];
 
   /**
    * The locale ID
@@ -132,7 +133,7 @@ export interface BaseRomcalConfig {
   readonly outputOptions: OutputOptions;
 }
 
-export interface IRomcalConfig extends BaseRomcalConfig {
+export interface IRomcalConfig<V extends Vocabulary = Vocabulary> extends BaseRomcalConfig<V> {
   readonly i18next: i18n;
 }
 
