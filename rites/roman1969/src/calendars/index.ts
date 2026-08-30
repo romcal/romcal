@@ -1,4 +1,4 @@
-import type { CalendarDef } from '@internal/generator';
+import type { CalendarDef } from '../calendar-def';
 
 import { Algeria_Algiers, Algeria_Constantine, Algeria_Laghouat, Algeria_Oran } from './countries/algeria';
 import { Argentina } from './countries/argentina';

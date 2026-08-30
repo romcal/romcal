@@ -1,4 +1,6 @@
-import { ProperCycles, PatronTitle, Title, Precedences, CalendarDef, Inputs, ParticularConfig } from '@internal/generator';
+import { ProperCycles, PatronTitle, Title, Precedences, Inputs, ParticularConfig } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 
 export class Australia extends CalendarDef {
   particularConfig: ParticularConfig = {

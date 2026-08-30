@@ -1,7 +1,7 @@
 import i18next, { i18n } from 'i18next';
 
 import { Color } from '../constants/colors';
-import { Season } from '../constants/seasons';
+import { Roman1969Rite } from '../default-rite';
 import { ProperOfTime } from '../proper-of-time/proper-of-time';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
@@ -15,9 +15,12 @@ import {
   TemporalOverrides,
 } from '../types/config';
 import { BaseCyclesMetadata } from '../types/cycles-metadata';
+import { DatesConstructor } from '../types/dates';
 import { Locale } from '../types/locale';
 import { MartyrologyCatalog } from '../types/martyrology';
-import { Dates } from '../utils/dates';
+import { Rite } from '../types/rite';
+import { Rubrics } from '../types/rubrics';
+import { Vocabulary } from '../types/vocabulary';
 import { toRomanNumber } from '../utils/numbers';
 import { sanitizeLocaleId } from '../utils/string';
 import { cloneTemporalOverrides, omitTemporalOverrideAnchor } from '../utils/temporal-overrides';
@@ -64,7 +67,7 @@ const addInterpolationFormats = (instance: i18n): void => {
 /**
  * The [[Config]] class encapsulates all options that can be sent to this library to adjust date output.
  */
-export class RomcalConfig implements IRomcalConfig {
+export class RomcalConfig<V extends Vocabulary = Vocabulary> implements IRomcalConfig<V> {
   readonly #input: RomcalConfigInput;
 
   readonly localizedCalendar?: RomcalBundleObject;
@@ -89,26 +92,45 @@ export class RomcalConfig implements IRomcalConfig {
 
   readonly i18next: i18n;
 
-  readonly dates: typeof Dates;
+  /** The rite this calendar is generated under. */
+  readonly rite: Rite<V>;
+
+  /**
+   * The class the engine builds a year's dates from. Defaults to romcal's own, which
+   * computes the 1969 calendar.
+   */
+  readonly dates: DatesConstructor<V>;
+
+  /**
+   * The rules of precedence in force. Defaults to the 1969 norms, so a rite that has
+   * no opinion behaves exactly as romcal always has.
+   */
+  readonly rubrics: Rubrics<V>;
 
   readonly martyrologyCatalog: MartyrologyCatalog;
 
   readonly cyclesCache: Record<number, Pick<BaseCyclesMetadata, 'sundayCycle' | 'weekdayCycle'>> = {};
 
-  readonly calendarsDef: InstanceType<CalendarDefInstance>[];
+  readonly calendarsDef: InstanceType<CalendarDefInstance<V>>[];
 
-  liturgicalDayDef: LiturgicalDayDefinitions = {} as LiturgicalDayDefinitions;
+  liturgicalDayDef: LiturgicalDayDefinitions<V> = {} as LiturgicalDayDefinitions<V>;
 
   readonly outputOptions: OutputOptions;
 
   /**
    * Clone the RomcalConfig object
    */
-  clone(): RomcalConfig {
-    return new RomcalConfig({
-      ...this.#input,
-      temporalOverrides: cloneTemporalOverrides(this.temporalOverrides),
-    });
+  clone(): RomcalConfig<V> {
+    return new RomcalConfig(
+      {
+        ...this.#input,
+        temporalOverrides: cloneTemporalOverrides(this.temporalOverrides),
+      },
+      undefined,
+      undefined,
+      undefined,
+      this.rite
+    );
   }
 
   /**
@@ -117,13 +139,19 @@ export class RomcalConfig implements IRomcalConfig {
    * @param martyrologyCatalog
    * @param locale
    * @param ParticularCalendar
+   * @param rite The dates and rubrics of the rite. Defaults to the Roman Rite of 1969.
    */
   constructor(
     config?: RomcalConfigInput,
     martyrologyCatalog?: MartyrologyCatalog,
     locale?: Locale,
-    ParticularCalendar?: typeof CalendarDef
+    ParticularCalendar?: typeof CalendarDef<V>,
+    rite: Rite<V> = Roman1969Rite as unknown as Rite<V>
   ) {
+    this.rite = rite;
+    this.dates = rite.dates;
+    this.rubrics = rite.rubrics;
+
     this.#input = config
       ? {
           ...config,
@@ -179,9 +207,6 @@ export class RomcalConfig implements IRomcalConfig {
     // i18next library.
     if (localeObj) this.#addResourceBundles(localeObj);
 
-    // Initialize the Date library.
-    this.dates = Dates;
-
     // Initiate the CalendarDef objects.
     this.calendarsDef = [];
 
@@ -189,17 +214,17 @@ export class RomcalConfig implements IRomcalConfig {
     this.martyrologyCatalog = this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? ({} as MartyrologyCatalog);
 
     // In all cases, generate the ProperOfTime calendar
-    this.calendarsDef.push(new ProperOfTime(this));
+    this.calendarsDef.push(new ProperOfTime<V>(this));
 
     // Then, import input definitions within a new CalendarDef object
     if (config?.localizedCalendar) {
-      this.calendarsDef.push(new CalendarDef(this, config.localizedCalendar.inputs));
+      this.calendarsDef.push(new CalendarDef<V>(this, config.localizedCalendar.inputs));
 
       // Otherwise, it's mean that the base calendar of the rite or a particular calendar must be
       // computed from scratch, probably by using the RomcalBuilder class helper, or Romcal without
       // a specific localizedCalendar.
     } else {
-      const BaseCalendar = getBaseCalendar();
+      const BaseCalendar = getBaseCalendar<V>();
       this.calendarsDef.push(new BaseCalendar(this));
       if (ParticularCalendar) {
         this.calendarsDef.push(new ParticularCalendar(this));
@@ -247,7 +272,7 @@ export class RomcalConfig implements IRomcalConfig {
    * Return localised season names from season IDs
    * @param seasons
    */
-  getSeasonNames(seasons: Season[]): string[] {
+  getSeasonNames(seasons: readonly string[]): string[] {
     return seasons.map((s) => {
       const id = `seasons:${(s ?? '').toLowerCase()}.season`;
       return this.i18next.t(id) ?? id;
