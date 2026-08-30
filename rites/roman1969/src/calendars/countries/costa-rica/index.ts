@@ -1,5 +1,6 @@
-import { ProperCycles, PatronTitle, Precedences, CalendarDef, Inputs } from '@internal/generator';
+import { ProperCycles, PatronTitle, Precedences, Inputs } from '@internal/generator';
 
+import { CalendarDef } from '../../../calendar-def';
 import { Americas } from '../../regions/americas';
 
 export class CostaRica extends CalendarDef {

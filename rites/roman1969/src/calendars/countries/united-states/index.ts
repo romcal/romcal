@@ -1,5 +1,6 @@
-import { Colors, CommonDefinition as Common, PatronTitle, Precedences, CalendarDef, Inputs, ParticularConfig } from '@internal/generator';
+import { Colors, CommonDefinition as Common, PatronTitle, Precedences, Inputs, ParticularConfig } from '@internal/generator';
 
+import { CalendarDef } from '../../../calendar-def';
 import { Americas } from '../../regions/americas';
 
 export class UnitedStates extends CalendarDef {

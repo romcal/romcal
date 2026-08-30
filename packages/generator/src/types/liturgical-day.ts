@@ -3,10 +3,6 @@ import { CommonDefinition } from '../constants/commons';
 import { ProperCycle } from '../constants/cycles';
 import { PatronTitle, Title } from '../constants/martyrology-metadata';
 import { MonthIndex } from '../constants/months';
-import { Period } from '../constants/periods';
-import { Precedence } from '../constants/precedences';
-import { Rank } from '../constants/ranks';
-import { Season } from '../constants/seasons';
 import { DayOfWeek } from '../constants/weekdays';
 import { LiturgicalDay } from '../models/liturgical-day';
 import { LiturgicalDayDef } from '../models/liturgical-day-def';
@@ -15,6 +11,7 @@ import { Dates } from '../utils/dates';
 import { AllXOR, Id, XOR } from './common';
 import { BaseCyclesMetadata, PartialCyclesDef } from './cycles-metadata';
 import { MartyrologyItem, SaintCount } from './martyrology';
+import { Vocabulary } from './vocabulary';
 
 /**
  * The liturgical day date definition
@@ -45,11 +42,19 @@ export type DateDefMonthDate = {
    */
   yearOffset?: number;
 };
+/** See {@link DateDefDateFnAddDay.dateFn}. */
+export type DateFnName = keyof Dates | (string & NonNullable<unknown>);
+
 export type DateDefDateFnAddDay = {
   /**
-   * A date function name from the [Date] class.
+   * The name of a date function on the rite's date class.
+   *
+   * Resolved by name at runtime, so a rite that supplies its own dates can name any
+   * of them here. The union with `string` is what allows that while keeping the 1969
+   * names, which the calendar definitions in this repository are written against,
+   * offered as completions.
    */
-  dateFn: keyof Dates;
+  dateFn: DateFnName;
 
   /**
    * Possible date function arguments that may be required.
@@ -68,9 +73,14 @@ export type DateDefDateFnAddDay = {
 };
 export type DateDefDateFnSubtractDay = {
   /**
-   * A date function name from the [Date] class.
+   * The name of a date function on the rite's date class.
+   *
+   * Resolved by name at runtime, so a rite that supplies its own dates can name any
+   * of them here. The union with `string` is what allows that while keeping the 1969
+   * names, which the calendar definitions in this repository are written against,
+   * offered as completions.
    */
-  dateFn: keyof Dates;
+  dateFn: DateFnName;
 
   /**
    * Possible date function arguments that may be required.
@@ -176,7 +186,7 @@ export type CalendarMetadata = {
 /**
  * Calendar Metadata
  */
-export type RomcalCalendarMetadata = {
+export type RomcalCalendarMetadata<V extends Vocabulary = Vocabulary> = {
   /**
    * The week number of the liturgical season.
    * Starts from `1`, except in the seasons of lent,
@@ -223,7 +233,7 @@ export type RomcalCalendarMetadata = {
   /**
    * Seasons used in calculating other metadata
    */
-  seasons: Season[];
+  seasons: V['season'][];
 };
 
 /**
@@ -301,7 +311,7 @@ export type FullDateDefinition = {
 /**
  * Base object extended by other derived Liturgical Day objects
  */
-export type LiturgicalDayRoot = FullDateDefinition & {
+export type LiturgicalDayRoot<V extends Vocabulary = Vocabulary> = FullDateDefinition & {
   /**
    * Optional alternative transfer dates for this liturgical day.
    *
@@ -318,12 +328,12 @@ export type LiturgicalDayRoot = FullDateDefinition & {
   /**
    * The precedence type of the liturgical day.
    */
-  precedence: Precedence;
+  precedence: V['precedence'];
 
   /**
    * The rank of the liturgical day.
    */
-  rank: Rank;
+  rank: V['rank'];
 
   /**
    * The localized rank of the liturgical day.
@@ -384,7 +394,7 @@ export type LiturgicalDayRoot = FullDateDefinition & {
   /**
    * Season IDs to which the liturgical day is a part.
    */
-  seasons: Season[];
+  seasons: V['season'][];
 
   /**
    * Season localized name to which the liturgical day is a part.
@@ -394,7 +404,7 @@ export type LiturgicalDayRoot = FullDateDefinition & {
   /**
    * Period IDs to which the liturgical day is a part.
    */
-  periods: Period[];
+  periods: V['period'][];
 
   /**
    * The specific martyrology metadata of a liturgical day, if applies.
@@ -428,7 +438,7 @@ export type LiturgicalDayRoot = FullDateDefinition & {
    * Function that compute calendar metadata
    * @param date
    */
-  calendar: RomcalCalendarMetadata;
+  calendar: RomcalCalendarMetadata<V>;
 
   /**
    * Calendar definition, to compute then the calendar metadata
@@ -461,15 +471,15 @@ export type LiturgicalDayRoot = FullDateDefinition & {
    *    - Memorials: the liturgy of the hour remain the one of the weekday.
    *    - Feasts: small hours are taken from the weekday.
    */
-  weekday?: LiturgicalDay;
+  weekday?: LiturgicalDay<V>;
 };
 
 /**
  * Generated object containing all metadata in a context of a proper calendar,
  * that can be used then to compute its date in a context of a year
  */
-export type BaseLiturgicalDayDef = Pick<
-  LiturgicalDayRoot,
+export type BaseLiturgicalDayDef<V extends Vocabulary = Vocabulary> = Pick<
+  LiturgicalDayRoot<V>,
   | 'colors'
   | 'fromCalendarId'
   | 'periods'
@@ -509,9 +519,9 @@ export type BaseLiturgicalDayDef = Pick<
 /**
  * Input object used in calendar definition files
  */
-export type LiturgicalDayInput = Partial<
+export type LiturgicalDayInput<V extends Vocabulary = Vocabulary> = Partial<
   Pick<
-    LiturgicalDayRoot,
+    LiturgicalDayRoot<V>,
     | 'dateDef'
     | 'alternativeTransferDateDefs'
     | 'precedence'
@@ -552,15 +562,18 @@ export type LiturgicalDayInput = Partial<
   titles?: TitlesDef;
 };
 
-export type LiturgicalDayBundleInput = XOR<LiturgicalDayInput, LiturgicalDayProperOfTimeInput> &
-  Partial<Pick<LiturgicalDayRoot, 'fromCalendarId'>>;
+export type LiturgicalDayBundleInput<V extends Vocabulary = Vocabulary> = XOR<
+  LiturgicalDayInput<V>,
+  LiturgicalDayProperOfTimeInput<V>
+> &
+  Partial<Pick<LiturgicalDayRoot<V>, 'fromCalendarId'>>;
 
 /**
  * Input object with its base properties from the proper of time
  */
 
-export type LiturgicalDayProperOfTimeInput = Pick<
-  LiturgicalDayRoot,
+export type LiturgicalDayProperOfTimeInput<V extends Vocabulary = Vocabulary> = Pick<
+  LiturgicalDayRoot<V>,
   | 'colors'
   | 'properCycle'
   | 'drop'
@@ -578,7 +591,10 @@ export type LiturgicalDayProperOfTimeInput = Pick<
 /**
  * Generated object with computed date within a specific year
  */
-export type BaseLiturgicalDay = Omit<LiturgicalDayRoot, 'properCycle' | 'calendarMetadata' | 'drop'> & {
+export type BaseLiturgicalDay<V extends Vocabulary = Vocabulary> = Omit<
+  LiturgicalDayRoot<V>,
+  'properCycle' | 'calendarMetadata' | 'drop'
+> & {
   /**
    * An ID of the liturgical day.
    */

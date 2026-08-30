@@ -13,6 +13,7 @@ import {
   LiturgicalDay,
   LiturgicalDayDef,
   Period,
+  Roman1969Vocabulary,
   Romcal,
   RomcalBundleObject,
   Season,
@@ -119,10 +120,10 @@ describe('Testing calendar generation functions', () => {
 
   describe('Testing liturgical colors', () => {
     test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
-      const defs: LiturgicalDayDef[] = Object.values(
+      const defs: LiturgicalDayDef<Roman1969Vocabulary>[] = Object.values(
         (await new Romcal({
           localizedCalendar: GeneralRoman_En,
-        }).getAllDefinitions()) as unknown as LiturgicalDayDef[][]
+        }).getAllDefinitions()) as unknown as LiturgicalDayDef<Roman1969Vocabulary>[][]
       ).flat();
 
       defs
