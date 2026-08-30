@@ -53,8 +53,8 @@
   ],
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "npm run build -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/rite-roman1969",
-    "clean": "rimraf coverage dist tmp && npm run clean -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/rite-roman1969",
+    "build": "npm run build -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/calendar-dates -w=@internal/rite-roman1969",
+    "clean": "rimraf coverage dist tmp && npm run clean -w=@internal/easter -w=@internal/lunar-new-year -w=@internal/calendar-dates -w=@internal/rite-roman1969",
     "data:checks": "npm run data:checks -w=@internal/rite-roman1969",
     "doc": "npm run doc -w=@internal/rite-roman1969",
     "docs:check-links": "npm run docs:check-links -w=@internal/rite-roman1969",
@@ -67,9 +67,9 @@
     "test:snapshot:update": "npm run test:snapshot:update -w=@internal/rite-roman1969",
     "test:watch": "npm run test:watch -w=@internal/rite-roman1969",
     "test:without-coverage": "npm run test:without-coverage --workspaces --if-present",
-    "typecheck": "npm run typecheck --workspaces --if-present",
     "trust:check": "cd rites/roman1969 && tsx build/trusted-publishing.ts",
-    "trust:sync": "cd rites/roman1969 && tsx build/trusted-publishing.ts --sync"
+    "trust:sync": "cd rites/roman1969 && tsx build/trusted-publishing.ts --sync",
+    "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "dependencies": {
     "i18next": "^26.4.0"
