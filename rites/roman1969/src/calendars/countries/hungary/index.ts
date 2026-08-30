@@ -1,9 +1,5 @@
-import { Colors } from '../../../constants/colors';
-import { ProperCycles } from '../../../constants/cycles';
-import { PatronTitle } from '../../../constants/martyrology-metadata';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { Colors, ProperCycles, PatronTitle, Precedences, CalendarDef, Inputs } from '@internal/generator';
+
 import { Europe } from '../../regions/europe';
 
 export class Hungary extends CalendarDef {
