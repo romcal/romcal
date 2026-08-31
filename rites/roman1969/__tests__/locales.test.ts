@@ -62,6 +62,18 @@ describe('Test the interpolation formats', () => {
     const calendar = await new Romcal({ localizedCalendar: GeneralRoman_En }).generateCalendar(2024);
     expect(calendar['2024-12-01'][0].name).toBe('First Sunday of Advent');
   });
+
+  // No locale currently interpolates `uppercase` into a celebration name. The
+  // nested weekday lookup is how the format is meant to be used.
+  test('`uppercase` is applied to an Italian weekday lookup', () => {
+    const config = new Romcal.RomcalConfig({ localizedCalendar: Italy_It });
+    expect(
+      config.i18next.t('interpolation_uppercase', {
+        defaultValue: '$t(weekdays:{{dow}}, uppercase)',
+        dow: 1,
+      })
+    ).toBe('LUNEDÌ');
+  });
 });
 
 describe('Testing whether celebration names from `.names` object with seasonal week return the correct localized name', () => {
