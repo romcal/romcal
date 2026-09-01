@@ -68,7 +68,6 @@ export class HongKong extends CalendarDef {
     // src: http://catholic-dlc.org.hk/2023_%E6%95%99%E5%8D%80%E4%B8%BB%E4%BF%9D_%E8%8B%B1.pdf
     immaculate_conception_of_the_blessed_virgin_mary: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
-      dateDef: { dateFn: 'immaculateConceptionOfMary' },
       titles: { append: [PatronTitle.PrincipalPatronOfTheDiocese] },
     },
 

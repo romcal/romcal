@@ -319,8 +319,17 @@ export class GeneralRoman extends CalendarDef {
     // src: mr_la_2008_ed3
     annunciation_of_the_lord: {
       precedence: Precedences.GeneralSolemnity_3,
-      // 03-25
-      dateDef: { dateFn: 'annunciation' },
+      dateDef: { month: 3, date: 25 },
+      dateExceptions: [
+        {
+          ifIsBetween: {
+            from: { dateFn: 'palmSunday' },
+            to: { dateFn: 'divineMercySunday' },
+            inclusive: true,
+          },
+          setDate: { dateFn: 'divineMercySunday', addDay: 1 },
+        },
+      ],
       commonsDef: Common.None,
       colors: Colors.White,
     },
@@ -1614,8 +1623,8 @@ export class GeneralRoman extends CalendarDef {
     // src: mr_la_2008_ed3
     immaculate_conception_of_the_blessed_virgin_mary: {
       precedence: Precedences.GeneralSolemnity_3,
-      // 12-08
-      dateDef: { dateFn: 'immaculateConceptionOfMary' },
+      dateDef: { month: 12, date: 8 },
+      dateExceptions: [{ ifIsDayOfWeek: 0, setDate: { addDay: 1 } }],
       commonsDef: Common.None,
       isHolyDayOfObligation: true,
       colors: Colors.White,
