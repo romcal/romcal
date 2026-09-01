@@ -18,20 +18,22 @@ export type EasterCalculationType = 'gregorian' | 'julian';
 
 /**
  * Most anchors are an offset from Easter, so the computation is memoised rather
- * than repeated once per anchor per year.
+ * than repeated once per anchor per year. The cache stores epoch millis so a
+ * caller mutating a returned Date cannot poison later lookups.
  */
-const easterCache: Record<string, Date> = {};
+const easterCache: Record<string, number> = {};
 
 export const easterSunday = (year: number, easterCalculationType: EasterCalculationType = 'gregorian'): Date => {
   const id = `${year}_${easterCalculationType}`;
-  if (easterCache[id]) return easterCache[id];
+  if (easterCache[id] !== undefined) return new Date(easterCache[id]);
 
   const { day, month } =
     easterCalculationType === 'gregorian'
       ? calculateGregorianEasterDate(year)
       : calculateJulianEasterDateToGregorianDate(year);
 
-  return (easterCache[id] = getUtcDate(year, month, day));
+  easterCache[id] = getUtcDate(year, month, day).getTime();
+  return new Date(easterCache[id]);
 };
 
 /**
@@ -106,28 +108,6 @@ export const assumption = (year: number): Date => getUtcDate(year, 8, 15);
 export const exaltationOfTheHolyCross = (year: number): Date => getUtcDate(year, 9, 14);
 
 export const allSaints = (year: number): Date => getUtcDate(year, 11, 1);
-
-/**
- * March 25, moved to the Monday after the Octave of Easter when it would otherwise
- * fall in Holy Week or the Octave.
- */
-export const annunciation = (year: number, type?: EasterCalculationType): Date => {
-  const date = getUtcDate(year, 3, 25);
-  const easter = easterSunday(year, type);
-  const octaveEnds = addDays(easter, 7);
-
-  if (date.getTime() >= subtractsDays(easter, 7).getTime() && date.getTime() <= octaveEnds.getTime()) {
-    return addDays(octaveEnds, 1);
-  }
-
-  return date;
-};
-
-/** December 8, moved to the following Monday when it falls on a Sunday. */
-export const immaculateConceptionOfMary = (year: number): Date => {
-  const date = getUtcDate(year, 12, 8);
-  return date.getUTCDay() === 0 ? addDays(date, 1) : date;
-};
 
 /**
  * LUNAR NEW YEAR

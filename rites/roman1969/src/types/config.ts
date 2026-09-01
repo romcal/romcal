@@ -151,7 +151,7 @@ export type RomcalConfigOutput = Required<
 
 export type CalendarScope = 'gregorian' | 'liturgical';
 
-export type EasterCalculationType = 'gregorian' | 'julian';
+export type { EasterCalculationType } from '@internal/calendar-dates';
 
 export interface OutputOptions {
   /**

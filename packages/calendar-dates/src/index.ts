@@ -15,7 +15,6 @@
 export type { EasterCalculationType } from './anchors';
 export {
   allSaints,
-  annunciation,
   ashWednesday,
   assumption,
   christmas,
@@ -25,7 +24,6 @@ export {
   goodFriday,
   holySaturday,
   holyThursday,
-  immaculateConceptionOfMary,
   lunarNewYear,
   maryMotherOfGod,
   nativityOfJohnTheBaptist,
