@@ -1,10 +1,8 @@
 import {
-  annunciation,
   ashWednesday,
   christmas,
   easterSunday,
   firstSundayOfAdvent,
-  immaculateConceptionOfMary,
   lunarNewYear,
   pentecostSunday,
   sundayOnOrAfterLunarNewYear,
@@ -20,6 +18,12 @@ describe('easterSunday', () => {
 
   it('computes the Julian date, expressed in the Gregorian calendar', () => {
     expect(iso(easterSunday(2024, 'julian'))).toEqual('2024-05-05');
+  });
+
+  it('returns a copy, so mutating the date does not poison later lookups', () => {
+    const first = easterSunday(2024);
+    first.setUTCDate(1);
+    expect(iso(easterSunday(2024))).toEqual('2024-03-31');
   });
 });
 
@@ -49,27 +53,6 @@ describe('firstSundayOfAdvent', () => {
 describe('christmas', () => {
   it('is always December 25', () => {
     expect(iso(christmas(2025))).toEqual('2025-12-25');
-  });
-});
-
-describe('annunciation', () => {
-  it('is March 25 when that falls outside Holy Week and the Octave', () => {
-    expect(iso(annunciation(2025))).toEqual('2025-03-25');
-  });
-
-  it('moves to the Monday after the Octave when it would fall inside it', () => {
-    // In 2024, March 25 was the Monday of Holy Week.
-    expect(iso(annunciation(2024))).toEqual('2024-04-08');
-  });
-});
-
-describe('immaculateConceptionOfMary', () => {
-  it('is December 8', () => {
-    expect(iso(immaculateConceptionOfMary(2025))).toEqual('2025-12-08');
-  });
-
-  it('moves to the Monday when December 8 is a Sunday', () => {
-    expect(iso(immaculateConceptionOfMary(2024))).toEqual('2024-12-09');
   });
 });
 

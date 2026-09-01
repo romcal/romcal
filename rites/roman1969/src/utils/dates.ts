@@ -576,12 +576,7 @@ export class Dates {
   easterSunday = (
     year: number = this.#year,
     easterCalculationType: EasterCalculationType = this.#config.easterCalculationType
-  ): Date => {
-    if (this.#easter[year]) return this.#easter[year];
-    return (this.#easter[year] = anchors.easterSunday(year, easterCalculationType));
-  };
-
-  #easter: Record<string, Date> = {};
+  ): Date => anchors.easterSunday(year, easterCalculationType);
 
   /**
    * Get all the dates occurring during the octave of Easter
@@ -852,14 +847,14 @@ export class Dates {
   /**
    * Get the date of the celebration of the Annunciation
    *
-   * *Occurs on March 25th, moved to Monday after Divine Mercy Sunday
-   * if it is within Holy Week or Easter Octave*
+   * Occurs on March 25. The 1969 rite transfers it out of Holy Week and the
+   * Octave of Easter via `dateExceptions` on the General Roman Calendar.
    *
    * @param year Gregorian year
    */
   annunciation = (year = this.#year): Date => {
     if (this.#annunciation[year]) return this.#annunciation[year];
-    return (this.#annunciation[year] = anchors.annunciation(year, this.#config.easterCalculationType));
+    return (this.#annunciation[year] = getUtcDate(year, 3, 25));
   };
 
   #annunciation: Record<string, Date> = {};
@@ -944,12 +939,15 @@ export class Dates {
    * Church teaches that Mary was conceived by normal biological means, but God acted upon
    * her soul (keeping her "immaculate") at the time of her conception.*
    *
+   * The 1969 rite transfers it to Monday when 8 December is a Sunday, via
+   * `dateExceptions` on the General Roman Calendar.
+   *
    * @param year Gregorian year
    *
    */
   immaculateConceptionOfMary = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date => {
     if (this.#immaculateConceptionOfMary[year]) return this.#immaculateConceptionOfMary[year];
-    return (this.#immaculateConceptionOfMary[year] = anchors.immaculateConceptionOfMary(year));
+    return (this.#immaculateConceptionOfMary[year] = getUtcDate(year, 12, 8));
   };
 
   #immaculateConceptionOfMary: Record<string, Date> = {};
