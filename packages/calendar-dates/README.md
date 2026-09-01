@@ -15,21 +15,21 @@ package builds the shared anchors on top of them.
 | --- | --- |
 | `addDays`, `subtractsDays`, `startOfWeek`, `rangeOfDays`, and the other primitives | Ordinary Time helpers |
 | `easterSunday`, `firstSundayOfAdvent`, `christmas`, `ashWednesday`, `palmSunday`, `pentecostSunday` | `epiphany` and `baptismOfTheLord`, which depend on movable-Sunday options |
-| The fixed solemnities (`annunciation`, `assumption`, `allSaints`, ...) | `holyFamily`, `divineMercySunday`, `christTheKingSunday` |
-| `lunarNewYear`, `sundayOnOrAfterLunarNewYear` | `ascension` and `corpusChristi` transfer options |
+| The fixed solemnities (`assumption`, `allSaints`, ...) | `annunciation` and `immaculateConceptionOfMary`, whose transfers are rite-shaped |
+| `lunarNewYear`, `sundayOnOrAfterLunarNewYear` | `holyFamily`, `divineMercySunday`, `christTheKingSunday` |
+| | `ascension` and `corpusChristi` transfer options |
 | | `startOfSeasons` / `endOfSeasons`, keyed by a rite's own `Season` enum |
 
-Anchors are pure `(year: number) => Date` functions. They take no configuration,
-because anything configurable is by definition rite-shaped. The one argument any of
-them accepts beyond the year is the Easter calculation type, which is a choice of
-computation rather than of rubric, and which both rites need.
+Anchors are mostly `(year: number) => Date`. Two of them take more than the year,
+because the extra argument is a choice of computation rather than of rubric, and
+both rites need it: `easterSunday` takes the Easter calculation type, and
+`lunarNewYear` takes the UTC offset of the civil timezone it is observed in.
 
 `MONTHS` and `WEEKDAYS` stay in the rite for now. They are rite-neutral, but they
 are imported far more widely than the date helpers, so moving them belongs with the
 constants work rather than here.
 
-That survives the `temporalOverrides` mechanism added for the England and Wales
-adjacent-Sunday transfers, because it is applied *after* an anchor is computed:
+`temporalOverrides` stays with the rite. It is applied *after* an anchor is computed:
 `Dates#epiphany` works out the base date and then passes it through
 `#applyAnchorExceptions`. The base computation moves here; the exception layer
 stays with the rite, alongside the config that describes it. `ShiftableAnchor` is
@@ -53,5 +53,5 @@ ashWednesday = (year = this.#year): Date => {
 Passing `easterCalculationType` explicitly is what keeps a Julian-configured calendar
 correct, since the package defaults to Gregorian rather than reading a config.
 
-The extraction is behaviour-preserving: the 107 calendar bundles it produces are
-byte-identical to the ones built before it.
+The 1969 rite applies its own transfers on top of the fixed dates, through
+`dateExceptions` on the General Roman Calendar.

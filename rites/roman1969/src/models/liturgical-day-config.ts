@@ -103,12 +103,16 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     let updatedDate: Date | null = date;
 
     const setDate = (dateDefExtended: DateDefExtended): void => {
-      if (isInteger(dateDefExtended.addDay)) {
+      // Prefer a full date lookup so `{ dateFn, addDay }` resolves against the
+      // named date, not the original. Bare `{ addDay }` / `{ subtractDay }`
+      // still offset the originally computed date.
+      const lookedUp = this.#dateLookup(dateDefExtended, yearOffset);
+      if (lookedUp) {
+        updatedDate = lookedUp;
+      } else if (isInteger(dateDefExtended.addDay)) {
         updatedDate = addDays(date, dateDefExtended.addDay);
       } else if (isInteger(dateDefExtended.subtractDay)) {
         updatedDate = subtractsDays(date, dateDefExtended.subtractDay);
-      } else {
-        updatedDate = this.#dateLookup(dateDefExtended, yearOffset);
       }
     };
 
