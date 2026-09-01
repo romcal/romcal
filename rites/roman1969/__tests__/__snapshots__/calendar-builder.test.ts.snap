@@ -8057,9 +8057,26 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
       },
       "date": "2020-03-25",
       "dateDef": {
-        "dateFn": "annunciation",
+        "date": 25,
+        "month": 3,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsBetween": {
+            "from": {
+              "dateFn": "palmSunday",
+            },
+            "inclusive": true,
+            "to": {
+              "dateFn": "divineMercySunday",
+            },
+          },
+          "setDate": {
+            "addDay": 1,
+            "dateFn": "divineMercySunday",
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -35106,9 +35123,17 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
       },
       "date": "2020-12-08",
       "dateDef": {
-        "dateFn": "immaculateConceptionOfMary",
+        "date": 8,
+        "month": 12,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsDayOfWeek": 0,
+          "setDate": {
+            "addDay": 1,
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -45073,9 +45098,26 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
       },
       "date": "2021-03-25",
       "dateDef": {
-        "dateFn": "annunciation",
+        "date": 25,
+        "month": 3,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsBetween": {
+            "from": {
+              "dateFn": "palmSunday",
+            },
+            "inclusive": true,
+            "to": {
+              "dateFn": "divineMercySunday",
+            },
+          },
+          "setDate": {
+            "addDay": 1,
+            "dateFn": "divineMercySunday",
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -72390,9 +72432,17 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
       },
       "date": "2021-12-08",
       "dateDef": {
-        "dateFn": "immaculateConceptionOfMary",
+        "date": 8,
+        "month": 12,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsDayOfWeek": 0,
+          "setDate": {
+            "addDay": 1,
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -82728,9 +82778,26 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
       },
       "date": "2022-03-25",
       "dateDef": {
-        "dateFn": "annunciation",
+        "date": 25,
+        "month": 3,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsBetween": {
+            "from": {
+              "dateFn": "palmSunday",
+            },
+            "inclusive": true,
+            "to": {
+              "dateFn": "divineMercySunday",
+            },
+          },
+          "setDate": {
+            "addDay": 1,
+            "dateFn": "divineMercySunday",
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -109466,9 +109533,17 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
       },
       "date": "2022-12-08",
       "dateDef": {
-        "dateFn": "immaculateConceptionOfMary",
+        "date": 8,
+        "month": 12,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsDayOfWeek": 0,
+          "setDate": {
+            "addDay": 1,
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -112665,9 +112740,17 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
       },
       "date": "2019-12-09",
       "dateDef": {
-        "dateFn": "immaculateConceptionOfMary",
+        "date": 8,
+        "month": 12,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsDayOfWeek": 0,
+          "setDate": {
+            "addDay": 1,
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -122926,9 +123009,26 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
       },
       "date": "2020-03-25",
       "dateDef": {
-        "dateFn": "annunciation",
+        "date": 25,
+        "month": 3,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsBetween": {
+            "from": {
+              "dateFn": "palmSunday",
+            },
+            "inclusive": true,
+            "to": {
+              "dateFn": "divineMercySunday",
+            },
+          },
+          "setDate": {
+            "addDay": 1,
+            "dateFn": "divineMercySunday",
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -149980,9 +150080,17 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
       },
       "date": "2020-12-08",
       "dateDef": {
-        "dateFn": "immaculateConceptionOfMary",
+        "date": 8,
+        "month": 12,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsDayOfWeek": 0,
+          "setDate": {
+            "addDay": 1,
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -159942,9 +160050,26 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
       },
       "date": "2021-03-25",
       "dateDef": {
-        "dateFn": "annunciation",
+        "date": 25,
+        "month": 3,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsBetween": {
+            "from": {
+              "dateFn": "palmSunday",
+            },
+            "inclusive": true,
+            "to": {
+              "dateFn": "divineMercySunday",
+            },
+          },
+          "setDate": {
+            "addDay": 1,
+            "dateFn": "divineMercySunday",
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -187264,9 +187389,17 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
       },
       "date": "2021-12-08",
       "dateDef": {
-        "dateFn": "immaculateConceptionOfMary",
+        "date": 8,
+        "month": 12,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsDayOfWeek": 0,
+          "setDate": {
+            "addDay": 1,
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
@@ -197597,9 +197730,26 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
       },
       "date": "2022-03-25",
       "dateDef": {
-        "dateFn": "annunciation",
+        "date": 25,
+        "month": 3,
       },
-      "dateExceptions": [],
+      "dateExceptions": [
+        {
+          "ifIsBetween": {
+            "from": {
+              "dateFn": "palmSunday",
+            },
+            "inclusive": true,
+            "to": {
+              "dateFn": "divineMercySunday",
+            },
+          },
+          "setDate": {
+            "addDay": 1,
+            "dateFn": "divineMercySunday",
+          },
+        },
+      ],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
