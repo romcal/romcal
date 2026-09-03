@@ -59,7 +59,11 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
       date = getUtcDate(year, dateDef.month, dateDef.date);
 
       // DateDefDateFnAddDay or DateDefDateFnSubtractDay
-    } else if (typeof dateDef.dateFn === 'string' && Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)) {
+    } else if (typeof dateDef.dateFn === 'string') {
+      if (!Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)) {
+        throw new Error(`Unknown dateFn '${dateDef.dateFn}'`);
+      }
+
       const args = [...(dateDef.dateArgs ?? []), year];
       // TODO: improve TS typing here
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -103,12 +107,16 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     let updatedDate: Date | null = date;
 
     const setDate = (dateDefExtended: DateDefExtended): void => {
-      if (isInteger(dateDefExtended.addDay)) {
+      // Prefer a full date lookup so `{ dateFn, addDay }` resolves against the
+      // named date, not the original. Bare `{ addDay }` / `{ subtractDay }`
+      // still offset the originally computed date.
+      const lookedUp = this.#dateLookup(dateDefExtended, yearOffset);
+      if (lookedUp) {
+        updatedDate = lookedUp;
+      } else if (isInteger(dateDefExtended.addDay)) {
         updatedDate = addDays(date, dateDefExtended.addDay);
       } else if (isInteger(dateDefExtended.subtractDay)) {
         updatedDate = subtractsDays(date, dateDefExtended.subtractDay);
-      } else {
-        updatedDate = this.#dateLookup(dateDefExtended, yearOffset);
       }
     };
 
