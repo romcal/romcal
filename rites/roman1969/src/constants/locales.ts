@@ -1,5 +1,6 @@
+import { toPackageName } from '@internal/generator';
+
 import { locales } from '../locales';
-import { toPackageName } from '../utils/string';
 
 export const LOCALES = locales;
 export const LOCALE_VAR_NAMES: string[] = Object.keys(locales);

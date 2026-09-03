@@ -7,21 +7,22 @@ import {
 } from '../types/calendar-def';
 import { Id } from '../types/common';
 import { RomcalConfigInput } from '../types/config';
+import { DatesConstructor } from '../types/dates';
 import { LiturgicalDayBundleInput } from '../types/liturgical-day';
-import { Dates } from '../utils/dates';
+import { Vocabulary } from '../types/vocabulary';
 import { cloneTemporalOverrides, omitTemporalOverrideAnchor } from '../utils/temporal-overrides';
 
 import { RomcalConfig } from './config';
 import { LiturgicalDayDef } from './liturgical-day-def';
 
-export class CalendarDef implements BaseCalendarDef {
-  readonly #config: RomcalConfig;
+export class CalendarDef<V extends Vocabulary = Vocabulary> implements BaseCalendarDef<V> {
+  readonly #config: RomcalConfig<V>;
 
-  readonly dates: typeof Dates;
+  readonly dates: DatesConstructor<V>;
 
-  ParentCalendars?: CalendarDefInstance[] | null;
+  ParentCalendars?: CalendarDefInstance<V>[] | null;
 
-  parentCalendarInstances?: InstanceType<CalendarDefInstance>[];
+  parentCalendarInstances?: InstanceType<CalendarDefInstance<V>>[];
 
   readonly particularConfig?: ParticularConfig;
 
@@ -44,7 +45,7 @@ export class CalendarDef implements BaseCalendarDef {
 
   #calendarName?: Id;
 
-  constructor(config: RomcalConfig, inputs?: BundleInputs) {
+  constructor(config: RomcalConfig<V>, inputs?: BundleInputs) {
     this.#config = config;
     this.dates = this.#config.dates;
     if (inputs) this.inputs = inputs;
@@ -100,7 +101,7 @@ export class CalendarDef implements BaseCalendarDef {
    * @param parentCal - The parent calendar object.
    * @private
    */
-  #retrieveParentCalInputs(parentCal: InstanceType<CalendarDefInstance>): void {
+  #retrieveParentCalInputs(parentCal: InstanceType<CalendarDefInstance<V>>): void {
     if (parentCal.parentCalendarInstances) {
       parentCal.parentCalendarInstances.forEach((parent) => {
         this.#retrieveParentCalInputs(parent);
@@ -137,9 +138,9 @@ export class CalendarDef implements BaseCalendarDef {
    * @param input
    * @private
    */
-  #buildDefinition(id: Id, input: LiturgicalDayBundleInput): LiturgicalDayDef {
+  #buildDefinition(id: Id, input: LiturgicalDayBundleInput): LiturgicalDayDef<V> {
     // Create a new LiturgicalDay object from its definition
-    return new LiturgicalDayDef(
+    return new LiturgicalDayDef<V>(
       id,
       {
         dateDef: input.dateDef,

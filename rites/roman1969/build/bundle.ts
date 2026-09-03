@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { inspect } from 'node:util';
 
+import { PROPER_OF_TIME_NAME, sanitizeLocaleId, toPackageName, toPascalCase } from '@internal/generator';
 import chalk from 'chalk';
 import cliProgress from 'cli-progress';
 import { rimraf } from 'rimraf';
@@ -9,7 +10,6 @@ import { merge } from 'ts-deepmerge';
 
 import {
   BundleInputs,
-  CalendarDef,
   Id,
   LiturgicalDayDef,
   LiturgicalDayDefinitions,
@@ -21,12 +21,12 @@ import {
   RomcalConfigInput,
   RomcalConfigOutput,
 } from '../src';
+import { CalendarDef } from '../src/calendar-def';
 import { calendarDefinitions } from '../src/calendars';
 import { GeneralRoman } from '../src/calendars/general-roman';
 import { Martyrology } from '../src/catalog/martyrology';
-import { PROPER_OF_TIME_NAME } from '../src/constants/general-calendar-names';
 import { locales } from '../src/locales';
-import { sanitizeLocaleId, toPackageName, toPascalCase } from '../src/utils/string';
+import { Roman1969Vocabulary } from '../src/vocabulary';
 
 const { log } = console;
 
@@ -34,13 +34,13 @@ const { log } = console;
  * Class helper, used to build the localized calendar bundles.
  */
 export class RomcalBuilder {
-  readonly #config: RomcalConfig;
+  readonly #config: RomcalConfig<Roman1969Vocabulary>;
 
   #martyrologyIds: string[] = [];
 
   constructor(locale: Locale, particularCalendar?: typeof CalendarDef) {
     const scope: RomcalConfigInput = { scope: 'liturgical' };
-    this.#config = new RomcalConfig(scope, Martyrology.catalog, locale, particularCalendar);
+    this.#config = new RomcalConfig<Roman1969Vocabulary>(scope, Martyrology.catalog, locale, particularCalendar);
   }
 
   get martyrologyIds(): string[] {

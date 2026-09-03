@@ -5,6 +5,7 @@ import { Germany_En } from '@dist/rite-roman1969/bundles/germany';
 import { Hungary_En } from '@dist/rite-roman1969/bundles/hungary';
 import { Ireland_En } from '@dist/rite-roman1969/bundles/ireland';
 import { Slovakia_Sk } from '@dist/rite-roman1969/bundles/slovakia';
+import { CommonDefinition, Precedences, dateDifference } from '@internal/generator';
 import {
   CalendarScope,
   Id,
@@ -12,14 +13,11 @@ import {
   LiturgicalDay,
   LiturgicalDayDef,
   Period,
+  Roman1969Vocabulary,
   Romcal,
   RomcalBundleObject,
   Season,
 } from '@src/rite-roman1969';
-
-import { CommonDefinition } from '../src/constants/commons';
-import { Precedences } from '../src/constants/precedences';
-import { dateDifference } from '../src/utils/dates';
 
 const { Colors, isMartyr, Titles, Ranks, getUtcDate, getUtcDateFromString, isSameDate, subtractsDays } = Romcal;
 
@@ -122,10 +120,10 @@ describe('Testing calendar generation functions', () => {
 
   describe('Testing liturgical colors', () => {
     test('The proper color of a Memorial or a Feast is white except for martyrs in which case it is red, and All Souls which is purple', async () => {
-      const defs: LiturgicalDayDef[] = Object.values(
+      const defs: LiturgicalDayDef<Roman1969Vocabulary>[] = Object.values(
         (await new Romcal({
           localizedCalendar: GeneralRoman_En,
-        }).getAllDefinitions()) as unknown as LiturgicalDayDef[][]
+        }).getAllDefinitions()) as unknown as LiturgicalDayDef<Roman1969Vocabulary>[][]
       ).flat();
 
       defs

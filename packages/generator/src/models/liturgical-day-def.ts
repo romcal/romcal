@@ -3,10 +3,9 @@ import { CommonDefinition } from '../constants/commons';
 import { ProperCycles } from '../constants/cycles';
 import { GENERAL_ROMAN_ID, GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { isMartyr } from '../constants/martyrology-metadata';
-import { Period } from '../constants/periods';
 import { Precedence, Precedences } from '../constants/precedences';
-import { Rank, Ranks, RanksFromPrecedence } from '../constants/ranks';
-import { Season } from '../constants/seasons';
+import { Rank } from '../constants/ranks';
+import { Unly1969Rubrics } from '../rubrics/unly-1969';
 import { Id } from '../types/common';
 import { PartialCyclesDef } from '../types/cycles-metadata';
 import {
@@ -28,12 +27,13 @@ import {
   isLiturgicalDayProperOfTimeInput,
 } from '../types/liturgical-day';
 import { MartyrologyItem } from '../types/martyrology';
+import { Vocabulary } from '../types/vocabulary';
 import { safeWrapArray } from '../utils/arrays';
 
 import { RomcalConfig } from './config';
 
-export class LiturgicalDayDef implements BaseLiturgicalDayDef {
-  readonly #config: RomcalConfig;
+export class LiturgicalDayDef<V extends Vocabulary = Vocabulary> implements BaseLiturgicalDayDef<V> {
+  readonly #config: RomcalConfig<V>;
 
   readonly id: Id;
 
@@ -43,9 +43,9 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
   readonly alternativeTransferDateDefs: FullDateDefinition[] = [];
 
-  readonly precedence: Precedence;
+  readonly precedence: V['precedence'];
 
-  readonly rank: Rank;
+  readonly rank: V['rank'];
 
   readonly commonsDef: CommonDefinition[];
 
@@ -57,9 +57,9 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
 
   readonly i18nDef: i18nDef;
 
-  readonly seasons: Season[];
+  readonly seasons: V['season'][];
 
-  readonly periods: Period[];
+  readonly periods: V['period'][];
 
   readonly calendarMetadata: CalendarMetadata;
 
@@ -114,14 +114,17 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     id: Id,
     input: LiturgicalDayProperOfTimeInput | LiturgicalDayInput | LiturgicalDayBundleInput,
     fromCalendarId: FromCalendarId,
-    config: RomcalConfig
+    config: RomcalConfig<V>
   ) {
     // TODO: should config track changes on config, or is it intended to be an initial state?
     this.#config = config;
 
     this.id = id;
 
-    const previousDef: LiturgicalDayDef | undefined = Object.prototype.hasOwnProperty.call(config.liturgicalDayDef, id)
+    const previousDef: LiturgicalDayDef<V> | undefined = Object.prototype.hasOwnProperty.call(
+      config.liturgicalDayDef,
+      id
+    )
       ? config.liturgicalDayDef[id]
       : undefined;
 
@@ -152,7 +155,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
         fromCalendarId === GENERAL_ROMAN_ID ? Precedences.GeneralMemorial_10 : Precedences.ProperMemorial_11b;
     }
 
-    this.rank = LiturgicalDayDef.precedenceToRank(this.precedence, id);
+    this.rank = this.#config.rubrics.rankOf(this.precedence, id);
 
     this.allowSimilarRankItems = input.allowSimilarRankItems ?? previousDef?.allowSimilarRankItems ?? false;
 
@@ -250,12 +253,10 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @private
    */
   static precedenceToRank(precedence: Precedence, id: string): Rank {
-    // Easter Sunday
-    if (precedence === Precedences.Triduum_1 && id === 'easter_sunday') {
-      return Ranks.Solemnity;
-    }
-
-    return RanksFromPrecedence[precedence];
+    // Part of the public surface, and static, so it cannot consult the rite in force:
+    // it answers for the 1969 norms whatever rubrics a calendar was built under. The
+    // engine itself goes through `config.rubrics`.
+    return Unly1969Rubrics.rankOf(precedence, id);
   }
 
   /**
@@ -270,7 +271,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
     id: Id,
     input: LiturgicalDayInput,
     fromCalendarId: Id,
-    previousDef?: LiturgicalDayDef
+    previousDef?: LiturgicalDayDef<V>
   ): MartyrologyItem[] {
     // Retrieve the Martyrology items from the inherited LiturgicalDay object,
     // or create a new empty list.
@@ -352,7 +353,7 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @param martyrologyId
    * @param previousDef
    */
-  #combineTitles(titlesDef: TitlesDef, martyrologyId: Id, previousDef?: LiturgicalDayDef): RomcalTitles {
+  #combineTitles(titlesDef: TitlesDef, martyrologyId: Id, previousDef?: LiturgicalDayDef<V>): RomcalTitles {
     const titleObj: RomcalTitles =
       typeof titlesDef === 'object'
         ? [
@@ -376,7 +377,10 @@ export class LiturgicalDayDef implements BaseLiturgicalDayDef {
    * @param dayA
    * @param dayB
    */
-  static #getLiturgicalDayDiff(dayA: LiturgicalDayDef, dayB: LiturgicalDayDef): LiturgyDayDiff | null {
+  static #getLiturgicalDayDiff<W extends Vocabulary>(
+    dayA: LiturgicalDayDef<W>,
+    dayB: LiturgicalDayDef<W>
+  ): LiturgyDayDiff | null {
     const diff = {
       // date
       // ...(dayA instanceof LiturgicalDay && dayB instanceof LiturgicalDay && dayA.date !== dayB.date

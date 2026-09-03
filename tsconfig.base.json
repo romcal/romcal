@@ -26,6 +26,7 @@
       "@internal/easter": ["./packages/easter"],
       "@internal/lunar-new-year": ["./packages/lunar-new-year"],
       "@internal/calendar-dates": ["./packages/calendar-dates"],
+      "@internal/generator": ["./packages/generator"],
       "@internal/package.json": ["./package.json"]
     }
   },
