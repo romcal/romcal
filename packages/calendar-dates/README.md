@@ -15,7 +15,7 @@ package builds the shared anchors on top of them.
 | --- | --- |
 | `addDays`, `subtractsDays`, `startOfWeek`, `rangeOfDays`, and the other primitives | Ordinary Time helpers |
 | `easterSunday`, `firstSundayOfAdvent`, `christmas`, `ashWednesday`, `palmSunday`, `pentecostSunday` | `epiphany` and `baptismOfTheLord`, which depend on movable-Sunday options |
-| The fixed solemnities (`assumption`, `allSaints`, ...) | `annunciation` and `immaculateConceptionOfMary`, whose transfers are rite-shaped |
+| `christmas`, `maryMotherOfGod` | Fixed GRC dates (`assumption`, `allSaints`, `annunciation`, ...) defined as `{ month, date }` |
 | `lunarNewYear`, `sundayOnOrAfterLunarNewYear` | `holyFamily`, `divineMercySunday`, `christTheKingSunday` |
 | | `ascension` and `corpusChristi` transfer options |
 | | `startOfSeasons` / `endOfSeasons`, keyed by a rite's own `Season` enum |

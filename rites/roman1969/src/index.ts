@@ -187,19 +187,21 @@ class Romcal {
         const y = Romcal.#sanitizeYear(options.year);
         const ldConfig = new LiturgicalDayConfig(this.#config, y);
 
-        this.getAllDefinitions().then(() => {
-          const partialLd = new Calendar(this.#config, ldConfig).getOneLiturgicalDay(id);
-          if (!options.computeInWholeYear) return resolve(partialLd);
+        this.getAllDefinitions()
+          .then(() => {
+            const partialLd = new Calendar(this.#config, ldConfig).getOneLiturgicalDay(id);
+            if (!options.computeInWholeYear) return resolve(partialLd);
 
-          if (!partialLd) resolve(partialLd);
-          return this.generateCalendar(ldConfig.year).then((value) => {
-            resolve(
-              Object.values(value)
-                .flat()
-                .find((d) => d.id === id)
-            );
-          });
-        });
+            if (!partialLd) resolve(partialLd);
+            return this.generateCalendar(ldConfig.year).then((value) => {
+              resolve(
+                Object.values(value)
+                  .flat()
+                  .find((d) => d.id === id)
+              );
+            });
+          })
+          .catch(reject);
       } catch (e) {
         reject(e);
       }
@@ -224,10 +226,12 @@ class Romcal {
           return;
         }
 
-        this.getAllDefinitions().then(() => {
-          this.#computedCalendars[ldConfig.year] = new Calendar(this.#config, ldConfig).generateCalendar();
-          resolve(this.#computedCalendars[ldConfig.year]);
-        });
+        this.getAllDefinitions()
+          .then(() => {
+            this.#computedCalendars[ldConfig.year] = new Calendar(this.#config, ldConfig).generateCalendar();
+            resolve(this.#computedCalendars[ldConfig.year]);
+          })
+          .catch(reject);
       } catch (e) {
         reject(e);
       }
