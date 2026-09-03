@@ -4,6 +4,8 @@
   "description": "Liturgical calendar for the Roman Rite according to the 1962 reform",
   "license": "MIT",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "typecheck": "tsc --noEmit --importHelpers false -p tsconfig.json"
+  },
   "dependencies": {}
 }
