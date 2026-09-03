@@ -14,25 +14,18 @@
 
 export type { EasterCalculationType } from './anchors';
 export {
-  allSaints,
   ashWednesday,
-  assumption,
   christmas,
   easterSunday,
-  exaltationOfTheHolyCross,
   firstSundayOfAdvent,
   goodFriday,
   holySaturday,
   holyThursday,
   lunarNewYear,
   maryMotherOfGod,
-  nativityOfJohnTheBaptist,
   palmSunday,
   pentecostSunday,
-  peterAndPaulApostles,
-  presentationOfTheLord,
   sundayOnOrAfterLunarNewYear,
-  transfiguration,
 } from './anchors';
 export {
   addDays,
