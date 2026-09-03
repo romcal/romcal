@@ -6,11 +6,14 @@ import { addDays, getUtcDate, subtractsDays } from './primitives';
 /**
  * The points in the year that every Roman Rite calendar is measured from.
  *
- * Each anchor is a pure `(year: number) => Date`. Nothing here reads configuration,
- * because anything configurable is by definition rite-shaped: Epiphany's
- * movable-Sunday rule, the Ascension and Corpus Christi transfers, and the
- * `temporalOverrides` exceptions all stay with the rite, applied on top of the
- * dates computed here.
+ * Anchors are pure and configuration-free: nothing here reads a rite or a
+ * calendar option. Most take only the year. `easterSunday` and the Easter-derived
+ * anchors also take a calculation type, and `lunarNewYear` takes a UTC offset,
+ * because those parameters choose a computation rather than a rubric.
+ *
+ * Anything configurable stays with the rite, applied on top of the dates
+ * computed here: Epiphany's movable-Sunday rule, the Ascension and Corpus
+ * Christi transfers, and the `temporalOverrides` exceptions.
  */
 
 /** Which Easter computation to use. Both rites support either. */
@@ -90,24 +93,13 @@ export const pentecostSunday = (year: number, type?: EasterCalculationType): Dat
   addDays(easterSunday(year, type), 49);
 
 /**
- * FIXED SOLEMNITIES AND FEASTS
+ * STRUCTURAL FIXED DATES
+ *
+ * Other fixed GRC celebrations are `{ month, date }` on the rite. These two stay
+ * because other calculations and date exceptions depend on them.
  */
 
 export const maryMotherOfGod = (year: number): Date => getUtcDate(year, 1, 1);
-
-export const presentationOfTheLord = (year: number): Date => getUtcDate(year, 2, 2);
-
-export const nativityOfJohnTheBaptist = (year: number): Date => getUtcDate(year, 6, 24);
-
-export const peterAndPaulApostles = (year: number): Date => getUtcDate(year, 6, 29);
-
-export const transfiguration = (year: number): Date => getUtcDate(year, 8, 6);
-
-export const assumption = (year: number): Date => getUtcDate(year, 8, 15);
-
-export const exaltationOfTheHolyCross = (year: number): Date => getUtcDate(year, 9, 14);
-
-export const allSaints = (year: number): Date => getUtcDate(year, 11, 1);
 
 /**
  * LUNAR NEW YEAR

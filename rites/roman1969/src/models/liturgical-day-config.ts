@@ -59,7 +59,11 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
       date = getUtcDate(year, dateDef.month, dateDef.date);
 
       // DateDefDateFnAddDay or DateDefDateFnSubtractDay
-    } else if (typeof dateDef.dateFn === 'string' && Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)) {
+    } else if (typeof dateDef.dateFn === 'string') {
+      if (!Object.prototype.hasOwnProperty.call(this.dates, dateDef.dateFn)) {
+        throw new Error(`Unknown dateFn '${dateDef.dateFn}'`);
+      }
+
       const args = [...(dateDef.dateArgs ?? []), year];
       // TODO: improve TS typing here
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

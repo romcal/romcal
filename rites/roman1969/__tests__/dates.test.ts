@@ -221,6 +221,8 @@ describe('Testing specific liturgical date functions', () => {
     test('An explicit Julian lookup does not leak into other dates on a Gregorian instance', () => {
       const dates = new Romcal().dates(2024);
       dates.easterSunday(2024, 'julian');
+      expect(dates.easterSunday().toISOString().slice(0, 10)).toEqual('2024-03-31');
+      expect(dates.pentecostSunday().toISOString().slice(0, 10)).toEqual('2024-05-19');
       expect(dates.pentecostSunday().getTime()).toBeGreaterThan(dates.ascension().getTime());
     });
   });
@@ -275,38 +277,30 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     describe('The Nativity of John the Baptist', () => {
-      test('Occurs every year on June 24', () => {
-        for (let i = 1900, il = 2100; i <= il; i += 1) {
-          expect(new Romcal().dates().nativityOfJohnTheBaptist(i).getUTCDate()).toEqual(24);
-          expect(new Romcal().dates().nativityOfJohnTheBaptist(i).getUTCMonth()).toEqual(5);
-        }
+      test('Occurs every year on June 24', async () => {
+        const day = await new Romcal().getOneLiturgicalDay('nativity_of_john_the_baptist', { year: 2025 });
+        expect(day!.date).toEqual('2025-06-24');
       });
     });
 
     describe('The feast of Peter and Paul, Apostles', () => {
-      test('Occurs every year on June 29', () => {
-        for (let i = 1900, il = 2100; i <= il; i += 1) {
-          expect(new Romcal().dates().peterAndPaulApostles(i).getUTCDate()).toEqual(29);
-          expect(new Romcal().dates().peterAndPaulApostles(i).getUTCMonth()).toEqual(5);
-        }
+      test('Occurs every year on June 29', async () => {
+        const day = await new Romcal().getOneLiturgicalDay('peter_and_paul_apostles', { year: 2025 });
+        expect(day!.date).toEqual('2025-06-29');
       });
     });
 
     describe('The feast of the Assumption', () => {
-      test('Occurs every year on August 15', () => {
-        for (let i = 1900, il = 2100; i <= il; i += 1) {
-          expect(new Romcal().dates().assumption(i).getUTCDate()).toEqual(15);
-          expect(new Romcal().dates().assumption(i).getUTCMonth()).toEqual(7);
-        }
+      test('Occurs every year on August 15', async () => {
+        const day = await new Romcal().getOneLiturgicalDay('assumption_of_the_blessed_virgin_mary', { year: 2025 });
+        expect(day!.date).toEqual('2025-08-15');
       });
     });
 
     describe('The feast of the All Saints', () => {
-      test('Occurs every year on November 1', () => {
-        for (let i = 1900, il = 2100; i <= il; i += 1) {
-          expect(new Romcal().dates().allSaints(i).getUTCDate()).toEqual(1);
-          expect(new Romcal().dates().allSaints(i).getUTCMonth()).toEqual(10);
-        }
+      test('Occurs every year on November 1', async () => {
+        const day = await new Romcal().getOneLiturgicalDay('all_saints', { year: 2025 });
+        expect(day!.date).toEqual('2025-11-01');
       });
     });
 
@@ -780,14 +774,6 @@ describe('Testing specific liturgical date functions', () => {
   });
 
   describe('The Solemnity of the Annunciation', () => {
-    test('The Dates helper is always 25 March; transfers live on the GRC', () => {
-      for (let i = 2020; i <= 2030; i += 1) {
-        const date = new Romcal().dates().annunciation(i);
-        expect(date.getUTCMonth()).toEqual(2);
-        expect(date.getUTCDate()).toEqual(25);
-      }
-    });
-
     test('Falls on 25 March when that is outside Holy Week and the Octave of Easter', async () => {
       const romcal = new Romcal();
       const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2025 });
@@ -798,6 +784,20 @@ describe('Testing specific liturgical date functions', () => {
       const romcal = new Romcal();
       const dates = romcal.dates(2024);
       const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2024 });
+      expect(isSameDate(getUtcDateFromString(day!.date), addDays(dates.divineMercySunday(), 1))).toEqual(true);
+    });
+
+    test('Moves to the Monday after Divine Mercy Sunday when 25 March is Palm Sunday', async () => {
+      const romcal = new Romcal();
+      const dates = romcal.dates(2018);
+      const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2018 });
+      expect(isSameDate(getUtcDateFromString(day!.date), addDays(dates.divineMercySunday(), 1))).toEqual(true);
+    });
+
+    test('Moves to the Monday after Divine Mercy Sunday when 25 March is Easter Sunday', async () => {
+      const romcal = new Romcal();
+      const dates = romcal.dates(2035);
+      const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2035 });
       expect(isSameDate(getUtcDateFromString(day!.date), addDays(dates.divineMercySunday(), 1))).toEqual(true);
     });
   });
@@ -852,23 +852,13 @@ describe('Testing specific liturgical date functions', () => {
   });
 
   describe('The Presentation of the Lord', () => {
-    test('Should always fall on the 2nd of February', () => {
-      for (let i = 1900, il = 2100; i <= il; i += 1) {
-        expect(new Romcal().dates().presentationOfTheLord(i).getUTCMonth()).toEqual(1);
-        expect(new Romcal().dates().presentationOfTheLord(i).getUTCDate()).toEqual(2);
-      }
+    test('Falls on 2 February', async () => {
+      const day = await new Romcal().getOneLiturgicalDay('presentation_of_the_lord', { year: 2025 });
+      expect(day!.date).toEqual('2025-02-02');
     });
   });
 
   describe('The Solemnity of the Immaculate Conception', () => {
-    test('The Dates helper is always 8 December; transfers live on the GRC', () => {
-      for (let i = 2020; i <= 2030; i += 1) {
-        const date = new Romcal().dates().immaculateConceptionOfMary(i);
-        expect(date.getUTCMonth()).toEqual(11);
-        expect(date.getUTCDate()).toEqual(8);
-      }
-    });
-
     test('Falls on 8 December when that is not a Sunday', async () => {
       const romcal = new Romcal();
       const day = await romcal.getOneLiturgicalDay('immaculate_conception_of_the_blessed_virgin_mary', { year: 2025 });

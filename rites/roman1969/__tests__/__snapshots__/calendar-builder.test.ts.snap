@@ -3107,7 +3107,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
       },
       "date": "2020-02-02",
       "dateDef": {
-        "dateFn": "presentationOfTheLord",
+        "date": 2,
+        "month": 2,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -16790,7 +16791,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
       },
       "date": "2020-06-24",
       "dateDef": {
-        "dateFn": "nativityOfJohnTheBaptist",
+        "date": 24,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -17200,7 +17202,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
       },
       "date": "2020-06-29",
       "dateDef": {
-        "dateFn": "peterAndPaulApostles",
+        "date": 29,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -21448,7 +21451,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
       },
       "date": "2020-08-06",
       "dateDef": {
-        "dateFn": "transfiguration",
+        "date": 6,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -22711,7 +22715,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
       },
       "date": "2020-08-15",
       "dateDef": {
-        "dateFn": "assumption",
+        "date": 15,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -25681,7 +25686,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
       },
       "date": "2020-09-14",
       "dateDef": {
-        "dateFn": "exaltationOfTheHolyCross",
+        "date": 14,
+        "month": 9,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -31432,7 +31438,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
       },
       "date": "2020-11-01",
       "dateDef": {
-        "dateFn": "allSaints",
+        "date": 1,
+        "month": 11,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -40400,7 +40407,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
       },
       "date": "2021-02-02",
       "dateDef": {
-        "dateFn": "presentationOfTheLord",
+        "date": 2,
+        "month": 2,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -53879,7 +53887,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
       },
       "date": "2021-06-24",
       "dateDef": {
-        "dateFn": "nativityOfJohnTheBaptist",
+        "date": 24,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -54229,7 +54238,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
       },
       "date": "2021-06-29",
       "dateDef": {
-        "dateFn": "peterAndPaulApostles",
+        "date": 29,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -58597,7 +58607,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
       },
       "date": "2021-08-06",
       "dateDef": {
-        "dateFn": "transfiguration",
+        "date": 6,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -59920,7 +59931,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
       },
       "date": "2021-08-15",
       "dateDef": {
-        "dateFn": "assumption",
+        "date": 15,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -62838,7 +62850,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
       },
       "date": "2021-09-14",
       "dateDef": {
-        "dateFn": "exaltationOfTheHolyCross",
+        "date": 14,
+        "month": 9,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -68521,7 +68534,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
       },
       "date": "2021-11-01",
       "dateDef": {
-        "dateFn": "allSaints",
+        "date": 1,
+        "month": 11,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -77873,7 +77887,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
       },
       "date": "2022-02-02",
       "dateDef": {
-        "dateFn": "presentationOfTheLord",
+        "date": 2,
+        "month": 2,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -91675,7 +91690,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
       },
       "date": "2022-06-29",
       "dateDef": {
-        "dateFn": "peterAndPaulApostles",
+        "date": 29,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -96096,7 +96112,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
       },
       "date": "2022-08-06",
       "dateDef": {
-        "dateFn": "transfiguration",
+        "date": 6,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -97193,7 +97210,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
       },
       "date": "2022-08-15",
       "dateDef": {
-        "dateFn": "assumption",
+        "date": 15,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -100335,7 +100353,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
       },
       "date": "2022-09-14",
       "dateDef": {
-        "dateFn": "exaltationOfTheHolyCross",
+        "date": 14,
+        "month": 9,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -105680,7 +105699,8 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
       },
       "date": "2022-11-01",
       "dateDef": {
-        "dateFn": "allSaints",
+        "date": 1,
+        "month": 11,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -118059,7 +118079,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
       },
       "date": "2020-02-02",
       "dateDef": {
-        "dateFn": "presentationOfTheLord",
+        "date": 2,
+        "month": 2,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -131742,7 +131763,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
       },
       "date": "2020-06-24",
       "dateDef": {
-        "dateFn": "nativityOfJohnTheBaptist",
+        "date": 24,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -132152,7 +132174,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
       },
       "date": "2020-06-29",
       "dateDef": {
-        "dateFn": "peterAndPaulApostles",
+        "date": 29,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -136400,7 +136423,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
       },
       "date": "2020-08-06",
       "dateDef": {
-        "dateFn": "transfiguration",
+        "date": 6,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -137663,7 +137687,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
       },
       "date": "2020-08-15",
       "dateDef": {
-        "dateFn": "assumption",
+        "date": 15,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -140633,7 +140658,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
       },
       "date": "2020-09-14",
       "dateDef": {
-        "dateFn": "exaltationOfTheHolyCross",
+        "date": 14,
+        "month": 9,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -146384,7 +146410,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
       },
       "date": "2020-11-01",
       "dateDef": {
-        "dateFn": "allSaints",
+        "date": 1,
+        "month": 11,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -155352,7 +155379,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
       },
       "date": "2021-02-02",
       "dateDef": {
-        "dateFn": "presentationOfTheLord",
+        "date": 2,
+        "month": 2,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -168831,7 +168859,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
       },
       "date": "2021-06-24",
       "dateDef": {
-        "dateFn": "nativityOfJohnTheBaptist",
+        "date": 24,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -169181,7 +169210,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
       },
       "date": "2021-06-29",
       "dateDef": {
-        "dateFn": "peterAndPaulApostles",
+        "date": 29,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -173549,7 +173579,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
       },
       "date": "2021-08-06",
       "dateDef": {
-        "dateFn": "transfiguration",
+        "date": 6,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -174872,7 +174903,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
       },
       "date": "2021-08-15",
       "dateDef": {
-        "dateFn": "assumption",
+        "date": 15,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -177790,7 +177822,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
       },
       "date": "2021-09-14",
       "dateDef": {
-        "dateFn": "exaltationOfTheHolyCross",
+        "date": 14,
+        "month": 9,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -183473,7 +183506,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
       },
       "date": "2021-11-01",
       "dateDef": {
-        "dateFn": "allSaints",
+        "date": 1,
+        "month": 11,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -192825,7 +192859,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
       },
       "date": "2022-02-02",
       "dateDef": {
-        "dateFn": "presentationOfTheLord",
+        "date": 2,
+        "month": 2,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -206627,7 +206662,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
       },
       "date": "2022-06-29",
       "dateDef": {
-        "dateFn": "peterAndPaulApostles",
+        "date": 29,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -211048,7 +211084,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
       },
       "date": "2022-08-06",
       "dateDef": {
-        "dateFn": "transfiguration",
+        "date": 6,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -212145,7 +212182,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
       },
       "date": "2022-08-15",
       "dateDef": {
-        "dateFn": "assumption",
+        "date": 15,
+        "month": 8,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -215287,7 +215325,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
       },
       "date": "2022-09-14",
       "dateDef": {
-        "dateFn": "exaltationOfTheHolyCross",
+        "date": 14,
+        "month": 9,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
@@ -220632,7 +220671,8 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
       },
       "date": "2022-11-01",
       "dateDef": {
-        "dateFn": "allSaints",
+        "date": 1,
+        "month": 11,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
