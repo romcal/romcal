@@ -7,6 +7,7 @@ import { locale as EnGb } from './en-gb';
 import { locale as EnIe } from './en-ie';
 import { locale as Es } from './es';
 import { locale as Fr } from './fr';
+import { locale as Hu } from './hu';
 import { locale as It } from './it';
 import { locale as La } from './la';
 import { locale as Pl } from './pl';
@@ -27,6 +28,7 @@ export const locales: Record<string, Locale> = {
   EnIe,
   Es,
   Fr,
+  Hu,
   It,
   La,
   Pl,
