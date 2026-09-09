@@ -308,8 +308,8 @@ export default [
   // JSON: `@eslint/json` is lint-only by design, so formatting comes from eslint-plugin-jsonc.
   ...jsonc.configs['flat/recommended-with-json'],
   // The builder is development tooling that runs in Node. A rite's src is bundled
-  // into cjs, esm and iife for consumers, so importing the builder from there would
-  // pull the whole toolchain into a published artifact.
+  // into esm for consumers, so importing the builder from there would pull the
+  // whole toolchain into a published artifact.
   ...tseslint.config({
     files: ['rites/*/src/**/*.ts'],
     rules: {

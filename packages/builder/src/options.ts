@@ -1,4 +1,4 @@
-import { BuildArtifact, BuildFormat, ResolvedOptions } from './types';
+import { BuildArtifact, ResolvedOptions } from './types';
 import { findRepoRoot, loadManifest, resolveRiteRoot } from './utils/workspace';
 
 /**
@@ -9,13 +9,36 @@ import { findRepoRoot, loadManifest, resolveRiteRoot } from './utils/workspace';
  * `npm run build`.
  */
 
-const FORMATS: readonly BuildFormat[] = ['cjs', 'esm', 'iife'];
 const ARTIFACTS: readonly BuildArtifact[] = ['bundles', 'docs', 'packages', 'types'];
+
+/**
+ * Switches that must never swallow the next argv token as a value.
+ * `romcal-build --dry-run publish` would otherwise set dry-run to `"publish"` and
+ * silently run a real publish.
+ */
+const BOOLEAN_FLAGS = new Set([
+  'dry-run',
+  'verbose',
+  'help',
+  'only-new',
+  'sync',
+  'force',
+  'fresh',
+  'json',
+  'yes',
+  'no-prompt',
+]);
 
 export interface ParsedArgs {
   readonly command?: string;
   readonly flags: Readonly<Record<string, string | boolean>>;
 }
+
+const parseBoolean = (flag: string, value: string): boolean => {
+  if (value === 'true' || value === '1') return true;
+  if (value === 'false' || value === '0') return false;
+  throw new Error(`Invalid value for --${flag}: ${value}. Use true or false.`);
+};
 
 export const parseArgs = (argv: readonly string[]): ParsedArgs => {
   const [command, ...rest] = argv.filter((arg) => !arg.startsWith('-'));
@@ -26,14 +49,19 @@ export const parseArgs = (argv: readonly string[]): ParsedArgs => {
     if (!arg.startsWith('--')) continue;
 
     const [name, inline] = arg.slice(2).split('=');
+    if (BOOLEAN_FLAGS.has(name)) {
+      flags[name] = inline === undefined ? true : parseBoolean(name, inline);
+      continue;
+    }
+
     if (inline !== undefined) {
       flags[name] = inline;
       continue;
     }
 
     const next = argv[i + 1];
-    // A flag either takes the next token or is a boolean switch.
     flags[name] = next && !next.startsWith('-') ? next : true;
+    if (typeof flags[name] === 'string') i += 1;
   }
 
   void rest;
@@ -79,14 +107,12 @@ export const resolveOptions = async (parsed: ParsedArgs): Promise<ResolvedOption
     if (unknown.length) throw new Error(`Unknown locale(s): ${unknown.join(', ')}.`);
   }
 
-  const requestedFormats = list(flags.formats);
   const requestedEmit = list(flags.emit);
 
   return {
     calendars: requestedCalendars ?? knownCalendars,
     dryRun: flags['dry-run'] === true,
-    emit: requestedEmit ? validate(requestedEmit, ARTIFACTS, 'emit') : ARTIFACTS,
-    formats: requestedFormats ? validate(requestedFormats, FORMATS, 'formats') : manifest.formats,
+    emit: requestedEmit ? validate(requestedEmit, ARTIFACTS, 'emit') : [...ARTIFACTS],
     locales: requestedLocales ?? knownLocales,
     manifest,
     repoRoot,
