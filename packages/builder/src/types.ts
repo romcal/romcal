@@ -12,8 +12,6 @@ import { CalendarDef, Locale, MartyrologyCatalog } from '@internal/generator';
  * are the rite's, and there is no way to discover them without asking.
  */
 
-export type BuildFormat = 'cjs' | 'esm' | 'iife';
-
 export type BuildArtifact = 'bundles' | 'docs' | 'packages' | 'types';
 
 export type CalendarDefConstructor = typeof CalendarDef;
@@ -29,8 +27,6 @@ export interface RiteBuildManifest {
   readonly tmpDir: string;
   /** tsconfig used to emit the rite's declarations, relative to the rite root. */
   readonly tsconfig: string;
-  /** Formats emitted when `--formats` is not given. */
-  readonly formats: readonly BuildFormat[];
   /** npm name for a generated calendar bundle; `[calendar]` is substituted. */
   readonly packageNameTemplate: string;
   /** Destination of the generated plugin table, relative to the repository root. */
@@ -66,7 +62,6 @@ export interface ResolvedOptions {
   readonly riteRoot: string;
   readonly calendars: readonly string[];
   readonly locales: readonly string[];
-  readonly formats: readonly BuildFormat[];
   readonly emit: readonly BuildArtifact[];
   readonly dryRun: boolean;
   readonly verbose: boolean;

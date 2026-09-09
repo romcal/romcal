@@ -8,8 +8,8 @@
  * read everything they need from it.
  *
  * None of this reaches a published artifact. The commands run in Node under tsx; the
- * cjs, esm and iife bundles are esbuild's output from a rite's `src`, which is barred
- * from importing this package by an ESLint rule.
+ * esm bundles are esbuild's output from a rite's `src`, which is barred from importing
+ * this package by an ESLint rule.
  */
 
 export { runBuild } from './commands/build';
@@ -20,7 +20,7 @@ export { runPublish } from './commands/publish';
 export { runTrust } from './commands/trust';
 export { parseArgs, resolveOptions } from './options';
 export { defineRite } from './types';
-export type { BuildArtifact, BuildFormat, ResolvedOptions, RiteBuildManifest } from './types';
+export type { BuildArtifact, ResolvedOptions, RiteBuildManifest } from './types';
 export type { Logger, LoggerOptions, LogLevel } from './utils/logger';
 export { createLogger, logger } from './utils/logger';
 export { findRepoRoot, findRites, loadManifest, resolveRiteRoot } from './utils/workspace';
