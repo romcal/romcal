@@ -6,8 +6,6 @@ import {
   TemporalOverrides,
 } from '@src/rite-roman1969';
 
-import { Roman1969Vocabulary } from '../src/vocabulary';
-
 const { CalendarDef, RomcalConfig, LiturgicalDayConfig } = Romcal;
 
 /**
@@ -17,7 +15,7 @@ const { CalendarDef, RomcalConfig, LiturgicalDayConfig } = Romcal;
  */
 type Dates = ReturnType<Romcal['dates']>;
 
-const datesOf = (config: InstanceType<typeof RomcalConfig<Roman1969Vocabulary>>, year: number): Dates =>
+const datesOf = (config: InstanceType<typeof RomcalConfig>, year: number): Dates =>
   new LiturgicalDayConfig(config, year).dates as Dates;
 
 const temporalOverridesFixture: TemporalOverrides = {
@@ -77,7 +75,7 @@ describe('getConfig()', () => {
       ParentCalendars = [ParentCalendar];
     }
 
-    const config = new RomcalConfig<Roman1969Vocabulary>(undefined, undefined, undefined, ChildCalendar);
+    const config = new RomcalConfig(undefined, undefined, undefined, ChildCalendar);
     expect(config.temporalOverrides).toEqual(temporalOverridesFixture);
     expect(datesOf(config, 2024).epiphany().toISOString()).toEqual('2024-01-07T00:00:00.000Z');
   });
@@ -91,7 +89,7 @@ describe('getConfig()', () => {
       ParentCalendars = [ParentCalendar];
     }
 
-    const config = new RomcalConfig<Roman1969Vocabulary>(undefined, undefined, undefined, ChildCalendar);
+    const config = new RomcalConfig(undefined, undefined, undefined, ChildCalendar);
     const clone = config.clone();
 
     expect(clone.temporalOverrides).toEqual(temporalOverridesFixture);
@@ -122,7 +120,7 @@ describe('getConfig()', () => {
       ParentCalendars = [ParentCalendar];
     }
 
-    const config = new RomcalConfig<Roman1969Vocabulary>(
+    const config = new RomcalConfig(
       { epiphanyOnSunday: false },
       undefined,
       undefined,
@@ -145,7 +143,7 @@ describe('getConfig()', () => {
       particularConfig: ParticularConfig = { temporalOverrides: { anchorExceptions: {} } };
     }
 
-    const config = new RomcalConfig<Roman1969Vocabulary>(undefined, undefined, undefined, ChildCalendar);
+    const config = new RomcalConfig(undefined, undefined, undefined, ChildCalendar);
     expect(config.temporalOverrides).toEqual({ anchorExceptions: {} });
     expect(datesOf(config, 2024).epiphany().toISOString()).toEqual('2024-01-06T00:00:00.000Z');
   });

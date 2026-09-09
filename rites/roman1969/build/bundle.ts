@@ -26,7 +26,6 @@ import { calendarDefinitions } from '../src/calendars';
 import { GeneralRoman } from '../src/calendars/general-roman';
 import { Martyrology } from '../src/catalog/martyrology';
 import { locales } from '../src/locales';
-import { Roman1969Vocabulary } from '../src/vocabulary';
 
 const { log } = console;
 
@@ -34,13 +33,13 @@ const { log } = console;
  * Class helper, used to build the localized calendar bundles.
  */
 export class RomcalBuilder {
-  readonly #config: RomcalConfig<Roman1969Vocabulary>;
+  readonly #config: RomcalConfig;
 
   #martyrologyIds: string[] = [];
 
   constructor(locale: Locale, particularCalendar?: typeof CalendarDef) {
     const scope: RomcalConfigInput = { scope: 'liturgical' };
-    this.#config = new RomcalConfig<Roman1969Vocabulary>(scope, Martyrology.catalog, locale, particularCalendar);
+    this.#config = new RomcalConfig(scope, Martyrology.catalog, locale, particularCalendar);
   }
 
   get martyrologyIds(): string[] {
