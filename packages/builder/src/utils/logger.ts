@@ -15,8 +15,8 @@ import { colors } from 'consola/utils';
  * tag, nesting, and collapsible sections on GitHub Actions.
  *
  * None of this reaches a published artifact. The builder runs in Node under tsx;
- * the cjs, esm and iife bundles are esbuild's output from a rite's `src`, which
- * never imports this package.
+ * the esm bundles are esbuild's output from a rite's `src`, which never imports
+ * this package.
  */
 
 export type LogLevel = 'debug' | 'info' | 'warn' | 'error';
