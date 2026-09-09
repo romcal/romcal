@@ -42,9 +42,9 @@
   "exports": {
     "types": "./rites/roman1969/dist/index.d.ts",
     "import": "./rites/roman1969/dist/esm/romcal.js",
-    "require": "./rites/roman1969/dist/esm/romcal.js"
+    "require": "./rites/roman1969/dist/cjs/romcal.js"
   },
-  "main": "rites/roman1969/dist/esm/romcal.js",
+  "main": "rites/roman1969/dist/cjs/romcal.js",
   "module": "rites/roman1969/dist/esm/romcal.js",
   "typings": "rites/roman1969/dist/index.d.ts",
   "workspaces": [
