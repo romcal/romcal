@@ -6,9 +6,9 @@
   "exports": {
     "types": "./dist/index.d.ts",
     "import": "./dist/esm/romcal.js",
-    "require": "./dist/esm/romcal.js"
+    "require": "./dist/cjs/romcal.js"
   },
-  "main": "dist/esm/romcal.js",
+  "main": "dist/cjs/romcal.js",
   "module": "dist/esm/romcal.js",
   "typings": "dist/index.d.ts",
   "scripts": {
