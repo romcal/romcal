@@ -98,12 +98,22 @@ export class RomcalBuilder {
 }
 
 export const RomcalBundler = (options: ResolvedOptions, log: Logger): void => {
-  const { manifest, riteRoot } = options;
+  const { dryRun, manifest, riteRoot } = options;
   const bundlesDir = resolve(riteRoot, manifest.tmpDir, 'bundles');
 
   // The rite's own calendars inherit from its base calendar, which the engine only
   // knows about once the rite registers it.
   registerBaseCalendar(manifest.baseCalendar);
+
+  const { locales } = manifest;
+  const allCalendars: (typeof CalendarDef)[] = options.calendars.map((name) => manifest.calendars[name]);
+  const allLocaleIds = [...options.locales];
+
+  if (dryRun) {
+    log.step(`would generate calendar bundle files into ${manifest.tmpDir}/bundles/`);
+    log.detail(`would generate ${allCalendars.length} calendars in ${allLocaleIds.length} locales`);
+    return;
+  }
 
   rimraf.sync(bundlesDir);
   const isCI = process.env.CI === 'true';
@@ -118,9 +128,6 @@ export const RomcalBundler = (options: ResolvedOptions, log: Logger): void => {
   );
   // A filtered run builds a subset, but the English locale stays reachable: every
   // other locale is merged over it, and a missing name there is an error.
-  const { locales } = manifest;
-  const allCalendars: (typeof CalendarDef)[] = options.calendars.map((name) => manifest.calendars[name]);
-  const allLocaleIds = [...options.locales];
 
   log.step(`Generate calendar bundle files into ${manifest.tmpDir}/bundles/`);
   if (!isCI) gauge.start(allCalendars.length * allLocaleIds.length - 1, 0);
@@ -237,13 +244,6 @@ export const RomcalBundler = (options: ResolvedOptions, log: Logger): void => {
       // Write the calendar bundle file.
       if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
       writeFileSync(resolve(dir, filename), jsOutput, 'utf-8');
-
-      // Add another calendar bundle file for the IIFE format, that will output the calendar
-      // bundle in a global variable, for iife usage.
-      // Note: will not be required if this issue is addressed: https://github.com/evanw/esbuild/issues/1182
-      const jsIifeOutput = `import { ${calVarName} } from './${locale.id.toLowerCase()}';\nmodule.exports = ${calVarName};\n`;
-      const iifeFilename = filename.replace(/\.ts$/, '.iife.ts');
-      writeFileSync(resolve(dir, iifeFilename), jsIifeOutput, 'utf-8');
     }
 
     // Define package name, variable name and package dist.

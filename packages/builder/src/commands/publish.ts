@@ -2,6 +2,8 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { toPackageName } from '@internal/generator';
+
 import { ResolvedOptions } from '../types';
 import { Logger } from '../utils/logger';
 
@@ -53,13 +55,15 @@ export const runPublish = async (
   { onlyNew }: PublishOptions,
   log: Logger
 ): Promise<void> => {
-  const { dryRun, manifest, repoRoot, riteRoot } = options;
+  const { calendars, dryRun, manifest, repoRoot, riteRoot } = options;
   const bundlesBasePath = path.join(riteRoot, manifest.outDir, 'bundles');
+  const selectedPkgs = new Set(calendars.map((name) => toPackageName(name)));
 
   const bundleDirs = fs
     .readdirSync(bundlesBasePath, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => path.join(bundlesBasePath, dirent.name));
+    .map((dirent) => path.join(bundlesBasePath, dirent.name))
+    .filter((dir) => selectedPkgs.has(path.basename(dir)));
 
   const targets: Target[] = [repoRoot, ...bundleDirs].map((dir) => {
     const { name, version } = JSON.parse(fs.readFileSync(path.join(dir, 'package.json'), 'utf-8'));

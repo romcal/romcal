@@ -6,9 +6,9 @@
   "exports": {
     "types": "./dist/index.d.ts",
     "import": "./dist/esm/romcal.js",
-    "require": "./dist/cjs/romcal.js"
+    "require": "./dist/esm/romcal.js"
   },
-  "main": "dist/cjs/romcal.js",
+  "main": "dist/esm/romcal.js",
   "module": "dist/esm/romcal.js",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -25,10 +25,10 @@
     "typecheck": "tsc --noEmit --importHelpers false -p tsconfig.json"
   },
   "dependencies": {
+    "@internal/calendar-dates": "file:../../packages/calendar-dates",
     "@internal/easter": "file:../../packages/easter",
     "@internal/generator": "file:../../packages/generator",
     "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
-    "@internal/calendar-dates": "file:../../packages/calendar-dates",
     "i18next": "^26.4.0",
     "ts-deepmerge": "^8.0.0"
   },

@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 
-import { toPackageName, toPascalCase } from '@internal/generator';
+import { toPackageName } from '@internal/generator';
 import { generateDtsBundle } from 'dts-bundle-generator';
-import { Format, Platform, build } from 'esbuild';
+import { build } from 'esbuild';
 import { glob } from 'glob';
 import { rimraf } from 'rimraf';
 import { PackageJson } from 'type-fest';
@@ -14,6 +14,7 @@ import { Logger } from '../utils/logger';
 import { getDuration } from '../utils/time';
 
 import { RomcalBundler } from './bundle';
+import { runDoc } from './doc';
 
 /**
  * The fields a generated calendar package copies from the root manifest. Declared as
@@ -82,7 +83,8 @@ const compile = (configFileName: string, log: Logger): void => {
  *
  * `--emit` selects the stages. They are not independent — packaging copies the
  * declarations that the bundle stage wrote — so a partial run assumes an earlier full
- * one, which is what makes an iteration on a single calendar quick.
+ * one, which is what makes an iteration on a single calendar quick. Partial runs only
+ * replace the files they regenerate; they never wipe `dist` wholesale.
  */
 export const runBuild = async (options: ResolvedOptions, log: Logger): Promise<void> => {
   const { dryRun, emit, manifest, repoRoot, riteRoot } = options;
@@ -115,13 +117,24 @@ export const runBuild = async (options: ResolvedOptions, log: Logger): Promise<v
     }
   }
 
-  if (dryRun) return;
+  if (dryRun) {
+    if (emit.includes('types')) {
+      log.detail(`would write ${manifest.outDir}/index.d.ts`);
+    }
+    if (emit.includes('bundles')) {
+      log.detail(`would build esm output under ${manifest.outDir}/`);
+    }
+    if (emit.includes('packages')) {
+      log.detail(`would package ${options.calendars.length} calendar modules under ${manifest.outDir}/bundles/`);
+    }
+    if (emit.includes('docs')) {
+      await runDoc(options, log);
+    } else {
+      log.success(`Done in ${getDuration(time)}`);
+    }
+    return;
+  }
 
-  /**
-   * Delete and recreate empty dist directory
-   */
-  log.step(`Cleaning up the ${manifest.outDir}/ directory`);
-  rimraf.sync(distDir);
   fs.mkdirSync(distDir, { recursive: true });
 
   if (emit.includes('types')) {
@@ -156,14 +169,6 @@ export const runBuild = async (options: ResolvedOptions, log: Logger): Promise<v
     .map((p) => resolve(bundlesDir, p))
     .filter((p) => !/\.d\.ts$/.exec(p));
 
-  const toGlobalName = (calendar: string, locale: string): string => {
-    const varName = calendar
-      .split('.')
-      .map((s) => toPascalCase(s))
-      .join('_');
-    return `${varName}_${toPascalCase(locale)}`;
-  };
-
   /**
    * Retrieve the license, and wrap it in code comments
    */
@@ -175,74 +180,66 @@ export const runBuild = async (options: ResolvedOptions, log: Logger): Promise<v
     .join('\n')}\n */\n`;
 
   /**
-   * Build the core library and all calendar bundles
+   * Build the core library and all calendar bundles as ESM only.
+   * Node 22.13+ can `require()` ESM without a flag when there is no top-level await;
+   * browsers load it with `<script type="module">`.
    */
   if (emit.includes('bundles')) {
+    log.step('Cleaning esm outputs this stage will regenerate');
+    rimraf.sync(join(distDir, 'esm'));
+    const selectedPkgs = new Set(options.calendars.map((name) => toPackageName(name)));
+    for (const pkgName of selectedPkgs) {
+      rimraf.sync(join(distDir, 'bundles', pkgName, 'esm'));
+    }
+
+    log.step('Building the codebase using the esm format');
+    const subPackageJson = JSON.stringify({ type: 'module' }, null, 2);
+
+    log.detail(`src/${manifest.entryPoint.replace(/^src\//, '')} → ${manifest.outDir}/esm/romcal.js`);
+    await build({
+      bundle: true,
+      minify: true,
+      sourcemap: 'external',
+      external: ['i18next'],
+      absWorkingDir: riteRoot,
+      entryPoints: [manifest.entryPoint],
+      banner: { js: LICENSE },
+      format: 'esm',
+      outfile: join(distDir, 'esm', 'romcal.js'),
+      target: 'ESNext',
+    }).catch(() => {
+      log.error('Failed to build the core library using the esm format.');
+      process.exit(1);
+    });
+    fs.writeFileSync(join(distDir, 'esm', 'package.json'), subPackageJson, 'utf-8');
+
+    log.detail(`${manifest.tmpDir}/bundles/**/*.ts → ${manifest.outDir}/bundles/[calendar]/esm/[locale].js`);
     await Promise.all(
-      (options.formats as readonly Format[]).map(async (format) => {
-        log.step(`Building the codebase using the ${format} format`);
-        const fromFormats: Record<Format, Platform> = { cjs: 'node', esm: 'neutral', iife: 'browser' };
-        const platform: Platform = fromFormats[format];
-        const subPackageJson = JSON.stringify({ type: format === 'esm' ? 'module' : 'commonjs' }, null, 2);
+      bundles.map(async (p) => {
+        const calendar = /([^\\/]+)[\\/]+[^\\/]+$/.exec(p)?.[1];
+        const file = /([^\\/]+)\.\w+$/.exec(p)?.[1];
+        if (!calendar || !file || !selectedPkgs.has(calendar)) return;
 
-        log.detail(`src/${manifest.entryPoint.replace(/^src\//, '')} → ${manifest.outDir}/${format}/romcal.js`);
         await build({
-          bundle: true,
           minify: true,
-          sourcemap: 'external',
-          ...(format === 'iife' ? { globalName: 'Romcal' } : {}),
-          ...(format === 'iife' ? {} : { external: ['i18next'] }),
+          bundle: false,
+          platform: 'neutral',
           absWorkingDir: riteRoot,
-          entryPoints: [manifest.entryPoint],
+          entryPoints: [p],
           banner: { js: LICENSE },
-          format,
-          outfile: join(distDir, format, 'romcal.js'),
-          target: format === 'esm' ? 'ESNext' : 'ES2022',
+          format: 'esm',
+          keepNames: true,
+          outfile: join(distDir, 'bundles', calendar, 'esm', `${file}.js`),
+          sourcemap: false,
+          target: 'ESNext',
         }).catch(() => {
-          log.error(`Failed to build the core library using the ${format} format.`);
+          log.error(`Failed to build the ${calendar} calendar using the esm format.`);
           process.exit(1);
         });
-        fs.writeFileSync(join(distDir, format, 'package.json'), subPackageJson, 'utf-8');
-
-        log.detail(`${manifest.tmpDir}/bundles/**/*.ts → ${manifest.outDir}/bundles/[calendar]/${format}/[locale].js`);
-        await Promise.all(
-          bundles.map(async (p) => {
-            // Do not output index.ts on iife format
-            // and only output locale.iife.js on iife format
-            if (
-              (format !== 'iife' || !/[\\/]index\.ts$/.exec(p)) &&
-              ((/.iife\.ts$/.exec(p) && format === 'iife') || (!/.iife\.ts$/.exec(p) && format !== 'iife'))
-            ) {
-              const calendar = /([^\\/]+)[\\/]+[^\\/]+$/.exec(p)?.[1];
-              const locale = /([^\\/]+)\.\w+$/.exec(p)?.[1].replace('.iife', '');
-              await build({
-                minify: true,
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                ...(format === 'iife' ? { globalName: toGlobalName(calendar!, locale!) } : {}),
-                bundle: format === 'iife',
-                platform,
-                absWorkingDir: riteRoot,
-                entryPoints: [p],
-                banner: { js: LICENSE },
-                format,
-                keepNames: true,
-                outfile: join(distDir, 'bundles', `${calendar}`, format, `${locale}.js`),
-                sourcemap: false,
-                target: format === 'esm' ? 'ESNext' : 'ES2022',
-              }).catch(() => {
-                log.error(`Failed to build the ${calendar} calendar using the ${format} format.`);
-                process.exit(1);
-              });
-              fs.writeFileSync(join(distDir, 'bundles', `${calendar}`, format, 'package.json'), subPackageJson, 'utf-8');
-            }
-          })
-        ).catch(() => {
-          log.error(`Failed to build the calendar bundles using the ${format} format.`);
-          process.exit(1);
-        });
+        fs.writeFileSync(join(distDir, 'bundles', calendar, 'esm', 'package.json'), subPackageJson, 'utf-8');
       })
     ).catch(() => {
-      log.error('Failed to build the codebase.');
+      log.error('Failed to build the calendar bundles using the esm format.');
       process.exit(1);
     });
   }
@@ -262,18 +259,20 @@ export const runBuild = async (options: ResolvedOptions, log: Logger): Promise<v
       const pkgName = toPackageName(calendar);
 
       const dir = join(distDir, 'bundles', pkgName);
+      fs.mkdirSync(dir, { recursive: true });
 
       const modulePkg: PackageJson = {
         name: manifest.packageNameTemplate.replace('[calendar]', pkgName),
         version: pkg.version,
         description: `Localized romcal calendar for ${calendar}`,
+        type: 'module',
         module: './esm/index.js',
-        main: './cjs/index.js',
+        main: './esm/index.js',
         exports: {
           '.': {
             types: './index.d.ts',
             import: './esm/index.js',
-            require: './cjs/index.js',
+            require: './esm/index.js',
           },
         },
         typings: './index.d.ts',
@@ -298,5 +297,9 @@ export const runBuild = async (options: ResolvedOptions, log: Logger): Promise<v
     );
   }
 
-  log.success(`Done in ${getDuration(time)}`);
+  if (emit.includes('docs')) {
+    await runDoc(options, log);
+  } else {
+    log.success(`Done in ${getDuration(time)}`);
+  }
 };
