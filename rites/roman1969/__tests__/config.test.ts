@@ -127,3 +127,60 @@ describe('getConfig()', () => {
     expect(new LiturgicalDayConfig(config, 2024).dates.epiphany().toISOString()).toEqual('2024-01-06T00:00:00.000Z');
   });
 });
+
+describe('LiturgicalDayConfig.buildDate()', () => {
+  // Minimal stub: buildDate only reads dateDef and dateExceptions.
+  const def = (
+    dateDef: { month: number; date: number },
+    dateExceptions: {
+      ifIsDayOfWeek?: number;
+      setDate: { addDay?: number; subtractDay?: number; dateFn?: string; dateArgs?: number[] };
+    }[]
+  ) => ({ dateDef, dateExceptions }) as Parameters<LiturgicalDayConfig['buildDate']>[0];
+
+  test('bare addDay / subtractDay still offset the originally computed date', () => {
+    const liturgicalDayConfig = new LiturgicalDayConfig(new RomcalConfig(), 2024);
+    // 25 March 2024 is a Monday.
+    expect(
+      liturgicalDayConfig
+        .buildDate(def({ month: 3, date: 25 }, [{ ifIsDayOfWeek: 1, setDate: { addDay: 2 } }]))
+        ?.toISOString()
+    ).toEqual('2024-03-27T00:00:00.000Z');
+    expect(
+      liturgicalDayConfig
+        .buildDate(def({ month: 3, date: 25 }, [{ ifIsDayOfWeek: 1, setDate: { subtractDay: 1 } }]))
+        ?.toISOString()
+    ).toEqual('2024-03-24T00:00:00.000Z');
+  });
+
+  test('a dateFn setDate that returns null drops the day instead of keeping the original date', () => {
+    // Ascension on Thursday 2024 is 9 May — Thursday of Easter week 6.
+    // weekdayOrSundayOfEasterTime(4, 6) therefore returns null.
+    const liturgicalDayConfig = new LiturgicalDayConfig(new RomcalConfig({ ascensionOnSunday: false }), 2024);
+    // 1 May 2024 is a Wednesday, so ifIsDayOfWeek: 3 always matches this dateDef.
+    const result = liturgicalDayConfig.buildDate(
+      def({ month: 5, date: 1 }, [
+        {
+          ifIsDayOfWeek: 3,
+          setDate: { dateFn: 'weekdayOrSundayOfEasterTime', dateArgs: [4, 6] },
+        },
+      ])
+    );
+
+    expect(result).toBeNull();
+  });
+
+  test('the same dateFn setDate resolves when Ascension is on Sunday', () => {
+    const liturgicalDayConfig = new LiturgicalDayConfig(new RomcalConfig({ ascensionOnSunday: true }), 2024);
+    const result = liturgicalDayConfig.buildDate(
+      def({ month: 5, date: 1 }, [
+        {
+          ifIsDayOfWeek: 3,
+          setDate: { dateFn: 'weekdayOrSundayOfEasterTime', dateArgs: [4, 6] },
+        },
+      ])
+    );
+
+    expect(result?.toISOString()).toEqual('2024-05-09T00:00:00.000Z');
+  });
+});
