@@ -20,7 +20,7 @@ rite in particular.
 | The Proper of Time | |
 
 The rite-neutral date arithmetic sits one layer down, in
-[`@internal/calendar-dates`](../proper-of-time).
+[`@internal/calendar-dates`](../calendar-dates).
 
 ## The base calendar
 
