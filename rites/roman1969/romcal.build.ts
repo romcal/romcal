@@ -17,6 +17,7 @@ export default defineRite({
   outDir: 'dist',
   tmpDir: 'tmp',
   tsconfig: 'tsconfig.release.json',
+  formats: ['cjs', 'esm', 'iife'],
   packageNameTemplate: '@romcal/calendar.[calendar]',
   docOutput: 'docs/calendar-plugins.md',
   // Relative to the generated file at `tmp/bundles/[calendar]/[locale].ts`.

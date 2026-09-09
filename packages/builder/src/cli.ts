@@ -22,6 +22,7 @@ Options:
   --rite <name>          Rite workspace to act on (default: the only one present)
   --calendars <list>     Comma separated calendar names (default: all)
   --locales <list>       Comma separated locale ids (default: all)
+  --formats <list>       cjs, esm, iife (default: from the manifest)
   --emit <list>          bundles, docs, packages, types (default: all)
   --dry-run              Report what would happen, change nothing
   --verbose              Log each step
