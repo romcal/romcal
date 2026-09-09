@@ -107,16 +107,23 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
     let updatedDate: Date | null = date;
 
     const setDate = (dateDefExtended: DateDefExtended): void => {
-      // Prefer a full date lookup so `{ dateFn, addDay }` resolves against the
-      // named date, not the original. Bare `{ addDay }` / `{ subtractDay }`
-      // still offset the originally computed date.
-      const lookedUp = this.#dateLookup(dateDefExtended, yearOffset);
-      if (lookedUp) {
-        updatedDate = lookedUp;
-      } else if (isInteger(dateDefExtended.addDay)) {
-        updatedDate = addDays(date, dateDefExtended.addDay);
-      } else if (isInteger(dateDefExtended.subtractDay)) {
-        updatedDate = subtractsDays(date, dateDefExtended.subtractDay);
+      // Bare `{ addDay }` / `{ subtractDay }` offset the originally computed date.
+      // A full dateDef (dateFn, month/date, …) replaces it — including when the
+      // lookup returns null because the requested day does not exist (e.g.
+      // Thursday of Easter week 6 when Ascension is celebrated that Thursday).
+      const isBareDayOffset =
+        typeof dateDefExtended.dateFn !== 'string' &&
+        !isInteger(dateDefExtended.month) &&
+        (isInteger(dateDefExtended.addDay) || isInteger(dateDefExtended.subtractDay));
+
+      if (isBareDayOffset) {
+        if (isInteger(dateDefExtended.addDay)) {
+          updatedDate = addDays(date, dateDefExtended.addDay);
+        } else if (isInteger(dateDefExtended.subtractDay)) {
+          updatedDate = subtractsDays(date, dateDefExtended.subtractDay);
+        }
+      } else {
+        updatedDate = this.#dateLookup(dateDefExtended, yearOffset);
       }
     };
 
