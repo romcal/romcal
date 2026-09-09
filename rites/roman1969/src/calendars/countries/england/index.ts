@@ -1,9 +1,6 @@
-import { CommonDefinition as Common } from '../../../constants/commons';
-import { ProperCycles } from '../../../constants/cycles';
-import { PatronTitle } from '../../../constants/martyrology-metadata';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs, ParticularConfig } from '../../../types/calendar-def';
+import { CommonDefinition as Common, ProperCycles, PatronTitle, Precedences, Inputs, ParticularConfig } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 import { Europe } from '../../regions/europe';
 
 import { England_Westminster } from './archdiocese-of-westminster';
