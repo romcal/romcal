@@ -1,4 +1,10 @@
-import { AnchorException, ParticularConfig, Romcal, TemporalOverrides } from '@src/rite-roman1969';
+import {
+  AnchorException,
+  LiturgicalDayDef,
+  ParticularConfig,
+  Romcal,
+  TemporalOverrides,
+} from '@src/rite-roman1969';
 
 const { CalendarDef, RomcalConfig, LiturgicalDayConfig } = Romcal;
 
@@ -136,7 +142,7 @@ describe('LiturgicalDayConfig.buildDate()', () => {
       ifIsDayOfWeek?: number;
       setDate: { addDay?: number; subtractDay?: number; dateFn?: string; dateArgs?: number[] };
     }[]
-  ) => ({ dateDef, dateExceptions }) as Parameters<LiturgicalDayConfig['buildDate']>[0];
+  ) => ({ dateDef, dateExceptions }) as LiturgicalDayDef;
 
   test('bare addDay / subtractDay still offset the originally computed date', () => {
     const liturgicalDayConfig = new LiturgicalDayConfig(new RomcalConfig(), 2024);
