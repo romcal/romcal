@@ -17,10 +17,10 @@ exists avoids both.
 
 The builder contains no rite name. Everything rite-specific comes from a
 `romcal.build.ts` manifest at the rite root, typed as `RiteBuildManifest`: the entry
-point, output directories, the npm name template for generated bundles, and the data
-itself — calendars, base calendar, locales and martyrology. The engine contracts come
-from `@internal/generator`; only the data comes from the rite. CLI flags override what
-the manifest declares.
+point, output directories, formats to emit, the npm name template for generated
+bundles, and the data itself — calendars, base calendar, locales and martyrology.
+The engine contracts come from `@internal/generator`; only the data comes from the
+rite. CLI flags override what the manifest declares.
 
 `--rite` resolves against `rites/*` and can be omitted while only one rite exposes a
 manifest.
@@ -82,7 +82,8 @@ real thing. Under GitHub Actions, `group` emits the workflow commands that make 
 section collapsible, which matters when 107 bundles each log a line.
 
 None of this reaches a published artifact. The builder runs in Node under `tsx`,
-while the `esm` bundles are esbuild's output from a rite's `src`.
+while the `cjs`, `esm` and `iife` bundles are esbuild's output from a rite's `src`.
+Generated calendar `package.json` files only advertise the formats that were built.
 An ESLint rule keeps it that way: `rites/*/src` cannot import `@internal/builder`,
 because that would pull the toolchain into what consumers download.
 

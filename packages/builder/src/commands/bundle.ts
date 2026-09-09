@@ -244,6 +244,13 @@ export const RomcalBundler = (options: ResolvedOptions, log: Logger): void => {
       // Write the calendar bundle file.
       if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
       writeFileSync(resolve(dir, filename), jsOutput, 'utf-8');
+
+      // Add another calendar bundle file for the IIFE format, that will output the calendar
+      // bundle in a global variable, for iife usage.
+      // Note: will not be required if this issue is addressed: https://github.com/evanw/esbuild/issues/1182
+      const jsIifeOutput = `import { ${calVarName} } from './${locale.id.toLowerCase()}';\nmodule.exports = ${calVarName};\n`;
+      const iifeFilename = filename.replace(/\.ts$/, '.iife.ts');
+      writeFileSync(resolve(dir, iifeFilename), jsIifeOutput, 'utf-8');
     }
 
     // Define package name, variable name and package dist.
