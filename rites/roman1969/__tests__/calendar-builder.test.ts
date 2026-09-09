@@ -565,6 +565,30 @@ describe('Testing the Elevated Memorial option', () => {
   });
 });
 
+describe('Unknown dateFn', () => {
+  test('throws when dateFn does not match a Dates method', async () => {
+    const localizedCalendar: RomcalBundleObject = {
+      ...GeneralRoman_En,
+      calendarName: 'test_unknown_date_fn',
+      inputs: {
+        ...GeneralRoman_En.inputs,
+        unknown_date_fn_test: [
+          {
+            dateDef: { dateFn: 'notARealDateFn' as 'easterSunday' },
+            precedence: 'PROPER_FEAST_8F',
+            commonsDef: 'None',
+            fromCalendarId: 'test_unknown_date_fn',
+          },
+        ],
+      },
+    };
+
+    await expect(new Romcal({ localizedCalendar }).generateCalendar(2025)).rejects.toThrow(
+      "Unknown dateFn 'notARealDateFn'"
+    );
+  });
+});
+
 describe('Testing calendar snapshots', () => {
   test('General Roman Calendar in gregorian year', async () => {
     const gregorianCalendar2020 = await new Romcal().generateCalendar(2020);
