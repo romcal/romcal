@@ -1,5 +1,5 @@
 import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
-import { AnchorException, AnchorTransferTarget, BaseCyclesMetadata, BundleInputs, CANONIZATION_LEVEL, COLORS, CalendarDefInputs, CalendarMetadata, CalendarScope, CanonizationLevel, CanonizationLevels, Color, Colors, DateDef, DateDefAddDay, DateDefDateFnAddDay, DateDefDateFnSubtractDay, DateDefException, DateDefExtended, DateDefMonthDate, DateDefMonthDowNthWeekInMonth, DateDefMonthLastDowInMonth, DateDefSubtractDay, Dates, DayOfWeek, FromCalendarId, GENERAL_ROMAN_NAME, Id, Inputs, LiturgicalDayConfigOutput, LiturgyDayDiff, Locale, LocaleColors, LocaleLiturgicalDayNames, LocaleMonths, LocaleOrdinals, LocaleWeeks, MONTHS, MartyrologyCatalog, MartyrologyItem, MartyrologyItemPointer, MartyrologyItemRedefined, Month, MonthIndex, PATRON_TITLES, PERIODS, PRECEDENCES, PROPER_CYCLES, PROPER_OF_TIME_NAME, PSALTER_WEEKS, PartialCyclesDef, ParticularConfig, PatronTitle, Period, PlainCyclesMetadata, Precedence, Precedences, ProperCycle, ProperCycles, PsalterWeekCycle, PsalterWeekCycles, RANKS, Rank, Ranks, RanksFromPrecedence, RomcalBundle, RomcalBundleObject, RomcalConfigInput, RomcalConfigOutput, RomcalTitles, SEASONS, SEXES, SUNDAY_CYCLES, SaintCount, SaintDate, SaintDateDef, Season, Sex, Sexes, ShiftableAnchor, SundayCycle, SundayCycles, TITLES, TemporalOverrides, Title, TitlesDef, WEEKDAYS, WEEKDAY_CYCLES, Weekday, WeekdayCycle, WeekdayCycles, addDays, dateDifference, daysInMonth, getUtcDate, getUtcDateFromString, getWeekNumber, i18nDef, isColor, isInteger, isMartyr, isSameDate, isValidDate, rangeContainsDate, rangeOfDays, registerBaseCalendar, startOfWeek, subtractsDays, toRomanNumber } from '@internal/generator';
+import { AnchorException, AnchorTransferTarget, BaseCyclesMetadata, BundleInputs, CANONIZATION_LEVEL, COLORS, CalendarDefInputs, CalendarMetadata, CalendarScope, CanonizationLevel, CanonizationLevels, Color, Colors, DateDef, DateDefAddDay, DateDefDateFnAddDay, DateDefDateFnSubtractDay, DateDefException, DateDefExtended, DateDefMonthDate, DateDefMonthDowNthWeekInMonth, DateDefMonthLastDowInMonth, DateDefSubtractDay, Dates, DayOfWeek, FromCalendarId, GENERAL_ROMAN_NAME, Id, Inputs, LiturgicalDayConfigOutput, LiturgyDayDiff, Locale, LocaleColors, LocaleLiturgicalDayNames, LocaleMonths, LocaleOrdinals, LocaleWeeks, MONTHS, MartyrologyCatalog, MartyrologyItem, MartyrologyItemPointer, MartyrologyItemRedefined, Month, MonthIndex, PATRON_TITLES, PERIODS, PRECEDENCES, PROPER_CYCLES, PROPER_OF_TIME_NAME, PSALTER_WEEKS, PartialCyclesDef, ParticularConfig, PatronTitle, Period, PlainCyclesMetadata, Precedence, Precedences, ProperCycle, ProperCycles, PsalterWeekCycle, PsalterWeekCycles, RANKS, Rank, Ranks, RanksFromPrecedence, RomcalBundle, RomcalBundleObject, RomcalConfigInput, RomcalConfigOutput, RomcalTitles, SEASONS, SEXES, SUNDAY_CYCLES, SaintCount, SaintDate, SaintDateDef, Season, Sex, Sexes, ShiftableAnchor, SundayCycle, SundayCycles, TITLES, TemporalOverrides, Title, TitlesDef, WEEKDAYS, WEEKDAY_CYCLES, Weekday, WeekdayCycle, WeekdayCycles, addDays, dateDifference, daysInMonth, getUtcDate, getUtcDateFromString, getWeekNumber, i18nDef, isColor, isInteger, isMartyr, isSameDate, isValidDate, rangeContainsDate, rangeOfDays, registerBaseCalendar, registerRite, startOfWeek, subtractsDays, toRomanNumber } from '@internal/generator';
 import { version } from '@internal/package.json';
 
 import { CalendarDef } from './calendar-def';
@@ -20,11 +20,15 @@ import {
   RomcalCalendarMetadata,
   RomcalConfig,
 } from './models';
+import { Roman1969Rite } from './rite';
+import { Unly1969Rubrics, Unly1969Vocabulary } from './rubrics';
 import { Roman1969Vocabulary } from './vocabulary';
 
 // The engine has no rite of its own: it has to be told which calendar sits underneath
-// a particular one when no localized bundle is supplied.
+// a particular one when no localized bundle is supplied, and which dates / rubrics /
+// Proper of Time to use.
 registerBaseCalendar<Roman1969Vocabulary>(GeneralRoman);
+registerRite(Roman1969Rite);
 
 /**
  * The vocabularies this rite celebrates under, named for the engine.
@@ -327,7 +331,10 @@ class Romcal {
 
 export {
   Romcal,
+  Roman1969Rite,
   Roman1969Vocabulary,
+  Unly1969Rubrics,
+  Unly1969Vocabulary,
   Calendar,
   CalendarDef,
   CyclesMetadata,

@@ -1,8 +1,6 @@
 import i18next, { i18n } from 'i18next';
 
 import { Color } from '../constants/colors';
-import { Roman1969Rite } from '../default-rite';
-import { ProperOfTime } from '../proper-of-time/proper-of-time';
 import { RomcalBundleObject } from '../types/bundle';
 import { CalendarDefInstance, LiturgicalDayDefinitions } from '../types/calendar-def';
 import {
@@ -25,6 +23,7 @@ import { toRomanNumber } from '../utils/numbers';
 import { sanitizeLocaleId } from '../utils/string';
 import { cloneTemporalOverrides, omitTemporalOverrideAnchor } from '../utils/temporal-overrides';
 
+import { getRite } from './active-rite';
 import { getBaseCalendar } from './base-calendar';
 import { CalendarDef } from './calendar-def';
 
@@ -95,16 +94,10 @@ export class RomcalConfig<V extends Vocabulary = Vocabulary> implements IRomcalC
   /** The rite this calendar is generated under. */
   readonly rite: Rite<V>;
 
-  /**
-   * The class the engine builds a year's dates from. Defaults to romcal's own, which
-   * computes the 1969 calendar.
-   */
+  /** The class the engine builds a year's dates from (from the registered rite). */
   readonly dates: DatesConstructor<V>;
 
-  /**
-   * The rules of precedence in force. Defaults to the 1969 norms, so a rite that has
-   * no opinion behaves exactly as romcal always has.
-   */
+  /** The rules of precedence in force (from the registered rite). */
   readonly rubrics: Rubrics<V>;
 
   readonly martyrologyCatalog: MartyrologyCatalog;
@@ -139,14 +132,14 @@ export class RomcalConfig<V extends Vocabulary = Vocabulary> implements IRomcalC
    * @param martyrologyCatalog
    * @param locale
    * @param ParticularCalendar
-   * @param rite The dates and rubrics of the rite. Defaults to the Roman Rite of 1969.
+   * @param rite The dates, rubrics and Proper of Time. Defaults to {@link getRite}.
    */
   constructor(
     config?: RomcalConfigInput,
     martyrologyCatalog?: MartyrologyCatalog,
     locale?: Locale,
     ParticularCalendar?: typeof CalendarDef<V>,
-    rite: Rite<V> = Roman1969Rite as unknown as Rite<V>
+    rite: Rite<V> = getRite<V>()
   ) {
     this.rite = rite;
     this.dates = rite.dates;
@@ -213,8 +206,8 @@ export class RomcalConfig<V extends Vocabulary = Vocabulary> implements IRomcalC
     // Initiate the Martyrology Catalog object.
     this.martyrologyCatalog = this.localizedCalendar?.martyrology ?? martyrologyCatalog ?? ({} as MartyrologyCatalog);
 
-    // In all cases, generate the ProperOfTime calendar
-    this.calendarsDef.push(new ProperOfTime<V>(this));
+    // In all cases, generate the Proper of Time from the rite's constructor
+    this.calendarsDef.push(new rite.properOfTime(this));
 
     // Then, import input definitions within a new CalendarDef object
     if (config?.localizedCalendar) {
