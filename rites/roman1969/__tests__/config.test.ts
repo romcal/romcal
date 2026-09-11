@@ -3,6 +3,7 @@ import {
   LiturgicalDayDef,
   ParticularConfig,
   Romcal,
+  Roman1969Rite,
   TemporalOverrides,
 } from '@src/rite-roman1969';
 
@@ -146,6 +147,15 @@ describe('getConfig()', () => {
     const config = new RomcalConfig(undefined, undefined, undefined, ChildCalendar);
     expect(config.temporalOverrides).toEqual({ anchorExceptions: {} });
     expect(datesOf(config, 2024).epiphany().toISOString()).toEqual('2024-01-06T00:00:00.000Z');
+  });
+
+  test('should reject a Proper of Time calendar under another name', () => {
+    class Temporale extends CalendarDef {}
+
+    expect(
+      () =>
+        new RomcalConfig(undefined, undefined, undefined, undefined, { ...Roman1969Rite, properOfTime: Temporale })
+    ).toThrow('The rite\'s properOfTime calendar must be named "ProperOfTime" (got "temporale").');
   });
 });
 
