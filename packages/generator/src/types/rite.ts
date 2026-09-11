@@ -1,3 +1,4 @@
+import { CalendarDefInstance } from './calendar-def';
 import { DatesConstructor } from './dates';
 import { Rubrics } from './rubrics';
 import { Vocabulary } from './vocabulary';
@@ -20,4 +21,12 @@ export interface Rite<V extends Vocabulary = Vocabulary> {
 
   /** The rules of precedence, ranks and seasons in force. */
   readonly rubrics: Rubrics<V>;
+
+  /**
+   * Temporale calendar constructor; the engine news it with `RomcalConfig` like any
+   * other `CalendarDef`.
+   *
+   * The 1969 class still lives in this package; a second rite supplies its own.
+   */
+  readonly properOfTime: CalendarDefInstance<V>;
 }

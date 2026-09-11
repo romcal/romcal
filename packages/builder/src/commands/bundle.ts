@@ -17,6 +17,7 @@ import {
   RomcalConfigInput,
   RomcalConfigOutput,
   registerBaseCalendar,
+  registerRite,
   sanitizeLocaleId,
   toPackageName,
   toPascalCase,
@@ -102,8 +103,9 @@ export const RomcalBundler = (options: ResolvedOptions, log: Logger): void => {
   const bundlesDir = resolve(riteRoot, manifest.tmpDir, 'bundles');
 
   // The rite's own calendars inherit from its base calendar, which the engine only
-  // knows about once the rite registers it.
+  // knows about once the rite registers it. Same for dates / rubrics / Proper of Time.
   registerBaseCalendar(manifest.baseCalendar);
+  registerRite(manifest.rite);
 
   const { locales } = manifest;
   const allCalendars: (typeof CalendarDef)[] = options.calendars.map((name) => manifest.calendars[name]);

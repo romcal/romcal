@@ -17,7 +17,7 @@ rite in particular.
 | `RomcalConfig`, `LiturgicalDayConfig`, `Calendar`, `LiturgicalDayDef`, `LiturgicalDay` | The locales (`locales/`) and the martyrology catalogue (`catalog/`) |
 | `Precedences`, `Ranks`, `Commons`, `Colors`, `Seasons`, `Periods`, `Months`, `Weekdays` | `CALENDAR_IDS` and `LOCALE_IDS`, which enumerate what the rite happens to ship |
 | The cycle framework: proper, Sunday, weekday and psalter cycles | The `Romcal` entry class, which wires this engine to the rite's data |
-| The Proper of Time | |
+| `ProperOfTime` class + `registerRite` / `registerBaseCalendar` | `Roman1969Rite`, `Unly1969Rubrics`, base calendar, and what they register |
 
 The rite-neutral date arithmetic sits one layer down, in
 [`@internal/calendar-dates`](../calendar-dates).

@@ -9,14 +9,16 @@
  *   date-definition and liturgical-day types, `Precedences`, `Ranks`, `Commons`)
  * - the pipeline that turns those definitions into a year (`RomcalConfig`,
  *   `LiturgicalDayConfig`, `Calendar`, `LiturgicalDayDef`, `LiturgicalDay`)
- * - the Proper of Time, and the cycle framework it is measured against
+ * - the Proper of Time constructor slot on `Rite` (1969 class may live here until a
+ *   rite supplies its own), and the cycle framework seasons are measured against
  *
  * The rite-neutral date arithmetic sits one layer further down, in
  * `@internal/calendar-dates`.
  *
  * What stays with a rite is the data and the tables that data is indexed by: the
- * calendar and locale id lists, the martyrology catalogue, and the cycle tables
- * that map a year onto the framework declared here.
+ * calendar and locale id lists, the martyrology catalogue, the cycle tables that map
+ * a year onto the framework declared here, and the rite's own `Rubrics` / `Rite`
+ * object (`registerRite`).
  */
 
 export * from './constants/colors';
@@ -31,17 +33,16 @@ export * from './constants/ranks';
 export * from './constants/seasons';
 export * from './constants/weekdays';
 export * from './models/base-calendar';
+export * from './models/active-rite';
 export * from './models/bundle';
 export * from './models/calendar';
 export * from './models/calendar-def';
 export * from './models/config';
-export * from './default-rite';
 export * from './models/cycles-metadata';
 export * from './models/liturgical-day';
 export * from './models/liturgical-day-config';
 export * from './models/liturgical-day-def';
 export * from './proper-of-time/proper-of-time';
-export * from './rubrics/unly-1969';
 export * from './types/bundle';
 export * from './types/calendar';
 export * from './types/calendar-def';
@@ -52,6 +53,7 @@ export * from './types/dates';
 export * from './types/liturgical-day';
 export * from './types/liturgical-day-config';
 export * from './types/locale';
+export * from './types/liturgical-source';
 export * from './types/martyrology';
 export * from './types/rite';
 export * from './types/rubrics';

@@ -1,4 +1,4 @@
-import { CalendarDef, Locale, MartyrologyCatalog } from '@internal/generator';
+import { CalendarDef, Locale, MartyrologyCatalog, Rite } from '@internal/generator';
 
 /**
  * The contract between the builder and a rite.
@@ -45,6 +45,11 @@ export interface RiteBuildManifest {
   readonly calendars: Record<string, CalendarDefConstructor>;
   /** The calendar every particular calendar inherits from. */
   readonly baseCalendar: CalendarDefConstructor;
+  /**
+   * Dates, rubrics and Proper of Time for this rite.
+   * The builder registers it before constructing `RomcalConfig`.
+   */
+  readonly rite: Rite;
   /** Every locale the rite ships, keyed by locale id. */
   readonly locales: Record<string, Locale>;
   /** The rite's martyrology catalogue. */
