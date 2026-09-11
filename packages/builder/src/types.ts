@@ -1,4 +1,4 @@
-import { CalendarDef, Locale, MartyrologyCatalog } from '@internal/generator';
+import { CalendarDef, Locale, MartyrologyCatalog, Rite, Vocabulary } from '@internal/generator';
 
 /**
  * The contract between the builder and a rite.
@@ -16,9 +16,9 @@ export type BuildFormat = 'cjs' | 'esm' | 'iife';
 
 export type BuildArtifact = 'bundles' | 'docs' | 'packages' | 'types';
 
-export type CalendarDefConstructor = typeof CalendarDef;
+export type CalendarDefConstructor<V extends Vocabulary = Vocabulary> = typeof CalendarDef<V>;
 
-export interface RiteBuildManifest {
+export interface RiteBuildManifest<V extends Vocabulary = Vocabulary> {
   /** Workspace name, used to resolve the rite root: `@internal/rite-roman1969`. */
   readonly name: string;
   /** Entry point of the rite, relative to the rite root. */
@@ -42,9 +42,14 @@ export interface RiteBuildManifest {
   readonly bundleTypeImport: string;
 
   /** Every calendar the rite ships, keyed by class name. */
-  readonly calendars: Record<string, CalendarDefConstructor>;
+  readonly calendars: Record<string, CalendarDefConstructor<V>>;
   /** The calendar every particular calendar inherits from. */
-  readonly baseCalendar: CalendarDefConstructor;
+  readonly baseCalendar: CalendarDefConstructor<V>;
+  /**
+   * Dates, rubrics and Proper of Time for this rite.
+   * The builder registers it before constructing `RomcalConfig`.
+   */
+  readonly rite: Rite<V>;
   /** Every locale the rite ships, keyed by locale id. */
   readonly locales: Record<string, Locale>;
   /** The rite's martyrology catalogue. */
@@ -73,4 +78,4 @@ export interface ResolvedOptions {
 }
 
 /** Identity helper, so a manifest is type-checked where it is written. */
-export const defineRite = (manifest: RiteBuildManifest): RiteBuildManifest => manifest;
+export const defineRite = <V extends Vocabulary>(manifest: RiteBuildManifest<V>): RiteBuildManifest<V> => manifest;

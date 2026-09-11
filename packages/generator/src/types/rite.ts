@@ -1,3 +1,4 @@
+import { CalendarDefInstance } from './calendar-def';
 import { DatesConstructor } from './dates';
 import { Rubrics } from './rubrics';
 import { Vocabulary } from './vocabulary';
@@ -20,4 +21,14 @@ export interface Rite<V extends Vocabulary = Vocabulary> {
 
   /** The rules of precedence, ranks and seasons in force. */
   readonly rubrics: Rubrics<V>;
+
+  /**
+   * Temporale calendar constructor; the engine news it with `RomcalConfig` like any
+   * other `CalendarDef`.
+   *
+   * Its `calendarName` must be `PROPER_OF_TIME_NAME`: the engine tells temporale
+   * definitions apart by that `fromCalendarId`, and `RomcalConfig` throws otherwise.
+   * Extending `ProperOfTime` keeps the name; a fresh `CalendarDef` must override it.
+   */
+  readonly properOfTime: CalendarDefInstance<V>;
 }

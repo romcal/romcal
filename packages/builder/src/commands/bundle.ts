@@ -4,7 +4,6 @@ import { inspect } from 'node:util';
 
 import {
   BundleInputs,
-  CalendarDef,
   Id,
   LiturgicalDayDef,
   LiturgicalDayDefinitions,
@@ -17,6 +16,7 @@ import {
   RomcalConfigInput,
   RomcalConfigOutput,
   registerBaseCalendar,
+  registerRite,
   sanitizeLocaleId,
   toPackageName,
   toPascalCase,
@@ -25,7 +25,7 @@ import cliProgress from 'cli-progress';
 import { rimraf } from 'rimraf';
 import { merge } from 'ts-deepmerge';
 
-import { ResolvedOptions } from '../types';
+import { CalendarDefConstructor, ResolvedOptions } from '../types';
 import { Logger } from '../utils/logger';
 
 /**
@@ -38,7 +38,7 @@ export class RomcalBuilder {
 
   #martyrologyIds: string[] = [];
 
-  constructor(martyrology: MartyrologyCatalog, locale: Locale, particularCalendar?: typeof CalendarDef) {
+  constructor(martyrology: MartyrologyCatalog, locale: Locale, particularCalendar?: CalendarDefConstructor) {
     const scope: RomcalConfigInput = { scope: 'liturgical' };
     this.#martyrologyCatalog = martyrology;
     this.#config = new RomcalConfig(scope, martyrology, locale, particularCalendar);
@@ -102,11 +102,12 @@ export const RomcalBundler = (options: ResolvedOptions, log: Logger): void => {
   const bundlesDir = resolve(riteRoot, manifest.tmpDir, 'bundles');
 
   // The rite's own calendars inherit from its base calendar, which the engine only
-  // knows about once the rite registers it.
+  // knows about once the rite registers it. Same for dates / rubrics / Proper of Time.
   registerBaseCalendar(manifest.baseCalendar);
+  registerRite(manifest.rite);
 
   const { locales } = manifest;
-  const allCalendars: (typeof CalendarDef)[] = options.calendars.map((name) => manifest.calendars[name]);
+  const allCalendars: CalendarDefConstructor[] = options.calendars.map((name) => manifest.calendars[name]);
   const allLocaleIds = [...options.locales];
 
   if (dryRun) {
