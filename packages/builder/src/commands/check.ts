@@ -36,6 +36,7 @@ import {
   WEEKDAYS,
   WEEKDAY_CYCLES,
   registerBaseCalendar,
+  registerRite,
   toPackageName,
 } from '@internal/generator';
 import { colors } from 'consola/utils';
@@ -122,9 +123,10 @@ const isObjectPropsSortedAlphabetically = (obj: Record<string, unknown>): boolea
  * unsorted. Errors fail the command; warnings and the unused-entry list do not.
  */
 export const runCheck = (options: ResolvedOptions, log: Logger): void => {
-  const { locales, martyrology, calendars, baseCalendar } = options.manifest;
+  const { locales, martyrology, calendars, baseCalendar, rite } = options.manifest;
 
   registerBaseCalendar(baseCalendar);
+  registerRite(rite);
 
   let hasErrors = false;
   let hasWarnings = false;

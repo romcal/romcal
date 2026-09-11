@@ -4,6 +4,7 @@ import { calendarDefinitions } from './src/calendars';
 import { GeneralRoman } from './src/calendars/general-roman';
 import { Martyrology } from './src/catalog/martyrology';
 import { locales } from './src/locales';
+import { Roman1969Rite } from './src/rite';
 
 /**
  * What the builder needs to know about this rite.
@@ -20,11 +21,12 @@ export default defineRite({
   formats: ['cjs', 'esm', 'iife'],
   packageNameTemplate: '@romcal/calendar.[calendar]',
   docOutput: 'docs/calendar-plugins.md',
-  // Relative to the generated file at `tmp/bundles/[calendar]/[locale].ts`.
+  // Relative to the generated file at `tmp/bundles/[calendar].[locale].ts`.
   bundleTypeImport: '../../../src',
 
   calendars: calendarDefinitions,
   baseCalendar: GeneralRoman,
+  rite: Roman1969Rite,
   locales,
   martyrology: Martyrology.catalog,
 });
