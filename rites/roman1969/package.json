@@ -21,7 +21,8 @@
     "test": "TZ=UTC jest --coverage",
     "test:snapshot:update": "TZ=UTC jest -u",
     "test:watch": "TZ=UTC jest --watch",
-    "test:without-coverage": "TZ=UTC jest"
+    "test:without-coverage": "TZ=UTC jest",
+    "typecheck": "tsc --noEmit --importHelpers false -p tsconfig.json"
   },
   "dependencies": {
     "@internal/easter": "file:../../packages/easter",

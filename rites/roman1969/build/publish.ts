@@ -84,7 +84,7 @@ const publish = (target: Target): boolean => {
       continue;
     }
 
-    if (!isNew && versions.includes(target.version)) {
+    if (versions?.includes(target.version)) {
       log(` ✓ Package "${target.name}" is already published: ${target.version} (${tag})\n`);
       continue;
     }
