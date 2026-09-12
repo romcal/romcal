@@ -1,102 +1,38 @@
-import { calculateGregorianEasterDate, calculateJulianEasterDateToGregorianDate } from '@internal/easter';
-import { calculateLunarNewYear } from '@internal/lunar-new-year';
+import * as anchors from '@internal/calendar-dates';
+import {
+  addDays,
+  getUtcDate,
+  isSameDate,
+  rangeOfDays,
+  startOfWeek,
+  subtractsDays,
+} from '@internal/calendar-dates';
 
 import { Season } from '../constants/seasons';
 import { WEEKDAYS } from '../constants/weekdays';
 import { RomcalConfig } from '../models/config';
 import { EasterCalculationType, ShiftableAnchor } from '../types/config';
 
-const { isNaN } = Number;
-
-export const getUtcDate = (year: number, month: number, date: number): Date => {
-  return new Date(Date.UTC(year, month - 1, date, 0, 0, 0, 0));
-};
-
-export const getUtcDateFromString = (dateStr: string): Date => {
-  const [year, month, date] = dateStr.split('-').map((n) => parseInt(n, 10));
-  return getUtcDate(year, month, date);
-};
-
-export const addDays = (date: Date, days: number): Date => {
-  return new Date(date.valueOf() + 864e5 * days); // 864e5 = 24 * 60 * 60 * 1000
-};
-
-export const subtractsDays = (date: Date, days: number): Date => {
-  return new Date(date.valueOf() - 864e5 * days);
-};
-
-export const isSameDate = (date1: Date, date2: Date): boolean => {
-  return (
-    date1?.getUTCFullYear() === date2?.getUTCFullYear() &&
-    date1.getUTCMonth() === date2.getUTCMonth() &&
-    date1.getUTCDate() === date2.getUTCDate()
-  );
-};
-
-export const dateDifference = (date1: Date, date2: Date): number => {
-  return Math.abs(Math.floor((date2.getTime() - date1.getTime()) / (1000 * 60 * 60 * 24)));
-};
-
-export const startOfWeek = (date: Date): Date => {
-  return subtractsDays(date, date.getUTCDay());
-};
-
-export const isValidDate = (maybeDate: unknown): maybeDate is Date => {
-  // it is a date
-  if (maybeDate && Object.prototype.toString.call(maybeDate) === '[object Date]') {
-    if (isNaN((maybeDate as Date).getTime())) return false; // date is not valid
-    return true; // date is valid
-  }
-  // not a date
-  return false;
-};
-
 /**
- * Get total number of days in a particular month
- *
- * @param      {Date}    date    Date of the month that should be considered
- * @return     {number}  Total number of dates in the particular month
+ * The UTC date arithmetic now lives in `@internal/calendar-dates`, so that a second
+ * rite does not have to duplicate it. It is re-exported here because it is part of
+ * romcal's public surface (see `src/index.ts`) and is imported from this path
+ * throughout the rite.
  */
-export const daysInMonth = (date: Date): number => {
-  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0)).getUTCDate();
-};
-
-/**
- * For a given date, get the ISO week number
- *
- * @remarks This function was sourced from [StackOverflow](https://stackoverflow.com/a/6117889/3408342).
- *
- * @param    date - Date which should be considered
- * @returns  ISO week number of the specified date
- */
-export const getWeekNumber = (date: Date): number => {
-  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-  return Math.ceil(((d.getTime() - new Date(Date.UTC(d.getUTCFullYear(), 0, 1)).getTime()) / 864e5 + 1) / 7);
-};
-
-/**
- * Returns a range of dates between a given start and end date included
- * @param start The start date
- * @param end The end date
- * @returns An array of dates representing the range
- */
-export const rangeOfDays = (start: Date, end: Date): Date[] => {
-  const days = dateDifference(start, end);
-  return Array.from(new Array(days + 1), (_x, i) => {
-    return addDays(start, i);
-  });
-};
-
-/**
- * Determines if a given date exists within a range of dates.
- * @param range The range to search against
- * @param date The date to search for in the range
- * @returns `true` if the date exists in the range or false if otherwise
- */
-export const rangeContainsDate = (range: Date[], date: Date): boolean => {
-  return range.map((d) => d.toISOString()).includes(date.toISOString());
-};
+export {
+  addDays,
+  dateDifference,
+  daysInMonth,
+  getUtcDate,
+  getUtcDateFromString,
+  getWeekNumber,
+  isSameDate,
+  isValidDate,
+  rangeContainsDate,
+  rangeOfDays,
+  startOfWeek,
+  subtractsDays,
+} from '@internal/calendar-dates';
 
 export class Dates {
   readonly #config: RomcalConfig;
@@ -186,25 +122,7 @@ export class Dates {
    * (the start of Advent depends upon the day of the week on which Christmas occurs)
    * @param year Gregorian year
    */
-  static firstSundayOfAdvent = (year: number): Date => {
-    switch (Dates.christmas(year).getUTCDay()) {
-      case 0: // Sunday
-        return getUtcDate(year, 11, 27);
-      case 1: // Monday
-        return getUtcDate(year, 12, 3);
-      case 2: // Tuesday
-        return getUtcDate(year, 12, 2);
-      case 3: // Wednesday
-        return getUtcDate(year, 12, 1);
-      case 4: // Thursday
-        return getUtcDate(year, 11, 30);
-      case 5: // Friday
-        return getUtcDate(year, 11, 29);
-      default:
-        // Saturday
-        return getUtcDate(year, 11, 28);
-    }
-  };
+  static firstSundayOfAdvent = anchors.firstSundayOfAdvent;
 
   /**
    * Get the date of an unprivileged weekdays of Advent (until 16 December).
@@ -286,9 +204,7 @@ export class Dates {
    * (in the Roman Rite, Christmas always falls on December 25).
    * @param year Gregorian year
    */
-  static christmas = (year: number): Date => {
-    return getUtcDate(year, 12, 25);
-  };
+  static christmas = anchors.christmas;
 
   /**
    * Get all the dates occurring in the octave of Christmas
@@ -509,7 +425,7 @@ export class Dates {
    */
   ashWednesday = (year = this.#year): Date => {
     if (this.#ashWednesday[year]) return this.#ashWednesday[year];
-    return (this.#ashWednesday[year] = subtractsDays(this.easterSunday(year), 46));
+    return (this.#ashWednesday[year] = anchors.ashWednesday(year, this.#config.easterCalculationType));
   };
 
   #ashWednesday: Record<string, Date> = {};
@@ -552,7 +468,7 @@ export class Dates {
    */
   palmSunday = (year = this.#year): Date => {
     if (this.#palmSunday[year]) return this.#palmSunday[year];
-    return (this.#palmSunday[year] = subtractsDays(this.easterSunday(year), 7));
+    return (this.#palmSunday[year] = anchors.palmSunday(year, this.#config.easterCalculationType));
   };
 
   #palmSunday: Record<string, Date> = {};
@@ -567,7 +483,7 @@ export class Dates {
    */
   holyThursday = (year = this.#year): Date => {
     if (this.#holyThursday[year]) return this.#holyThursday[year];
-    return (this.#holyThursday[year] = subtractsDays(this.easterSunday(year), 3));
+    return (this.#holyThursday[year] = anchors.holyThursday(year, this.#config.easterCalculationType));
   };
 
   #holyThursday: Record<string, Date> = {};
@@ -583,7 +499,7 @@ export class Dates {
    */
   goodFriday = (year = this.#year): Date => {
     if (this.#goodFriday[year]) return this.#goodFriday[year];
-    return (this.#goodFriday[year] = subtractsDays(this.easterSunday(year), 2));
+    return (this.#goodFriday[year] = anchors.goodFriday(year, this.#config.easterCalculationType));
   };
 
   #goodFriday: Record<string, Date> = {};
@@ -601,7 +517,7 @@ export class Dates {
    */
   holySaturday = (year = this.#year): Date => {
     if (this.#holySaturday[year]) return this.#holySaturday[year];
-    return (this.#holySaturday[year] = subtractsDays(this.easterSunday(year), 1));
+    return (this.#holySaturday[year] = anchors.holySaturday(year, this.#config.easterCalculationType));
   };
 
   #holySaturday: Record<string, Date> = {};
@@ -660,16 +576,7 @@ export class Dates {
   easterSunday = (
     year: number = this.#year,
     easterCalculationType: EasterCalculationType = this.#config.easterCalculationType
-  ): Date => {
-    if (this.#easter[year]) return this.#easter[year];
-    const { day, month } =
-      easterCalculationType === 'gregorian'
-        ? calculateGregorianEasterDate(year)
-        : calculateJulianEasterDateToGregorianDate(year);
-    return (this.#easter[year] = getUtcDate(year, month, day));
-  };
-
-  #easter: Record<string, Date> = {};
+  ): Date => anchors.easterSunday(year, easterCalculationType);
 
   /**
    * Get all the dates occurring during the octave of Easter
@@ -763,7 +670,7 @@ export class Dates {
    */
   pentecostSunday = (year = this.#year): Date => {
     if (this.#pentecostSunday[year]) return this.#pentecostSunday[year];
-    return (this.#pentecostSunday[year] = addDays(this.easterSunday(year), 49));
+    return (this.#pentecostSunday[year] = anchors.pentecostSunday(year, this.#config.easterCalculationType));
   };
 
   #pentecostSunday: Record<string, Date> = {};
@@ -932,130 +839,10 @@ export class Dates {
    */
   maryMotherOfGod = (year = this.#year): Date => {
     if (this.#maryMotherOfGod[year]) return this.#maryMotherOfGod[year];
-    return (this.#maryMotherOfGod[year] = getUtcDate(year, 1, 1));
+    return (this.#maryMotherOfGod[year] = anchors.maryMotherOfGod(year));
   };
 
   #maryMotherOfGod: Record<string, Date> = {};
-
-  /**
-   * Get the date of the celebration of the Annunciation
-   *
-   * *Occurs on March 25th, moved to Monday after Divine Mercy Sunday
-   * if it is within Holy Week or Easter Octave*
-   *
-   * @param year Gregorian year
-   */
-  annunciation = (year = this.#year): Date => {
-    if (this.#annunciation[year]) return this.#annunciation[year];
-
-    let date = getUtcDate(year, 3, 25);
-
-    // If it occurs during Holy Week or the Octave of Easter
-    // it is transferred to the Monday of the Second Week of Easter.
-    const palmSunday = this.palmSunday(year);
-    const divineMercySunday = this.divineMercySunday(year);
-    if (date.getTime() >= palmSunday.getTime() && date.getTime() <= divineMercySunday.getTime()) {
-      date = addDays(divineMercySunday, 1);
-    }
-
-    return (this.#annunciation[year] = date);
-  };
-
-  #annunciation: Record<string, Date> = {};
-
-  /**
-   * Get the date of the celebration of the birth of John the Baptist
-   *
-   * *The Nativity of St John the Baptist on June 24 comes three months after
-   * the celebration on March 25 of the Annunciation, when the Archangel Gabriel
-   * told Our Lady that her cousin Elizabeth was in her sixth month of pregnancy,
-   * and six months before the Christmas celebration of the birth of Jesus.
-   * The purpose of these festivals is not to celebrate the exact dates of these
-   * events, but simply to commemorate them in an interlinking way.
-   * The Nativity of St. John the Baptist anticipates the feast of Christmas.*
-   *
-   * @param year Gregorian year
-   */
-  nativityOfJohnTheBaptist = (year = this.#year): Date => {
-    if (this.#nativityOfJohnTheBaptist[year]) return this.#nativityOfJohnTheBaptist[year];
-    return (this.#nativityOfJohnTheBaptist[year] = getUtcDate(year, 6, 24));
-  };
-
-  #nativityOfJohnTheBaptist: Record<string, Date> = {};
-
-  /**
-   * Get the date of the solemnity of Saints Peter and Paul
-   *
-   * *The Feast of Saints Peter and Paul or Solemnity of Saints Peter and Paul is a
-   * liturgical feast in honour of the martyrdom in Rome of the apostles Saint Peter
-   * and Saint Paul, which is observed on 29 June. The celebration is of ancient origin,
-   * the date selected being the anniversary either of their death or of the translation
-   * of their relics.*
-   *
-   * @param year Gregorian year
-   */
-  peterAndPaulApostles = (year = this.#year): Date => {
-    if (this.#peterAndPaulApostles[year]) return this.#peterAndPaulApostles[year];
-    return (this.#peterAndPaulApostles[year] = getUtcDate(year, 6, 29));
-  };
-
-  #peterAndPaulApostles: Record<string, Date> = {};
-
-  /**
-   * Get the date of the celebration of the Assumption
-   *
-   * *The Latin Catholic Feast of the Assumption is celebrated on August 15
-   * was the bodily taking up of the Virgin Mary into Heaven at the end
-   * of her earthly life.*
-   *
-   * @param year Gregorian year
-   */
-  assumption = (year = this.#year): Date => {
-    if (this.#assumption[year]) return this.#assumption[year];
-    return (this.#assumption[year] = getUtcDate(year, 8, 15));
-  };
-
-  #assumption: Record<string, Date> = {};
-
-  /**
-   * Get the date of the solemnity of All Saints
-   *
-   * *All Saints' Day is a solemnity celebrated on 1 November by the Roman
-   * Catholic Church of Latin rite in honour of all the saints, known
-   * and unknown.*
-   *
-   * @param year Gregorian year
-   */
-  allSaints = (year = this.#year): Date => {
-    if (this.#allSaints[year]) return this.#allSaints[year];
-    return (this.#allSaints[year] = getUtcDate(year, 11, 1));
-  };
-
-  #allSaints: Record<string, Date> = {};
-
-  /**
-   * Get the date of the celebration of the Immaculate Conception
-   *
-   * *The Catholic Church celebrates the Feast of the Immaculate Conception on December 8
-   * The Immaculate Conception, according to the teaching of the Catholic Church, was the
-   * conception of the Blessed Virgin Mary in the womb of her mother, Saint Anne, free from
-   * original sin by virtue of the foreseen merits of her son Jesus Christ. The Catholic
-   * Church teaches that Mary was conceived by normal biological means, but God acted upon
-   * her soul (keeping her "immaculate") at the time of her conception.*
-   *
-   * @param year Gregorian year
-   *
-   */
-  immaculateConceptionOfMary = (year = this.#isLiturgicalYear ? this.#year - 1 : this.#year): Date => {
-    if (this.#immaculateConceptionOfMary[year]) return this.#immaculateConceptionOfMary[year];
-    let date = getUtcDate(year, 12, 8);
-    // If this solemnity falls on a Sunday, is transferred to the
-    // following Monday.
-    if (date.getUTCDay() === 0) date = addDays(date, 1);
-    return (this.#immaculateConceptionOfMary[year] = date);
-  };
-
-  #immaculateConceptionOfMary: Record<string, Date> = {};
 
   /**
    * Get the date of the solemnity of Ascension
@@ -1221,46 +1008,6 @@ export class Dates {
   #baptismOfTheLord: Record<string, Date> = {};
 
   /**
-   * Get the date of the Presentation of the Lord
-   *
-   * *In the Roman Catholic Church, the Feast of the Presentation of the Lord is
-   * a Feast Day occurring between the Feast of the Conversion of St. Paul the
-   * Apostle on 25 January and the Feast of the Chair of St. Peter the Apostle on
-   * 22 February. In some Western liturgical churches, Vespers (or Compline) on the
-   * Feast of the Presentation marks the end of the Epiphany season.*
-   *
-   * @param year Gregorian year
-   */
-  presentationOfTheLord = (year = this.#year): Date => {
-    if (this.#presentationOfTheLord[year]) return this.#presentationOfTheLord[year];
-    return (this.#presentationOfTheLord[year] = getUtcDate(year, 2, 2));
-  };
-
-  #presentationOfTheLord: Record<string, Date> = {};
-
-  /**
-   * Get the date for the Transfiguration of our Lord.
-   * @param year Gregorian year
-   */
-  transfiguration = (year = this.#year): Date => {
-    if (this.#transfiguration[year]) return this.#transfiguration[year];
-    return (this.#transfiguration[year] = getUtcDate(year, 8, 6));
-  };
-
-  #transfiguration: Record<string, Date> = {};
-
-  /**
-   * Get the date for The Exultation of The Holy Cross.
-   * @param year Gregorian year
-   */
-  exaltationOfTheHolyCross = (year = this.#year): Date => {
-    if (this.#exaltationOfTheHolyCross[year]) return this.#exaltationOfTheHolyCross[year];
-    return (this.#exaltationOfTheHolyCross[year] = getUtcDate(year, 9, 14));
-  };
-
-  #exaltationOfTheHolyCross: Record<string, Date> = {};
-
-  /**
    * Get the date of Lunar New Year for the given year.
    * @param utcOffset UTC offset for the target timezone (e.g. 8 for China/HK/Taiwan, 9 for Korea/Japan, 7 for Vietnam)
    * @param year Gregorian year
@@ -1273,10 +1020,7 @@ export class Dates {
 
   #lunarNewYear: Record<string, Date> = {};
 
-  static lunarNewYear = (utcOffset: number, year: number): Date => {
-    const { day, month } = calculateLunarNewYear(year, utcOffset);
-    return getUtcDate(year, month, day);
-  };
+  static lunarNewYear = anchors.lunarNewYear;
 
   /**
    * Calculate the Sunday on or after Lunar New Year for a given year.
@@ -1293,12 +1037,7 @@ export class Dates {
 
   #sundayOnOrAfterLunarNewYear: Record<string, Date> = {};
 
-  static sundayOnOrAfterLunarNewYear = (utcOffset: number, year: number): Date => {
-    const lny = Dates.lunarNewYear(utcOffset, year);
-    const dayOfWeek = lny.getUTCDay(); // 0 = Sunday, 1 = Monday, etc.
-    const daysUntilSunday = (7 - dayOfWeek) % 7; // 0 if already Sunday
-    return addDays(lny, daysUntilSunday);
-  };
+  static sundayOnOrAfterLunarNewYear = anchors.sundayOnOrAfterLunarNewYear;
 
   startOfSeasons = (year = this.#year): Record<Season, Date> => {
     if (this.#startOfSeasons[year]) return this.#startOfSeasons[year];
