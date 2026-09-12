@@ -79,7 +79,11 @@ export const RANKS = [
   Ranks.Weekday,
 ] as const;
 
+/** The ranks of the 1969 rite: a closed union. See the note on {@link Precedence}. */
 export type Rank = (typeof RANKS)[number];
+
+/** @deprecated Use {@link Rank}, which is again the closed 1969 union. */
+export type Rank1969 = Rank;
 
 export const RanksFromPrecedence: Record<Precedence, Rank> = {
   [Precedences.Triduum_1]: Ranks.Weekday,

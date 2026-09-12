@@ -1,5 +1,3 @@
-import { Season } from '@src/rite-roman1969';
-
 import {
   PSALTER_WEEKS,
   ProperCycle,
@@ -9,8 +7,10 @@ import {
   WEEKDAY_CYCLES,
   WeekdayCycle,
 } from '../constants/cycles';
+import { Season } from '../constants/seasons';
 import { BaseCyclesMetadata, PlainCyclesMetadata } from '../types/cycles-metadata';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
+import { Vocabulary } from '../types/vocabulary';
 import { getUtcDateFromString } from '../utils/dates';
 
 import { RomcalConfig } from './config';
@@ -18,7 +18,7 @@ import { RomcalConfig } from './config';
 /**
  * A cycle metadata object, based on the contextual liturgical day & year
  */
-export class CyclesMetadata implements BaseCyclesMetadata {
+export class CyclesMetadata<V extends Vocabulary = Vocabulary> implements BaseCyclesMetadata {
   properCycle: ProperCycle;
 
   #properCycleName?: string;
@@ -35,9 +35,9 @@ export class CyclesMetadata implements BaseCyclesMetadata {
 
   #psalterWeekName?: string;
 
-  readonly #config: RomcalConfig;
+  readonly #config: RomcalConfig<V>;
 
-  constructor(date: Date, calendar: RomcalCalendarMetadata, properCycle: ProperCycle, config: RomcalConfig) {
+  constructor(date: Date, calendar: RomcalCalendarMetadata<V>, properCycle: ProperCycle, config: RomcalConfig<V>) {
     this.#config = config;
 
     const year = parseInt(calendar.startOfLiturgicalYear, 10);

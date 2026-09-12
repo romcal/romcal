@@ -1,10 +1,11 @@
 import { RomcalConfig } from '../models/config';
 import { LiturgicalDayDef } from '../models/liturgical-day-def';
-import { Dates } from '../utils/dates';
 
 import { Id, XOR } from './common';
 import { RomcalConfigInput } from './config';
+import { DatesConstructor } from './dates';
 import { LiturgicalDayBundleInput, LiturgicalDayInput } from './liturgical-day';
+import { Vocabulary } from './vocabulary';
 
 /**
  * Specific and proper configuration of a particular calendar
@@ -22,20 +23,20 @@ export type ParticularConfig = Partial<
 export type CalendarDefInputs = XOR<Inputs, BundleInputs>;
 export type Inputs = Record<Id, LiturgicalDayInput | LiturgicalDayInput[]>;
 export type BundleInputs = Record<Id, LiturgicalDayBundleInput[]>;
-export type LiturgicalDayDefinitions = Record<Id, LiturgicalDayDef>;
+export type LiturgicalDayDefinitions<V extends Vocabulary = Vocabulary> = Record<Id, LiturgicalDayDef<V>>;
 
 /**
  * Base [CalendarDef] interface
  */
-export interface BaseCalendarDef {
+export interface BaseCalendarDef<V extends Vocabulary = Vocabulary> {
   /**
    * List of all parent CalendarDef definitions (excluding the general Roman calendar)
    * that serve as the base for the current calendar. The order of this list is important,
    * as it determines the priority of calendars (from the most general to the most local).
    * This hierarchy allows for proper inheritance and overriding of liturgical definitions.
    */
-  ParentCalendars?: CalendarDefInstance[] | null;
-  parentCalendarInstances?: InstanceType<CalendarDefInstance>[];
+  ParentCalendars?: CalendarDefInstance<V>[] | null;
+  parentCalendarInstances?: InstanceType<CalendarDefInstance<V>>[];
   /**
    * Configuration options specific to this calendar.
    * These settings can override or extend the default Romcal configuration or any parent calendar
@@ -49,14 +50,14 @@ export interface BaseCalendarDef {
    * parent calendars.
    */
   inputs: CalendarDefInputs;
-  dates: typeof Dates;
+  dates: DatesConstructor<V>;
   updateConfig: (config?: RomcalConfigInput) => void;
   buildAllDefinitions: () => void;
   calendarName: Id;
 }
 
-interface IConstructor<InstanceInterface> {
-  new (config: RomcalConfig, definitions?: BundleInputs): InstanceInterface;
+interface IConstructor<InstanceInterface, V extends Vocabulary = Vocabulary> {
+  new (config: RomcalConfig<V>, definitions?: BundleInputs): InstanceInterface;
 }
 
-export type CalendarDefInstance = IConstructor<BaseCalendarDef>;
+export type CalendarDefInstance<V extends Vocabulary = Vocabulary> = IConstructor<BaseCalendarDef<V>, V>;

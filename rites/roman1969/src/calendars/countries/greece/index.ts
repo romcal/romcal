@@ -1,6 +1,6 @@
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs, ParticularConfig } from '../../../types/calendar-def';
+import { Precedences, Inputs, ParticularConfig } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Greece extends CalendarDef {

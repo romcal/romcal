@@ -1,8 +1,6 @@
 import { HongKong_En } from '@dist/rite-roman1969/bundles/hong-kong';
+import { Precedences, Ranks } from '@internal/generator';
 import { LiturgicalCalendar, Romcal } from '@src/rite-roman1969';
-
-import { Precedences } from '../src/constants/precedences';
-import { Ranks } from '../src/constants/ranks';
 
 describe('Testing Hong Kong calendar specific celebrations', () => {
   const romcal = new Romcal({ localizedCalendar: HongKong_En });

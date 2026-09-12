@@ -1,7 +1,6 @@
-import { ProperCycles } from '../../../constants/cycles';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { ProperCycles, Precedences, Inputs } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 import { Americas } from '../../regions/americas';
 
 export class Guatemala extends CalendarDef {
