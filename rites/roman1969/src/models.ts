@@ -9,6 +9,7 @@ import {
   LiturgicalDayDef as GenericLiturgicalDayDef,
   LiturgicalDayDefinitions as GenericLiturgicalDayDefinitions,
   LiturgicalDayInput as GenericLiturgicalDayInput,
+  LiturgyDayDiff as GenericLiturgyDayDiff,
   RomcalCalendarMetadata as GenericRomcalCalendarMetadata,
   RomcalConfig as GenericRomcalConfig,
 } from '@internal/generator';
@@ -46,4 +47,5 @@ export type BaseLiturgicalDayDef = GenericBaseLiturgicalDayDef<Roman1969Vocabula
 export type LiturgicalCalendar = GenericLiturgicalCalendar<Roman1969Vocabulary>;
 export type LiturgicalDayDefinitions = GenericLiturgicalDayDefinitions<Roman1969Vocabulary>;
 export type LiturgicalDayInput = GenericLiturgicalDayInput<Roman1969Vocabulary>;
+export type LiturgyDayDiff = GenericLiturgyDayDiff<Roman1969Vocabulary>;
 export type RomcalCalendarMetadata = GenericRomcalCalendarMetadata<Roman1969Vocabulary>;

@@ -73,7 +73,7 @@ export class LiturgicalDayDef<V extends Vocabulary = Vocabulary> implements Base
 
   readonly fromCalendarId: FromCalendarId;
 
-  readonly fromExtendedCalendars: LiturgyDayDiff[];
+  readonly fromExtendedCalendars: LiturgyDayDiff<V>[];
 
   readonly input: LiturgicalDayBundleInput[];
 
@@ -380,7 +380,7 @@ export class LiturgicalDayDef<V extends Vocabulary = Vocabulary> implements Base
   static #getLiturgicalDayDiff<W extends Vocabulary>(
     dayA: LiturgicalDayDef<W>,
     dayB: LiturgicalDayDef<W>
-  ): LiturgyDayDiff | null {
+  ): LiturgyDayDiff<W> | null {
     const diff = {
       // date
       // ...(dayA instanceof LiturgicalDay && dayB instanceof LiturgicalDay && dayA.date !== dayB.date

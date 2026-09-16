@@ -454,7 +454,7 @@ export type LiturgicalDayRoot<V extends Vocabulary = Vocabulary> = FullDateDefin
    * The names and the object diff of the calendars from which this liturgical day is extended.
    * From the first extended definitions to the latest extended definition.
    */
-  fromExtendedCalendars: LiturgyDayDiff[];
+  fromExtendedCalendars: LiturgyDayDiff<V>[];
 
   /**
    * If this liturgical day must be removed from this calendar and from all those it inherits
@@ -586,7 +586,7 @@ export type LiturgicalDayProperOfTimeInput<V extends Vocabulary = Vocabulary> = 
   | 'dateDef'
   | 'dateExceptions'
 > &
-  Partial<Pick<LiturgicalDayRoot, 'allowSimilarRankItems' | 'isHolyDayOfObligation' | 'isOptional'>>;
+  Partial<Pick<LiturgicalDayRoot<V>, 'allowSimilarRankItems' | 'isHolyDayOfObligation' | 'isOptional'>>;
 
 /**
  * Generated object with computed date within a specific year
@@ -604,10 +604,10 @@ export type BaseLiturgicalDay<V extends Vocabulary = Vocabulary> = Omit<
 /**
  * LiturgyDayDiff object used to compare definition iterations
  */
-export type LiturgyDayDiff = Pick<LiturgicalDayDef, 'fromCalendarId'> &
+export type LiturgyDayDiff<V extends Vocabulary = Vocabulary> = Pick<LiturgicalDayDef<V>, 'fromCalendarId'> &
   Partial<
     Pick<
-      LiturgicalDayRoot,
+      LiturgicalDayRoot<V>,
       | 'fromCalendarId'
       // | 'date'
       | 'dateDef'
