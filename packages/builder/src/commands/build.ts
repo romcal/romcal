@@ -35,9 +35,13 @@ type RootManifest = {
 /**
  * `main` / `module` / `exports` for a calendar package, limited to the formats that
  * were actually requested. `--formats esm` must not advertise `./cjs/index.js`.
+ *
+ * When packaging alone (after a filtered `--formats` build), also refuse to advertise
+ * entry points that are missing under `dir` — e.g. default formats after `build --formats esm`.
  */
 const packageEntryPoints = (
-  formats: readonly BuildFormat[]
+  formats: readonly BuildFormat[],
+  dir: string
 ): Pick<PackageJson, 'exports' | 'main' | 'module' | 'type'> => {
   const hasCjs = formats.includes('cjs');
   const hasEsm = formats.includes('esm');
@@ -49,6 +53,17 @@ const packageEntryPoints = (
 
   const cjs = './cjs/index.js';
   const esm = './esm/index.js';
+  const missing: string[] = [];
+  if (hasCjs && !fs.existsSync(join(dir, 'cjs', 'index.js'))) missing.push(cjs);
+  if (hasEsm && !fs.existsSync(join(dir, 'esm', 'index.js'))) missing.push(esm);
+  if (missing.length) {
+    throw new Error(
+      `Calendar package under ${dir} is missing built entry point(s): ${missing.join(', ')}. ` +
+        'Pass --formats matching what is on disk (built formats: check dist/bundles/<calendar>/), ' +
+        'or rebuild with those formats before --emit packages.'
+    );
+  }
+
   const exportsDot: Record<string, string> = { types: './index.d.ts' };
   if (hasEsm) exportsDot.import = esm;
   if (hasCjs) exportsDot.require = cjs;
@@ -309,7 +324,6 @@ export const runBuild = async (options: ResolvedOptions, log: Logger): Promise<v
     // The published calendars carry the version of `romcal` itself and take a peer
     // dependency on it, so this is the root manifest rather than the rite's.
     const pkg = JSON.parse(fs.readFileSync(join(repoRoot, 'package.json'), 'utf-8')) as RootManifest;
-    const entryPoints = packageEntryPoints(options.formats);
     const allCalendars = [...options.calendars];
 
     allCalendars.forEach((calendar) => {
@@ -318,6 +332,7 @@ export const runBuild = async (options: ResolvedOptions, log: Logger): Promise<v
 
       const dir = join(distDir, 'bundles', pkgName);
       fs.mkdirSync(dir, { recursive: true });
+      const entryPoints = packageEntryPoints(options.formats, dir);
 
       const modulePkg: PackageJson = {
         name: manifest.packageNameTemplate.replace('[calendar]', pkgName),

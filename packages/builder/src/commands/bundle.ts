@@ -115,7 +115,11 @@ export const RomcalBundler = (options: ResolvedOptions, log: Logger): void => {
     return;
   }
 
-  rimraf.sync(bundlesDir);
+  // Partial runs must keep other calendars' intermediates — packaging later copies
+  // their index.d.ts from here. Only wipe the calendars this invocation regenerates.
+  for (const calendar of allCalendars) {
+    rimraf.sync(resolve(bundlesDir, toPackageName(calendar.name)));
+  }
   const isCI = process.env.CI === 'true';
 
   const gauge = new cliProgress.SingleBar(
