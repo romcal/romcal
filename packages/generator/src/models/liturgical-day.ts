@@ -70,7 +70,7 @@ export class LiturgicalDay<V extends Vocabulary = Vocabulary> implements BaseLit
 
   readonly fromCalendarId: FromCalendarId;
 
-  readonly fromExtendedCalendars: LiturgyDayDiff[];
+  readonly fromExtendedCalendars: LiturgyDayDiff<V>[];
 
   weekday?: LiturgicalDay<V>;
 
