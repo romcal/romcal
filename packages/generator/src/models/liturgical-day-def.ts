@@ -5,7 +5,6 @@ import { GENERAL_ROMAN_ID, GENERAL_ROMAN_NAME, PROPER_OF_TIME_NAME } from '../co
 import { isMartyr } from '../constants/martyrology-metadata';
 import { Precedence, Precedences } from '../constants/precedences';
 import { Rank } from '../constants/ranks';
-import { Unly1969Rubrics } from '../rubrics/unly-1969';
 import { Id } from '../types/common';
 import { PartialCyclesDef } from '../types/cycles-metadata';
 import {
@@ -30,6 +29,7 @@ import { MartyrologyItem } from '../types/martyrology';
 import { Vocabulary } from '../types/vocabulary';
 import { safeWrapArray } from '../utils/arrays';
 
+import { getRite } from './active-rite';
 import { RomcalConfig } from './config';
 
 export class LiturgicalDayDef<V extends Vocabulary = Vocabulary> implements BaseLiturgicalDayDef<V> {
@@ -253,10 +253,9 @@ export class LiturgicalDayDef<V extends Vocabulary = Vocabulary> implements Base
    * @private
    */
   static precedenceToRank(precedence: Precedence, id: string): Rank {
-    // Part of the public surface, and static, so it cannot consult the rite in force:
-    // it answers for the 1969 norms whatever rubrics a calendar was built under. The
-    // engine itself goes through `config.rubrics`.
-    return Unly1969Rubrics.rankOf(precedence, id);
+    // Static public helper: uses the registered rite's rubrics (same answer the
+    // instance path gets via `config.rubrics`).
+    return getRite().rubrics.rankOf(precedence, id) as Rank;
   }
 
   /**
