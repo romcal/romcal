@@ -133,8 +133,7 @@ export class GeneralRoman extends CalendarDef {
     // src: mr_la_2008_ed3
     presentation_of_the_lord: {
       precedence: Precedences.GeneralLordFeast_5,
-      // 02-02
-      dateDef: { dateFn: 'presentationOfTheLord' },
+      dateDef: { month: 2, date: 2 },
       commonsDef: Common.None,
       colors: Colors.White,
     },
@@ -319,8 +318,17 @@ export class GeneralRoman extends CalendarDef {
     // src: mr_la_2008_ed3
     annunciation_of_the_lord: {
       precedence: Precedences.GeneralSolemnity_3,
-      // 03-25
-      dateDef: { dateFn: 'annunciation' },
+      dateDef: { month: 3, date: 25 },
+      dateExceptions: [
+        {
+          ifIsBetween: {
+            from: { dateFn: 'palmSunday' },
+            to: { dateFn: 'divineMercySunday' },
+            inclusive: true,
+          },
+          setDate: { dateFn: 'divineMercySunday', addDay: 1 },
+        },
+      ],
       commonsDef: Common.None,
       colors: Colors.White,
     },
@@ -701,8 +709,7 @@ export class GeneralRoman extends CalendarDef {
       // Note: The title of Martyr is not indicated here, as Saint John the Baptist is not yet a Martyr at his birth.
       // Therefore, this celebration will be celebrated in white (src: GIRM, 308a).
       precedence: Precedences.GeneralSolemnity_3,
-      // 06-24
-      dateDef: { dateFn: 'nativityOfJohnTheBaptist' },
+      dateDef: { month: 6, date: 24 },
       commonsDef: Common.None,
       colors: Colors.White,
     },
@@ -725,8 +732,7 @@ export class GeneralRoman extends CalendarDef {
     // src: mr_la_2008_ed3
     peter_and_paul_apostles: {
       precedence: Precedences.GeneralSolemnity_3,
-      // 06-29
-      dateDef: { dateFn: 'peterAndPaulApostles' },
+      dateDef: { month: 6, date: 29 },
       isHolyDayOfObligation: true,
       colors: Colors.Red,
       commonsDef: Common.None,
@@ -928,8 +934,7 @@ export class GeneralRoman extends CalendarDef {
     // src: mr_la_2008_ed3
     transfiguration_of_the_lord: {
       precedence: Precedences.GeneralLordFeast_5,
-      // 08-06
-      dateDef: { dateFn: 'transfiguration' },
+      dateDef: { month: 8, date: 6 },
       commonsDef: Common.None,
       colors: Colors.White,
     },
@@ -1007,8 +1012,7 @@ export class GeneralRoman extends CalendarDef {
     // src: mr_la_2008_ed3
     assumption_of_the_blessed_virgin_mary: {
       precedence: Precedences.ProperOfTimeSolemnity_2,
-      // 08-15
-      dateDef: { dateFn: 'assumption' },
+      dateDef: { month: 8, date: 15 },
       commonsDef: Common.None,
       isHolyDayOfObligation: true,
       colors: Colors.White,
@@ -1148,8 +1152,7 @@ export class GeneralRoman extends CalendarDef {
     // src: mr_la_2008_ed3
     exaltation_of_the_holy_cross: {
       precedence: Precedences.GeneralLordFeast_5,
-      // 09-14
-      dateDef: { dateFn: 'exaltationOfTheHolyCross' },
+      dateDef: { month: 9, date: 14 },
       commonsDef: Common.None,
       colors: Colors.Red,
     },
@@ -1435,8 +1438,7 @@ export class GeneralRoman extends CalendarDef {
     // src: mr_la_2008_ed3
     all_saints: {
       precedence: Precedences.GeneralSolemnity_3,
-      // 11-01
-      dateDef: { dateFn: 'allSaints' },
+      dateDef: { month: 11, date: 1 },
       commonsDef: Common.None,
       isHolyDayOfObligation: true,
       colors: Colors.White,
@@ -1614,8 +1616,8 @@ export class GeneralRoman extends CalendarDef {
     // src: mr_la_2008_ed3
     immaculate_conception_of_the_blessed_virgin_mary: {
       precedence: Precedences.GeneralSolemnity_3,
-      // 12-08
-      dateDef: { dateFn: 'immaculateConceptionOfMary' },
+      dateDef: { month: 12, date: 8 },
+      dateExceptions: [{ ifIsDayOfWeek: 0, setDate: { addDay: 1 } }],
       commonsDef: Common.None,
       isHolyDayOfObligation: true,
       colors: Colors.White,
