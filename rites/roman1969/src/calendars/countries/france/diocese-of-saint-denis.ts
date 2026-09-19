@@ -1,8 +1,6 @@
-import { CommonDefinition as Common } from '../../../constants/commons';
-import { PatronTitle, Title } from '../../../constants/martyrology-metadata';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { CommonDefinition as Common, PatronTitle, Title, Precedences, Inputs } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 import { Europe } from '../../regions/europe';
 
 import { France } from '.';

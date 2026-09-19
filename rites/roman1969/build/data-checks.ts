@@ -23,22 +23,16 @@
  * to distinguish them from the keys that are directly defined in the source files.
  */
 
+import { COLORS, PROPER_CYCLES, PSALTER_WEEKS, SUNDAY_CYCLES, WEEKDAY_CYCLES, MONTHS, RANKS, SEASONS, WEEKDAYS, toPackageName } from '@internal/generator';
 import chalk from 'chalk';
 import { merge } from 'ts-deepmerge';
 
 import { Locale } from '../src';
+import { CalendarDef } from '../src/calendar-def';
 import { calendarDefinitions } from '../src/calendars';
 import { GeneralRoman } from '../src/calendars/general-roman';
 import { Martyrology } from '../src/catalog/martyrology';
-import { COLORS } from '../src/constants/colors';
-import { PROPER_CYCLES, PSALTER_WEEKS, SUNDAY_CYCLES, WEEKDAY_CYCLES } from '../src/constants/cycles';
-import { MONTHS } from '../src/constants/months';
-import { RANKS } from '../src/constants/ranks';
-import { SEASONS } from '../src/constants/seasons';
-import { WEEKDAYS } from '../src/constants/weekdays';
 import { locales } from '../src/locales';
-import { CalendarDef } from '../src/models/calendar-def';
-import { toPackageName } from '../src/utils/string';
 
 import { RomcalBuilder } from './bundle';
 

@@ -1,6 +1,6 @@
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { Precedences, Inputs } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 
 export class SriLanka extends CalendarDef {
   inputs: Inputs = {
