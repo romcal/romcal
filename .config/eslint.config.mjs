@@ -127,7 +127,7 @@ export default [
       'import/no-extraneous-dependencies': [
         'error',
         {
-          devDependencies: ['__tests__/**/*', 'build/**/*', '.config/**/*'],
+          devDependencies: ['__tests__/**/*', 'packages/builder/**/*', 'rites/*/romcal.build.ts', '.config/**/*'],
         },
       ],
       'import/no-unused-modules': 'error',
@@ -151,7 +151,7 @@ export default [
     },
   },
   {
-    files: ['**/build/**/*.mjs', 'rites/**/jest.config.mjs', 'packages/**/*.config.mjs', '.config/**/*.mjs'],
+    files: ['packages/builder/**/*.mjs', 'rites/**/jest.config.mjs', 'packages/**/*.config.mjs', '.config/**/*.mjs'],
     languageOptions: {
       ecmaVersion: 2022,
       parser: babelParser,
@@ -195,10 +195,11 @@ export default [
         parser: '@typescript-eslint/parser',
         project: [
           './tsconfig.base.json',
+          './packages/builder/tsconfig.json',
           './packages/easter/tsconfig.json',
+          './packages/generator/tsconfig.json',
           './packages/lunar-new-year/tsconfig.json',
           './packages/calendar-dates/tsconfig.json',
-          './packages/generator/tsconfig.json',
           './rites/roman1962/tsconfig.json',
           './rites/roman1969/tsconfig.json',
         ],
@@ -220,7 +221,7 @@ export default [
   }),
   ...tseslint.config({
     extends: [tseslint.configs.recommended],
-    files: ['**/build/**/*.ts', 'src/**/*.ts', 'packages/**/*.ts', 'rites/**/*.ts'],
+    files: ['src/**/*.ts', 'packages/**/*.ts', 'rites/**/*.ts'],
     ignores: ['**/*.spec.ts', '**/__tests__/*.ts'],
     languageOptions: {
       ecmaVersion: 5,
@@ -228,10 +229,11 @@ export default [
         parser: '@typescript-eslint/parser',
         project: [
           './tsconfig.base.json',
+          './packages/builder/tsconfig.json',
           './packages/easter/tsconfig.json',
+          './packages/generator/tsconfig.json',
           './packages/lunar-new-year/tsconfig.json',
           './packages/calendar-dates/tsconfig.json',
-          './packages/generator/tsconfig.json',
           './rites/roman1962/tsconfig.json',
           './rites/roman1969/tsconfig.json',
         ],
@@ -280,7 +282,7 @@ export default [
   }),
   ...tseslint.config({
     extends: [tseslint.configs.recommended],
-    files: ['**/build/**/*.ts', '.config/*.ts'],
+    files: ['packages/builder/src/**/*.ts', 'rites/*/romcal.build.ts', '.config/*.ts'],
     ignores: ['**/*.spec.ts', '**/__tests__/*.ts'],
     languageOptions: {
       parserOptions: {
@@ -305,6 +307,25 @@ export default [
   }),
   // JSON: `@eslint/json` is lint-only by design, so formatting comes from eslint-plugin-jsonc.
   ...jsonc.configs['flat/recommended-with-json'],
+  // The builder is development tooling that runs in Node. A rite's src is bundled
+  // into cjs, esm and iife for consumers, so importing the builder from there would
+  // pull the whole toolchain into a published artifact.
+  ...tseslint.config({
+    files: ['rites/*/src/**/*.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@internal/builder', '@internal/builder/*'],
+              message: 'The builder is build-time tooling. Importing it from a rite would bundle it for consumers.',
+            },
+          ],
+        },
+      ],
+    },
+  }),
   {
     files: ['**/*.json'],
     rules: {
