@@ -7,7 +7,9 @@
   "scripts": {
     "build": "tsc --project tsconfig.release.json",
     "clean": "rimraf coverage dist",
-    "test": "TZ=UTC jest"
+    "test": "TZ=UTC jest",
+    "test:without-coverage": "TZ=UTC jest",
+    "typecheck": "tsc --noEmit --importHelpers false -p tsconfig.json"
   },
   "dependencies": {}
 }
