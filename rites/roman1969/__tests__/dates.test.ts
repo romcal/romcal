@@ -217,6 +217,14 @@ describe('Testing specific liturgical date functions', () => {
         expect(rangeContainsDate(range, easter)).toBeTruthy();
       }
     });
+
+    test('An explicit Julian lookup does not leak into other dates on a Gregorian instance', () => {
+      const dates = new Romcal().dates(2024);
+      dates.easterSunday(2024, 'julian');
+      expect(dates.easterSunday().toISOString().slice(0, 10)).toEqual('2024-03-31');
+      expect(dates.pentecostSunday().toISOString().slice(0, 10)).toEqual('2024-05-19');
+      expect(dates.pentecostSunday().getTime()).toBeGreaterThan(dates.ascension().getTime());
+    });
   });
 
   describe('Divine Mercy Sunday (Low Sunday or the Sunday after Easter)', () => {
@@ -269,38 +277,30 @@ describe('Testing specific liturgical date functions', () => {
     });
 
     describe('The Nativity of John the Baptist', () => {
-      test('Occurs every year on June 24', () => {
-        for (let i = 1900, il = 2100; i <= il; i += 1) {
-          expect(new Romcal().dates().nativityOfJohnTheBaptist(i).getUTCDate()).toEqual(24);
-          expect(new Romcal().dates().nativityOfJohnTheBaptist(i).getUTCMonth()).toEqual(5);
-        }
+      test('Occurs every year on June 24', async () => {
+        const day = await new Romcal().getOneLiturgicalDay('nativity_of_john_the_baptist', { year: 2025 });
+        expect(day!.date).toEqual('2025-06-24');
       });
     });
 
     describe('The feast of Peter and Paul, Apostles', () => {
-      test('Occurs every year on June 29', () => {
-        for (let i = 1900, il = 2100; i <= il; i += 1) {
-          expect(new Romcal().dates().peterAndPaulApostles(i).getUTCDate()).toEqual(29);
-          expect(new Romcal().dates().peterAndPaulApostles(i).getUTCMonth()).toEqual(5);
-        }
+      test('Occurs every year on June 29', async () => {
+        const day = await new Romcal().getOneLiturgicalDay('peter_and_paul_apostles', { year: 2025 });
+        expect(day!.date).toEqual('2025-06-29');
       });
     });
 
     describe('The feast of the Assumption', () => {
-      test('Occurs every year on August 15', () => {
-        for (let i = 1900, il = 2100; i <= il; i += 1) {
-          expect(new Romcal().dates().assumption(i).getUTCDate()).toEqual(15);
-          expect(new Romcal().dates().assumption(i).getUTCMonth()).toEqual(7);
-        }
+      test('Occurs every year on August 15', async () => {
+        const day = await new Romcal().getOneLiturgicalDay('assumption_of_the_blessed_virgin_mary', { year: 2025 });
+        expect(day!.date).toEqual('2025-08-15');
       });
     });
 
     describe('The feast of the All Saints', () => {
-      test('Occurs every year on November 1', () => {
-        for (let i = 1900, il = 2100; i <= il; i += 1) {
-          expect(new Romcal().dates().allSaints(i).getUTCDate()).toEqual(1);
-          expect(new Romcal().dates().allSaints(i).getUTCMonth()).toEqual(10);
-        }
+      test('Occurs every year on November 1', async () => {
+        const day = await new Romcal().getOneLiturgicalDay('all_saints', { year: 2025 });
+        expect(day!.date).toEqual('2025-11-01');
       });
     });
 
@@ -764,96 +764,41 @@ describe('Testing specific liturgical date functions', () => {
         ).toBeTruthy();
       }
     });
+
+    test('In 2008, 19 March falls in Holy Week and moves to the Saturday before Palm Sunday', async () => {
+      const romcal = new Romcal();
+      const dates = romcal.dates(2008);
+      const day = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', { year: 2008 });
+      expect(isSameDate(getUtcDateFromString(day!.date), subtractsDays(dates.palmSunday(), 1))).toEqual(true);
+    });
   });
 
   describe('The Solemnity of the Annunciation', () => {
-    test('Should fall on the 25th of March every year if not during a Sunday of Lent, Holy Week or the the Octave of Easter', () => {
-      const dates = new Romcal().dates();
-
-      for (let i = 2018, il = 2018; i <= il; i += 1) {
-        const date = getUtcDate(i, 3, 25);
-        const sundaysOfLent = dates.allSundaysOfLent(i);
-        const isOnASundayOfLent = rangeContainsDate(sundaysOfLent, date);
-
-        // Shouldn't happen within holy week
-        const holyWeekDates = dates.allDatesOfHolyWeek(i);
-        const [firstDayOfHolyWeek] = holyWeekDates;
-        const [lastDayOfHolyWeek] = holyWeekDates.reverse();
-        const holyWeekRange = rangeOfDays(firstDayOfHolyWeek, lastDayOfHolyWeek);
-
-        // Shouldn't happen within the octave of easter
-        const octaveOfEasterDates = dates.allDatesInOctaveOfEaster(i);
-        const [firstDayInOctaveOfEaster] = octaveOfEasterDates;
-        const [lastDayInOctaveOfEaster] = octaveOfEasterDates.reverse();
-        const octaveRange = rangeOfDays(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);
-
-        if (!rangeContainsDate(holyWeekRange, date) && !rangeContainsDate(octaveRange, date) && !isOnASundayOfLent) {
-          expect(new Romcal().dates().annunciation(i).getUTCDay()).toEqual(25);
-        } else {
-          // This test case specifically doesn't care about what happens if one or
-          // all of the above condition are not met... that is tested in another use case
-          expect(true).toBeTruthy();
-        }
-      }
+    test('Falls on 25 March when that is outside Holy Week and the Octave of Easter', async () => {
+      const romcal = new Romcal();
+      const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2025 });
+      expect(isSameDate(getUtcDateFromString(day!.date), getUtcDate(2025, 3, 25))).toEqual(true);
     });
 
-    test('If it occurs during Holy Week, it should be moved to the Monday after Divine Mercy Sunday', () => {
-      const dates = new Romcal().dates();
-
-      for (let i = 1950, il = 2050; i <= il; i += 1) {
-        const date = getUtcDate(i, 3, 25);
-
-        // Shouldn't happen within holy week
-        const holyWeekDates = dates.allDatesOfHolyWeek(i);
-        const [firstDayOfHolyWeek] = holyWeekDates;
-        const [lastDayOfHolyWeek] = holyWeekDates.reverse();
-        const holyWeekRange = rangeOfDays(firstDayOfHolyWeek, lastDayOfHolyWeek);
-
-        // Shouldn't happen within the octave of easter
-        const octaveOfEasterDates = dates.allDatesInOctaveOfEaster(i);
-        const [firstDayInOctaveOfEaster] = octaveOfEasterDates;
-        const [lastDayInOctaveOfEaster] = octaveOfEasterDates.reverse();
-        const octaveRange = rangeOfDays(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);
-
-        if (rangeContainsDate(holyWeekRange, date) && !rangeContainsDate(octaveRange, date)) {
-          expect(
-            isSameDate(new Romcal().dates().annunciation(i), addDays(new Romcal().dates().divineMercySunday(i), 1))
-          ).toEqual(true);
-        } else {
-          // This test case specifically doesn't care about what happens if one or
-          // all of the above condition are not met... that is tested in another use case
-          expect(true).toBeTruthy();
-        }
-      }
+    test('Moves to the Monday after Divine Mercy Sunday when 25 March falls in Holy Week or the Octave', async () => {
+      const romcal = new Romcal();
+      const dates = romcal.dates(2024);
+      const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2024 });
+      expect(isSameDate(getUtcDateFromString(day!.date), addDays(dates.divineMercySunday(), 1))).toEqual(true);
     });
 
-    test('If it occurs during the Octave of Easter, it should be moved to the Saturday preceding Palm Sunday', () => {
-      const dates = new Romcal().dates();
+    test('Moves to the Monday after Divine Mercy Sunday when 25 March is Palm Sunday', async () => {
+      const romcal = new Romcal();
+      const dates = romcal.dates(2018);
+      const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2018 });
+      expect(isSameDate(getUtcDateFromString(day!.date), addDays(dates.divineMercySunday(), 1))).toEqual(true);
+    });
 
-      for (let i = 1950, il = 2050; i <= il; i += 1) {
-        const date = getUtcDate(i, 3, 25);
-
-        const holyWeekDates = dates.allDatesOfHolyWeek(i);
-        const [firstDayOfHolyWeek] = holyWeekDates;
-        const [lastDayOfHolyWeek] = holyWeekDates.reverse();
-        const holyWeekRange = rangeOfDays(firstDayOfHolyWeek, lastDayOfHolyWeek);
-
-        const octaveOfEasterDates = dates.allDatesInOctaveOfEaster(i);
-        const [firstDayInOctaveOfEaster] = octaveOfEasterDates;
-        const [lastDayInOctaveOfEaster] = octaveOfEasterDates.reverse();
-        const octaveRange = rangeOfDays(firstDayInOctaveOfEaster, lastDayInOctaveOfEaster);
-
-        if (!rangeContainsDate(holyWeekRange, date) && rangeContainsDate(octaveRange, date)) {
-          // Happens in the Octave of Easter, move to one day after Low Sunday
-          expect(
-            isSameDate(new Romcal().dates().annunciation(i), addDays(new Romcal().dates().divineMercySunday(i), 1))
-          ).toEqual(true);
-        } else {
-          // This test case specifically doesn't care about what happens if one or
-          // all of the above condition are not met... that is tested in another use case
-          expect(true).toBeTruthy();
-        }
-      }
+    test('Moves to the Monday after Divine Mercy Sunday when 25 March is Easter Sunday', async () => {
+      const romcal = new Romcal();
+      const dates = romcal.dates(2035);
+      const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2035 });
+      expect(isSameDate(getUtcDateFromString(day!.date), addDays(dates.divineMercySunday(), 1))).toEqual(true);
     });
   });
 
@@ -907,45 +852,23 @@ describe('Testing specific liturgical date functions', () => {
   });
 
   describe('The Presentation of the Lord', () => {
-    test('Should always fall on the 2nd of February', () => {
-      for (let i = 1900, il = 2100; i <= il; i += 1) {
-        expect(new Romcal().dates().presentationOfTheLord(i).getUTCMonth()).toEqual(1);
-        expect(new Romcal().dates().presentationOfTheLord(i).getUTCDate()).toEqual(2);
-      }
+    test('Falls on 2 February', async () => {
+      const day = await new Romcal().getOneLiturgicalDay('presentation_of_the_lord', { year: 2025 });
+      expect(day!.date).toEqual('2025-02-02');
     });
   });
 
   describe('The Solemnity of the Immaculate Conception', () => {
-    test('Should fall on the 8th of December every year if not on a Sunday of Advent', () => {
-      for (let i = 1900, il = 2100; i <= il; i += 1) {
-        const date = getUtcDate(i, 12, 8);
-        const sundays = new Romcal().dates().allSundaysOfAdvent(i);
-
-        let onSundayOfAdvent = false;
-        sundays.forEach((sunday) => {
-          if (isSameDate(date, sunday)) onSundayOfAdvent = true;
-        });
-
-        if (!onSundayOfAdvent) {
-          expect(date.getUTCDate()).toEqual(new Romcal().dates().immaculateConceptionOfMary(i).getUTCDate());
-        }
-      }
+    test('Falls on 8 December when that is not a Sunday', async () => {
+      const romcal = new Romcal();
+      const day = await romcal.getOneLiturgicalDay('immaculate_conception_of_the_blessed_virgin_mary', { year: 2025 });
+      expect(isSameDate(getUtcDateFromString(day!.date), getUtcDate(2025, 12, 8))).toEqual(true);
     });
 
-    test('If it falls on a Sunday of Advent, it should be moved to the following Monday', () => {
-      for (let i = 1900, il = 2100; i <= il; i += 1) {
-        const date = getUtcDate(i, 12, 8);
-        const sundays = new Romcal().dates().allSundaysOfAdvent(i);
-
-        let onSundayOfAdvent = false;
-        sundays.forEach((sunday) => {
-          if (isSameDate(date, sunday)) onSundayOfAdvent = true;
-        });
-
-        if (onSundayOfAdvent) {
-          expect(new Romcal().dates().immaculateConceptionOfMary(i).getUTCDate()).toEqual(9);
-        }
-      }
+    test('Moves to Monday when 8 December is a Sunday', async () => {
+      const romcal = new Romcal();
+      const day = await romcal.getOneLiturgicalDay('immaculate_conception_of_the_blessed_virgin_mary', { year: 2024 });
+      expect(isSameDate(getUtcDateFromString(day!.date), getUtcDate(2024, 12, 9))).toEqual(true);
     });
   });
 

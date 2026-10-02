@@ -25,6 +25,7 @@
       "@src/rite-roman1969": ["./rites/roman1969/src"],
       "@internal/easter": ["./packages/easter"],
       "@internal/lunar-new-year": ["./packages/lunar-new-year"],
+      "@internal/calendar-dates": ["./packages/calendar-dates"],
       "@internal/package.json": ["./package.json"]
     }
   },

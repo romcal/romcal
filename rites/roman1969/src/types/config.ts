@@ -1,3 +1,4 @@
+import type { EasterCalculationType } from '@internal/calendar-dates';
 import { i18n } from 'i18next';
 
 import { Weekday } from '../constants/weekdays';
@@ -151,7 +152,7 @@ export type RomcalConfigOutput = Required<
 
 export type CalendarScope = 'gregorian' | 'liturgical';
 
-export type EasterCalculationType = 'gregorian' | 'julian';
+export type { EasterCalculationType };
 
 export interface OutputOptions {
   /**
