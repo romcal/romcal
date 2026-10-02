@@ -1,5 +1,5 @@
-import { CanonizationLevels, Title } from '../constants/martyrology-metadata';
-import type { MartyrologyCatalog } from '../types/martyrology';
+import { CanonizationLevels, Title } from '@internal/generator';
+import type { MartyrologyCatalog } from '@internal/generator';
 
 export const Martyrology: { catalog: MartyrologyCatalog } = {
   catalog: {

@@ -65,12 +65,10 @@ jobs:
         run: npm run build
 
       - name: Publish packages that don't exist on the registry yet
-        working-directory: rites/roman1969
-        run: tsx build/publish.ts --only-new ${{ env.DRY_RUN }}
+        run: npx romcal-build publish --rite roman1969 --only-new ${{ env.DRY_RUN }}
 
       - name: Configure trusted publishing for unconfigured packages
         # npm rejects trust changes made with tokens that bypass 2FA, so this may
         # need to be finished locally with `npm run trust:sync`.
         continue-on-error: true
-        working-directory: rites/roman1969
-        run: tsx build/trusted-publishing.ts --sync --yes ${{ env.DRY_RUN }}
+        run: npx romcal-build trust --rite roman1969 --sync --yes ${{ env.DRY_RUN }}

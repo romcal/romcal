@@ -204,4 +204,15 @@ export const PRECEDENCES = [
   Precedences.OptionalMemorial_12,
 ];
 
+/**
+ * The precedence classes of the 1969 rite: a closed union, so a value from another rite
+ * is not one of these.
+ *
+ * A rite names its own classes and declares them in its vocabulary; the engine compares
+ * precedences by their position in the rite's ordered list and never interprets the
+ * value, so it needs no union of every rite's classes.
+ */
 export type Precedence = (typeof PRECEDENCES)[number];
+
+/** @deprecated Use {@link Precedence}, which is again the closed 1969 union. */
+export type Precedence1969 = Precedence;

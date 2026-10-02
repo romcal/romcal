@@ -1,6 +1,6 @@
-import { PatronTitle } from '../../../constants/martyrology-metadata';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { PatronTitle, Inputs } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 import { Africa } from '../../regions/africa';
 import { NorthAfrica } from '../../regions/north-africa';
 

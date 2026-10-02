@@ -1,4 +1,4 @@
-import type { Locale } from '../types/locale';
+import type { Locale } from '@internal/generator';
 
 export const locale: Locale = {
   colors: {

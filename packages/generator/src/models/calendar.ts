@@ -1,36 +1,47 @@
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
 import { Period } from '../constants/periods';
-import { PRECEDENCES, Precedences } from '../constants/precedences';
+import { Precedences } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
-import { Season } from '../constants/seasons';
 import { BaseCalendar, ByIds, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
 import { Id } from '../types/common';
+import { DatesProvider } from '../types/dates';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
-import { Dates, dateDifference, isValidDate } from '../utils/dates';
+import { Vocabulary } from '../types/vocabulary';
+import { isValidDate } from '../utils/dates';
 
 import { RomcalConfig } from './config';
 import { LiturgicalDay } from './liturgical-day';
 import { LiturgicalDayConfig } from './liturgical-day-config';
 import { LiturgicalDayDef } from './liturgical-day-def';
 
-export class Calendar implements BaseCalendar {
-  readonly #config: RomcalConfig;
+/**
+ * The boundary of the season a rite says its year opens or closes with.
+ *
+ * Looked up by name rather than by a fixed key, so the rite that declares the season
+ * is the one that has to have supplied a date for it. Saying so here beats the
+ * `undefined.toISOString()` a mismatch would otherwise produce four frames away.
+ */
+const boundary = (boundaries: Record<string, Date>, season: string): Date => {
+  const date = boundaries[season];
+  if (!date) throw new Error(`The rite declares the liturgical year to run to "${season}", which has no boundary.`);
+  return date;
+};
 
-  readonly #liturgicalDayConfig: LiturgicalDayConfig;
+export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar<V> {
+  readonly #config: RomcalConfig<V>;
 
-  readonly dates: Dates;
+  readonly #liturgicalDayConfig: LiturgicalDayConfig<V>;
 
-  readonly #startOfSeasonsDic: Record<number, Record<Season, Date>> = {};
+  readonly dates: DatesProvider;
 
-  readonly #endOfSeasonsDic: Record<number, Record<Season, Date>> = {};
+  readonly #startOfSeasonsDic: Record<number, Record<string, Date>> = {};
 
-  readonly #startOfLaterOrdinaryTime: Date;
+  readonly #endOfSeasonsDic: Record<number, Record<string, Date>> = {};
 
-  constructor(config: RomcalConfig, liturgicalDayConfig: LiturgicalDayConfig) {
+  constructor(config: RomcalConfig<V>, liturgicalDayConfig: LiturgicalDayConfig<V>) {
     this.#config = config;
     this.#liturgicalDayConfig = liturgicalDayConfig;
-    this.dates = new Dates(config, liturgicalDayConfig.year);
-    this.#startOfLaterOrdinaryTime = this.dates.maryMotherOfTheChurch();
+    this.dates = new config.dates(config, liturgicalDayConfig.year);
   }
 
   /**
@@ -39,7 +50,12 @@ export class Calendar implements BaseCalendar {
    * @param date
    * @param baseData
    */
-  #buildCalendarMetadata(def: LiturgicalDayDef, date: Date, baseData: LiturgicalDay | null): RomcalCalendarMetadata {
+  #buildCalendarMetadata(
+    def: LiturgicalDayDef<V>,
+    date: Date,
+    baseData: LiturgicalDay<V> | null
+  ): RomcalCalendarMetadata<V> {
+    const seasonRules = this.#config.rubrics.seasons;
     let currentYear = this.#liturgicalDayConfig.year;
 
     if (
@@ -60,36 +76,17 @@ export class Calendar implements BaseCalendar {
     const startOfSeason = def.seasons.length ? startOfSeasonsDic[def.seasons[0]] : undefined;
     const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
 
-    const isLent = (baseData?.seasons ?? def.seasons).includes(Season.Lent);
-    const isLateOrdinaryTime =
-      (baseData?.seasons ?? def.seasons).includes(Season.OrdinaryTime) &&
-      date.getTime() >= this.#startOfLaterOrdinaryTime.getTime();
-
-    let dayOfSeason =
-      baseData?.calendar.dayOfSeason ??
-      def.calendarMetadata.dayOfSeason ??
-      (startOfSeason ? dateDifference(date, startOfSeason) + 1 : NaN);
-
-    // In late Ordinary Time, we need to subtract the days of Lent, Paschal Triduum and Easter Time,
-    // from the first day of Ordinary Time (the day after the Baptism of the Lord).
-    if (isLateOrdinaryTime) {
-      dayOfSeason -= 96;
-    }
-
-    // In the season of Lent, the first week starts from zero (week of Ash Wednesday)
-    // then the week 1 is the week of the first Sunday of Lent.
-    // This variable below allows shifting the right week number, if we are during Lent or not.
-    const weekOfSeasonOffset = isLent ? -1 : 0;
-
-    let weekOfSeason =
-      baseData?.calendar.weekOfSeason ??
-      def.calendarMetadata.weekOfSeason ??
-      (startOfSeason ? Math.ceil((dayOfSeason + startOfSeason.getUTCDay()) / 7) + weekOfSeasonOffset : NaN);
-
-    // In late Ordinary Time, we need to compute the week number from the remaining days of the liturgical year
-    if (isLateOrdinaryTime) {
-      weekOfSeason = endOfSeason ? Math.ceil(34 - dateDifference(date, endOfSeason) / 7) : NaN;
-    }
+    // How a season is counted is the rite's business: the seasons themselves differ,
+    // and so does what a week number means within them.
+    const { dayOfSeason, weekOfSeason } = seasonRules.numbering({
+      date,
+      dates: this.#liturgicalDayConfig.dates,
+      declaredDayOfSeason: baseData?.calendar.dayOfSeason ?? def.calendarMetadata.dayOfSeason,
+      declaredWeekOfSeason: baseData?.calendar.weekOfSeason ?? def.calendarMetadata.weekOfSeason,
+      endOfSeason,
+      seasons: baseData?.seasons ?? def.seasons,
+      startOfSeason,
+    });
 
     return {
       weekOfSeason,
@@ -98,8 +95,8 @@ export class Calendar implements BaseCalendar {
       nthDayOfWeekInMonth: Math.ceil(date.getUTCDate() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
-      startOfLiturgicalYear: startOfSeasonsDic[Season.Advent].toISOString().substr(0, 10),
-      endOfLiturgicalYear: endOfSeasonsDic[Season.OrdinaryTime].toISOString().substr(0, 10),
+      startOfLiturgicalYear: boundary(startOfSeasonsDic, seasonRules.firstSeason).toISOString().substr(0, 10),
+      endOfLiturgicalYear: boundary(endOfSeasonsDic, seasonRules.lastSeason).toISOString().substr(0, 10),
       seasons: baseData?.seasons ?? def.seasons,
     };
   }
@@ -108,9 +105,9 @@ export class Calendar implements BaseCalendar {
    * Build the LiturgicalDay data collection, with their dates
    * @private
    */
-  #buildDatesData(): LiturgicalBuiltData {
-    const builtData: LiturgicalBuiltData = {
-      byIds: {} as ByIds,
+  #buildDatesData(): LiturgicalBuiltData<V> {
+    const builtData: LiturgicalBuiltData<V> = {
+      byIds: {} as ByIds<V>,
       datesIndex: {} as DatesIndex,
     };
 
@@ -162,7 +159,7 @@ export class Calendar implements BaseCalendar {
           // since a LiturgicalDay is generated for each day of the Liturgical Year.
           // In the case the LiturgicalDayDef is coming from the Proper of Time,
           // the baseData must be null.
-          let baseData: LiturgicalDay | null = null;
+          let baseData: LiturgicalDay<V> | null = null;
           if (!isFromProperOfTime) {
             // Look up for the right LiturgicalDay item, according to its date.
             // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
@@ -175,7 +172,7 @@ export class Calendar implements BaseCalendar {
           }
 
           // Retrieve calendar metadata from the proper of time
-          const calendar: RomcalCalendarMetadata = isFromProperOfTime
+          const calendar: RomcalCalendarMetadata<V> = isFromProperOfTime
             ? this.#buildCalendarMetadata(def, date, baseData)
             // TODO: refactor this to avoid the non-null assertion
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -192,7 +189,7 @@ export class Calendar implements BaseCalendar {
            *    - Memorials: the liturgy of the hour remain the one of the weekday.
            *    - Feasts: small hours are taken from the weekday.
            */
-          const weekday: LiturgicalDay | null =
+          const weekday: LiturgicalDay<V> | null =
             baseData && [Ranks.Feast, Ranks.Memorial, Ranks.OptionalMemorial].some((r) => r === def.rank)
               ? baseData
               : null;
@@ -200,7 +197,7 @@ export class Calendar implements BaseCalendar {
           // Create a new LiturgicalDay object, and add it to the builtData object.
           builtData.byIds[def.id] = [
             ...(builtData.byIds[def.id] ?? []),
-            new LiturgicalDay(def, date, this.#liturgicalDayConfig, calendar, baseData, weekday),
+            new LiturgicalDay<V>(def, date, this.#liturgicalDayConfig, calendar, baseData, weekday),
           ];
 
           // Also add the corresponding date-ID object.
@@ -230,7 +227,7 @@ export class Calendar implements BaseCalendar {
    * objects are ignored.
    * @param id
    */
-  getOneLiturgicalDay(id: Id): LiturgicalDay | null | undefined {
+  getOneLiturgicalDay(id: Id): LiturgicalDay<V> | null | undefined {
     // Return undefined if not found
     if (!Object.prototype.hasOwnProperty.call(this.#config.liturgicalDayDef, id)) {
       return undefined;
@@ -246,21 +243,25 @@ export class Calendar implements BaseCalendar {
     const calendar = this.#buildCalendarMetadata(def, date, null);
 
     // Return the LiturgicalDay object
-    return new LiturgicalDay(def, date, this.#liturgicalDayConfig, calendar, null, null);
+    return new LiturgicalDay<V>(def, date, this.#liturgicalDayConfig, calendar, null, null);
   }
 
   /**
    * Generate a liturgical calendar according to the precedence rules between liturgical days.
    */
-  generateCalendar(): LiturgicalCalendar {
-    const finalData: LiturgicalCalendar = {};
+  generateCalendar(): LiturgicalCalendar<V> {
+    const finalData: LiturgicalCalendar<V> = {};
 
     const builtData = this.#buildDatesData();
 
+    // Priority is position in the rite's precedence list, not a property of the value.
+    const { precedences } = this.#config.rubrics;
+    const precedenceIndex = (precedence: string): number => precedences.indexOf(precedence);
+
     Object.keys(builtData.datesIndex).forEach((dateStr) => {
       // Order the LiturgicalDays objects, following the precedence rules defined in the UNLY #49.
-      const dates: LiturgicalDay[] = builtData.datesIndex[dateStr]
-        .reduce<LiturgicalDay[]>((acc, id) => {
+      const dates: LiturgicalDay<V>[] = builtData.datesIndex[dateStr]
+        .reduce<LiturgicalDay<V>[]>((acc, id) => {
           // Look up for the right LiturgicalDay item, according to its date.
           // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
           // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical year 2012, which starts on 27 November 2011 and ends 1 December 2012.
@@ -279,8 +280,8 @@ export class Calendar implements BaseCalendar {
           ) => {
             if (firstIsOptional === nextIsOptional) {
               if (firstAllowSimilarRankItems === nextAllowSimilarRankItems) {
-                const type1 = PRECEDENCES.indexOf(firstPrecedence);
-                const type2 = PRECEDENCES.indexOf(nextPrecedence);
+                const type1 = precedenceIndex(firstPrecedence);
+                const type2 = precedenceIndex(nextPrecedence);
                 if (type1 < type2) return -1;
                 if (type1 > type2) return 1;
                 return 0;
@@ -310,7 +311,7 @@ export class Calendar implements BaseCalendar {
       // metadata: different liturgical colors, seasons, rank, precedence...
       // The mass (Chrismal Mass on Holy Thursday, and the Mass the Lord’s Supper the evening), as
       // well as the liturgy of the hours are also different.
-      let thursdayOfTheLordsSupper: LiturgicalDay | undefined;
+      let thursdayOfTheLordsSupper: LiturgicalDay<V> | undefined;
       if (dates[0].id === 'thursday_of_the_lords_supper') {
         thursdayOfTheLordsSupper = dates.shift();
       }
@@ -329,7 +330,7 @@ export class Calendar implements BaseCalendar {
       // celebrated, the others being omitted.
       const defaultLiturgicalDay = dates[0];
 
-      let optionalMemorials: LiturgicalDay[] = [];
+      let optionalMemorials: LiturgicalDay<V>[] = [];
 
       // If the current day is:
       //
@@ -394,7 +395,7 @@ export class Calendar implements BaseCalendar {
       // so the next items have always the same or a lower precedence type.
       // e.g. The memorial of the Immaculate heart of Mary, that can falls the same day of another memorial.
       if (defaultLiturgicalDay.allowSimilarRankItems && dates.length > 1) {
-        const checkNextItems = (d: LiturgicalDay): boolean =>
+        const checkNextItems = (d: LiturgicalDay<V>): boolean =>
           d.rank === defaultLiturgicalDay.rank &&
           d.precedence !== Precedences.OptionalMemorial_12 &&
           !optionalMemorials.map((om) => om.id).includes(d.id);
@@ -411,14 +412,14 @@ export class Calendar implements BaseCalendar {
       // e.g. The dedication of consecrated Churches is an optional solemnity.
       if (dates.length > 1) {
         const optionalDayIds = optionalMemorials.map((d) => d.id);
-        const defaultPrecedenceIndex = PRECEDENCES.indexOf(defaultLiturgicalDay.precedence);
+        const defaultPrecedenceIndex = precedenceIndex(defaultLiturgicalDay.precedence);
         optionalMemorials = optionalMemorials.concat(
           dates
             .slice(1)
             .filter(
               (d) =>
                 d.isOptional &&
-                PRECEDENCES.indexOf(d.precedence) >= defaultPrecedenceIndex &&
+                precedenceIndex(d.precedence) >= defaultPrecedenceIndex &&
                 !optionalDayIds.includes(d.id)
             )
         );
@@ -432,7 +433,7 @@ export class Calendar implements BaseCalendar {
     });
 
     if (this.#config?.outputOptions?.calculateProperties) {
-      const calculatedData: LiturgicalCalendar = {};
+      const calculatedData: LiturgicalCalendar<V> = {};
       // run toJson on each liturgical day and set it on the map
       Object.keys(finalData).forEach((dateStr) => {
         calculatedData[dateStr] = finalData[dateStr].map((d) => d.toJson());

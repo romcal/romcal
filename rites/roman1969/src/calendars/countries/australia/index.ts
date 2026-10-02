@@ -1,8 +1,6 @@
-import { ProperCycles } from '../../../constants/cycles';
-import { PatronTitle, Title } from '../../../constants/martyrology-metadata';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs, ParticularConfig } from '../../../types/calendar-def';
+import { ProperCycles, PatronTitle, Title, Precedences, Inputs, ParticularConfig } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 
 export class Australia extends CalendarDef {
   particularConfig: ParticularConfig = {

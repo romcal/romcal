@@ -1,4 +1,4 @@
-import type { Locale } from '../types/locale';
+import type { Locale } from '@internal/generator';
 
 /**
  * Simplified Chinese (zh-cn) locale for romcal.

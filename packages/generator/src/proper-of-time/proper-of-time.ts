@@ -12,9 +12,10 @@ import { LiturgicalDayDef } from '../models/liturgical-day-def';
 import { BundleInputs } from '../types/calendar-def';
 import { Id } from '../types/common';
 import { LiturgicalDayProperOfTimeInput } from '../types/liturgical-day';
+import { Vocabulary } from '../types/vocabulary';
 
-export class ProperOfTime extends CalendarDef {
-  readonly #config: RomcalConfig;
+export class ProperOfTime<V extends Vocabulary = Vocabulary> extends CalendarDef<V> {
+  readonly #config: RomcalConfig<V>;
 
   readonly #weekdays = WEEKDAYS;
 
@@ -26,7 +27,7 @@ export class ProperOfTime extends CalendarDef {
     return this.#calendarName;
   }
 
-  constructor(config: RomcalConfig, inputs?: BundleInputs) {
+  constructor(config: RomcalConfig<V>, inputs?: BundleInputs) {
     super(config, inputs);
     this.#config = config;
   }
@@ -58,8 +59,8 @@ export class ProperOfTime extends CalendarDef {
    * @param input
    * @private
    */
-  #newLiturgicalDayDef(id: Id, input: LiturgicalDayProperOfTimeInput): LiturgicalDayDef {
-    return new LiturgicalDayDef(
+  #newLiturgicalDayDef(id: Id, input: LiturgicalDayProperOfTimeInput): LiturgicalDayDef<V> {
+    return new LiturgicalDayDef<V>(
       id,
       { properCycle: ProperCycles.ProperOfTime, ...input },
       PROPER_OF_TIME_NAME,

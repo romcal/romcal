@@ -1,4 +1,4 @@
-import { BaseRomcalBundle } from '../../src/types/bundle';
+import { BaseRomcalBundle } from '@internal/generator';
 
 export type Fixture = {
   /** Base romcal bundle instance */

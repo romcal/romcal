@@ -100,8 +100,7 @@ jobs:
         run: npm run data:checks && npm run test:without-coverage
 
       - name: Npm publish a new 'dev' version (romcal + all calendar bundles)
-        working-directory: rites/roman1969
-        run: tsx build/publish.ts
+        run: npx romcal-build publish --rite roman1969
 
       # move this after npm publish so we don't tag until npm worked
       - name: Commit and tag the updated version
