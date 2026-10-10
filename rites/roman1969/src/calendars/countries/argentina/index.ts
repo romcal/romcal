@@ -1,8 +1,6 @@
-import { ProperCycles } from '../../../constants/cycles';
-import { PatronTitle } from '../../../constants/martyrology-metadata';
-import { Precedences } from '../../../constants/precedences';
-import { CalendarDef } from '../../../models/calendar-def';
-import { Inputs } from '../../../types/calendar-def';
+import { ProperCycles, PatronTitle, Precedences, Inputs } from '@internal/generator';
+
+import { CalendarDef } from '../../../calendar-def';
 import { Americas } from '../../regions/americas';
 
 export class Argentina extends CalendarDef {
