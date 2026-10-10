@@ -4,10 +4,9 @@ import path from 'node:path';
 import readline from 'node:readline/promises';
 
 import { toPackageName } from '@internal/generator';
-import pkg from '@internal/package.json';
-import chalk from 'chalk';
+import { colors } from 'consola/utils';
 
-import { calendarDefinitions } from '../src/calendars';
+import { ResolvedOptions } from '../types';
 
 /**
  * Trusted publisher configuration that every published romcal package must have.
@@ -25,7 +24,15 @@ const TRUSTED_PUBLISHER = {
 const REGISTRY = 'https://registry.npmjs.org';
 /** `npm trust` was introduced in npm 11.15.0. */
 const MIN_NPM_VERSION = [11, 15, 0];
-const CACHE_FILE = path.join(__dirname, '../tmp/trusted-publishing.json');
+/**
+ * Everything the scan needs from the rite: which packages exist, and where the
+ * previous scan may be cached. Set once by `runTrust`, because the functions below
+ * are called from several places and threading it through each would say nothing.
+ */
+type TrustContext = { cacheFile: string; names: string[] };
+
+let context: TrustContext;
+
 /** How long a previous scan is considered usable, in minutes. */
 const CACHE_TTL_MINUTES = 60;
 const EXISTENCE_CONCURRENCY = 8;
@@ -79,9 +86,9 @@ const wait = (ms: number): Promise<void> => new Promise((r) => setTimeout(r, ms)
  * All package names published from this repository: the main library, plus one
  * bundle per calendar definition (same derivation as build.ts).
  */
-const packageNames = (): string[] => [
-  pkg.name,
-  ...Object.keys(calendarDefinitions).map((calendar) => toPackageName(calendar, true)),
+const packageNames = (resolved: ResolvedOptions, libraryName: string): string[] => [
+  libraryName,
+  ...Object.keys(resolved.manifest.calendars).map((calendar) => toPackageName(calendar, true)),
 ];
 
 /**
@@ -173,7 +180,7 @@ const isPublished = async (name: string): Promise<boolean> => {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return true;
   } catch (err) {
-    log(`${chalk.yellow('Warning:')} could not check ${name} on the registry (${(err as Error).message})`);
+    log(`${colors.yellow('Warning:')} could not check ${name} on the registry (${(err as Error).message})`);
     return true;
   }
 };
@@ -194,9 +201,9 @@ const checkNpmVersion = (): void => {
     (major === minMajor && minor === minMinor && patch < minPatch);
 
   if (!Number.isFinite(major) || tooOld) {
-    log(`${chalk.red('Error:')} npm ${stdout.trim() || '(unknown)'} does not support \`npm trust\`.`);
-    log(chalk.dim(`  npm >= ${MIN_NPM_VERSION.join('.')} is required: npm i -g npm@^${MIN_NPM_VERSION.join('.')}`));
-    log(chalk.dim('  Beware of a nvm-managed npm shadowing a newer global install.'));
+    log(`${colors.red('Error:')} npm ${stdout.trim() || '(unknown)'} does not support \`npm trust\`.`);
+    log(colors.dim(`  npm >= ${MIN_NPM_VERSION.join('.')} is required: npm i -g npm@^${MIN_NPM_VERSION.join('.')}`));
+    log(colors.dim('  Beware of a nvm-managed npm shadowing a newer global install.'));
     process.exit(1);
   }
 };
@@ -239,14 +246,14 @@ const npmError = (stdout: string, stderr: string): { code: string; summary: stri
  * for 5 minutes, which is what lets the rest of the run proceed unattended.
  */
 const warmUpAuth = (name: string): void => {
-  log(chalk.bold('\nAuthenticating with npm'));
-  log(chalk.dim('  Complete the 2FA prompt below, and choose to skip two-factor'));
-  log(chalk.dim('  authentication for the next 5 minutes when npmjs.com offers it.'));
+  log(colors.bold('\nAuthenticating with npm'));
+  log(colors.dim('  Complete the 2FA prompt below, and choose to skip two-factor'));
+  log(colors.dim('  authentication for the next 5 minutes when npmjs.com offers it.'));
   log('');
 
   const result = spawnSync('npm', ['trust', 'list', name], { stdio: 'inherit' });
   if ((result.status ?? 1) !== 0) {
-    log(`${chalk.yellow('Warning:')} that call did not succeed, continuing anyway.`);
+    log(`${colors.yellow('Warning:')} that call did not succeed, continuing anyway.`);
   }
   log('');
 };
@@ -262,7 +269,7 @@ const inspect = (name: string): Entry => {
     const error = npmError(stdout, stderr);
 
     if (error.code === 'EUNKNOWNCOMMAND') {
-      log(`${chalk.red('Error:')} this npm does not have the \`trust\` command (npm ${runNpm(['--version']).stdout.trim()}).`);
+      log(`${colors.red('Error:')} this npm does not have the \`trust\` command (npm ${runNpm(['--version']).stdout.trim()}).`);
       process.exit(1);
     }
 
@@ -285,7 +292,7 @@ const inspect = (name: string): Entry => {
     }
 
     const reason = [error.code, error.summary].filter(Boolean).join(': ') || `npm trust list exited with ${code}`;
-    if (options.verbose) log(chalk.dim(`\n[${name}] npm trust list output:\n${combined.trim()}\n`));
+    if (options.verbose) log(colors.dim(`\n[${name}] npm trust list output:\n${combined.trim()}\n`));
     return { name, status: 'error', reason };
   }
 
@@ -337,22 +344,22 @@ const report = (entries: Entry[]): void => {
     return;
   }
 
-  log(chalk.bold('\nTrusted publishing status'));
+  log(colors.bold('\nTrusted publishing status'));
   log(
-    chalk.dim(
+    colors.dim(
       `  required: ${TRUSTED_PUBLISHER.repository} / ${TRUSTED_PUBLISHER.file} / ${TRUSTED_PUBLISHER.environment} / --allow-publish`
     )
   );
-  log(chalk.dim(`  packages: ${entries.length}`));
+  log(colors.dim(`  packages: ${entries.length}`));
 
   const ok = group('ok');
-  if (ok.length) log(`\n${chalk.green('✓ configured')} (${ok.length})`);
+  if (ok.length) log(`\n${colors.green('✓ configured')} (${ok.length})`);
 
   const sections: [Status, string, (entry: Entry) => string][] = [
-    ['missing', chalk.yellow('needs trust config'), (e): string => e.name],
-    ['mismatch', chalk.yellow('config differs'), (e): string => `${e.name} → ${describeConfig(e.config)}`],
-    ['unpublished', chalk.cyan('not published yet'), (e): string => e.name],
-    ['error', chalk.red('could not be checked'), (e): string => `${e.name} (${e.reason})`],
+    ['missing', colors.yellow('needs trust config'), (e): string => e.name],
+    ['mismatch', colors.yellow('config differs'), (e): string => `${e.name} → ${describeConfig(e.config)}`],
+    ['unpublished', colors.cyan('not published yet'), (e): string => e.name],
+    ['error', colors.red('could not be checked'), (e): string => `${e.name} (${e.reason})`],
   ];
 
   sections.forEach(([status, title, format]) => {
@@ -363,10 +370,10 @@ const report = (entries: Entry[]): void => {
   });
 
   if (group('mismatch').length && !options.force) {
-    log(chalk.dim('\n  Re-run with --sync --force to revoke and recreate mismatched configurations.'));
+    log(colors.dim('\n  Re-run with --sync --force to revoke and recreate mismatched configurations.'));
   }
   if (group('unpublished').length) {
-    log(chalk.dim('\n  Publish these once (npm run publish:new) before configuring trust.'));
+    log(colors.dim('\n  Publish these once (npm run publish:new) before configuring trust.'));
   }
   log('');
 };
@@ -377,20 +384,20 @@ const report = (entries: Entry[]): void => {
  */
 const saveCache = (entries: Entry[]): void => {
   try {
-    fs.mkdirSync(path.dirname(CACHE_FILE), { recursive: true });
+    fs.mkdirSync(path.dirname(context.cacheFile), { recursive: true });
     fs.writeFileSync(
-      CACHE_FILE,
+      context.cacheFile,
       JSON.stringify({ checkedAt: new Date().toISOString(), required: TRUSTED_PUBLISHER, packages: entries }, null, 2),
       'utf-8'
     );
   } catch (err) {
-    log(`${chalk.yellow('Warning:')} could not save the scan results (${(err as Error).message})`);
+    log(`${colors.yellow('Warning:')} could not save the scan results (${(err as Error).message})`);
   }
 };
 
 const readCache = (): { entries: Entry[]; ageMinutes: number } | null => {
   try {
-    const cache = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf-8')) as {
+    const cache = JSON.parse(fs.readFileSync(context.cacheFile, 'utf-8')) as {
       checkedAt: string;
       required: typeof TRUSTED_PUBLISHER;
       packages: Entry[];
@@ -445,7 +452,7 @@ const writeStepSummary = (entries: Entry[]): void => {
 const sync = async (entries: Entry[]): Promise<boolean> => {
   const todo = entries.filter((e) => e.status === 'missing' || (e.status === 'mismatch' && options.force));
   if (!todo.length) {
-    log(chalk.green('Nothing to configure.'));
+    log(colors.green('Nothing to configure.'));
     return true;
   }
 
@@ -459,7 +466,7 @@ const sync = async (entries: Entry[]): Promise<boolean> => {
     const entry = todo[i];
 
     if (i > 0 && i % options.batchSize === 0) {
-      log(chalk.dim(`\n  ${i}/${todo.length} done.`));
+      log(colors.dim(`\n  ${i}/${todo.length} done.`));
       if (rl) {
         const answer = await rl.question('  Refresh the 2FA skip window on npmjs.com, then press enter to continue (or type "stop"): ');
         if (answer.trim().toLowerCase() === 'stop') {
@@ -472,16 +479,16 @@ const sync = async (entries: Entry[]): Promise<boolean> => {
     if (entry.status === 'mismatch') {
       const id = entry.config?.id;
       if (!id) {
-        log(`${chalk.red('✗')} ${entry.name}: existing config has no id, revoke it manually`);
+        log(`${colors.red('✗')} ${entry.name}: existing config has no id, revoke it manually`);
         allDone = false;
         continue;
       }
       const revoked = revokeTrust(entry.name, id);
       if (!revoked.ok) {
-        log(`${chalk.red('✗')} ${entry.name}: revoke failed`);
-        log(chalk.dim(`  ${revoked.output.split('\n').slice(-1)[0]}`));
+        log(`${colors.red('✗')} ${entry.name}: revoke failed`);
+        log(colors.dim(`  ${revoked.output.split('\n').slice(-1)[0]}`));
         if (isAuthError(revoked.output)) {
-          log(chalk.red(`\nStopping: ${AUTH_HINT}`));
+          log(colors.red(`\nStopping: ${AUTH_HINT}`));
           return false;
         }
         allDone = false;
@@ -491,18 +498,18 @@ const sync = async (entries: Entry[]): Promise<boolean> => {
 
     const created = createTrust(entry.name);
     if (created.ok) {
-      log(`${chalk.green('✓')} ${entry.name}${options.dryRun ? chalk.dim(' (dry-run)') : ''}`);
+      log(`${colors.green('✓')} ${entry.name}${options.dryRun ? colors.dim(' (dry-run)') : ''}`);
       // `--dry-run` exits 0 without creating anything; do not cache that as configured
       if (!options.dryRun) entry.status = 'ok';
     } else if (/already exists|EEXIST|E409|conflict/i.test(created.output)) {
       // The reused check was stale: something configured this package meanwhile
-      log(`${chalk.yellow('•')} ${entry.name}: a trust configuration already exists, re-run the check`);
+      log(`${colors.yellow('•')} ${entry.name}: a trust configuration already exists, re-run the check`);
       allDone = false;
     } else {
-      log(`${chalk.red('✗')} ${entry.name}`);
-      log(chalk.dim(`  ${created.output.split('\n').slice(-1)[0]}`));
+      log(`${colors.red('✗')} ${entry.name}`);
+      log(colors.dim(`  ${created.output.split('\n').slice(-1)[0]}`));
       if (isAuthError(created.output)) {
-        log(chalk.red(`\nStopping: ${AUTH_HINT}`));
+        log(colors.red(`\nStopping: ${AUTH_HINT}`));
         rl?.close();
         return false;
       }
@@ -522,7 +529,7 @@ const sync = async (entries: Entry[]): Promise<boolean> => {
  * run (an expired 2FA window, for instance) only re-checks what stayed unknown.
  */
 const scan = async (interactive: boolean, prior?: Entry[]): Promise<Entry[]> => {
-  const names = packageNames();
+  const names = context.names;
   const known = new Map(
     (prior ?? []).filter((e) => e.status === 'ok' || e.status === 'missing' || e.status === 'mismatch').map((e) => [e.name, e])
   );
@@ -532,8 +539,8 @@ const scan = async (interactive: boolean, prior?: Entry[]): Promise<Entry[]> => 
   const toInspect = existing.filter((name) => !known.has(name));
 
   if (!options.json) {
-    log(chalk.bold(`Checking trusted publishing for ${names.length} packages`));
-    if (known.size) log(chalk.dim(`  reusing ${known.size} known results, checking ${toInspect.length}`));
+    log(colors.bold(`Checking trusted publishing for ${names.length} packages`));
+    if (known.size) log(colors.dim(`  reusing ${known.size} known results, checking ${toInspect.length}`));
   }
 
   if (interactive && toInspect.length) warmUpAuth(toInspect[0]);
@@ -544,7 +551,22 @@ const scan = async (interactive: boolean, prior?: Entry[]): Promise<Entry[]> => 
   return names.map((name, i) => (published[i] ? byName.get(name) : undefined) ?? { name, status: 'unpublished' });
 };
 
-(async (): Promise<void> => {
+/**
+ * `--sync` configures; without it the command only reports. Either way the exit code
+ * is what CI reads: non-zero when a package still needs a trust configuration.
+ */
+export const runTrust = async (resolved: ResolvedOptions): Promise<void> => {
+  // The library is published from the repository root, the same package the calendar
+  // bundles take a peer dependency on.
+  const { name } = JSON.parse(fs.readFileSync(path.join(resolved.repoRoot, 'package.json'), 'utf-8')) as {
+    name: string;
+  };
+
+  context = {
+    cacheFile: path.join(resolved.riteRoot, resolved.manifest.tmpDir, 'trusted-publishing.json'),
+    names: packageNames(resolved, name),
+  };
+
   checkNpmVersion();
 
   const interactive = Boolean(process.stdin.isTTY) && !options.yes && !options.noPrompt;
@@ -553,10 +575,10 @@ const scan = async (interactive: boolean, prior?: Entry[]): Promise<Entry[]> => 
 
   if (cached && !options.json) {
     const actionable = cached.entries.filter((e) => e.status === 'missing' || e.status === 'mismatch').length;
-    log(chalk.bold(`Found a check from ${Math.round(cached.ageMinutes)} min ago`));
-    log(chalk.dim(`  ${cached.entries.length} packages, ${actionable} needing a trust configuration`));
-    if (unknowns) log(chalk.dim(`  ${unknowns} could not be checked and will be checked again`));
-    log(chalk.dim('  Pass --fresh to check them all again.'));
+    log(colors.bold(`Found a check from ${Math.round(cached.ageMinutes)} min ago`));
+    log(colors.dim(`  ${cached.entries.length} packages, ${actionable} needing a trust configuration`));
+    if (unknowns) log(colors.dim(`  ${unknowns} could not be checked and will be checked again`));
+    log(colors.dim('  Pass --fresh to check them all again.'));
   }
 
   // With every package accounted for, `--sync` can go straight to configuring them
@@ -573,19 +595,19 @@ const scan = async (interactive: boolean, prior?: Entry[]): Promise<Entry[]> => 
 
   if (authFailed && !options.json) {
     if (otpNeeded) {
-      log(chalk.red(`\n${AUTH_HINT}`));
+      log(colors.red(`\n${AUTH_HINT}`));
     } else {
-      log(chalk.red('\nnpm rejected the trust API.'));
-      log(chalk.dim(`  whoami: ${runNpm(['whoami']).stdout.trim() || 'not logged in'}`));
-      log(chalk.dim(`  registry: ${runNpm(['config', 'get', 'registry']).stdout.trim()}`));
-      log(chalk.dim('  npm trust needs account-level 2FA; tokens that bypass 2FA are rejected.'));
+      log(colors.red('\nnpm rejected the trust API.'));
+      log(colors.dim(`  whoami: ${runNpm(['whoami']).stdout.trim() || 'not logged in'}`));
+      log(colors.dim(`  registry: ${runNpm(['config', 'get', 'registry']).stdout.trim()}`));
+      log(colors.dim('  npm trust needs account-level 2FA; tokens that bypass 2FA are rejected.'));
     }
-    if (authRejectionDetail && options.verbose) log(chalk.dim(`\n${authRejectionDetail}\n`));
+    if (authRejectionDetail && options.verbose) log(colors.dim(`\n${authRejectionDetail}\n`));
   }
 
   if (options.sync && !authFailed) {
     const done = await sync(entries);
-    if (!done && !options.json) log(chalk.yellow('\nSome packages still need a trust configuration.'));
+    if (!done && !options.json) log(colors.yellow('\nSome packages still need a trust configuration.'));
   }
 
   report(entries);
@@ -597,4 +619,4 @@ const scan = async (interactive: boolean, prior?: Entry[]): Promise<Entry[]> => 
     (e) => e.status === 'missing' || e.status === 'mismatch' || e.status === 'error'
   ).length;
   process.exit(actionable > 0 ? 1 : 0);
-})();
+};

@@ -7,8 +7,8 @@ import humanizeDuration, { Unit, UnitTranslationOptions } from 'humanize-duratio
 export const getDuration = (initialTime: Date): string => {
   const units: Unit[] = ['h', 'm', 's'];
   const shortEnglishHumanizer = humanizeDuration.humanizer({
-    language: 'shortEn',
     conjunction: ' and ',
+    language: 'shortEn',
     languages: {
       shortEn: units.reduce((acc: UnitTranslationOptions, k) => {
         acc[k] = (): humanizeDuration.Unit => k;
