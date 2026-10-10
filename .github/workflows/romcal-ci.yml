@@ -61,6 +61,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      # The rites are bundled by esbuild and tested through esbuild-jest, both of
+      # which strip types without checking them, so nothing else here would catch a
+      # type error in a rite's own source. After the build, because the tests import
+      # the bundles from dist.
+      - name: Typecheck
+        run: npm run typecheck
+
       - name: Test (no coverage)
         run: npm run test:without-coverage
 
