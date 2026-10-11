@@ -336,9 +336,10 @@ export class ProperOfTime<V extends Vocabulary = Vocabulary> extends CalendarDef
     });
 
     // Holy Week, Monday to Thursday.
+    // UNLY #59 2: the weekdays of Holy Week from Monday up to and including Thursday.
     for (let dow = 1; dow < 5; dow += 1) {
       this.#newLiturgicalDayDef(`holy_${this.#weekdays[dow]}`, {
-        precedence: Precedences.PrivilegedWeekday_9,
+        precedence: Precedences.WeekdayOfHolyWeek_2,
         dateDef: { dateFn: 'palmSunday', addDay: dow, yearOffset },
         seasons: [Season.Lent],
         periods: [Period.HolyWeek, Period.PresentationOfTheLordToHolyThursday],
