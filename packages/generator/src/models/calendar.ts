@@ -6,6 +6,7 @@ import { DatesProvider } from '../types/dates';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
 import { Vocabulary } from '../types/vocabulary';
 import { isValidDate } from '../utils/dates';
+import { compareByPrecedence } from '../utils/precedences';
 
 import { RomcalConfig } from './config';
 import { LiturgicalDay } from './liturgical-day';
@@ -253,25 +254,9 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     const builtData = this.#buildDatesData();
 
     // Priority is position in the rite's precedence list, not a property of the value.
-    const { precedences } = this.#config.rubrics;
-    const precedenceIndex = (precedence: string): number => precedences.indexOf(precedence);
-
-    const byPrecedence = (first: LiturgicalDay<V>, next: LiturgicalDay<V>): number => {
-      if (first.isOptional === next.isOptional) {
-        if (first.allowSimilarRankItems === next.allowSimilarRankItems) {
-          const type1 = precedenceIndex(first.precedence);
-          const type2 = precedenceIndex(next.precedence);
-          if (type1 < type2) return -1;
-          if (type1 > type2) return 1;
-          return 0;
-        }
-
-        // Sort definitions marked as allowing similar rank items
-        return first.allowSimilarRankItems ? -1 : 1;
-      }
-      // Sort definitions marked as optional to the end of the list
-      return first.isOptional ? 1 : -1;
-    };
+    const byPrecedence = compareByPrecedence<V>(this.#config.rubrics.precedences, {
+      precedenceFirst: this.#config.rubrics.precedenceFirst,
+    });
 
     // Days transferred onto a date not yet resolved; they take part in that date's resolution.
     const incoming: Record<string, LiturgicalDay<V>[]> = {};

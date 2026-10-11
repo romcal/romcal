@@ -125,3 +125,9 @@ describe('The numbering within a season', () => {
     expect(seasons.lastSeason).toBe(Season1962.TimeAfterPentecost);
   });
 });
+
+describe('The occurrence policy of 1962', () => {
+  test('keeps the order of precedence the engine had before the 1969 rules', () => {
+    expect(Rubricae1960Rubrics.precedenceFirst).toBe(false);
+  });
+});

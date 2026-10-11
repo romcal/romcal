@@ -108,6 +108,9 @@ export interface OccurrenceOutcome<V extends Vocabulary = Vocabulary> {
  * Everything here is data or a pure function of the days on one date. Anything that
  * needs to reach across dates (1962's forward transfer) is expressed by the outcome a
  * policy returns, not by reaching into the calendar.
+ *
+ * Each revision supplies its own table of precedences and says how that table is read
+ * (`precedenceFirst`), so that a revision never depends on the rules of another.
  */
 export interface Rubrics<V extends Vocabulary = Vocabulary> {
   /**
@@ -140,6 +143,18 @@ export interface Rubrics<V extends Vocabulary = Vocabulary> {
 
   /** How the year is divided, and how a day is numbered within its season. */
   readonly seasons: SeasonRules<V>;
+
+  /**
+   * Compare the precedences of two days of different ranks before `allowSimilarRankItems`, so that a
+   * day allowing similar rank items (e.g. a memorial) never takes precedence over a day of a higher
+   * rank (UNLY nos. 59 and 60); between two days of the same rank, the one allowing similar rank items
+   * still comes first. When false, a day allowing similar rank items is sorted first whatever its
+   * precedence, as the engine did before this option existed.
+   *
+   * Required, like the table of precedences it qualifies: each revision states it. 1969 sets it to true,
+   * 1962 to false until its own rubrics say otherwise.
+   */
+  readonly precedenceFirst: boolean;
 
   /**
    * What to keep on a date when several celebrations occur, and what to transfer.
