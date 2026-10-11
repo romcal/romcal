@@ -30,6 +30,17 @@ describe('Occurrence transfers', () => {
     expect(calendar['2021-03-20'][0].id).toBe('joseph_spouse_of_mary');
   });
 
+  test('a transferred day has the date, and the calendar metadata, of its destination', async () => {
+    registerRite(riteTransferring('joseph_spouse_of_mary', '2021-03-19', '2021-03-20'));
+
+    const calendar = (await new Romcal().generateCalendar(2021)) as LiturgicalCalendar;
+    const [day] = calendar['2021-03-20'];
+
+    // 19 March 2021 is a Friday, 20 March 2021 a Saturday.
+    expect(day.date).toBe('2021-03-20');
+    expect(day.calendar.dayOfWeek).toBe(6);
+  });
+
   test('a transfer onto an earlier date is rejected', async () => {
     registerRite(riteTransferring('joseph_spouse_of_mary', '2021-03-19', '2021-03-18'));
 

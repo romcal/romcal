@@ -26,6 +26,17 @@ const boundary = (boundaries: Record<string, Date>, season: string): Date => {
   return date;
 };
 
+/**
+ * Whether a definition is coming from the Proper of Time.
+ *
+ * Note: a Proper of Time definition can be extended in a particular calendar;
+ * in this case the `fromCalendarId` is taking the name of the particular calendar,
+ * so we need to check the calendar name of the first item in the `fromExtendedCalendars`.
+ */
+const isFromProperOfTime = <V extends Vocabulary>(def: LiturgicalDayDef<V>): boolean =>
+  def.fromCalendarId === PROPER_OF_TIME_NAME ||
+  (def.fromExtendedCalendars.length > 0 && def.fromExtendedCalendars[0].fromCalendarId === PROPER_OF_TIME_NAME);
+
 export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar<V> {
   readonly #config: RomcalConfig<V>;
 
@@ -101,6 +112,57 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
   }
 
   /**
+   * Build the LiturgicalDay object of a definition, on a date.
+   * @param def
+   * @param date
+   * @param builtData The data of the year, with at least the days of the Proper of Time on that date
+   * @private
+   */
+  #buildDay(def: LiturgicalDayDef<V>, date: Date, builtData: LiturgicalBuiltData<V>): LiturgicalDay<V> {
+    const dateStr = date.toISOString().substr(0, 10);
+    const fromProperOfTime = isFromProperOfTime(def);
+
+    // Take the first LiturgicalDay object of a specified day.
+    // The first object is always a LiturgicalDay from the Proper of Time,
+    // since a LiturgicalDay is generated for each day of the Liturgical Year.
+    // In the case the LiturgicalDayDef is coming from the Proper of Time,
+    // the baseData must be null.
+    let baseData: LiturgicalDay<V> | null = null;
+    if (!fromProperOfTime) {
+      // Look up for the right LiturgicalDay item, according to its date.
+      // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
+      // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical
+      // year 2012, which starts on 27 November 2011 and ends 1 December 2012.
+      baseData = builtData.byIds[builtData.datesIndex[dateStr][0]].find((d) => d.date === dateStr) || null;
+    }
+
+    // Retrieve calendar metadata from the proper of time
+    const calendar: RomcalCalendarMetadata<V> = fromProperOfTime
+      ? this.#buildCalendarMetadata(def, date, baseData)
+      // TODO: refactor this to avoid the non-null assertion
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      : baseData!.calendar;
+
+    /**
+     * For Memorial and Feast celebrations only, the weekday property is added
+     * containing the LiturgicalDay object of the base weekday.
+     *
+     * - Memorials: their observance is integrated into the celebration of the occurring weekday
+     *   in accordance with the norms set forth in the General Instruction of the Roman
+     *   Missal and of the Liturgy of the Hours. (UNLY #14)
+     * - Liturgy of the hours: // todo: cite precise sources from the General Instructions of the Liturgy of the hours
+     *    - Memorials: the liturgy of the hour remain the one of the weekday.
+     *    - Feasts: small hours are taken from the weekday.
+     */
+    const weekday: LiturgicalDay<V> | null =
+      baseData && [Ranks.Feast, Ranks.Memorial, Ranks.OptionalMemorial].some((r) => r === def.rank)
+        ? baseData
+        : null;
+
+    return new LiturgicalDay<V>(def, date, this.#liturgicalDayConfig, calendar, baseData, weekday);
+  }
+
+  /**
    * Build the LiturgicalDay data collection, with their dates
    * @private
    */
@@ -111,13 +173,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     };
 
     Object.values(this.#config.liturgicalDayDef).forEach((def) => {
-      // Flag to determine if the current definition is coming from the Proper of Time.
-      // Note: a Proper of Time definition can be extended in a particular calendar;
-      // in this case the `fromCalendarId` is taking the name of the particular calendar,
-      // so we need to check the calendar name of the first item in the `fromExtendedCalendars`.
-      const isFromProperOfTime =
-        def.fromCalendarId === PROPER_OF_TIME_NAME ||
-        (def.fromExtendedCalendars.length > 0 && def.fromExtendedCalendars[0].fromCalendarId === PROPER_OF_TIME_NAME);
+      const fromProperOfTime = isFromProperOfTime(def);
 
       // In a Liturgical Calendar scope:
       // - Because a Liturgical Year is straddling 2 Gregorian year,
@@ -126,7 +182,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
       // - Note: dates from the Proper of Time are already generated within a liturgical year,
       //   so in this case we don't have to check the previously gregorian year.
       const previousYearDate =
-        !isFromProperOfTime && this.#config.scope === 'liturgical'
+        !fromProperOfTime && this.#config.scope === 'liturgical'
           ? this.#liturgicalDayConfig.buildDate(def, -1)
           : null;
 
@@ -149,55 +205,11 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
           // Then, all dates from the general/particular calendar(s) that don't match
           // an existing date from the Proper of Time must be ignored,
           // because they falls outside the year scope defined by the Proper of Time.
-          if (!isFromProperOfTime && !builtData.datesIndex[dateStr]) {
+          if (!fromProperOfTime && !builtData.datesIndex[dateStr]) {
             return;
           }
 
-          // Take the first LiturgicalDay object of a specified day.
-          // The first object is always a LiturgicalDay from the Proper of Time,
-          // since a LiturgicalDay is generated for each day of the Liturgical Year.
-          // In the case the LiturgicalDayDef is coming from the Proper of Time,
-          // the baseData must be null.
-          let baseData: LiturgicalDay<V> | null = null;
-          if (!isFromProperOfTime) {
-            // Look up for the right LiturgicalDay item, according to its date.
-            // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
-            // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical
-            // year 2012, which starts on 27 November 2011 and ends 1 December 2012.
-            baseData =
-              builtData.byIds[builtData.datesIndex[dateStr][0]].find(
-                (d) => d.date === date.toISOString().substr(0, 10)
-              ) || null;
-          }
-
-          // Retrieve calendar metadata from the proper of time
-          const calendar: RomcalCalendarMetadata<V> = isFromProperOfTime
-            ? this.#buildCalendarMetadata(def, date, baseData)
-            // TODO: refactor this to avoid the non-null assertion
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            : baseData!.calendar;
-
-          /**
-           * For Memorial and Feast celebrations only, the weekday property is added
-           * containing the LiturgicalDay object of the base weekday.
-           *
-           * - Memorials: their observance is integrated into the celebration of the occurring weekday
-           *   in accordance with the norms set forth in the General Instruction of the Roman
-           *   Missal and of the Liturgy of the Hours. (UNLY #14)
-           * - Liturgy of the hours: // todo: cite precise sources from the General Instructions of the Liturgy of the hours
-           *    - Memorials: the liturgy of the hour remain the one of the weekday.
-           *    - Feasts: small hours are taken from the weekday.
-           */
-          const weekday: LiturgicalDay<V> | null =
-            baseData && [Ranks.Feast, Ranks.Memorial, Ranks.OptionalMemorial].some((r) => r === def.rank)
-              ? baseData
-              : null;
-
-          // Create a new LiturgicalDay object, and add it to the builtData object.
-          builtData.byIds[def.id] = [
-            ...(builtData.byIds[def.id] ?? []),
-            new LiturgicalDay<V>(def, date, this.#liturgicalDayConfig, calendar, baseData, weekday),
-          ];
+          builtData.byIds[def.id] = [...(builtData.byIds[def.id] ?? []), this.#buildDay(def, date, builtData)];
 
           // Also add the corresponding date-ID object.
           builtData.datesIndex[dateStr] = [...(builtData.datesIndex[dateStr] ?? []), def.id];
@@ -276,7 +288,10 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
         .sort(byPrecedence);
 
       const { onDate, transfers } = this.#config.rubrics.resolveOccurrences({ date: dateStr, days: dates });
-      finalData[dateStr] = [...onDate];
+      // A transferred day still has the date it was transferred from: build it again on its new date.
+      finalData[dateStr] = onDate.map((day) =>
+        day.date === dateStr ? day : this.#buildDay(day.definition, new Date(dateStr), builtData)
+      );
 
       for (const { date, day } of transfers ?? []) {
         if (date <= dateStr) {

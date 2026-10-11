@@ -75,7 +75,8 @@ export interface OccurrenceInput<V extends Vocabulary = Vocabulary> {
  * A day moved onto another date (e.g. 1962 forward transfer).
  *
  * `date` must be later than the date being resolved; the calendar throws otherwise.
- * A target outside the generated range is dropped.
+ * A target outside the generated range is dropped. Once resolved on its destination, the
+ * day is built again there, so it carries the date and the calendar metadata of that date.
  */
 export interface OccurrenceTransfer<V extends Vocabulary = Vocabulary> {
   readonly date: string;
