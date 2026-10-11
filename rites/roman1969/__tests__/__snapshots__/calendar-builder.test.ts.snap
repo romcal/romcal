@@ -91200,7 +91200,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
   ],
   "2022-06-25": [
     LiturgicalDay {
-      "allowSimilarRankItems": true,
+      "allowSimilarRankItems": false,
       "alternativeTransferDateDefs": [],
       "calendar": {
         "dayOfSeason": 71,
@@ -91222,93 +91222,35 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
         "None",
       ],
       "cycles": CyclesMetadata {
-        "properCycle": "PROPER_OF_TIME",
+        "properCycle": "PROPER_OF_SAINTS",
         "psalterWeek": "WEEK_4",
         "sundayCycle": "YEAR_C",
         "weekdayCycle": "YEAR_2",
       },
       "date": "2022-06-25",
       "dateDef": {
-        "dateFn": "immaculateHeartOfMary",
+        "date": 24,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
-        "names:immaculate_heart_of_mary",
+        "names:nativity_of_john_the_baptist",
       ],
-      "id": "immaculate_heart_of_mary",
+      "id": "nativity_of_john_the_baptist",
       "isHolyDayOfObligation": false,
       "isOptional": false,
       "martyrology": [],
       "periods": [
         "LATE_ORDINARY_TIME",
       ],
-      "precedence": "GENERAL_MEMORIAL_10",
-      "rank": "MEMORIAL",
+      "precedence": "GENERAL_SOLEMNITY_3",
+      "rank": "SOLEMNITY",
       "seasons": [
         "ORDINARY_TIME",
       ],
       "titles": [],
-      "weekday": LiturgicalDay {
-        "allowSimilarRankItems": false,
-        "alternativeTransferDateDefs": [],
-        "calendar": {
-          "dayOfSeason": 71,
-          "dayOfWeek": 6,
-          "endOfLiturgicalYear": "2022-11-26",
-          "endOfSeason": "2022-11-26",
-          "nthDayOfWeekInMonth": 4,
-          "seasons": [
-            "ORDINARY_TIME",
-          ],
-          "startOfLiturgicalYear": "2021-11-28",
-          "startOfSeason": "2022-01-10",
-          "weekOfSeason": 12,
-        },
-        "colors": [
-          "GREEN",
-        ],
-        "commonsDef": [],
-        "cycles": CyclesMetadata {
-          "properCycle": "PROPER_OF_TIME",
-          "psalterWeek": "WEEK_4",
-          "sundayCycle": "YEAR_C",
-          "weekdayCycle": "YEAR_2",
-        },
-        "date": "2022-06-25",
-        "dateDef": {
-          "dateArgs": [
-            6,
-            12,
-          ],
-          "dateFn": "dateOfOrdinaryTime",
-          "yearOffset": 0,
-        },
-        "dateExceptions": [],
-        "fromCalendarId": "ProperOfTime",
-        "fromExtendedCalendars": [],
-        "i18nDef": [
-          "seasons:ordinary_time.weekday",
-          {
-            "dow": 6,
-            "week": 12,
-          },
-        ],
-        "id": "ordinary_time_12_saturday",
-        "isHolyDayOfObligation": false,
-        "isOptional": false,
-        "martyrology": [],
-        "periods": [
-          "LATE_ORDINARY_TIME",
-        ],
-        "precedence": "WEEKDAY_13",
-        "rank": "WEEKDAY",
-        "seasons": [
-          "ORDINARY_TIME",
-        ],
-        "titles": [],
-      },
     },
   ],
   "2022-06-26": [
@@ -206172,7 +206114,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
   ],
   "2022-06-25": [
     LiturgicalDay {
-      "allowSimilarRankItems": true,
+      "allowSimilarRankItems": false,
       "alternativeTransferDateDefs": [],
       "calendar": {
         "dayOfSeason": 71,
@@ -206194,93 +206136,35 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
         "None",
       ],
       "cycles": CyclesMetadata {
-        "properCycle": "PROPER_OF_TIME",
+        "properCycle": "PROPER_OF_SAINTS",
         "psalterWeek": "WEEK_4",
         "sundayCycle": "YEAR_C",
         "weekdayCycle": "YEAR_2",
       },
       "date": "2022-06-25",
       "dateDef": {
-        "dateFn": "immaculateHeartOfMary",
+        "date": 24,
+        "month": 6,
       },
       "dateExceptions": [],
       "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
-        "names:immaculate_heart_of_mary",
+        "names:nativity_of_john_the_baptist",
       ],
-      "id": "immaculate_heart_of_mary",
+      "id": "nativity_of_john_the_baptist",
       "isHolyDayOfObligation": false,
       "isOptional": false,
       "martyrology": [],
       "periods": [
         "LATE_ORDINARY_TIME",
       ],
-      "precedence": "GENERAL_MEMORIAL_10",
-      "rank": "MEMORIAL",
+      "precedence": "GENERAL_SOLEMNITY_3",
+      "rank": "SOLEMNITY",
       "seasons": [
         "ORDINARY_TIME",
       ],
       "titles": [],
-      "weekday": LiturgicalDay {
-        "allowSimilarRankItems": false,
-        "alternativeTransferDateDefs": [],
-        "calendar": {
-          "dayOfSeason": 71,
-          "dayOfWeek": 6,
-          "endOfLiturgicalYear": "2022-11-26",
-          "endOfSeason": "2022-11-26",
-          "nthDayOfWeekInMonth": 4,
-          "seasons": [
-            "ORDINARY_TIME",
-          ],
-          "startOfLiturgicalYear": "2021-11-28",
-          "startOfSeason": "2022-01-10",
-          "weekOfSeason": 12,
-        },
-        "colors": [
-          "GREEN",
-        ],
-        "commonsDef": [],
-        "cycles": CyclesMetadata {
-          "properCycle": "PROPER_OF_TIME",
-          "psalterWeek": "WEEK_4",
-          "sundayCycle": "YEAR_C",
-          "weekdayCycle": "YEAR_2",
-        },
-        "date": "2022-06-25",
-        "dateDef": {
-          "dateArgs": [
-            6,
-            12,
-          ],
-          "dateFn": "dateOfOrdinaryTime",
-          "yearOffset": 0,
-        },
-        "dateExceptions": [],
-        "fromCalendarId": "ProperOfTime",
-        "fromExtendedCalendars": [],
-        "i18nDef": [
-          "seasons:ordinary_time.weekday",
-          {
-            "dow": 6,
-            "week": 12,
-          },
-        ],
-        "id": "ordinary_time_12_saturday",
-        "isHolyDayOfObligation": false,
-        "isOptional": false,
-        "martyrology": [],
-        "periods": [
-          "LATE_ORDINARY_TIME",
-        ],
-        "precedence": "WEEKDAY_13",
-        "rank": "WEEKDAY",
-        "seasons": [
-          "ORDINARY_TIME",
-        ],
-        "titles": [],
-      },
     },
   ],
   "2022-06-26": [

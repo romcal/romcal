@@ -3,6 +3,7 @@ import {
   LiturgicalDay,
   OccurrenceInput,
   OccurrenceOutcome,
+  OccurrenceTransfer,
   Period,
   PRECEDENCES,
   Precedence,
@@ -105,17 +106,61 @@ const periodsOf = ({ date, dates, id, seasons }: PeriodInput<Roman1969Vocabulary
 
 const precedenceIndex = (precedence: string): number => PRECEDENCES.indexOf(precedence as Precedence);
 
+/** The last precedence listed in nos. 1-8 of the table of liturgical days (UNLY #59). */
+const LAST_PRECEDENCE_OF_NOS_1_TO_8 = precedenceIndex(Precedences.ProperFeast_8f);
+
+/** The date (YYYY-MM-DD) following a date. */
+const nextDate = (date: string): string => {
+  const next = new Date(`${date}T00:00:00Z`);
+  next.setUTCDate(next.getUTCDate() + 1);
+  return next.toISOString().substring(0, 10);
+};
+
+/**
+ * Settle the solemnities that are transferred onto a date.
+ *
+ * UNLY #60: an impeded solemnity is transferred to the closest day not listed in nos. 1-8
+ * of the table of precedence. A day is not available when a celebration listed in nos. 1-8
+ * occurs on it (this includes another solemnity, whether it is transferred or not),
+ * and a day takes one transferred solemnity only. A solemnity that cannot be kept here is
+ * transferred again to the following day, and so on until a day is available.
+ */
+const settleTransferred = (
+  date: string,
+  days: readonly LiturgicalDay<Roman1969Vocabulary>[]
+): { days: LiturgicalDay<Roman1969Vocabulary>[]; transfers: OccurrenceTransfer<Roman1969Vocabulary>[] } => {
+  const residents = days.filter((d) => d.date === date);
+  // Sorted by precedence, then by the date they come from: the oldest transfer is served first.
+  const transferred = days
+    .filter((d) => d.date !== date)
+    .sort((a, b) => precedenceIndex(a.precedence) - precedenceIndex(b.precedence) || a.date.localeCompare(b.date));
+
+  const isOccupied = precedenceIndex(residents[0].precedence) <= LAST_PRECEDENCE_OF_NOS_1_TO_8;
+  const admitted = isOccupied ? [] : transferred.slice(0, 1);
+  const refused = isOccupied ? transferred : transferred.slice(1);
+
+  return {
+    days: [...admitted, ...residents],
+    transfers: refused.map((day) => ({ date: nextDate(date), day })),
+  };
+};
+
 /**
  * Keep / drop when several celebrations land on one date (UNLY nn. 14, 16, 19, 28, 59).
  *
- * 1969 never transfers across dates; losers are omitted or kept as optionals on the
- * same day.
+ * Losers are omitted or kept as optionals on the same date, except the solemnities, which
+ * are transferred to the next available day (UNLY #60).
  */
 const resolveOccurrences = ({
+  date,
   days,
 }: OccurrenceInput<Roman1969Vocabulary>): OccurrenceOutcome<Roman1969Vocabulary> => {
-  // Copy so Holy Thursday's shift does not mutate the calendar's sorted list.
-  const dates: LiturgicalDay<Roman1969Vocabulary>[] = [...days];
+  // Solemnities transferred onto this date are settled first (UNLY #60); the ones that
+  // cannot be kept here move on. This also copies the list, so Holy Thursday's shift
+  // does not mutate the calendar's sorted list.
+  const settled = settleTransferred(date, days);
+  let dates = settled.days;
+  const transfers = settled.transfers;
 
   // Exception the Thursday within the Holy Week, this day contain 2 liturgical days, i.e.:
   //
@@ -152,8 +197,21 @@ const resolveOccurrences = ({
   // celebrated, the others being omitted.
   const defaultLiturgicalDay = dates[0];
   if (!defaultLiturgicalDay) {
-    return { onDate: thursdayOfTheLordsSupper ? [thursdayOfTheLordsSupper] : [], transfers: [] };
+    return { onDate: thursdayOfTheLordsSupper ? [thursdayOfTheLordsSupper] : [], transfers };
   }
+
+  // UNLY #60: "If several celebrations fall on the same day, the one that holds the highest rank
+  // according to the preceding Table of Liturgical Days is observed. But a solemnity impeded by a
+  // liturgical day that takes precedence over it should be transferred to the closest day not listed
+  // in nos. 1-8 in the table of precedence; the rule of no. 5 remains in effect. Other celebrations
+  // are omitted that year."
+  // Source: Universal Norms on the Liturgical Year and the General Roman Calendar (Normae universales
+  // de anno liturgico et de calendario), no. 60, approved by Paul VI, motu proprio Mysterii Paschalis,
+  // 14 February 1969. The closest day is searched forward only,
+  // one day at a time, by the transfer of the next date (see `settleTransferred`).
+  const impeded = dates.slice(1).filter((d) => d.rank === Ranks.Solemnity && !d.isOptional);
+  dates = [defaultLiturgicalDay, ...dates.slice(1).filter((d) => !impeded.includes(d))];
+  transfers.push(...impeded.map((day) => ({ date: nextDate(date), day })));
 
   let optionalMemorials: LiturgicalDay<Roman1969Vocabulary>[] = [];
 
@@ -255,7 +313,7 @@ const resolveOccurrences = ({
       ...optionalMemorials,
       ...(thursdayOfTheLordsSupper ? [thursdayOfTheLordsSupper] : []),
     ],
-    transfers: [],
+    transfers,
   };
 };
 
