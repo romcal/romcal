@@ -74,6 +74,14 @@ describe('Test the interpolation formats', () => {
       })
     ).toBe('LUNEDÌ');
   });
+
+  test.each(['romanize', 'uppercase', 'capitalize'])('`%s` leaves an empty value unchanged', (format) => {
+    const { i18next } = new Romcal.RomcalConfig();
+    const render = (value: string): string =>
+      i18next.t(`interpolation_empty_${format}`, { defaultValue: `[{{value, ${format}}}]`, value });
+
+    expect(render('')).toBe('[]');
+  });
 });
 
 describe('Testing whether celebration names from `.names` object with seasonal week return the correct localized name', () => {
