@@ -193,9 +193,8 @@ const resolveOccurrences = ({
   //    day, or the Mass of any Saint inscribed in the Martyrology for that day, or a Mass
   //    for Various Needs, or a Votive Mass.
   if (
-    (defaultLiturgicalDay.precedence === Precedences.PrivilegedWeekday_9 ||
-      defaultLiturgicalDay.precedence === Precedences.Weekday_13) &&
-    !defaultLiturgicalDay.periods.includes(Period.HolyWeek)
+    defaultLiturgicalDay.precedence === Precedences.PrivilegedWeekday_9 ||
+    defaultLiturgicalDay.precedence === Precedences.Weekday_13
   ) {
     optionalMemorials = optionalMemorials.concat(
       dates
