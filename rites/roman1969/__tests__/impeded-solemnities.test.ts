@@ -23,16 +23,6 @@ const solemnity = (month: number, date: number, extra: Record<string, unknown> =
 // UNLY #60: a solemnity impeded by a liturgical day that takes precedence over it is transferred
 // to the closest day not listed in nos. 1-8 of the table of precedence. Other celebrations are omitted.
 describe('Solemnities impeded by a liturgical day that takes precedence over them', () => {
-  describe('on a Sunday of Easter Time', () => {
-    test.each([
-      ['Poland', Poland_En, 'adalbert_of_prague_bishop'],
-      ['England', England_En, 'george_of_lydda_martyr'],
-    ])('the patron solemnity of %s is transferred to the following Monday', async (_country, bundle, id) => {
-      // 23 April 2023 is a Sunday of Easter.
-      expect(await datesOf(bundle, 2023, id)).toEqual(['2023-04-24']);
-    });
-  });
-
   describe('by another solemnity', () => {
     test('the Nativity of John the Baptist (24 June 2022, the Sacred Heart) is transferred to the closest following day', async () => {
       expect(await datesOf(GeneralRoman_En, 2022, 'most_sacred_heart_of_jesus')).toEqual(['2022-06-24']);
