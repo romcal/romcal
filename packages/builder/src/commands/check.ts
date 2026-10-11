@@ -25,7 +25,6 @@
 
 import {
   COLORS,
-  CalendarDef,
   Locale,
   MONTHS,
   PROPER_CYCLES,
@@ -36,12 +35,13 @@ import {
   WEEKDAYS,
   WEEKDAY_CYCLES,
   registerBaseCalendar,
+  registerRite,
   toPackageName,
 } from '@internal/generator';
 import { colors } from 'consola/utils';
 import { merge } from 'ts-deepmerge';
 
-import { ResolvedOptions } from '../types';
+import { CalendarDefConstructor, ResolvedOptions } from '../types';
 import { Logger } from '../utils/logger';
 
 import { RomcalBuilder } from './bundle';
@@ -122,9 +122,10 @@ const isObjectPropsSortedAlphabetically = (obj: Record<string, unknown>): boolea
  * unsorted. Errors fail the command; warnings and the unused-entry list do not.
  */
 export const runCheck = (options: ResolvedOptions, log: Logger): void => {
-  const { locales, martyrology, calendars, baseCalendar } = options.manifest;
+  const { locales, martyrology, calendars, baseCalendar, rite } = options.manifest;
 
   registerBaseCalendar(baseCalendar);
+  registerRite(rite);
 
   let hasErrors = false;
   let hasWarnings = false;
@@ -170,7 +171,7 @@ export const runCheck = (options: ResolvedOptions, log: Logger): void => {
   };
 
   const devLocale = { id: 'dev' };
-  const allCalendars: (typeof CalendarDef)[] = Object.values(calendars);
+  const allCalendars: CalendarDefConstructor[] = Object.values(calendars);
   const allMartyrologyKeys = new Set<string>();
   const allLocalesKeys = new Set<string>();
   const allCalendarData: Record<string, CalendarData> = {};
