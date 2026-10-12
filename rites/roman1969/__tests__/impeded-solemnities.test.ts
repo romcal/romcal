@@ -23,15 +23,35 @@ const solemnity = (month: number, date: number, extra: Record<string, unknown> =
 // UNLY #60: a solemnity impeded by a liturgical day that takes precedence over it is transferred
 // to the closest day not listed in nos. 1-8 of the table of precedence. Other celebrations are omitted.
 describe('Solemnities impeded by a liturgical day that takes precedence over them', () => {
+  describe('on a Sunday of Lent or Advent', () => {
+    // UNLY no. 5: a solemnity on a Sunday of Advent, Lent or Easter goes to the following Monday,
+    // never to the Saturday before, even when the Saturday is closer than the next free day.
+    test('a solemnity whose Monday is not available is transferred to the next free day after it', async () => {
+      // 30 November 2025 is the 1st Sunday of Advent; 1 December holds another solemnity.
+      const bundle = withInputs(GeneralRoman_En, { solemnity_a: solemnity(11, 30), solemnity_b: solemnity(12, 1) });
+      expect(await datesOf(bundle, 2025, 'solemnity_b')).toEqual(['2025-12-01']);
+      expect(await datesOf(bundle, 2025, 'solemnity_a')).toEqual(['2025-12-02']);
+    });
+  });
+
   describe('by another solemnity', () => {
-    test('the Nativity of John the Baptist (24 June 2022, the Sacred Heart) is transferred to the closest following day', async () => {
-      expect(await datesOf(GeneralRoman_En, 2022, 'most_sacred_heart_of_jesus')).toEqual(['2022-06-24']);
+    test('Peter and Paul (29 June 2057, the Sacred Heart) are transferred to the closest day, the following one', async () => {
+      expect(await datesOf(GeneralRoman_En, 2057, 'most_sacred_heart_of_jesus')).toEqual(['2057-06-29']);
+      expect(await datesOf(GeneralRoman_En, 2057, 'peter_and_paul_apostles')).toEqual(['2057-06-30']);
+    });
+
+    test('the Nativity of John the Baptist (24 June 2038, Corpus Christi) is transferred to 25 June', async () => {
+      expect(await datesOf(GeneralRoman_En, 2038, 'nativity_of_john_the_baptist')).toEqual(['2038-06-25']);
+    });
+
+    test('the Nativity of John the Baptist (24 June 2022, the Sacred Heart) is transferred to the following day', async () => {
       expect(await datesOf(GeneralRoman_En, 2022, 'nativity_of_john_the_baptist')).toEqual(['2022-06-25']);
+      expect(await datesOf(GeneralRoman_En, 2022, 'immaculate_heart_of_mary')).toEqual([]);
     });
 
     test('the memorial of the day is omitted that year', async () => {
-      expect(await idsOn(GeneralRoman_En, '2022-06-25')).toEqual(['nativity_of_john_the_baptist']);
-      expect(await datesOf(GeneralRoman_En, 2022, 'immaculate_heart_of_mary')).toEqual([]);
+      expect(await idsOn(GeneralRoman_En, '2057-06-30')).toEqual(['peter_and_paul_apostles']);
+      expect(await datesOf(GeneralRoman_En, 2057, 'immaculate_heart_of_mary')).toEqual([]);
     });
   });
 
@@ -71,9 +91,19 @@ describe('Solemnities impeded by a liturgical day that takes precedence over the
   });
 
   describe('Holy Week', () => {
-    test('a solemnity is transferred to the Monday after Divine Mercy Sunday, the Easter Octave being impeded too', async () => {
-      const bundle = withInputs(GeneralRoman_En, { solemnity_a: solemnity(4, 16) });
-      expect(await datesOf(bundle, 2025, 'solemnity_a')).toEqual(['2025-04-28']);
+    // Palm Sunday 2025 is on 13 April, Divine Mercy Sunday on 27 April.
+    test('a solemnity is transferred to the closest day: before Palm Sunday, or after the Octave of Easter', async () => {
+      const early = withInputs(GeneralRoman_En, { solemnity_a: solemnity(4, 14) });
+      expect(await datesOf(early, 2025, 'solemnity_a')).toEqual(['2025-04-12']);
+
+      const late = withInputs(GeneralRoman_En, { solemnity_a: solemnity(4, 23) });
+      expect(await datesOf(late, 2025, 'solemnity_a')).toEqual(['2025-04-28']);
+    });
+
+    test('a solemnity on Palm Sunday is transferred to the closest day, not to the following Monday', async () => {
+      // UNLY no. 5 excepts Palm Sunday: the Monday of Holy Week is no. 2 of the table of precedence.
+      const bundle = withInputs(GeneralRoman_En, { solemnity_a: solemnity(4, 13) });
+      expect(await datesOf(bundle, 2025, 'solemnity_a')).toEqual(['2025-04-12']);
     });
   });
 
