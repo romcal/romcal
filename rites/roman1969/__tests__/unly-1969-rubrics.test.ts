@@ -45,6 +45,7 @@ describe('Unly1969Rubrics', () => {
     const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({
       date: '2020-03-02',
       days: [privilegedWeekday, memorial],
+      dayOn: () => undefined,
     });
 
     expect(onDate.map((d) => d.id)).toEqual(['lent_1_monday', 'some_memorial']);
@@ -63,79 +64,122 @@ describe('Unly1969Rubrics', () => {
           rank: Ranks.Weekday,
         }),
       ],
+      dayOn: () => undefined,
     });
     expect(transfers).toEqual([]);
   });
 
   describe('UNLY #60: impeded solemnities', () => {
     const date = '2020-04-22';
-    const next = '2020-04-23';
     const weekday = day({ id: 'weekday', date, precedence: Precedences.Weekday_13, rank: Ranks.Weekday });
     const octaveDay = day({ id: 'octave', date, precedence: Precedences.WeekdayOfEasterOctave_2, rank: Ranks.Weekday });
-    const solemnity = (id: string, from = date, precedence: string = Precedences.GeneralSolemnity_3): LiturgicalDay =>
-      day({ id, date: from, precedence, rank: Ranks.Solemnity } as Parameters<typeof day>[0]);
+    const solemnity = (id: string, precedence: string = Precedences.GeneralSolemnity_3): LiturgicalDay =>
+      day({ id, date, precedence, rank: Ranks.Solemnity } as Parameters<typeof day>[0]);
 
-    test('a solemnity impeded by a day of nos. 1-8 is transferred to the following day and omitted here', () => {
+    // The celebrations of the days around 22 April, by offset in days: 0 is the date resolved.
+    const around =
+      (held: Record<number, LiturgicalDay>, from = -5, to = 5) =>
+        (other: string): LiturgicalDay | undefined => {
+          const offset = Math.round((Date.parse(other) - Date.parse(date)) / 86400000);
+          return offset < from || offset > to ? undefined : (held[offset] ?? weekday);
+        };
+    const free = around({});
+
+    test('a solemnity impeded by a day of nos. 1-8 is transferred to the closest day and omitted here', () => {
       const impeded = solemnity('impeded');
-      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({ date, days: [octaveDay, impeded] });
+      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({
+        date,
+        days: [octaveDay, impeded],
+        dayOn: free,
+      });
 
       expect(onDate).toEqual([octaveDay]);
-      expect(transfers).toEqual([{ date: next, day: impeded }]);
+      expect(transfers).toEqual([{ date: '2020-04-23', day: impeded }]);
+    });
+
+    test('the following day is preferred to the previous one at the same distance', () => {
+      const impeded = solemnity('impeded');
+      const { transfers } = Unly1969Rubrics.resolveOccurrences({ date, days: [octaveDay, impeded], dayOn: free });
+
+      expect(transfers?.[0].date).toBe('2020-04-23');
+    });
+
+    test('an earlier day is chosen when it is closer', () => {
+      const impeded = solemnity('impeded');
+      const busy = octaveDay;
+      const { transfers } = Unly1969Rubrics.resolveOccurrences({
+        date,
+        days: [octaveDay, impeded],
+        dayOn: around({ 1: busy }),
+      });
+
+      expect(transfers).toEqual([{ date: '2020-04-21', day: impeded }]);
+    });
+
+    test('a day listed in nos. 1-8 is not available, whether it is a solemnity or a feast', () => {
+      const impeded = solemnity('impeded');
+      const feast = day({ id: 'feast', date, precedence: Precedences.GeneralFeast_7, rank: Ranks.Feast });
+      const { transfers } = Unly1969Rubrics.resolveOccurrences({
+        date,
+        days: [octaveDay, impeded],
+        dayOn: around({ 1: solemnity('other'), [-1]: feast, 2: weekday }),
+      });
+
+      expect(transfers).toEqual([{ date: '2020-04-24', day: impeded }]);
+    });
+
+    test('several impeded solemnities are transferred to different days', () => {
+      const first = solemnity('first');
+      const second = solemnity('second');
+      const { transfers } = Unly1969Rubrics.resolveOccurrences({
+        date,
+        days: [octaveDay, first, second],
+        dayOn: free,
+      });
+
+      expect(transfers).toEqual([
+        { date: '2020-04-23', day: first },
+        { date: '2020-04-21', day: second },
+      ]);
+    });
+
+    test('a solemnity is omitted when no day of the year is available', () => {
+      const impeded = solemnity('impeded');
+      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({
+        date,
+        days: [octaveDay, impeded],
+        dayOn: around({ 1: octaveDay, [-1]: octaveDay }, -1, 1),
+      });
+
+      expect(onDate).toEqual([octaveDay]);
+      expect(transfers).toEqual([]);
     });
 
     test('an optional solemnity is not transferred', () => {
       const optional = { ...solemnity('optional'), isOptional: true } as LiturgicalDay;
-      const { transfers } = Unly1969Rubrics.resolveOccurrences({ date, days: [octaveDay, optional] });
+      const { transfers } = Unly1969Rubrics.resolveOccurrences({ date, days: [octaveDay, optional], dayOn: free });
 
       expect(transfers).toEqual([]);
     });
 
-    test('a transferred solemnity is kept on a day that is not listed in nos. 1-8, the other days being omitted', () => {
-      const transferred = solemnity('transferred', '2020-04-21');
-      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({ date, days: [weekday, transferred] });
+    test('a transferred solemnity wins on its new day, the other days being omitted', () => {
+      const transferred = solemnity('transferred');
+      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({
+        date,
+        days: [transferred, weekday],
+        dayOn: free,
+      });
 
       expect(onDate.map((d) => d.id)).toEqual(['transferred']);
       expect(transfers).toEqual([]);
     });
 
-    test('a transferred solemnity moves on again when the day is listed in nos. 1-8', () => {
-      const transferred = solemnity('transferred', '2020-04-21');
-      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({ date, days: [octaveDay, transferred] });
-
-      expect(onDate).toEqual([octaveDay]);
-      expect(transfers).toEqual([{ date: next, day: transferred }]);
-    });
-
-    test('a transferred solemnity moves on again when the day has a solemnity of its own', () => {
-      const own = solemnity('own');
-      const transferred = solemnity('transferred', '2020-04-21');
-      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({ date, days: [own, weekday, transferred] });
-
-      expect(onDate.map((d) => d.id)).toEqual(['own']);
-      expect(transfers).toEqual([{ date: next, day: transferred }]);
-    });
-
-    test('a day takes one transferred solemnity only: the highest one, then the oldest one', () => {
-      const proper = solemnity('proper', '2020-04-20', Precedences.ProperSolemnity_PrincipalPatron_4a);
-      const oldest = solemnity('oldest', '2020-04-19');
-      const newest = solemnity('newest', '2020-04-21');
-      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({
-        date,
-        days: [weekday, proper, newest, oldest],
-      });
-
-      expect(onDate.map((d) => d.id)).toEqual(['oldest']);
-      expect(transfers?.map((t) => [t.day.id, t.date])).toEqual([
-        ['newest', next],
-        ['proper', next],
-      ]);
-    });
-
-    test('the transfer rolls over the end of a month and of a year', () => {
-      const impeded = solemnity('impeded', '2020-12-31');
+    test('the transfer crosses the end of a month and of a year', () => {
+      const impeded = solemnity('impeded');
       const { transfers } = Unly1969Rubrics.resolveOccurrences({
         date: '2020-12-31',
         days: [{ ...octaveDay, date: '2020-12-31' } as LiturgicalDay, impeded],
+        dayOn: (other) => (other === '2021-01-01' ? weekday : undefined),
       });
 
       expect(transfers).toEqual([{ date: '2021-01-01', day: impeded }]);
