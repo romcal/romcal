@@ -44,11 +44,6 @@ describe('Solemnities impeded by a liturgical day that takes precedence over the
       expect(await datesOf(GeneralRoman_En, 2038, 'nativity_of_john_the_baptist')).toEqual(['2038-06-25']);
     });
 
-    test('the Nativity of John the Baptist (24 June 2022, the Sacred Heart) is transferred to the following day', async () => {
-      expect(await datesOf(GeneralRoman_En, 2022, 'nativity_of_john_the_baptist')).toEqual(['2022-06-25']);
-      expect(await datesOf(GeneralRoman_En, 2022, 'immaculate_heart_of_mary')).toEqual([]);
-    });
-
     test('the memorial of the day is omitted that year', async () => {
       expect(await idsOn(GeneralRoman_En, '2057-06-30')).toEqual(['peter_and_paul_apostles']);
       expect(await datesOf(GeneralRoman_En, 2057, 'immaculate_heart_of_mary')).toEqual([]);

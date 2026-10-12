@@ -1,3 +1,4 @@
+import { PatronTitle } from '@internal/generator';
 import { LiturgicalDay, Romcal } from '@src/rite-roman1969';
 
 import { Unly1969Rubrics } from '../src/rubrics';
@@ -7,7 +8,7 @@ const { Precedences, Ranks } = Romcal;
 
 const day = (
   partial: Pick<LiturgicalDay, 'id' | 'date' | 'precedence' | 'rank'> &
-    Partial<Pick<LiturgicalDay, 'periods' | 'isOptional' | 'allowSimilarRankItems'>>
+    Partial<Pick<LiturgicalDay, 'periods' | 'isOptional' | 'allowSimilarRankItems' | 'titles'>>
 ): LiturgicalDay =>
   ({
     periods: [],
@@ -183,6 +184,65 @@ describe('Unly1969Rubrics', () => {
       });
 
       expect(transfers).toEqual([{ date: '2021-01-01', day: impeded }]);
+    });
+  });
+
+  describe('the ruling on the coincidence of the Sacred Heart and the Nativity of St John the Baptist', () => {
+    const date = '2022-06-24';
+    const other = day({ id: 'other', date, precedence: Precedences.Weekday_13, rank: Ranks.Weekday });
+    const sacredHeart = day({
+      id: 'most_sacred_heart_of_jesus',
+      date,
+      precedence: Precedences.GeneralSolemnity_3,
+      rank: Ranks.Solemnity,
+    });
+    const baptist = (extra: Partial<LiturgicalDay> = {}): LiturgicalDay =>
+      day({
+        id: 'nativity_of_john_the_baptist',
+        date,
+        precedence: Precedences.GeneralSolemnity_3,
+        rank: Ranks.Solemnity,
+        titles: [],
+        ...extra,
+      } as Parameters<typeof day>[0]);
+    const dayOn = (): LiturgicalDay => other;
+
+    test('the Sacred Heart is celebrated and the Nativity of St John the Baptist is anticipated to the day before', () => {
+      const nativity = baptist();
+      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({
+        date,
+        days: [sacredHeart, nativity, other],
+        dayOn,
+      });
+
+      expect(onDate).toEqual([sacredHeart]);
+      expect(transfers).toEqual([{ date: '2022-06-23', day: nativity }]);
+    });
+
+    test.each([
+      ['a patron title', { titles: [PatronTitle.PrincipalPatronOfTheDiocese] }],
+      ['the precedence of a patron of the place', { precedence: Precedences.ProperSolemnity_PrincipalPatron_4a }],
+      [
+        'the precedence of a patron of a religious community',
+        { precedence: Precedences.ProperSolemnity_TitleOrFounderOrPrimaryPatronOfAReligiousOrg_4d },
+      ],
+    ])('where St John the Baptist is a patron (%s), he is celebrated and the Sacred Heart is anticipated', (_n, extra) => {
+      const nativity = baptist(extra as Partial<LiturgicalDay>);
+      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({
+        date,
+        days: [nativity, sacredHeart, other],
+        dayOn,
+      });
+
+      expect(onDate).toEqual([nativity]);
+      expect(transfers).toEqual([{ date: '2022-06-23', day: sacredHeart }]);
+    });
+
+    test('is not applied when only one of the two celebrations is on the date', () => {
+      const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({ date, days: [baptist(), other], dayOn });
+
+      expect(onDate.map((d) => d.id)).toEqual(['nativity_of_john_the_baptist']);
+      expect(transfers).toEqual([]);
     });
   });
 
