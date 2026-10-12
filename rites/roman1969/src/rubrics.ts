@@ -1,5 +1,6 @@
 import {
   Dates,
+  PATRON_TITLES,
   LiturgicalDay,
   OccurrenceInput,
   OccurrenceOutcome,
@@ -134,7 +135,7 @@ const isSundayTransferringToMonday = (day: LiturgicalDay<Roman1969Vocabulary>): 
  * The closest day to a date not listed in nos. 1-8 of the table of precedence, before or after it.
  *
  * UNLY #60 does not say which side is preferred between two days at the same distance: the library prefers
- * the following day.
+ * the following day. A ruling of the Holy See can say otherwise (see `COINCIDENCES`).
  *
  * UNLY #60 keeps the rule of no. 5: a solemnity impeded by a Sunday of Advent, Lent or Easter (other than
  * Palm Sunday) is transferred to the following Monday. When that Monday is not available, no. 5 says nothing
@@ -174,6 +175,82 @@ const closestAvailableDate = (
   }
 };
 
+/** Whether a celebration is the solemnity of a patron: of a nation, a diocese, a city or a religious community. */
+const isSolemnityOfAPatron = (day: LiturgicalDay<Roman1969Vocabulary>): boolean =>
+  (day.titles as string[]).some((title) => (PATRON_TITLES as string[]).includes(title)) ||
+  day.precedence === Precedences.ProperSolemnity_PrincipalPatron_4a ||
+  day.precedence === Precedences.ProperSolemnity_TitleOrFounderOrPrimaryPatronOfAReligiousOrg_4d;
+
+/**
+ * A ruling of the Holy See on the coincidence of two celebrations, which takes the place of the general
+ * rule of UNLY #60 (the closest day) for these two celebrations.
+ *
+ * Add the rulings of the Holy See here, with their source: the celebration on a date is decided by the
+ * precedence of the table of liturgical days, except for the rulings listed below.
+ */
+interface Coincidence {
+  /** The document that publishes the ruling. */
+  readonly source: string;
+  /** The ids of the two celebrations that coincide. */
+  readonly ids: readonly [string, string];
+  /**
+   * Which of the two is kept on the date, the other one being transferred to the day before (a negative
+   * offset) or after (a positive one).
+   */
+  readonly settle: (
+    first: LiturgicalDay<Roman1969Vocabulary>,
+    second: LiturgicalDay<Roman1969Vocabulary>
+  ) => { kept: LiturgicalDay<Roman1969Vocabulary>; moved: LiturgicalDay<Roman1969Vocabulary>; offset: number };
+}
+
+const COINCIDENCES: readonly Coincidence[] = [
+  {
+    // The Sacred Heart of Jesus and the Nativity of St John the Baptist (24 June). The ruling was given for 2022
+    // only (dispositions of 20 August 2021 on the coincidences of the liturgical year 2021-2022); the norms do not
+    // decide, both being no. 3 of the table of liturgical days. It is the only guidance of the Holy See on this
+    // case, so it is extrapolated to the later coincidences (2033 and 2044, then 2101):
+    //
+    // - the Sacred Heart is celebrated on that day, and the Nativity of St John the Baptist is anticipated to the
+    //   day before (Thursday 23 June 2022), instead of being transferred to the day after;
+    // - where St John the Baptist is the patron of a nation, a diocese, a city or a religious community, the
+    //   Nativity of St John the Baptist is celebrated on 24 June and the Sacred Heart the day before (23 June 2022).
+    // The Holy See no longer publishes the text online; the bishops' conferences and the dioceses relay it.
+    source:
+      'Congregation for Divine Worship and the Discipline of the Sacraments, ruling on the coincidences of the ' +
+      'liturgical year 2021-2022, as published by the Italian Episcopal Conference (Ufficio liturgico nazionale, ' +
+      '20 August 2021): https://liturgico.chiesacattolica.it/calendario-liturgico-2021-2022coincidenze-particolari/ ' +
+      '(also published by the dioceses, e.g. Teano-Calvi: ' +
+      'https://www.diocesiteanocalvi.it/wp-content/uploads/sites/2/2022/06/2022-06-21-Notifica-ULD-Coincidenze-Anno-Liturgico.pdf)',
+    ids: ['most_sacred_heart_of_jesus', 'nativity_of_john_the_baptist'],
+    settle: (sacredHeart, baptist) =>
+      isSolemnityOfAPatron(baptist)
+        ? { kept: baptist, moved: sacredHeart, offset: -1 }
+        : { kept: sacredHeart, moved: baptist, offset: -1 },
+  },
+];
+
+/**
+ * Settle the coincidences ruled by the Holy See (see `COINCIDENCES`).
+ */
+const settleCoincidences = (
+  date: string,
+  days: readonly LiturgicalDay<Roman1969Vocabulary>[]
+): { days: LiturgicalDay<Roman1969Vocabulary>[]; transfers: OccurrenceTransfer<Roman1969Vocabulary>[] } =>
+  COINCIDENCES.reduce(
+    (acc, { ids, settle }) => {
+      const first = acc.days.find((d) => d.id === ids[0]);
+      const second = acc.days.find((d) => d.id === ids[1]);
+      if (!first || !second) return acc;
+
+      const { kept, moved, offset } = settle(first, second);
+      return {
+        days: [kept, ...acc.days.filter((d) => d !== kept && d !== moved)],
+        transfers: [...acc.transfers, { date: shiftDate(date, offset), day: moved }],
+      };
+    },
+    { days: [...days], transfers: [] as OccurrenceTransfer<Roman1969Vocabulary>[] }
+  );
+
 /**
  * Keep / drop when several celebrations land on one date (UNLY nn. 14, 16, 19, 28, 59).
  *
@@ -185,9 +262,11 @@ const resolveOccurrences = ({
   days,
   dayOn,
 }: OccurrenceInput<Roman1969Vocabulary>): OccurrenceOutcome<Roman1969Vocabulary> => {
-  // Copy the list, so Holy Thursday's shift does not mutate the calendar's sorted list.
-  let dates = [...days];
-  const transfers: OccurrenceTransfer<Roman1969Vocabulary>[] = [];
+  // A ruling of the Holy See comes first. This also copies the list, so Holy Thursday's shift
+  // does not mutate the calendar's sorted list.
+  const settled = settleCoincidences(date, days);
+  let dates = settled.days;
+  const { transfers } = settled;
 
   // Exception the Thursday within the Holy Week, this day contain 2 liturgical days, i.e.:
   //
