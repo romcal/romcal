@@ -107,7 +107,13 @@ const periodsOf = ({ date, dates, id, seasons }: PeriodInput<Roman1969Vocabulary
 
 const precedenceIndex = (precedence: string): number => PRECEDENCES.indexOf(precedence as Precedence);
 
-/** The last precedence listed in nos. 1-8 of the table of liturgical days (UNLY #59). */
+/**
+ * The last precedence listed in nos. 1-8 of the table of liturgical days.
+ *
+ * src: Universal Norms on the Liturgical Year and the General Roman Calendar (Normae universales de anno
+ * liturgico et de calendario), no. 59, approved by Paul VI, motu proprio Mysterii Paschalis, 14 February 1969,
+ * https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html
+ */
 const LAST_PRECEDENCE_OF_NOS_1_TO_8 = precedenceIndex(Precedences.ProperFeast_8f);
 
 /** The date (YYYY-MM-DD) that is some days after (or, if negative, before) a date. */

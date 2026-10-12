@@ -5,6 +5,11 @@ import { Vocabulary } from '../types/vocabulary';
  * Build the sort function ordering the liturgical days of a same date: the day that
  * takes precedence comes first.
  *
+ * src: Universal Norms on the Liturgical Year and the General Roman Calendar (Normae universales de anno
+ * liturgico et de calendario), nos. 59 and 60, approved by Paul VI, motu proprio Mysterii Paschalis,
+ * 14 February 1969,
+ * https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html
+ *
  * - Optional days are sorted to the end of the list.
  * - A day is compared by its position in the rite's list of precedences.
  * - A day marked as allowing similar rank items is sorted before the others of the
