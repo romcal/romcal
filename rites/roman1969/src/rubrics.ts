@@ -109,58 +109,85 @@ const precedenceIndex = (precedence: string): number => PRECEDENCES.indexOf(prec
 /** The last precedence listed in nos. 1-8 of the table of liturgical days (UNLY #59). */
 const LAST_PRECEDENCE_OF_NOS_1_TO_8 = precedenceIndex(Precedences.ProperFeast_8f);
 
-/** The date (YYYY-MM-DD) following a date. */
-const nextDate = (date: string): string => {
-  const next = new Date(`${date}T00:00:00Z`);
-  next.setUTCDate(next.getUTCDate() + 1);
-  return next.toISOString().substring(0, 10);
+/** The date (YYYY-MM-DD) that is some days after (or, if negative, before) a date. */
+const shiftDate = (date: string, days: number): string => {
+  const shifted = new Date(`${date}T00:00:00Z`);
+  shifted.setUTCDate(shifted.getUTCDate() + days);
+  return shifted.toISOString().substring(0, 10);
 };
 
 /**
- * Settle the solemnities that are transferred onto a date.
+ * Whether a day is a Sunday of Advent, Lent or Easter other than Palm Sunday, the Sundays whose
+ * solemnities go to the following Monday (UNLY no. 5). Easter Sunday is no. 1 of the table of
+ * precedence, not a privileged Sunday.
  *
- * UNLY #60: an impeded solemnity is transferred to the closest day not listed in nos. 1-8
- * of the table of precedence. A day is not available when a celebration listed in nos. 1-8
- * occurs on it (this includes another solemnity, whether it is transferred or not),
- * and a day takes one transferred solemnity only. A solemnity that cannot be kept here is
- * transferred again to the following day, and so on until a day is available.
+ * src: Universal Norms on the Liturgical Year and the General Roman Calendar (Normae universales de anno
+ * liturgico et de calendario), no. 5, approved by Paul VI, motu proprio Mysterii Paschalis, 14 February 1969,
+ * https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html
  */
-const settleTransferred = (
+const isSundayTransferringToMonday = (day: LiturgicalDay<Roman1969Vocabulary>): boolean =>
+  day.rank === Ranks.Sunday &&
+  day.precedence === Precedences.PrivilegedSunday_2 &&
+  day.id !== 'palm_sunday_of_the_passion_of_the_lord';
+
+/**
+ * The closest day to a date not listed in nos. 1-8 of the table of precedence, before or after it.
+ *
+ * UNLY #60 does not say which side is preferred between two days at the same distance: the library prefers
+ * the following day.
+ *
+ * UNLY #60 keeps the rule of no. 5: a solemnity impeded by a Sunday of Advent, Lent or Easter (other than
+ * Palm Sunday) is transferred to the following Monday. When that Monday is not available, no. 5 says nothing
+ * more: the library takes the next available day after it, never a day before the Sunday.
+ *
+ * src: Universal Norms on the Liturgical Year and the General Roman Calendar (Normae universales de anno
+ * liturgico et de calendario), nos. 5 and 60, approved by Paul VI, motu proprio Mysterii Paschalis,
+ * 14 February 1969,
+ * https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html
+ *
+ * @param date The date of the impeded solemnity
+ * @param dayOn The celebration that holds a date
+ * @param taken The dates already chosen for another transferred solemnity
+ * @param afterOnly Search the days after the date only (UNLY no. 5)
+ */
+const closestAvailableDate = (
   date: string,
-  days: readonly LiturgicalDay<Roman1969Vocabulary>[]
-): { days: LiturgicalDay<Roman1969Vocabulary>[]; transfers: OccurrenceTransfer<Roman1969Vocabulary>[] } => {
-  const residents = days.filter((d) => d.date === date);
-  // Sorted by precedence, then by the date they come from: the oldest transfer is served first.
-  const transferred = days
-    .filter((d) => d.date !== date)
-    .sort((a, b) => precedenceIndex(a.precedence) - precedenceIndex(b.precedence) || a.date.localeCompare(b.date));
+  dayOn: OccurrenceInput<Roman1969Vocabulary>['dayOn'],
+  taken: ReadonlySet<string>,
+  afterOnly: boolean
+): string | undefined => {
+  for (let distance = 1; ; distance += 1) {
+    const sides = afterOnly ? [distance] : [distance, -distance];
+    const candidates = sides.map((side) => shiftDate(date, side)).map((candidate) => ({
+      date: candidate,
+      day: dayOn(candidate),
+    }));
 
-  const isOccupied = precedenceIndex(residents[0].precedence) <= LAST_PRECEDENCE_OF_NOS_1_TO_8;
-  const admitted = isOccupied ? [] : transferred.slice(0, 1);
-  const refused = isOccupied ? transferred : transferred.slice(1);
+    // Both sides are outside of the year: no day is available.
+    if (candidates.every(({ day }) => day === undefined)) return undefined;
 
-  return {
-    days: [...admitted, ...residents],
-    transfers: refused.map((day) => ({ date: nextDate(date), day })),
-  };
+    const found = candidates.find(
+      ({ date: candidate, day }) =>
+        day !== undefined && !taken.has(candidate) && precedenceIndex(day.precedence) > LAST_PRECEDENCE_OF_NOS_1_TO_8
+    );
+    if (found) return found.date;
+  }
 };
 
 /**
  * Keep / drop when several celebrations land on one date (UNLY nn. 14, 16, 19, 28, 59).
  *
  * Losers are omitted or kept as optionals on the same date, except the solemnities, which
- * are transferred to the next available day (UNLY #60).
+ * are transferred to the closest available day (UNLY #60).
  */
 const resolveOccurrences = ({
   date,
   days,
+  dayOn,
 }: OccurrenceInput<Roman1969Vocabulary>): OccurrenceOutcome<Roman1969Vocabulary> => {
-  // Solemnities transferred onto this date are settled first (UNLY #60); the ones that
-  // cannot be kept here move on. This also copies the list, so Holy Thursday's shift
-  // does not mutate the calendar's sorted list.
-  const settled = settleTransferred(date, days);
-  let dates = settled.days;
-  const transfers = settled.transfers;
+  // Copy the list, so Holy Thursday's shift does not mutate the calendar's sorted list.
+  let dates = [...days];
+  const transfers: OccurrenceTransfer<Roman1969Vocabulary>[] = [];
 
   // Exception the Thursday within the Holy Week, this day contain 2 liturgical days, i.e.:
   //
@@ -205,13 +232,30 @@ const resolveOccurrences = ({
   // liturgical day that takes precedence over it should be transferred to the closest day not listed
   // in nos. 1-8 in the table of precedence; the rule of no. 5 remains in effect. Other celebrations
   // are omitted that year."
+  // UNLY #5: "the Sundays of Advent, Lent and Easter have precedence over all Feasts of the Lord and
+  // over all Solemnities. In fact, Solemnities occurring on these Sundays are transferred to the
+  // following Monday unless they occur on Palm Sunday or on Sunday of the Lord's Resurrection."
   // Source: Universal Norms on the Liturgical Year and the General Roman Calendar (Normae universales
-  // de anno liturgico et de calendario), no. 60, approved by Paul VI, motu proprio Mysterii Paschalis,
-  // 14 February 1969. The closest day is searched forward only,
-  // one day at a time, by the transfer of the next date (see `settleTransferred`).
+  // de anno liturgico et de calendario), nos. 5 and 60, approved by Paul VI, motu proprio Mysterii Paschalis,
+  // 14 February 1969, https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html;
+  // English text of the current edition: Catholic Bishops' Conference of England and Wales, Liturgy Office,
+  // https://www.liturgyoffice.org/Calendar/Info/GNLY.pdf.
+  // Apart from no. 5, the closest day is searched on both sides of the date: a solemnity of Holy Week
+  // goes to the Saturday before Palm Sunday, or to the Monday after the Octave of Easter, whichever is
+  // the closest.
   const impeded = dates.slice(1).filter((d) => d.rank === Ranks.Solemnity && !d.isOptional);
   dates = [defaultLiturgicalDay, ...dates.slice(1).filter((d) => !impeded.includes(d))];
-  transfers.push(...impeded.map((day) => ({ date: nextDate(date), day })));
+
+  const taken = new Set(transfers.map((transfer) => transfer.date));
+  const afterOnly = isSundayTransferringToMonday(defaultLiturgicalDay);
+  impeded.forEach((day) => {
+    const target = closestAvailableDate(date, dayOn, taken, afterOnly);
+    // No day of the generated range is available: the solemnity is omitted from this calendar, as the
+    // generator drops a day transferred outside of its range.
+    if (target === undefined) return;
+    taken.add(target);
+    transfers.push({ date: target, day });
+  });
 
   let optionalMemorials: LiturgicalDay<Roman1969Vocabulary>[] = [];
 
