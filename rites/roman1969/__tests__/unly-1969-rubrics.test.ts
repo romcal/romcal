@@ -70,6 +70,26 @@ describe('Unly1969Rubrics', () => {
     expect(transfers).toEqual([]);
   });
 
+  test('resolveOccurrences keeps nothing on a date with no day', () => {
+    expect(Unly1969Rubrics.resolveOccurrences({ date: '2020-06-01', days: [], dayOn: () => undefined })).toEqual({
+      onDate: [],
+      transfers: [],
+    });
+  });
+
+  test('resolveOccurrences keeps the Thursday of the Lord’s Supper when it is the only day of the date', () => {
+    const thursday = day({
+      id: 'thursday_of_the_lords_supper',
+      date: '2020-04-09',
+      precedence: Precedences.Triduum_1,
+      rank: Ranks.Solemnity,
+    });
+
+    expect(
+      Unly1969Rubrics.resolveOccurrences({ date: '2020-04-09', days: [thursday], dayOn: () => undefined }).onDate
+    ).toEqual([thursday]);
+  });
+
   describe('UNLY #60: impeded solemnities', () => {
     const date = '2020-04-22';
     const weekday = day({ id: 'weekday', date, precedence: Precedences.Weekday_13, rank: Ranks.Weekday });
