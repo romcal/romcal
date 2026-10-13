@@ -10,7 +10,7 @@ import { Rubricae1960Rubrics } from './rubrics';
  * can use and that the 1960 classes come out where §91 puts them.
  */
 
-const { precedences, rankOf, seasons } = Rubricae1960Rubrics;
+const { precedences, rankOf, resolveOccurrences, seasons } = Rubricae1960Rubrics;
 
 const dateOf = (iso: string): Date => new Date(`${iso}T00:00:00.000Z`);
 
@@ -127,6 +127,20 @@ describe('The numbering within a season', () => {
 });
 
 describe('The occurrence policy of 1962', () => {
+  const days = [{ id: 'first' }, { id: 'second' }] as never;
+  const dayOn = () => undefined;
+
+  test('keeps the first day of a date and transfers nothing', () => {
+    expect(resolveOccurrences({ date: '2024-03-19', days, dayOn })).toEqual({
+      onDate: [{ id: 'first' }],
+      transfers: [],
+    });
+  });
+
+  test('keeps nothing on a date with no day', () => {
+    expect(resolveOccurrences({ date: '2024-03-19', days: [], dayOn })).toEqual({ onDate: [], transfers: [] });
+  });
+
   test('keeps the order of precedence the engine had before the 1969 rules', () => {
     expect(Rubricae1960Rubrics.precedenceFirst).toBe(false);
   });
