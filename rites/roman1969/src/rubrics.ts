@@ -1,6 +1,7 @@
 import {
   Dates,
   PATRON_TITLES,
+  PatronTitle,
   LiturgicalDay,
   OccurrenceInput,
   OccurrenceOutcome,
@@ -290,6 +291,27 @@ const SUNDAY_EXCEPTIONS: readonly SundayException[] = [
     keeps: (day) =>
       day.id === 'our_lady_of_guadalupe' && day.precedence === Precedences.ProperSolemnity_PrincipalPatron_4a,
     over: (sunday) => sunday.seasons.includes(Season.Advent),
+  },
+  {
+    // St Patrick in Ireland (17 March) when it is a Sunday of Lent, other than Palm Sunday (which UNLY no. 5
+    // does not count among the Sundays that impede a solemnity). The Irish bishops asked the Holy See in 2019
+    // not to apply the rule, and it agreed; the solemnity was kept on Sunday 17 March 2019 and again on
+    // Sunday 17 March 2024, with no mention of a new request. No standing indult is published: the exception
+    // rests on third-party reports and on statements of the Irish bishops, not on a decree of the Holy See, and
+    // is applied in every year because the Irish calendar is reported to keep it "always", even on a Sunday.
+    source:
+      'Universalis, St Patrick in Ireland 2019 (the Vatican agreed to the request of the Irish bishops), ' +
+      'https://blog.universalis.com/2019/03/13/st-patrick-in-ireland-2019/; ' +
+      'Vatican News on the statement of the Irish Catholic Bishops\' Conference, March 2019, ' +
+      'https://www.vaticannews.va/en/pope/news/2019-03/irish-bishops-conclude-general-meeting.html; ' +
+      'Aleteia, 10 March 2024, ' +
+      'https://aleteia.org/2024/03/10/what-happens-when-st-patricks-day-falls-on-a-sunday; ' +
+      'Irish Catholic Bishops\' Conference, statement of 6 March 2024, ' +
+      'https://www.catholicbishops.ie/2024/03/06/statement-of-the-spring-2024-general-meeting-of-the-irish-catholic-bishops-conference/',
+    // Australia, England, Scotland and New Zealand keep the general rule: only the patron of Ireland is told by
+    // the title.
+    keeps: (day) => day.id === 'patrick_of_ireland_bishop' && day.titles.includes(PatronTitle.PatronOfIreland),
+    over: (sunday) => sunday.seasons.includes(Season.Lent),
   },
 ];
 
