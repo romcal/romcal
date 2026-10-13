@@ -274,7 +274,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     const dates = Object.keys(builtData.datesIndex);
 
     // Transfers sent by each date. A transferred day takes part in the resolution of its destination.
-    const sent: Record<string, OccurrenceTransfer<V>[]> = {};
+    const sent: Record<string, readonly OccurrenceTransfer<V>[]> = {};
 
     // A day can only be transferred as many times as there are dates: more means that the rite
     // keeps sending it back and forth.
@@ -316,16 +316,16 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
         day.date === dateStr ? day : this.#buildDay(day.definition, new Date(dateStr), builtData)
       );
 
-      sent[dateStr] = transfers.filter(({ date, day }) => {
+      transfers.forEach(({ date, day }) => {
         if (date === dateStr) throw new Error(`Transfers must move to another date: "${day.id}" on ${dateStr}.`);
         const count = (transferCounts.get(day) ?? 0) + 1;
         transferCounts.set(day, count);
         if (count > dates.length) throw new Error(`The transfers of "${day.id}" do not settle.`);
-        // A date outside the generated range is not part of this calendar.
-        return builtData.datesIndex[date] !== undefined;
       });
+      // A date outside the generated range is never resolved: a day transferred there is not part of this calendar.
+      sent[dateStr] = transfers;
 
-      return sent[dateStr].map(({ date }) => date).filter((date) => finalData[date] !== undefined);
+      return transfers.map(({ date }) => date).filter((date) => finalData[date] !== undefined);
     };
 
     dates.forEach((dateStr) => {
