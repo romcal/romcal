@@ -78,3 +78,29 @@ describe('St Patrick in Ireland (17 March)', () => {
     expect(await datesOf(Australia_En, 2024, 'patrick_of_ireland_bishop')).toEqual(['2024-03-18']);
   });
 });
+
+// When 17 March falls in Holy Week, the Irish bishops kept St Patrick on the Saturday before Palm Sunday
+// (2008, the only such year between 1990 and 2100).
+describe('St Patrick and St Joseph in Ireland when 17 March is in Holy Week', () => {
+  test('St Patrick is kept on Saturday 15 March 2008, the day before Palm Sunday', async () => {
+    expect(await datesOf(Ireland_En, 2008, 'patrick_of_ireland_bishop')).toEqual(['2008-03-15']);
+    expect((await idsOn(Ireland_En, '2008-03-16'))[0]).toBe('palm_sunday_of_the_passion_of_the_lord');
+  });
+
+  test('St Joseph, impeded on 15 March, is anticipated to Friday 14 March 2008', async () => {
+    expect(await datesOf(Ireland_En, 2008, 'joseph_spouse_of_mary')).toEqual(['2008-03-14']);
+  });
+
+  // In 2035, 19 March is the Monday of Holy Week and 17 March the Saturday before Palm Sunday: St Patrick is
+  // not in Holy Week, so St Joseph takes the Saturday (general exception) and St Patrick, of lower rank
+  // (UNLY no. 59), is transferred to the closest free day, the Friday (UNLY no. 60).
+  test('St Joseph keeps the Saturday before Palm Sunday when St Patrick is not in Holy Week (2035)', async () => {
+    expect(await datesOf(Ireland_En, 2035, 'joseph_spouse_of_mary')).toEqual(['2035-03-17']);
+    expect(await datesOf(Ireland_En, 2035, 'patrick_of_ireland_bishop')).toEqual(['2035-03-16']);
+  });
+
+  test.each([2024, 2025])('St Patrick and St Joseph stay on their dates in %i', async (year) => {
+    expect(await datesOf(Ireland_En, year, 'patrick_of_ireland_bishop')).toContain(`${year}-03-17`);
+    expect(await datesOf(Ireland_En, year, 'joseph_spouse_of_mary')).toEqual([`${year}-03-19`]);
+  });
+});
