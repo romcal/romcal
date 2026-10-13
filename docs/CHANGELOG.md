@@ -20,6 +20,7 @@ The new architecture helped to introduce new features without performance and co
 - A transferred day carries the date and the calendar metadata of the date it is transferred to.
 - In Mexico, Our Lady of Guadalupe is kept on 12 December when it is a Sunday of Advent, instead of being transferred to the Monday, by authorisation of the Congregation for Divine Worship (17 January 2013).
 - In Ireland, St Patrick is kept on 17 March when it is a Sunday of Lent other than Palm Sunday, instead of being transferred to the Monday.
+- In Ireland, when 17 March falls in Holy Week (2008), St Patrick is kept on the Saturday before Palm Sunday, as the Irish bishops decided, and St Joseph is anticipated to the Friday before, following the general norms (UNLY no. 60).
 
 ### v 3.0.0@dev-55
 
