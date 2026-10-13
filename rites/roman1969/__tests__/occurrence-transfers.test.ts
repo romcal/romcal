@@ -53,6 +53,43 @@ describe('Occurrence transfers', () => {
     expect(day.calendar.dayOfWeek).toBe(4);
   });
 
+  test('a policy may leave out the transfers when it has none', async () => {
+    const resolveOccurrences: Policy = (input) => ({ onDate: Unly1969Rubrics.resolveOccurrences(input).onDate });
+    registerRite({ ...Roman1969Rite, rubrics: { ...Unly1969Rubrics, resolveOccurrences } });
+
+    const calendar = (await new Romcal().generateCalendar(2021)) as LiturgicalCalendar;
+
+    expect(calendar['2021-03-19'][0].id).toBe('joseph_spouse_of_mary');
+  });
+
+  test('a transfer outside the generated range is dropped', async () => {
+    registerRite(riteTransferring('joseph_spouse_of_mary', '2021-03-19', '2025-03-19'));
+
+    const calendar = (await new Romcal().generateCalendar(2021)) as LiturgicalCalendar;
+
+    expect(calendar['2025-03-19']).toBeUndefined();
+    expect(
+      Object.values(calendar)
+        .flat()
+        .map((d) => d.id)
+    ).not.toContain('joseph_spouse_of_mary');
+  });
+
+  test('a date resolved again can transfer a day onto another date already resolved', async () => {
+    // The Annunciation is sent back onto St Joseph (Friday 19 March 2021), both resolved already: the 1969
+    // policy keeps one of the two solemnities and transfers the other to the following day, resolved again.
+    registerRite(riteTransferring('annunciation_of_the_lord', '2021-03-25', '2021-03-19'));
+
+    const calendar = (await new Romcal().generateCalendar(2021)) as LiturgicalCalendar;
+
+    expect(calendar['2021-03-25'].map((d) => d.id)).not.toContain('annunciation_of_the_lord');
+    expect([calendar['2021-03-19'][0].id, calendar['2021-03-20'][0].id].sort()).toEqual([
+      'annunciation_of_the_lord',
+      'joseph_spouse_of_mary',
+    ]);
+    expect(calendar['2021-03-20'][0].date).toBe('2021-03-20');
+  });
+
   test('a transfer onto the same date is rejected', async () => {
     registerRite(riteTransferring('joseph_spouse_of_mary', '2021-03-19', '2021-03-19'));
 
