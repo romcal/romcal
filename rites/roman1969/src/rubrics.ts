@@ -258,6 +258,55 @@ const settleCoincidences = (
   );
 
 /**
+ * A solemnity that a particular calendar keeps on its date when it falls on a Sunday that would impede it
+ * (UNLY nos. 5 and 59), by an indult of the Holy See. The Sunday is not celebrated that year, as with any other
+ * celebration omitted by UNLY no. 60.
+ */
+interface SundayException {
+  /** The documents that authorise the exception. */
+  readonly source: string;
+  /** Whether the solemnity is the one the indult is given for, in the calendar of the day. */
+  readonly keeps: (solemnity: LiturgicalDay<Roman1969Vocabulary>) => boolean;
+  /** Whether the Sunday is one of those the indult covers. */
+  readonly over: (sunday: LiturgicalDay<Roman1969Vocabulary>) => boolean;
+}
+
+const SUNDAY_EXCEPTIONS: readonly SundayException[] = [
+  {
+    // Our Lady of Guadalupe in Mexico (12 December) when it is a Sunday of Advent. On 17 January 2013 the
+    // Congregation for Divine Worship, "por instrucción del Santo Padre", authorised the Mexican Episcopal
+    // Conference to dispense "en todos los años en que acontezca esta coincidencia", and the Conference decreed
+    // it on 20 September 2021 for 12 December 2021. The Sunday gives its second reading and its collect (and
+    // the intention of its prayer of the faithful) to the Mass of Our Lady, which romcal does not show apart.
+    // The text of the decree and the letter of the Congregation are not published online: the exception rests
+    // on the press of the Church in Mexico, not on a primary source.
+    source:
+      'Congregation for Divine Worship and the Discipline of the Sacraments, 17 January 2013 (as reported by ' +
+      'Desde la Fe, the weekly of the Archdiocese of Mexico, ' +
+      'https://desdelafe.mx/noticias/iglesia-en-mexico/pese-a-ser-domingo-de-adviento-la-virgen-de-guadalupe-celebrara-su-dia/ ' +
+      'and by ACI Prensa on the decree of the Mexican Episcopal Conference of 20 September 2021, ' +
+      'https://www.aciprensa.com/noticias/89892/mexico-celebrara-a-la-virgen-de-guadalupe-en-el-domingo-de-la-alegria)',
+    // Only Mexico gives the solemnity of the principal patron to Our Lady of Guadalupe.
+    keeps: (day) =>
+      day.id === 'our_lady_of_guadalupe' && day.precedence === Precedences.ProperSolemnity_PrincipalPatron_4a,
+    over: (sunday) => sunday.seasons.includes(Season.Advent),
+  },
+];
+
+/**
+ * Keep a solemnity on its date over a Sunday, where an indult allows it (see `SUNDAY_EXCEPTIONS`).
+ */
+const keepOverSunday = (
+  days: LiturgicalDay<Roman1969Vocabulary>[]
+): LiturgicalDay<Roman1969Vocabulary>[] => {
+  const [first, ...others] = days;
+  if (!first || !isSundayTransferringToMonday(first)) return days;
+
+  const kept = others.find((day) => SUNDAY_EXCEPTIONS.some(({ keeps, over }) => keeps(day) && over(first)));
+  return kept ? [kept, ...others.filter((day) => day !== kept)] : days;
+};
+
+/**
  * Keep / drop when several celebrations land on one date (UNLY nn. 14, 16, 19, 28, 59).
  *
  * Losers are omitted or kept as optionals on the same date, except the solemnities, which
@@ -271,7 +320,8 @@ const resolveOccurrences = ({
   // A ruling of the Holy See comes first. This also copies the list, so Holy Thursday's shift
   // does not mutate the calendar's sorted list.
   const settled = settleCoincidences(date, days);
-  let dates = settled.days;
+  // An indult can keep a solemnity on a Sunday that would impede it; the Sunday is then omitted.
+  let dates = keepOverSunday(settled.days);
   const { transfers } = settled;
 
   // Exception the Thursday within the Holy Week, this day contain 2 liturgical days, i.e.:
