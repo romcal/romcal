@@ -19,6 +19,7 @@ The new architecture helped to introduce new features without performance and co
 - When the Sacred Heart of Jesus falls on 24 June, the Nativity of St John the Baptist is anticipated to 23 June, except where St John the Baptist is a patron, as ruled by the Holy See for 2022; the later coincidences (2033 and 2044) extrapolate that ruling.
 - A transferred day carries the date and the calendar metadata of the date it is transferred to.
 - In Mexico, Our Lady of Guadalupe is kept on 12 December when it is a Sunday of Advent, instead of being transferred to the Monday, by authorisation of the Congregation for Divine Worship (17 January 2013).
+- In Ireland, St Patrick is kept on 17 March when it is a Sunday of Lent other than Palm Sunday, instead of being transferred to the Monday.
 
 ### v 3.0.0@dev-55
 
