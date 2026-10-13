@@ -26,8 +26,17 @@ This is necessary to ensure that the right liturgical day is well defined for ev
 each liturgical day is depending on the proper of seasons or the sanctorale, and might be defined according to each other (including all [moveable feast](https://en.wikipedia.org/wiki/Moveable_feast)).
 
 When all liturgical days are computed by romcal, they are ordered by date, and sorted by their precedence rank.
-On the same date, if a liturgical day has precedence on another liturgical day, romcal will only keep the relevant liturgical day.
-By default, you will only get one liturgical day per date.
+Each rite resolves the days of a date with its own rubrics; for the Roman Rite of 1969, these are the Universal Norms on the Liturgical Year and the Calendar (UNLY):
+
+- The day that holds the highest place in the table of liturgical days (UNLY no. 59) is kept. Between two days of the same rank, a day that allows similar rank items (e.g. a proper memorial) comes first; it never takes precedence over a day of a higher rank.
+- The other celebrations are omitted that year (UNLY no. 60), or kept after the first day as optional celebrations, e.g. an optional memorial on a weekday, or an obligatory memorial on a weekday of Lent (UNLY no. 14).
+- A solemnity impeded by a day that takes precedence over it is transferred to the closest day not listed in nos. 1–8 of the table (UNLY no. 60). Both sides of the date are searched; at the same distance, the following day is preferred, and a day already given to another transferred solemnity is not available.
+- A solemnity occurring on a Sunday of Advent, Lent or Easter is transferred to the following Monday, or to the next available day after it (UNLY no. 5). On Palm Sunday and Easter Sunday, the closest day of UNLY no. 60 applies.
+- St Joseph and the Annunciation of the Lord carry date exceptions for Holy Week: St Joseph is anticipated to the Saturday before Palm Sunday, and the Annunciation is always transferred to the Monday after the Second Sunday of Easter (UNLY no. 60).
+- A ruling of the Holy See on the coincidence of two celebrations takes the place of the closest day for these two celebrations: when the Sacred Heart of Jesus falls on 24 June, it is celebrated on that day and the Nativity of St John the Baptist is anticipated to 23 June, except where St John the Baptist is the patron of a nation, a diocese, a city or a religious community, where the Sacred Heart is anticipated instead. The ruling was given for 2022 only; it is extrapolated to the later years in which the two coincide (2033 and 2044).
+- A transferred day takes part in the resolution of the date it is transferred to, and carries the date and the calendar metadata of that date. A solemnity with no available day in the computed year is omitted.
+
+By default, you will only get one liturgical day per date, followed by the optional celebrations of that date.
 
 Output conforms to the revised liturgical calendar as approved by Paul VI in [Mysterii Paschalis](http://w2.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html) for the Roman Rite (post-Vatican II).
 Rules followed by romcal are defined in the [_General Instruction on the Roman Missal_](https://www.catholicculture.org/culture/library/view.cfm?recnum=337) (GIRM) and the [_General Norms for the Liturgical Year and the Calendar_](https://www.catholicculture.org/culture/library/view.cfm?id=10842).
