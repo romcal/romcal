@@ -8,6 +8,17 @@ The romcal v3 is a major rewrite of the core library, with performance and archi
 As a result, romcal v3 is now up to 10x faster than v2 and v1.
 The new architecture helped to introduce new features without performance and code quality impacts.
 
+### Unreleased
+
+#### Fixed
+
+- A memorial, or a day allowing similar rank items, no longer takes precedence over a day of a higher rank (UNLY nos. 59 and 60); between two days of the same rank, the one allowing similar rank items still comes first.
+- The weekdays of Holy Week have their own precedence, above the feasts and memorials (UNLY no. 59, 2).
+- A solemnity impeded by a day that takes precedence over it is transferred to the closest day not listed in nos. 1–8 of the table of liturgical days, before or after its date (UNLY no. 60), instead of being omitted.
+- A solemnity occurring on a Sunday of Advent, Lent or Easter is transferred to the following Monday (UNLY no. 5).
+- When the Sacred Heart of Jesus falls on 24 June, the Nativity of St John the Baptist is anticipated to 23 June, except where St John the Baptist is a patron, as ruled by the Holy See for 2022; the later coincidences (2033 and 2044) extrapolate that ruling.
+- A transferred day carries the date and the calendar metadata of the date it is transferred to.
+
 ### v 3.0.0@dev-55
 
 #### Breaking change
