@@ -122,6 +122,14 @@ npm run test -t ./src/utils/object/object.test.ts
 
 _pass the `-t` flag and the path of the file_
 
+Tests live where they test:
+
+- A test of a module sits beside it as `<module>.spec.ts` (in `packages/*` and in `rites/roman1962/src`).
+- A test of the generated calendars of the Roman Rite sits in `rites/roman1969/__tests__/` as `<topic>.test.ts`, one file per topic: a rule (for example `holy-week-precedence.test.ts`), a calendar (for example `belgium-calendar.test.ts`) or the API (for example `calendar-builder.test.ts`).
+- Helpers shared by these tests sit in `rites/roman1969/__tests__/helpers/`; their names do not end in `.test.ts` or `.spec.ts`, so Jest does not run them as tests.
+- Each behaviour is tested in one place: the Easter and Lunar New Year arithmetic in their packages, the methods of `Unly1969Rubrics` in `unly-1969-rubrics.test.ts`, and the behaviour of a generated calendar in the file of its topic.
+- The tests of `rites/roman1969` import the built calendar bundles, so run `npm run build` before running them.
+
 ## Coverage Reporting
 
 A coverage report is generated for every core branch build and published to [gh-pages](<>).

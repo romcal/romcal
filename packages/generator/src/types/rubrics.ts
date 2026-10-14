@@ -69,13 +69,28 @@ export interface SeasonRules<V extends Vocabulary = Vocabulary> {
 export interface OccurrenceInput<V extends Vocabulary = Vocabulary> {
   readonly date: string;
   readonly days: readonly LiturgicalDay<V>[];
+  /**
+   * The celebration that holds another date at this point of the resolution, or
+   * `undefined` outside the generated range.
+   *
+   * A date already resolved gives its first kept day; a later one gives the day that
+   * would take precedence there, with the days already transferred onto it. It is what a
+   * rite needs to find a date to transfer a day to, before and after the date being resolved.
+   *
+   * The day of a later date is the first one in the order of precedence: the rite's
+   * `resolveOccurrences` has not run on that date yet, so an outcome it would choose there
+   * against that order (a ruling that keeps the lower of two days, say) is not reflected.
+   */
+  readonly dayOn: (date: string) => LiturgicalDay<V> | undefined;
 }
 
 /**
  * A day moved onto another date (e.g. 1962 forward transfer).
  *
- * `date` must be later than the date being resolved; the calendar throws otherwise.
- * A target outside the generated range is dropped.
+ * `date` may be earlier or later than the date being resolved, but not the same: the calendar
+ * throws otherwise. A date already resolved is resolved again with the transferred day. A target outside
+ * the generated range is dropped. Once resolved on its destination, the
+ * day is built again there, so it carries the date and the calendar metadata of that date.
  */
 export interface OccurrenceTransfer<V extends Vocabulary = Vocabulary> {
   readonly date: string;
@@ -92,7 +107,7 @@ export interface OccurrenceTransfer<V extends Vocabulary = Vocabulary> {
 export interface OccurrenceOutcome<V extends Vocabulary = Vocabulary> {
   /** Days kept on this date, winner first. */
   readonly onDate: readonly LiturgicalDay<V>[];
-  /** Forward (or other) transfers; omit or leave empty when none. */
+  /** Transfers, forward or backward; omit or leave empty when none. */
   readonly transfers?: readonly OccurrenceTransfer<V>[];
 }
 
@@ -105,9 +120,13 @@ export interface OccurrenceOutcome<V extends Vocabulary = Vocabulary> {
  * between the 1969 reform and the Rubricae of 1960 in ways that no single table can
  * express. A rite supplies this object; the engine asks it.
  *
- * Everything here is data or a pure function of the days on one date. Anything that
- * needs to reach across dates (1962's forward transfer) is expressed by the outcome a
+ * Everything here is data or a pure function of the days on one date and, through
+ * `OccurrenceInput.dayOn`, of what the other dates hold. A day that must move to another date
+ * (1962's forward transfer, 1969's closest free date) is expressed by the outcome a
  * policy returns, not by reaching into the calendar.
+ *
+ * Each revision supplies its own table of precedences and says how that table is read
+ * (`precedenceFirst`), so that a revision never depends on the rules of another.
  */
 export interface Rubrics<V extends Vocabulary = Vocabulary> {
   /**
@@ -140,6 +159,18 @@ export interface Rubrics<V extends Vocabulary = Vocabulary> {
 
   /** How the year is divided, and how a day is numbered within its season. */
   readonly seasons: SeasonRules<V>;
+
+  /**
+   * Compare the precedences of two days of different ranks before `allowSimilarRankItems`, so that a
+   * day allowing similar rank items (e.g. a memorial) never takes precedence over a day of a higher
+   * rank (UNLY nos. 59 and 60); between two days of the same rank, the one allowing similar rank items
+   * still comes first. When false, a day allowing similar rank items is sorted first whatever its
+   * precedence, as the engine did before this option existed.
+   *
+   * Required, like the table of precedences it qualifies: each revision states it. 1969 sets it to true,
+   * 1962 to false until its own rubrics say otherwise.
+   */
+  readonly precedenceFirst: boolean;
 
   /**
    * What to keep on a date when several celebrations occur, and what to transfer.

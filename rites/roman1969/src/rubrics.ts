@@ -1,8 +1,11 @@
 import {
   Dates,
+  PATRON_TITLES,
+  PatronTitle,
   LiturgicalDay,
   OccurrenceInput,
   OccurrenceOutcome,
+  OccurrenceTransfer,
   Period,
   PRECEDENCES,
   Precedence,
@@ -106,16 +109,242 @@ const periodsOf = ({ date, dates, id, seasons }: PeriodInput<Roman1969Vocabulary
 const precedenceIndex = (precedence: string): number => PRECEDENCES.indexOf(precedence as Precedence);
 
 /**
+ * The last precedence listed in nos. 1-8 of the table of liturgical days.
+ *
+ * src: Universal Norms on the Liturgical Year and the General Roman Calendar (Normae universales de anno
+ * liturgico et de calendario), no. 59, approved by Paul VI, motu proprio Mysterii Paschalis, 14 February 1969,
+ * https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html
+ */
+const LAST_PRECEDENCE_OF_NOS_1_TO_8 = precedenceIndex(Precedences.ProperFeast_8f);
+
+/** The date (YYYY-MM-DD) that is some days after (or, if negative, before) a date. */
+const shiftDate = (date: string, days: number): string => {
+  const shifted = new Date(`${date}T00:00:00Z`);
+  shifted.setUTCDate(shifted.getUTCDate() + days);
+  return shifted.toISOString().substring(0, 10);
+};
+
+/**
+ * Whether a day is a Sunday of Advent, Lent or Easter other than Palm Sunday, the Sundays whose
+ * solemnities go to the following Monday (UNLY no. 5). Easter Sunday is no. 1 of the table of
+ * precedence, not a privileged Sunday.
+ *
+ * src: Universal Norms on the Liturgical Year and the General Roman Calendar (Normae universales de anno
+ * liturgico et de calendario), no. 5, approved by Paul VI, motu proprio Mysterii Paschalis, 14 February 1969,
+ * https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html
+ */
+const isSundayTransferringToMonday = (day: LiturgicalDay<Roman1969Vocabulary>): boolean =>
+  day.rank === Ranks.Sunday &&
+  day.precedence === Precedences.PrivilegedSunday_2 &&
+  day.id !== 'palm_sunday_of_the_passion_of_the_lord';
+
+/**
+ * The closest day to a date not listed in nos. 1-8 of the table of precedence, before or after it.
+ *
+ * UNLY #60 does not say which side is preferred between two days at the same distance: the library prefers
+ * the following day. A ruling of the Holy See can say otherwise (see `COINCIDENCES`).
+ *
+ * UNLY #60 keeps the rule of no. 5: a solemnity impeded by a Sunday of Advent, Lent or Easter (other than
+ * Palm Sunday) is transferred to the following Monday. When that Monday is not available, no. 5 says nothing
+ * more: the library takes the next available day after it, never a day before the Sunday.
+ *
+ * src: Universal Norms on the Liturgical Year and the General Roman Calendar (Normae universales de anno
+ * liturgico et de calendario), nos. 5 and 60, approved by Paul VI, motu proprio Mysterii Paschalis,
+ * 14 February 1969,
+ * https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html
+ *
+ * @param date The date of the impeded solemnity
+ * @param dayOn The celebration that holds a date
+ * @param taken The dates already chosen for another transferred solemnity
+ * @param afterOnly Search the days after the date only (UNLY no. 5)
+ */
+const closestAvailableDate = (
+  date: string,
+  dayOn: OccurrenceInput<Roman1969Vocabulary>['dayOn'],
+  taken: ReadonlySet<string>,
+  afterOnly: boolean
+): string | undefined => {
+  for (let distance = 1; ; distance += 1) {
+    const sides = afterOnly ? [distance] : [distance, -distance];
+    const candidates = sides.map((side) => shiftDate(date, side)).map((candidate) => ({
+      date: candidate,
+      day: dayOn(candidate),
+    }));
+
+    // Both sides are outside of the year: no day is available.
+    if (candidates.every(({ day }) => day === undefined)) return undefined;
+
+    const found = candidates.find(
+      ({ date: candidate, day }) =>
+        day !== undefined && !taken.has(candidate) && precedenceIndex(day.precedence) > LAST_PRECEDENCE_OF_NOS_1_TO_8
+    );
+    if (found) return found.date;
+  }
+};
+
+/** Whether a celebration is the solemnity of a patron: of a nation, a diocese, a city or a religious community. */
+const isSolemnityOfAPatron = (day: LiturgicalDay<Roman1969Vocabulary>): boolean =>
+  (day.titles as string[]).some((title) => (PATRON_TITLES as string[]).includes(title)) ||
+  day.precedence === Precedences.ProperSolemnity_PrincipalPatron_4a ||
+  day.precedence === Precedences.ProperSolemnity_TitleOrFounderOrPrimaryPatronOfAReligiousOrg_4d;
+
+/**
+ * A ruling of the Holy See on the coincidence of two celebrations, which takes the place of the general
+ * rule of UNLY #60 (the closest day) for these two celebrations.
+ *
+ * Add the rulings of the Holy See here, with their source: the celebration on a date is decided by the
+ * precedence of the table of liturgical days, except for the rulings listed below.
+ */
+interface Coincidence {
+  /** The document that publishes the ruling. */
+  readonly source: string;
+  /** The ids of the two celebrations that coincide. */
+  readonly ids: readonly [string, string];
+  /**
+   * Which of the two is kept on the date, the other one being transferred to the day before (a negative
+   * offset) or after (a positive one).
+   */
+  readonly settle: (
+    first: LiturgicalDay<Roman1969Vocabulary>,
+    second: LiturgicalDay<Roman1969Vocabulary>
+  ) => { kept: LiturgicalDay<Roman1969Vocabulary>; moved: LiturgicalDay<Roman1969Vocabulary>; offset: number };
+}
+
+const COINCIDENCES: readonly Coincidence[] = [
+  {
+    // The Sacred Heart of Jesus and the Nativity of St John the Baptist (24 June). The ruling was given for 2022
+    // only (dispositions of 20 August 2021 on the coincidences of the liturgical year 2021-2022); the norms do not
+    // decide, both being no. 3 of the table of liturgical days. It is the only guidance of the Holy See on this
+    // case, so it is extrapolated to the later coincidences (2033 and 2044, then 2101):
+    //
+    // - the Sacred Heart is celebrated on that day, and the Nativity of St John the Baptist is anticipated to the
+    //   day before (Thursday 23 June 2022), instead of being transferred to the day after;
+    // - where St John the Baptist is the patron of a nation, a diocese, a city or a religious community, the
+    //   Nativity of St John the Baptist is celebrated on 24 June and the Sacred Heart the day before (23 June 2022).
+    // The Holy See no longer publishes the text online; the bishops' conferences and the dioceses relay it.
+    source:
+      'Congregation for Divine Worship and the Discipline of the Sacraments, ruling on the coincidences of the ' +
+      'liturgical year 2021-2022, as published by the Italian Episcopal Conference (Ufficio liturgico nazionale, ' +
+      '20 August 2021): https://liturgico.chiesacattolica.it/calendario-liturgico-2021-2022coincidenze-particolari/ ' +
+      '(also published by the dioceses, e.g. Teano-Calvi: ' +
+      'https://www.diocesiteanocalvi.it/wp-content/uploads/sites/2/2022/06/2022-06-21-Notifica-ULD-Coincidenze-Anno-Liturgico.pdf)',
+    ids: ['most_sacred_heart_of_jesus', 'nativity_of_john_the_baptist'],
+    settle: (sacredHeart, baptist) =>
+      isSolemnityOfAPatron(baptist)
+        ? { kept: baptist, moved: sacredHeart, offset: -1 }
+        : { kept: sacredHeart, moved: baptist, offset: -1 },
+  },
+];
+
+/**
+ * Settle the coincidences ruled by the Holy See (see `COINCIDENCES`).
+ */
+const settleCoincidences = (
+  date: string,
+  days: readonly LiturgicalDay<Roman1969Vocabulary>[]
+): { days: LiturgicalDay<Roman1969Vocabulary>[]; transfers: OccurrenceTransfer<Roman1969Vocabulary>[] } =>
+  COINCIDENCES.reduce(
+    (acc, { ids, settle }) => {
+      const first = acc.days.find((d) => d.id === ids[0]);
+      const second = acc.days.find((d) => d.id === ids[1]);
+      if (!first || !second) return acc;
+
+      const { kept, moved, offset } = settle(first, second);
+      return {
+        days: [kept, ...acc.days.filter((d) => d !== kept && d !== moved)],
+        transfers: [...acc.transfers, { date: shiftDate(date, offset), day: moved }],
+      };
+    },
+    { days: [...days], transfers: [] as OccurrenceTransfer<Roman1969Vocabulary>[] }
+  );
+
+/**
+ * A solemnity that a particular calendar keeps on its date when it falls on a Sunday that would impede it
+ * (UNLY nos. 5 and 59), by an indult of the Holy See. The Sunday is not celebrated that year, as with any other
+ * celebration omitted by UNLY no. 60.
+ */
+interface SundayException {
+  /** The documents that authorise the exception. */
+  readonly source: string;
+  /** Whether the solemnity is the one the indult is given for, in the calendar of the day. */
+  readonly keeps: (solemnity: LiturgicalDay<Roman1969Vocabulary>) => boolean;
+  /** Whether the Sunday is one of those the indult covers. */
+  readonly over: (sunday: LiturgicalDay<Roman1969Vocabulary>) => boolean;
+}
+
+const SUNDAY_EXCEPTIONS: readonly SundayException[] = [
+  {
+    // Our Lady of Guadalupe in Mexico (12 December) when it is a Sunday of Advent. On 17 January 2013 the
+    // Congregation for Divine Worship, "por instrucción del Santo Padre", authorised the Mexican Episcopal
+    // Conference to dispense "en todos los años en que acontezca esta coincidencia", and the Conference decreed
+    // it on 20 September 2021 for 12 December 2021. The Sunday gives its second reading and its collect (and
+    // the intention of its prayer of the faithful) to the Mass of Our Lady, which romcal does not show apart.
+    // The text of the decree and the letter of the Congregation are not published online: the exception rests
+    // on the press of the Church in Mexico, not on a primary source.
+    source:
+      'Congregation for Divine Worship and the Discipline of the Sacraments, 17 January 2013 (as reported by ' +
+      'Desde la Fe, the weekly of the Archdiocese of Mexico, ' +
+      'https://desdelafe.mx/noticias/iglesia-en-mexico/pese-a-ser-domingo-de-adviento-la-virgen-de-guadalupe-celebrara-su-dia/ ' +
+      'and by ACI Prensa on the decree of the Mexican Episcopal Conference of 20 September 2021, ' +
+      'https://www.aciprensa.com/noticias/89892/mexico-celebrara-a-la-virgen-de-guadalupe-en-el-domingo-de-la-alegria)',
+    // Only Mexico gives the solemnity of the principal patron to Our Lady of Guadalupe.
+    keeps: (day) =>
+      day.id === 'our_lady_of_guadalupe' && day.precedence === Precedences.ProperSolemnity_PrincipalPatron_4a,
+    over: (sunday) => sunday.seasons.includes(Season.Advent),
+  },
+  {
+    // St Patrick in Ireland (17 March) when it is a Sunday of Lent, other than Palm Sunday (which UNLY no. 5
+    // does not count among the Sundays that impede a solemnity). The Irish bishops asked the Holy See in 2019
+    // not to apply the rule, and it agreed; the solemnity was kept on Sunday 17 March 2019 and again on
+    // Sunday 17 March 2024, with no mention of a new request. No standing indult is published: the exception
+    // rests on third-party reports and on statements of the Irish bishops, not on a decree of the Holy See, and
+    // is applied in every year because the Irish calendar is reported to keep it "always", even on a Sunday.
+    source:
+      'Universalis, St Patrick in Ireland 2019 (the Vatican agreed to the request of the Irish bishops), ' +
+      'https://blog.universalis.com/2019/03/13/st-patrick-in-ireland-2019/; ' +
+      'Vatican News on the statement of the Irish Catholic Bishops\' Conference, March 2019, ' +
+      'https://www.vaticannews.va/en/pope/news/2019-03/irish-bishops-conclude-general-meeting.html; ' +
+      'Aleteia, 10 March 2024, ' +
+      'https://aleteia.org/2024/03/10/what-happens-when-st-patricks-day-falls-on-a-sunday; ' +
+      'Irish Catholic Bishops\' Conference, statement of 6 March 2024, ' +
+      'https://www.catholicbishops.ie/2024/03/06/statement-of-the-spring-2024-general-meeting-of-the-irish-catholic-bishops-conference/',
+    // Australia, England, Scotland and New Zealand keep the general rule: only the patron of Ireland is told by
+    // the title.
+    keeps: (day) => day.id === 'patrick_of_ireland_bishop' && day.titles.includes(PatronTitle.PatronOfIreland),
+    over: (sunday) => sunday.seasons.includes(Season.Lent),
+  },
+];
+
+/**
+ * Keep a solemnity on its date over a Sunday, where an indult allows it (see `SUNDAY_EXCEPTIONS`).
+ */
+const keepOverSunday = (
+  days: LiturgicalDay<Roman1969Vocabulary>[]
+): LiturgicalDay<Roman1969Vocabulary>[] => {
+  const [first, ...others] = days;
+  if (!first || !isSundayTransferringToMonday(first)) return days;
+
+  const kept = others.find((day) => SUNDAY_EXCEPTIONS.some(({ keeps, over }) => keeps(day) && over(first)));
+  return kept ? [kept, ...others.filter((day) => day !== kept)] : days;
+};
+
+/**
  * Keep / drop when several celebrations land on one date (UNLY nn. 14, 16, 19, 28, 59).
  *
- * 1969 never transfers across dates; losers are omitted or kept as optionals on the
- * same day.
+ * Losers are omitted or kept as optionals on the same date, except the solemnities, which
+ * are transferred to the closest available day (UNLY #60).
  */
 const resolveOccurrences = ({
+  date,
   days,
+  dayOn,
 }: OccurrenceInput<Roman1969Vocabulary>): OccurrenceOutcome<Roman1969Vocabulary> => {
-  // Copy so Holy Thursday's shift does not mutate the calendar's sorted list.
-  const dates: LiturgicalDay<Roman1969Vocabulary>[] = [...days];
+  // A ruling of the Holy See comes first. This also copies the list, so Holy Thursday's shift
+  // does not mutate the calendar's sorted list.
+  const settled = settleCoincidences(date, days);
+  // An indult can keep a solemnity on a Sunday that would impede it; the Sunday is then omitted.
+  let dates = keepOverSunday(settled.days);
+  const { transfers } = settled;
 
   // Exception the Thursday within the Holy Week, this day contain 2 liturgical days, i.e.:
   //
@@ -152,8 +381,38 @@ const resolveOccurrences = ({
   // celebrated, the others being omitted.
   const defaultLiturgicalDay = dates[0];
   if (!defaultLiturgicalDay) {
-    return { onDate: thursdayOfTheLordsSupper ? [thursdayOfTheLordsSupper] : [], transfers: [] };
+    return { onDate: thursdayOfTheLordsSupper ? [thursdayOfTheLordsSupper] : [], transfers };
   }
+
+  // UNLY #60: "If several celebrations fall on the same day, the one that holds the highest rank
+  // according to the preceding Table of Liturgical Days is observed. But a solemnity impeded by a
+  // liturgical day that takes precedence over it should be transferred to the closest day not listed
+  // in nos. 1-8 in the table of precedence; the rule of no. 5 remains in effect. Other celebrations
+  // are omitted that year."
+  // UNLY #5: "the Sundays of Advent, Lent and Easter have precedence over all Feasts of the Lord and
+  // over all Solemnities. In fact, Solemnities occurring on these Sundays are transferred to the
+  // following Monday unless they occur on Palm Sunday or on Sunday of the Lord's Resurrection."
+  // Source: Universal Norms on the Liturgical Year and the General Roman Calendar (Normae universales
+  // de anno liturgico et de calendario), nos. 5 and 60, approved by Paul VI, motu proprio Mysterii Paschalis,
+  // 14 February 1969, https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19690214_mysterii-paschalis.html;
+  // English text of the current edition: Catholic Bishops' Conference of England and Wales, Liturgy Office,
+  // https://www.liturgyoffice.org/Calendar/Info/GNLY.pdf.
+  // Apart from no. 5, the closest day is searched on both sides of the date: a solemnity of Holy Week
+  // goes to the Saturday before Palm Sunday, or to the Monday after the Octave of Easter, whichever is
+  // the closest.
+  const impeded = dates.slice(1).filter((d) => d.rank === Ranks.Solemnity && !d.isOptional);
+  dates = [defaultLiturgicalDay, ...dates.slice(1).filter((d) => !impeded.includes(d))];
+
+  const taken = new Set(transfers.map((transfer) => transfer.date));
+  const afterOnly = isSundayTransferringToMonday(defaultLiturgicalDay);
+  impeded.forEach((day) => {
+    const target = closestAvailableDate(date, dayOn, taken, afterOnly);
+    // No day of the generated range is available: the solemnity is omitted from this calendar, as the
+    // generator drops a day transferred outside of its range.
+    if (target === undefined) return;
+    taken.add(target);
+    transfers.push({ date: target, day });
+  });
 
   let optionalMemorials: LiturgicalDay<Roman1969Vocabulary>[] = [];
 
@@ -193,9 +452,8 @@ const resolveOccurrences = ({
   //    day, or the Mass of any Saint inscribed in the Martyrology for that day, or a Mass
   //    for Various Needs, or a Votive Mass.
   if (
-    (defaultLiturgicalDay.precedence === Precedences.PrivilegedWeekday_9 ||
-      defaultLiturgicalDay.precedence === Precedences.Weekday_13) &&
-    !defaultLiturgicalDay.periods.includes(Period.HolyWeek)
+    defaultLiturgicalDay.precedence === Precedences.PrivilegedWeekday_9 ||
+    defaultLiturgicalDay.precedence === Precedences.Weekday_13
   ) {
     optionalMemorials = optionalMemorials.concat(
       dates
@@ -256,7 +514,7 @@ const resolveOccurrences = ({
       ...optionalMemorials,
       ...(thursdayOfTheLordsSupper ? [thursdayOfTheLordsSupper] : []),
     ],
-    transfers: [],
+    transfers,
   };
 };
 
@@ -271,6 +529,8 @@ export const Unly1969Rubrics: Rubrics<Roman1969Vocabulary> = {
   },
   periodsOf,
   precedences: PRECEDENCES,
+  // UNLY no. 59: a memorial never takes precedence over a day of a higher category.
+  precedenceFirst: true,
   rankOf,
   resolveOccurrences,
   seasons: {

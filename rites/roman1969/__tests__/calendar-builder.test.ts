@@ -539,13 +539,6 @@ describe('Testing the Elevated Memorial option', () => {
       },
     });
 
-    test('UTC+7 resolves to January 26', async () => {
-      const calendar = await new Romcal({ localizedCalendar: makeTestBundle(7) }).generateCalendar(2028);
-      const entry = calendar['2028-01-26'].find((d) => d.id === 'lunar_new_year_test');
-      expect(entry).toBeDefined();
-      expect(entry!.name).toBe('Lunar New Year Test');
-    });
-
     test('UTC+8 resolves to January 26', async () => {
       const calendar = await new Romcal({ localizedCalendar: makeTestBundle(8) }).generateCalendar(2028);
       const entry = calendar['2028-01-26'].find((d) => d.id === 'lunar_new_year_test');

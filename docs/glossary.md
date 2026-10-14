@@ -90,7 +90,9 @@ See also:
 
 The principle of precedence is used to determine which liturgical celebration should be observed when two or more celebrations fall on the same day. The principle of precedence is based on the liturgical rank of the celebrations.
 
-See [GNLYC §59](https://www.liturgyoffice.org.uk/Resources/GIRM/Documents/GNLY.pdf#page=14).
+A solemnity impeded by a day that takes precedence over it is transferred to another day; the other celebrations are omitted that year. See [how romcal resolves the days of a date](./calendar-definitions.md).
+
+See [GNLYC §§5, 59 and 60](https://www.liturgyoffice.org/Calendar/Info/GNLY.pdf).
 
 ## Proper of Saints
 

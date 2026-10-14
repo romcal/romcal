@@ -38,6 +38,37 @@ registerBaseCalendar(GeneralRoman);
 `RomcalConfig` then asks for it by role. Constructing a config before any rite has
 registered one throws, rather than silently producing a calendar with nothing in it.
 
+## The rubrics
+
+The engine knows that some days outrank others; which ones, and what happens to the
+days that lose, is the rite's `Rubrics` object:
+
+- `precedences` lists the precedence values most important first; the engine compares
+  two days by their position in it;
+- `precedenceFirst` says how that list is read. When true (1969), two days of different
+  ranks are compared by precedence, and a day allowing similar rank items comes first
+  only against a day of the same rank. When false (1962), a day allowing similar rank
+  items comes first whatever its precedence, as the engine did before the option existed;
+- `resolveOccurrences` receives the days of one date, already sorted, and returns the
+  days kept on it (`onDate`, winner first) and the days it moves to other dates
+  (`transfers`).
+
+To find a date to transfer a day to, `resolveOccurrences` also receives `dayOn`, which
+gives the day that holds any other date of the year at that point: the first kept day of
+a date already resolved, the first day in the order of precedence of a later one, or
+`undefined` outside the generated range.
+
+The engine then:
+
+- adds a transferred day to the days of its destination, before or after the date being
+  resolved, and resolves that date again when it was resolved already, so the same policy
+  decides whether the day wins there, stays as an optional, or moves on again;
+- builds the day again on its destination, so it carries that date and its calendar
+  metadata;
+- drops a day transferred outside the generated range;
+- throws when a transfer targets the date it comes from, or when a day keeps being sent
+  back and forth.
+
 ## Build
 
 The repository sets `importHelpers`, which the rite gets away with because its release

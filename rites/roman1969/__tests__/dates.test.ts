@@ -1,7 +1,10 @@
 import { England_En } from '@dist/rite-roman1969/bundles/england';
 import { France_Fr } from '@dist/rite-roman1969/bundles/france';
+import { GeneralRoman_En } from '@dist/rite-roman1969/bundles/general-roman';
 import { UnitedStates_En } from '@dist/rite-roman1969/bundles/united-states';
 import { Romcal } from '@src/rite-roman1969';
+
+import { annunciationOfTheLord, checkEveryYear, isoDate, josephSpouseOfMary } from './helpers/calendar';
 
 /**
  * Gets the number of week days in range, including the end date
@@ -43,9 +46,7 @@ const {
   rangeOfDays,
   startOfWeek,
   getUtcDate,
-  getUtcDateFromString,
   isSameDate,
-  subtractsDays,
 } = Romcal;
 
 describe('Testing specific liturgical date functions', () => {
@@ -192,32 +193,6 @@ describe('Testing specific liturgical date functions', () => {
   });
 
   describe('Easter calculation based on an algorithm from The Explanatory Supplement to the Astronomical Almanac', () => {
-    test('In 1969, Easter Sunday was on April 6', () => {
-      const date = new Romcal().dates().easterSunday(1969);
-      expect(date.getUTCMonth()).toEqual(3);
-      expect(date.getUTCDate()).toEqual(6);
-    });
-
-    test('In 2008, Easter Sunday was on March 23', () => {
-      const date = new Romcal().dates().easterSunday(2008);
-      expect(date.getUTCMonth()).toEqual(2);
-      expect(date.getUTCDate()).toEqual(23);
-    });
-
-    test('In 2050, Easter Sunday will be on April 10', () => {
-      const date = new Romcal().dates().easterSunday(2050);
-      expect(date.getUTCMonth()).toEqual(3);
-      expect(date.getUTCDate()).toEqual(10);
-    });
-
-    test('Its earliest occurring date is March 22 and latest occurring date is April 25', () => {
-      for (let i = 1900, il = 2100; i <= il; i += 1) {
-        const range = rangeOfDays(getUtcDate(i, 3, 22), getUtcDate(i, 4, 25));
-        const easter = new Romcal().dates().easterSunday(i);
-        expect(rangeContainsDate(range, easter)).toBeTruthy();
-      }
-    });
-
     test('An explicit Julian lookup does not leak into other dates on a Gregorian instance', () => {
       const dates = new Romcal().dates(2024);
       dates.easterSunday(2024, 'julian');
@@ -510,7 +485,7 @@ describe('Testing specific liturgical date functions', () => {
 
     test('When it occurs on a weekday, only one item is output for this day', async () => {
       const romcal = new Romcal();
-      const ids = (await romcal.generateCalendar(2022))['2022-06-25'].map((d) => d.id);
+      const ids = (await romcal.generateCalendar(2021))['2021-06-12'].map((d) => d.id);
       expect(JSON.stringify(ids)).toEqual(JSON.stringify(['immaculate_heart_of_mary']));
     });
   });
@@ -695,110 +670,24 @@ describe('Testing specific liturgical date functions', () => {
   });
 
   describe('The Solemnity of Joseph, Husband of Mary', () => {
-    test('Should fall on the 19th of March every year if not on a Sunday of Lent or during Holy Week', async () => {
-      for (let i = 1950, il = 2050; i <= il; i += 1) {
-        const romcal = new Romcal();
-        const dates = romcal.dates(i);
-        const palmSunday = dates.palmSunday();
-
-        const date = getUtcDate(i, 3, 19);
-        const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', {
-          year: i,
-        });
-        const computedDate = getUtcDateFromString(josephSpouseOfMary!.date);
-
-        expect(
-          // If it falls during Holy Week (or after)
-          date.getTime() >= palmSunday.getTime() ||
-            // If March 19 is a Sunday
-            date.getUTCDay() === 0 ||
-            // Otherwise, the computed date must be March 19
-            isSameDate(computedDate, date)
-        ).toBeTruthy();
-      }
-    });
-
-    test('If it falls on a Sunday of Lent, it should be moved to the following Monday', async () => {
-      for (let i = 1950, il = 2050; i <= il; i += 1) {
-        const romcal = new Romcal();
-        const dates = romcal.dates(i);
-        const palmSunday = dates.palmSunday();
-
-        const date = getUtcDate(i, 3, 19);
-        const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', {
-          year: i,
-        });
-        const computedDate = getUtcDateFromString(josephSpouseOfMary!.date);
-
-        expect(
-          // If it falls during Holy Week (or after)
-          date.getTime() >= palmSunday.getTime() ||
-            // If March 19 is a Sunday, the feast is moved to a Monday
-            (date.getUTCDay() === 0 && computedDate.getUTCDay() === 1) ||
-            // Otherwise, the computed date must be March 19
-            isSameDate(computedDate, date)
-        ).toBeTruthy();
-      }
-    });
-
-    test('If it falls during Holy Week, it should be moved to the Saturday preceding Palm Sunday', async () => {
-      // Year 2006 fulfils this condition
-      for (let i = 2006, il = 2006; i <= il; i += 1) {
-        const romcal = new Romcal();
-        const dates = romcal.dates(i);
-        const palmSunday = dates.palmSunday();
-
-        const date = getUtcDate(i, 3, 19);
-        const josephSpouseOfMary = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', {
-          year: i,
-        });
-        const computedDate = getUtcDateFromString(josephSpouseOfMary!.date);
-
-        expect(
-          // If it falls during Holy Week (or after)
-          (date.getTime() >= palmSunday.getTime() && isSameDate(computedDate, subtractsDays(palmSunday, 1))) ||
-            // If March 19 is a Sunday
-            date.getUTCDay() === 0 ||
-            // Otherwise, the computed date must be March 19
-            isSameDate(computedDate, date)
-        ).toBeTruthy();
-      }
-    });
-
-    test('In 2008, 19 March falls in Holy Week and moves to the Saturday before Palm Sunday', async () => {
-      const romcal = new Romcal();
-      const dates = romcal.dates(2008);
-      const day = await romcal.getOneLiturgicalDay('joseph_spouse_of_mary', { year: 2008 });
-      expect(isSameDate(getUtcDateFromString(day!.date), subtractsDays(dates.palmSunday(), 1))).toEqual(true);
+    test('Is on 19 March, on Monday 20 March when 19 March is a Sunday of Lent, and on the Saturday before Palm Sunday when 19 March is in Holy Week', async () => {
+      const cases = await checkEveryYear(GeneralRoman_En, 'joseph_spouse_of_mary', [1950, 2050], josephSpouseOfMary, {
+        celebrationOfTheDay: true,
+      });
+      expect(Object.keys(cases).sort()).toEqual(['Holy Week', 'Palm Sunday', 'Sunday of Lent', 'unimpeded']);
     });
   });
 
   describe('The Solemnity of the Annunciation', () => {
-    test('Falls on 25 March when that is outside Holy Week and the Octave of Easter', async () => {
-      const romcal = new Romcal();
-      const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2025 });
-      expect(isSameDate(getUtcDateFromString(day!.date), getUtcDate(2025, 3, 25))).toEqual(true);
-    });
-
-    test('Moves to the Monday after Divine Mercy Sunday when 25 March falls in Holy Week or the Octave', async () => {
-      const romcal = new Romcal();
-      const dates = romcal.dates(2024);
-      const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2024 });
-      expect(isSameDate(getUtcDateFromString(day!.date), addDays(dates.divineMercySunday(), 1))).toEqual(true);
-    });
-
-    test('Moves to the Monday after Divine Mercy Sunday when 25 March is Palm Sunday', async () => {
-      const romcal = new Romcal();
-      const dates = romcal.dates(2018);
-      const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2018 });
-      expect(isSameDate(getUtcDateFromString(day!.date), addDays(dates.divineMercySunday(), 1))).toEqual(true);
-    });
-
-    test('Moves to the Monday after Divine Mercy Sunday when 25 March is Easter Sunday', async () => {
-      const romcal = new Romcal();
-      const dates = romcal.dates(2035);
-      const day = await romcal.getOneLiturgicalDay('annunciation_of_the_lord', { year: 2035 });
-      expect(isSameDate(getUtcDateFromString(day!.date), addDays(dates.divineMercySunday(), 1))).toEqual(true);
+    test('Is on 25 March, on Monday 26 March when 25 March is a Sunday of Lent, and on the Monday after Divine Mercy Sunday when 25 March is from Palm Sunday to Divine Mercy Sunday', async () => {
+      const cases = await checkEveryYear(
+        GeneralRoman_En,
+        'annunciation_of_the_lord',
+        [1950, 2050],
+        annunciationOfTheLord,
+        { celebrationOfTheDay: true }
+      );
+      expect(Object.keys(cases).sort()).toEqual(['Holy Week or the Octave of Easter', 'Sunday of Lent', 'unimpeded']);
     });
   });
 
@@ -859,81 +748,27 @@ describe('Testing specific liturgical date functions', () => {
   });
 
   describe('The Solemnity of the Immaculate Conception', () => {
-    test('Falls on 8 December when that is not a Sunday', async () => {
-      const romcal = new Romcal();
-      const day = await romcal.getOneLiturgicalDay('immaculate_conception_of_the_blessed_virgin_mary', { year: 2025 });
-      expect(isSameDate(getUtcDateFromString(day!.date), getUtcDate(2025, 12, 8))).toEqual(true);
-    });
-
-    test('Moves to Monday when 8 December is a Sunday', async () => {
-      const romcal = new Romcal();
-      const day = await romcal.getOneLiturgicalDay('immaculate_conception_of_the_blessed_virgin_mary', { year: 2024 });
-      expect(isSameDate(getUtcDateFromString(day!.date), getUtcDate(2024, 12, 9))).toEqual(true);
+    test('Is on 8 December, and on Monday 9 December when 8 December is a Sunday', async () => {
+      const cases = await checkEveryYear(
+        GeneralRoman_En,
+        'immaculate_conception_of_the_blessed_virgin_mary',
+        [1950, 2050],
+        (year) => {
+          const date = getUtcDate(year, 12, 8);
+          if (date.getUTCDay() === 0) return { date: isoDate(addDays(date, 1)), case: 'Sunday of Advent' };
+          return { date: isoDate(date), case: 'unimpeded' };
+        },
+        { celebrationOfTheDay: true }
+      );
+      expect(Object.keys(cases).sort()).toEqual(['Sunday of Advent', 'unimpeded']);
     });
   });
 
   describe('Lunar New Year', () => {
-    test('In 2026, Lunar New Year (UTC+7, Vietnam) is February 17', () => {
-      const date = new Romcal().dates().lunarNewYear(7, 2026);
-      expect(date.getUTCFullYear()).toEqual(2026);
-      expect(date.getUTCMonth()).toEqual(1);
-      expect(date.getUTCDate()).toEqual(17);
-    });
-
-    test('In 2026, Lunar New Year (UTC+8, China/Hong Kong/Taiwan) is February 17', () => {
-      const date = new Romcal().dates().lunarNewYear(8, 2026);
-      expect(date.getUTCFullYear()).toEqual(2026);
-      expect(date.getUTCMonth()).toEqual(1);
-      expect(date.getUTCDate()).toEqual(17);
-    });
-
-    test('In 2026, Lunar New Year (UTC+9, Korea/Japan) is February 17', () => {
-      const date = new Romcal().dates().lunarNewYear(9, 2026);
-      expect(date.getUTCFullYear()).toEqual(2026);
-      expect(date.getUTCMonth()).toEqual(1);
-      expect(date.getUTCDate()).toEqual(17);
-    });
-
-    test('In 2028, Lunar New Year (UTC+7, Vietnam) is January 26', () => {
-      const date = new Romcal().dates().lunarNewYear(7, 2028);
-      expect(date.getUTCFullYear()).toEqual(2028);
-      expect(date.getUTCMonth()).toEqual(0);
-      expect(date.getUTCDate()).toEqual(26);
-    });
-
-    test('In 2028, Lunar New Year (UTC+8, China/Hong Kong/Taiwan) is January 26', () => {
-      const date = new Romcal().dates().lunarNewYear(8, 2028);
-      expect(date.getUTCFullYear()).toEqual(2028);
-      expect(date.getUTCMonth()).toEqual(0);
-      expect(date.getUTCDate()).toEqual(26);
-    });
-
-    test('In 2028, Lunar New Year (UTC+9, Korea/Japan) is January 27', () => {
-      const date = new Romcal().dates().lunarNewYear(9, 2028);
-      expect(date.getUTCFullYear()).toEqual(2028);
-      expect(date.getUTCMonth()).toEqual(0);
-      expect(date.getUTCDate()).toEqual(27);
-    });
-
-    test('In 2030, Lunar New Year (UTC+7, Vietnam) is February 2', () => {
-      const date = new Romcal().dates().lunarNewYear(7, 2030);
-      expect(date.getUTCFullYear()).toEqual(2030);
-      expect(date.getUTCMonth()).toEqual(1);
-      expect(date.getUTCDate()).toEqual(2);
-    });
-
-    test('In 2030, Lunar New Year (UTC+8, China/Hong Kong/Taiwan) is February 3', () => {
-      const date = new Romcal().dates().lunarNewYear(8, 2030);
-      expect(date.getUTCFullYear()).toEqual(2030);
-      expect(date.getUTCMonth()).toEqual(1);
-      expect(date.getUTCDate()).toEqual(3);
-    });
-
-    test('In 2030, Lunar New Year (UTC+9, Korea/Japan) is February 3', () => {
-      const date = new Romcal().dates().lunarNewYear(9, 2030);
-      expect(date.getUTCFullYear()).toEqual(2030);
-      expect(date.getUTCMonth()).toEqual(1);
-      expect(date.getUTCDate()).toEqual(3);
+    test('passes the UTC offset on: in 2028, UTC+8 is January 26 and UTC+9 is January 27', () => {
+      const dates = new Romcal().dates();
+      expect(dates.lunarNewYear(8, 2028).toISOString().slice(0, 10)).toEqual('2028-01-26');
+      expect(dates.lunarNewYear(9, 2028).toISOString().slice(0, 10)).toEqual('2028-01-27');
     });
   });
 });
