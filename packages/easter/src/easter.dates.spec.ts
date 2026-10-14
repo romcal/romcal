@@ -12,6 +12,7 @@ describe('Easter calculation', () => {
   describe('calculateGregorianEasterDate', () => {
     // TODO: move this to a fixture after #477 is merged (it introduces fixtures)
     const expectedDates: Record<string, EasterDate> = {
+      '1969': { year: 1969, month: 4, day: 6 },
       '2001': { year: 2001, month: 4, day: 15 },
       '2002': { year: 2002, month: 3, day: 31 },
       '2003': { year: 2003, month: 4, day: 20 },
@@ -37,11 +38,21 @@ describe('Easter calculation', () => {
       '2023': { year: 2023, month: 4, day: 9 },
       '2024': { year: 2024, month: 3, day: 31 },
       '2025': { year: 2025, month: 4, day: 20 },
+      '2050': { year: 2050, month: 4, day: 10 },
     };
 
     Object.entries(expectedDates).forEach(([year, expected]) => {
       it(`should calculate Gregorian Easter date for year ${year}`, () => {
         expect(calculateGregorianEasterDate(parseInt(year, 10))).toEqual(expected);
+      });
+    });
+
+    it('should fall between March 22 and April 25, from 1900 to 2100', () => {
+      Array.from({ length: 201 }, (_, i) => 1900 + i).forEach((year) => {
+        const { month, day } = calculateGregorianEasterDate(year);
+        const ordinal = month * 100 + day;
+        expect(ordinal).toBeGreaterThanOrEqual(322);
+        expect(ordinal).toBeLessThanOrEqual(425);
       });
     });
   });
