@@ -60,9 +60,13 @@ export class Poland extends CalendarDef {
       titles: { append: [PatronTitle.PatronOfPoland] },
     },
 
+    // When 3 May is a Sunday (always a Sunday of Easter), the solemnity is anticipated to Saturday 2 May, as the
+    // Holy See allowed for 2015 and 2026 (Gość Gdański, 8 May 2015; communiqué of the Polish Episcopal Conference,
+    // 2025), rather than transferred to the Monday (UNLY no. 5).
     our_lady_queen_of_poland: {
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       dateDef: { month: 5, date: 3 },
+      dateExceptions: [{ ifIsDayOfWeek: 0, setDate: { subtractDay: 1 } }],
     },
 
     our_lady_help_of_christians: {

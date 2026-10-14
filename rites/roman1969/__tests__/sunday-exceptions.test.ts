@@ -2,6 +2,7 @@ import { Australia_En } from '@dist/rite-roman1969/bundles/australia';
 import { GeneralRoman_En } from '@dist/rite-roman1969/bundles/general-roman';
 import { Ireland_En } from '@dist/rite-roman1969/bundles/ireland';
 import { Mexico_En } from '@dist/rite-roman1969/bundles/mexico';
+import { Poland_En } from '@dist/rite-roman1969/bundles/poland';
 
 import { datesOf, idsOn } from './helpers/calendar';
 
@@ -102,5 +103,29 @@ describe('St Patrick and St Joseph in Ireland when 17 March is in Holy Week', ()
   test.each([2024, 2025])('St Patrick and St Joseph stay on their dates in %i', async (year) => {
     expect(await datesOf(Ireland_En, year, 'patrick_of_ireland_bishop')).toContain(`${year}-03-17`);
     expect(await datesOf(Ireland_En, year, 'joseph_spouse_of_mary')).toEqual([`${year}-03-19`]);
+  });
+});
+
+// When 3 May is a Sunday (always a Sunday of Easter), Our Lady Queen of Poland is anticipated to Saturday 2 May,
+// as the Holy See allowed in 2015 and 2026, rather than transferred to the Monday (UNLY no. 5).
+describe('Our Lady Queen of Poland in Poland (3 May)', () => {
+  test.each([
+    [2015, 'easter_time_5_sunday'],
+    [2020, 'easter_time_4_sunday'],
+    [2026, 'easter_time_5_sunday'],
+    [2043, 'easter_time_6_sunday'],
+  ])('is anticipated to Saturday 2 May when 3 May is a Sunday of Easter: %i (%s)', async (year, sunday) => {
+    expect(await datesOf(Poland_En, year, 'our_lady_queen_of_poland')).toEqual([`${year}-05-02`]);
+    expect((await idsOn(Poland_En, `${year}-05-03`))[0]).toBe(sunday);
+    expect(await idsOn(Poland_En, `${year}-05-04`)).not.toContain('our_lady_queen_of_poland');
+  });
+
+  test.each([
+    [2025, 'a Saturday'],
+    [2027, 'a Monday'],
+    [2031, 'a Saturday'],
+  ])('stays on 3 May in a year when it is not a Sunday: %i (%s)', async (year) => {
+    const date = `${year}-05-03`;
+    expect(await datesOf(Poland_En, year, 'our_lady_queen_of_poland')).toEqual([date]);
   });
 });
