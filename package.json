@@ -87,7 +87,7 @@
     "eslint-plugin-markdownlint": "^1.0.0",
     "eslint-plugin-perfectionist": "^5.12.1",
     "eslint-plugin-unused-imports": "^4.4.1",
-    "eslint-plugin-yml": "^3.8.1",
+    "eslint-plugin-yml": "^3.9.0",
     "globals": "^17.13.0",
     "husky": "^9.1.7",
     "jest": "^30.5.2",
@@ -97,7 +97,7 @@
     "sort-package-json": "^4.0.0",
     "tsx": "^4.23.15",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.71.0"
+    "typescript-eslint": "^8.71.1"
   },
   "engines": {
     "node": ">=18.0.0"
