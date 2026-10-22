@@ -16,10 +16,10 @@ const daysReceivedOn = async (
   id: string,
   from: string,
   to: string
-): Promise<{ calendar: LiturgicalCalendar; days: Day[] }> => {
+): Promise<{ calendar: LiturgicalCalendar; days: readonly Day[] }> => {
   const transferring = riteTransferring(id, from, to);
   const resolveOccurrences = transferring.rubrics.resolveOccurrences;
-  let days: Day[] = [];
+  let days: readonly Day[] = [];
 
   registerRite({
     ...transferring,
@@ -36,7 +36,7 @@ const daysReceivedOn = async (
   return { calendar, days };
 };
 
-const properOfTimeOn = (days: Day[]): Day => {
+const properOfTimeOn = (days: readonly Day[]): Day => {
   const temporal = days.find((d) => d.cycles.properCycle === Romcal.ProperCycles.ProperOfTime);
   if (!temporal) throw new Error('destination has no Proper of Time day');
   return temporal;
