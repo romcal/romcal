@@ -69,6 +69,36 @@ describe('Occurrence transfers', () => {
     expect(received?.periods).toEqual([Period.LateOrdinaryTime]);
   });
 
+  test('a transferred Proper of Time weekday takes the destination season coordinates', async () => {
+    const transferring = riteTransferring('saturday_after_ash_wednesday', '2021-02-20', '2021-02-21');
+    const resolveOccurrences = transferring.rubrics.resolveOccurrences;
+    let received: OccurrenceInput<Roman1969Vocabulary>['days'][number] | undefined;
+
+    registerRite({
+      ...transferring,
+      rubrics: {
+        ...transferring.rubrics,
+        resolveOccurrences: (input) => {
+          // The First Sunday of Lent keeps 21 February. The Saturday is appointed to
+          // week 0, day 4; the landing date is week 1, day 5, and the psalter follows the week.
+          if (input.date === '2021-02-21') {
+            received = input.days.find((d) => d.id === 'saturday_after_ash_wednesday');
+          }
+          return resolveOccurrences(input);
+        },
+      },
+    });
+
+    const calendar = (await new Romcal().generateCalendar(2021)) as LiturgicalCalendar;
+
+    expect(calendar['2021-02-20'].map((d) => d.id)).not.toContain('saturday_after_ash_wednesday');
+    expect(received?.date).toBe('2021-02-21');
+    expect(received?.calendar.dayOfWeek).toBe(0);
+    expect(received?.calendar.dayOfSeason).toBe(5);
+    expect(received?.calendar.weekOfSeason).toBe(1);
+    expect(received?.cycles.psalterWeek).toBe(Romcal.PsalterWeekCycles.Week1);
+  });
+
   test('a transfer onto an earlier date is rejected', async () => {
     registerRite(riteTransferring('joseph_spouse_of_mary', '2021-03-19', '2021-03-18'));
 

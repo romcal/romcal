@@ -52,7 +52,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     def: LiturgicalDayDef<V>,
     date: Date,
     baseData: LiturgicalDay<V> | null,
-    dayOfWeek?: number
+    onTransfer = false
   ): RomcalCalendarMetadata<V> {
     const seasonRules = this.#config.rubrics.seasons;
     let currentYear = this.#liturgicalDayConfig.year;
@@ -76,12 +76,18 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
 
     // How a season is counted is the rite's business: the seasons themselves differ,
-    // and so does what a week number means within them.
+    // and so does what a week number means within them. A transfer has left the day
+    // the definition was appointed to, so the declared coordinates are set aside and
+    // the count is taken from where it landed.
     const { dayOfSeason, weekOfSeason } = seasonRules.numbering({
       date,
       dates: this.#liturgicalDayConfig.dates,
-      declaredDayOfSeason: baseData?.calendar.dayOfSeason ?? def.calendarMetadata.dayOfSeason,
-      declaredWeekOfSeason: baseData?.calendar.weekOfSeason ?? def.calendarMetadata.weekOfSeason,
+      declaredDayOfSeason: onTransfer
+        ? undefined
+        : baseData?.calendar.dayOfSeason ?? def.calendarMetadata.dayOfSeason,
+      declaredWeekOfSeason: onTransfer
+        ? undefined
+        : baseData?.calendar.weekOfSeason ?? def.calendarMetadata.weekOfSeason,
       endOfSeason,
       seasons: baseData?.seasons ?? def.seasons,
       startOfSeason,
@@ -90,7 +96,9 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     return {
       weekOfSeason,
       dayOfSeason,
-      dayOfWeek: dayOfWeek ?? baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.getUTCDay(),
+      dayOfWeek: onTransfer
+        ? date.getUTCDay()
+        : baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.getUTCDay(),
       nthDayOfWeekInMonth: Math.ceil(date.getUTCDate() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
@@ -123,7 +131,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     def: LiturgicalDayDef<V>,
     date: Date,
     builtData: LiturgicalBuiltData<V>,
-    dayOfWeek?: number
+    onTransfer = false
   ): LiturgicalDay<V> {
     const dateStr = date.toISOString().substr(0, 10);
     const isFromProperOfTime = this.#fromProperOfTime(def);
@@ -140,7 +148,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     }
 
     const calendar: RomcalCalendarMetadata<V> = isFromProperOfTime
-      ? this.#buildCalendarMetadata(def, date, baseData, dayOfWeek)
+      ? this.#buildCalendarMetadata(def, date, baseData, onTransfer)
       // TODO: refactor this to avoid the non-null assertion
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       : baseData!.calendar;
@@ -312,10 +320,10 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
         }
         // A date outside the generated range is not part of this calendar.
         if (!builtData.datesIndex[date]) continue;
-        // Rebuild onto the destination so its policy sees that date and its weekday.
-        // A Proper of Time definition keeps its appointed weekday; the landing date may differ.
+        // Rebuild onto the destination. A Proper of Time definition keeps the weekday
+        // and season coordinates it was appointed to; the landing date may differ.
         const dest = getUtcDateFromString(date);
-        (incoming[date] ??= []).push(this.#liturgicalDay(day.definition, dest, builtData, dest.getUTCDay()));
+        (incoming[date] ??= []).push(this.#liturgicalDay(day.definition, dest, builtData, true));
       }
     });
 
