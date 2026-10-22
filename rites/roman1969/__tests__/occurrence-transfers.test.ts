@@ -27,7 +27,10 @@ describe('Occurrence transfers', () => {
     const calendar = (await new Romcal().generateCalendar(2021)) as LiturgicalCalendar;
 
     expect(calendar['2021-03-19'].map((d) => d.id)).not.toContain('joseph_spouse_of_mary');
-    expect(calendar['2021-03-20'][0].id).toBe('joseph_spouse_of_mary');
+    const joseph = calendar['2021-03-20'][0];
+    expect(joseph.id).toBe('joseph_spouse_of_mary');
+    expect(joseph.date).toBe('2021-03-20');
+    expect(joseph.calendar.dayOfWeek).toBe(6);
   });
 
   test('a transfer onto an earlier date is rejected', async () => {

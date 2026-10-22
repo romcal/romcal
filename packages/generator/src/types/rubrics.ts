@@ -76,6 +76,9 @@ export interface OccurrenceInput<V extends Vocabulary = Vocabulary> {
  *
  * `date` must be later than the date being resolved; the calendar throws otherwise.
  * A target outside the generated range is dropped.
+ *
+ * The engine rebuilds `day` onto `date` before the destination is resolved, so the
+ * policy there sees that date and its calendar metadata (weekday, season, periods).
  */
 export interface OccurrenceTransfer<V extends Vocabulary = Vocabulary> {
   readonly date: string;
@@ -85,9 +88,10 @@ export interface OccurrenceTransfer<V extends Vocabulary = Vocabulary> {
 /**
  * What the rite keeps when several celebrations land on one date.
  *
- * Cross-date outcomes travel as `transfers`. A transferred day joins the celebrations
- * of its destination before that date is resolved, so the same policy decides
- * whether it wins, stays beside the winner, or moves on again.
+ * Cross-date outcomes travel as `transfers`. The engine rebuilds a transferred day
+ * onto its destination date, then that day joins the celebrations there before the
+ * date is resolved, so the same policy decides whether it wins, stays beside the
+ * winner, or moves on again.
  */
 export interface OccurrenceOutcome<V extends Vocabulary = Vocabulary> {
   /** Days kept on this date, winner first. */
