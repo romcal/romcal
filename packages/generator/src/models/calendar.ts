@@ -51,7 +51,8 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
   #buildCalendarMetadata(
     def: LiturgicalDayDef<V>,
     date: Date,
-    baseData: LiturgicalDay<V> | null
+    baseData: LiturgicalDay<V> | null,
+    dayOfWeek?: number
   ): RomcalCalendarMetadata<V> {
     const seasonRules = this.#config.rubrics.seasons;
     let currentYear = this.#liturgicalDayConfig.year;
@@ -89,7 +90,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     return {
       weekOfSeason,
       dayOfSeason,
-      dayOfWeek: baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.getUTCDay(),
+      dayOfWeek: dayOfWeek ?? baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.getUTCDay(),
       nthDayOfWeekInMonth: Math.ceil(date.getUTCDate() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
@@ -118,7 +119,12 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
    * base, so season, periods, and weekday follow the destination. A Proper of Time
    * day keeps its own definition and has its metadata recomputed for `date`.
    */
-  #liturgicalDay(def: LiturgicalDayDef<V>, date: Date, builtData: LiturgicalBuiltData<V>): LiturgicalDay<V> {
+  #liturgicalDay(
+    def: LiturgicalDayDef<V>,
+    date: Date,
+    builtData: LiturgicalBuiltData<V>,
+    dayOfWeek?: number
+  ): LiturgicalDay<V> {
     const dateStr = date.toISOString().substr(0, 10);
     const isFromProperOfTime = this.#fromProperOfTime(def);
 
@@ -134,7 +140,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     }
 
     const calendar: RomcalCalendarMetadata<V> = isFromProperOfTime
-      ? this.#buildCalendarMetadata(def, date, baseData)
+      ? this.#buildCalendarMetadata(def, date, baseData, dayOfWeek)
       // TODO: refactor this to avoid the non-null assertion
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       : baseData!.calendar;
@@ -306,8 +312,10 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
         }
         // A date outside the generated range is not part of this calendar.
         if (!builtData.datesIndex[date]) continue;
-        // Rebuild onto the destination so its policy sees that date and metadata.
-        (incoming[date] ??= []).push(this.#liturgicalDay(day.definition, getUtcDateFromString(date), builtData));
+        // Rebuild onto the destination so its policy sees that date and its weekday.
+        // A Proper of Time definition keeps its appointed weekday; the landing date may differ.
+        const dest = getUtcDateFromString(date);
+        (incoming[date] ??= []).push(this.#liturgicalDay(day.definition, dest, builtData, dest.getUTCDay()));
       }
     });
 

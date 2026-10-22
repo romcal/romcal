@@ -1,5 +1,12 @@
 import { OccurrenceInput, OccurrenceOutcome, Rite, registerRite } from '@internal/generator';
-import { LiturgicalCalendar, Romcal, Roman1969Rite, Roman1969Vocabulary, Unly1969Rubrics } from '@src/rite-roman1969';
+import {
+  LiturgicalCalendar,
+  Period,
+  Romcal,
+  Roman1969Rite,
+  Roman1969Vocabulary,
+  Unly1969Rubrics,
+} from '@src/rite-roman1969';
 
 type Policy = (input: OccurrenceInput<Roman1969Vocabulary>) => OccurrenceOutcome<Roman1969Vocabulary>;
 
@@ -31,6 +38,35 @@ describe('Occurrence transfers', () => {
     expect(joseph.id).toBe('joseph_spouse_of_mary');
     expect(joseph.date).toBe('2021-03-20');
     expect(joseph.calendar.dayOfWeek).toBe(6);
+  });
+
+  test('a transferred Proper of Time celebration is rebuilt onto the destination weekday', async () => {
+    const transferring = riteTransferring('most_sacred_heart_of_jesus', '2021-06-11', '2021-06-12');
+    const resolveOccurrences = transferring.rubrics.resolveOccurrences;
+    let received: OccurrenceInput<Roman1969Vocabulary>['days'][number] | undefined;
+
+    registerRite({
+      ...transferring,
+      rubrics: {
+        ...transferring.rubrics,
+        resolveOccurrences: (input) => {
+          // 12 June 2021 is the Immaculate Heart, which the 1969 policy keeps and the
+          // transferred solemnity does not survive into the output. The fields under
+          // test are the ones that policy receives.
+          if (input.date === '2021-06-12') {
+            received = input.days.find((d) => d.id === 'most_sacred_heart_of_jesus');
+          }
+          return resolveOccurrences(input);
+        },
+      },
+    });
+
+    const calendar = (await new Romcal().generateCalendar(2021)) as LiturgicalCalendar;
+
+    expect(calendar['2021-06-11'].map((d) => d.id)).not.toContain('most_sacred_heart_of_jesus');
+    expect(received?.date).toBe('2021-06-12');
+    expect(received?.calendar.dayOfWeek).toBe(6);
+    expect(received?.periods).toEqual([Period.LateOrdinaryTime]);
   });
 
   test('a transfer onto an earlier date is rejected', async () => {
