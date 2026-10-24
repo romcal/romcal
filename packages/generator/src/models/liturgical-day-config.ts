@@ -1,38 +1,40 @@
 import { DayOfWeek } from '../constants/weekdays';
+import { DatesProvider } from '../types/dates';
 import { DateDef, DateDefExtended } from '../types/liturgical-day';
 import { BaseLiturgicalDayConfig, LiturgicalDayConfigOutput } from '../types/liturgical-day-config';
-import { Dates, addDays, daysInMonth, getUtcDate, isSameDate, isValidDate, subtractsDays } from '../utils/dates';
+import { Vocabulary } from '../types/vocabulary';
+import { addDays, daysInMonth, getUtcDate, isSameDate, isValidDate, subtractsDays } from '../utils/dates';
 import { isInteger } from '../utils/numbers';
 
 import { RomcalConfig } from './config';
 import { LiturgicalDayDef } from './liturgical-day-def';
 
-export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
-  readonly config: RomcalConfig;
+export class LiturgicalDayConfig<V extends Vocabulary = Vocabulary> implements BaseLiturgicalDayConfig {
+  readonly config: RomcalConfig<V>;
 
   readonly year: number;
 
-  readonly dates: Dates;
+  readonly dates: DatesProvider;
 
   /**
    * Constructs a new [[Config]] object.
    * @param config
    * @param year
    */
-  constructor(config: RomcalConfig, year?: number) {
+  constructor(config: RomcalConfig<V>, year?: number) {
     this.config = config;
 
     const currentYear = new Date().getUTCFullYear();
     // Before the first Sunday of Advent, the current year is the liturgical year.
     // After it, the next Gregorian year represents the main part of this liturgical year.
-    const currentLiturgicalYear =
-      new Date().getTime() < Dates.firstSundayOfAdvent(currentYear + 1).getTime() ? currentYear : currentYear + 1;
+    const nextAdvent = config.dates.firstSundayOfAdvent(currentYear + 1);
+    const currentLiturgicalYear = new Date().getTime() < nextAdvent.getTime() ? currentYear : currentYear + 1;
 
     // When year is undefined, determine the current Gregorian or liturgical year.
     this.year = year ?? (config.scope === 'gregorian' ? currentYear : currentLiturgicalYear);
 
-    // Initialise the Dates class
-    this.dates = new Dates(config, this.year);
+    // The rite's own dates, for the year settled on above.
+    this.dates = new config.dates(config, this.year);
   }
 
   /**
@@ -65,9 +67,12 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
       }
 
       const args = [...(dateDef.dateArgs ?? []), year];
-      // TODO: improve TS typing here
+      // A definition names its date by string and the rite's date class answers, so
+      // this is a lookup on a shape the engine deliberately does not know. Which
+      // names are valid is settled by the rite that supplies both sides of it.
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const dates = this.dates[dateDef.dateFn].apply<ThisType<Dates>, any, any>(this, args);
+      const lookup = this.dates as unknown as Record<string, (...fnArgs: any[]) => Date | Date[] | null>;
+      const dates = lookup[dateDef.dateFn].apply(this, args);
       const validDate = isValidDate(dates) ? dates : null;
       date = (Array.isArray(dates) ? dates.find((e) => e) : validDate) || null;
 
@@ -101,7 +106,7 @@ export class LiturgicalDayConfig implements BaseLiturgicalDayConfig {
    * @param yearOffset
    * @private
    */
-  buildDate(def: LiturgicalDayDef, yearOffset = 0): Date | null {
+  buildDate(def: LiturgicalDayDef<V>, yearOffset = 0): Date | null {
     const date = this.#dateLookup(def.dateDef, yearOffset);
     if (!date) return null;
     let updatedDate: Date | null = date;
