@@ -1183,7 +1183,7 @@ export const locale: Locale = {
     our_lady_queen_of_poland: 'Our Lady, Queen of Poland',
     our_lady_refuge_of_sinners: 'Our Lady, Refuge of Sinners',
     our_lord_jesus_christ_king_of_the_universe: 'Our Lord Jesus Christ, King of the Universe',
-    our_lord_jesus_christ_the_black_nazarene: 'Our Lord Jesus Christ, the Black Nazarene',
+    our_lord_jesus_christ_senor_jesus_nazareno: 'Our Lord Jesus Christ, Señor Jesus Nazareno',
     our_lord_jesus_christ_the_eternal_high_priest: 'Our Lord Jesus Christ, the Eternal High Priest',
     our_lord_of_miracles: 'Our Lord of Miracles',
     ours_of_cahors_abbot: 'Saint Ours of Cahors, Abbot',
