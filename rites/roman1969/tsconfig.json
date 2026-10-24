@@ -1,4 +1,4 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["__tests__", "build", "src"]
+  "include": ["__tests__", "build", "src", "romcal.build.ts"]
 }

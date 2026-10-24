@@ -1,13 +1,11 @@
 import { PROPER_OF_TIME_NAME } from '../constants/general-calendar-names';
-import { Period } from '../constants/periods';
-import { Precedences } from '../constants/precedences';
 import { Ranks } from '../constants/ranks';
 import { BaseCalendar, ByIds, DatesIndex, LiturgicalBuiltData, LiturgicalCalendar } from '../types/calendar';
 import { Id } from '../types/common';
 import { DatesProvider } from '../types/dates';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
 import { Vocabulary } from '../types/vocabulary';
-import { isValidDate } from '../utils/dates';
+import { getUtcDateFromString, isValidDate } from '../utils/dates';
 
 import { RomcalConfig } from './config';
 import { LiturgicalDay } from './liturgical-day';
@@ -53,7 +51,8 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
   #buildCalendarMetadata(
     def: LiturgicalDayDef<V>,
     date: Date,
-    baseData: LiturgicalDay<V> | null
+    baseData: LiturgicalDay<V> | null,
+    onTransfer = false
   ): RomcalCalendarMetadata<V> {
     const seasonRules = this.#config.rubrics.seasons;
     let currentYear = this.#liturgicalDayConfig.year;
@@ -77,12 +76,18 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     const endOfSeason = def.seasons.length ? endOfSeasonsDic[def.seasons[0]] : undefined;
 
     // How a season is counted is the rite's business: the seasons themselves differ,
-    // and so does what a week number means within them.
+    // and so does what a week number means within them. A transfer has left the day
+    // the definition was appointed to, so the declared coordinates are set aside and
+    // the count is taken from where it landed.
     const { dayOfSeason, weekOfSeason } = seasonRules.numbering({
       date,
       dates: this.#liturgicalDayConfig.dates,
-      declaredDayOfSeason: baseData?.calendar.dayOfSeason ?? def.calendarMetadata.dayOfSeason,
-      declaredWeekOfSeason: baseData?.calendar.weekOfSeason ?? def.calendarMetadata.weekOfSeason,
+      declaredDayOfSeason: onTransfer
+        ? undefined
+        : baseData?.calendar.dayOfSeason ?? def.calendarMetadata.dayOfSeason,
+      declaredWeekOfSeason: onTransfer
+        ? undefined
+        : baseData?.calendar.weekOfSeason ?? def.calendarMetadata.weekOfSeason,
       endOfSeason,
       seasons: baseData?.seasons ?? def.seasons,
       startOfSeason,
@@ -91,7 +96,9 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     return {
       weekOfSeason,
       dayOfSeason,
-      dayOfWeek: baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.getUTCDay(),
+      dayOfWeek: onTransfer
+        ? date.getUTCDay()
+        : baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.getUTCDay(),
       nthDayOfWeekInMonth: Math.ceil(date.getUTCDate() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
@@ -99,6 +106,68 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
       endOfLiturgicalYear: boundary(endOfSeasonsDic, seasonRules.lastSeason).toISOString().substr(0, 10),
       seasons: baseData?.seasons ?? def.seasons,
     };
+  }
+
+  /**
+   * A Proper of Time definition can be extended in a particular calendar. In that case
+   * `fromCalendarId` takes the particular calendar's name, so the first extended
+   * calendar has to be checked as well.
+   */
+  #fromProperOfTime(def: LiturgicalDayDef<V>): boolean {
+    return (
+      def.fromCalendarId === PROPER_OF_TIME_NAME ||
+      (def.fromExtendedCalendars.length > 0 && def.fromExtendedCalendars[0].fromCalendarId === PROPER_OF_TIME_NAME)
+    );
+  }
+
+  /**
+   * A celebration as it occurs on `date`.
+   *
+   * Sanctoral days take the Proper of Time day already built for that date as their
+   * base, so season, periods, and weekday follow the destination. A Proper of Time
+   * day keeps its own definition and has its metadata recomputed for `date`.
+   */
+  #liturgicalDay(
+    def: LiturgicalDayDef<V>,
+    date: Date,
+    builtData: LiturgicalBuiltData<V>,
+    onTransfer = false
+  ): LiturgicalDay<V> {
+    const dateStr = date.toISOString().substr(0, 10);
+    const isFromProperOfTime = this.#fromProperOfTime(def);
+
+    // The first object on a date is always from the Proper of Time, since one is
+    // generated for each day of the year. A Proper of Time definition has no base.
+    let baseData: LiturgicalDay<V> | null = null;
+    if (!isFromProperOfTime) {
+      // Two LiturgicalDay objects with the same ID can occur within the same liturgical
+      // year, for example Saint Andrew Apostle (30 November 2011 and 30 November 2012)
+      // in liturgical year 2012.
+      baseData =
+        builtData.byIds[builtData.datesIndex[dateStr][0]].find((d) => d.date === dateStr) || null;
+    }
+
+    const calendar: RomcalCalendarMetadata<V> = isFromProperOfTime
+      ? this.#buildCalendarMetadata(def, date, baseData, onTransfer)
+      // TODO: refactor this to avoid the non-null assertion
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      : baseData!.calendar;
+
+    /**
+     * For Memorial and Feast celebrations only, the weekday property is added
+     * containing the LiturgicalDay object of the base weekday.
+     *
+     * - Memorials: their observance is integrated into the celebration of the occurring weekday
+     *   in accordance with the norms set forth in the General Instruction of the Roman
+     *   Missal and of the Liturgy of the Hours. (UNLY #14)
+     * - Liturgy of the hours: // todo: cite precise sources from the General Instructions of the Liturgy of the hours
+     *    - Memorials: the liturgy of the hour remain the one of the weekday.
+     *    - Feasts: small hours are taken from the weekday.
+     */
+    const weekday: LiturgicalDay<V> | null =
+      baseData && [Ranks.Feast, Ranks.Memorial, Ranks.OptionalMemorial].some((r) => r === def.rank) ? baseData : null;
+
+    return new LiturgicalDay<V>(def, date, this.#liturgicalDayConfig, calendar, baseData, weekday);
   }
 
   /**
@@ -112,13 +181,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     };
 
     Object.values(this.#config.liturgicalDayDef).forEach((def) => {
-      // Flag to determine if the current definition is coming from the Proper of Time.
-      // Note: a Proper of Time definition can be extended in a particular calendar;
-      // in this case the `fromCalendarId` is taking the name of the particular calendar,
-      // so we need to check the calendar name of the first item in the `fromExtendedCalendars`.
-      const isFromProperOfTime =
-        def.fromCalendarId === PROPER_OF_TIME_NAME ||
-        (def.fromExtendedCalendars.length > 0 && def.fromExtendedCalendars[0].fromCalendarId === PROPER_OF_TIME_NAME);
+      const isFromProperOfTime = this.#fromProperOfTime(def);
 
       // In a Liturgical Calendar scope:
       // - Because a Liturgical Year is straddling 2 Gregorian year,
@@ -154,51 +217,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
             return;
           }
 
-          // Take the first LiturgicalDay object of a specified day.
-          // The first object is always a LiturgicalDay from the Proper of Time,
-          // since a LiturgicalDay is generated for each day of the Liturgical Year.
-          // In the case the LiturgicalDayDef is coming from the Proper of Time,
-          // the baseData must be null.
-          let baseData: LiturgicalDay<V> | null = null;
-          if (!isFromProperOfTime) {
-            // Look up for the right LiturgicalDay item, according to its date.
-            // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
-            // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical
-            // year 2012, which starts on 27 November 2011 and ends 1 December 2012.
-            baseData =
-              builtData.byIds[builtData.datesIndex[dateStr][0]].find(
-                (d) => d.date === date.toISOString().substr(0, 10)
-              ) || null;
-          }
-
-          // Retrieve calendar metadata from the proper of time
-          const calendar: RomcalCalendarMetadata<V> = isFromProperOfTime
-            ? this.#buildCalendarMetadata(def, date, baseData)
-            // TODO: refactor this to avoid the non-null assertion
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            : baseData!.calendar;
-
-          /**
-           * For Memorial and Feast celebrations only, the weekday property is added
-           * containing the LiturgicalDay object of the base weekday.
-           *
-           * - Memorials: their observance is integrated into the celebration of the occurring weekday
-           *   in accordance with the norms set forth in the General Instruction of the Roman
-           *   Missal and of the Liturgy of the Hours. (UNLY #14)
-           * - Liturgy of the hours: // todo: cite precise sources from the General Instructions of the Liturgy of the hours
-           *    - Memorials: the liturgy of the hour remain the one of the weekday.
-           *    - Feasts: small hours are taken from the weekday.
-           */
-          const weekday: LiturgicalDay<V> | null =
-            baseData && [Ranks.Feast, Ranks.Memorial, Ranks.OptionalMemorial].some((r) => r === def.rank)
-              ? baseData
-              : null;
-
-          // Create a new LiturgicalDay object, and add it to the builtData object.
-          builtData.byIds[def.id] = [
-            ...(builtData.byIds[def.id] ?? []),
-            new LiturgicalDay<V>(def, date, this.#liturgicalDayConfig, calendar, baseData, weekday),
-          ];
+          builtData.byIds[def.id] = [...(builtData.byIds[def.id] ?? []), this.#liturgicalDay(def, date, builtData)];
 
           // Also add the corresponding date-ID object.
           builtData.datesIndex[dateStr] = [...(builtData.datesIndex[dateStr] ?? []), def.id];
@@ -258,6 +277,26 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     const { precedences } = this.#config.rubrics;
     const precedenceIndex = (precedence: string): number => precedences.indexOf(precedence);
 
+    const byPrecedence = (first: LiturgicalDay<V>, next: LiturgicalDay<V>): number => {
+      if (first.isOptional === next.isOptional) {
+        if (first.allowSimilarRankItems === next.allowSimilarRankItems) {
+          const type1 = precedenceIndex(first.precedence);
+          const type2 = precedenceIndex(next.precedence);
+          if (type1 < type2) return -1;
+          if (type1 > type2) return 1;
+          return 0;
+        }
+
+        // Sort definitions marked as allowing similar rank items
+        return first.allowSimilarRankItems ? -1 : 1;
+      }
+      // Sort definitions marked as optional to the end of the list
+      return first.isOptional ? 1 : -1;
+    };
+
+    // Days transferred onto a date not yet resolved; they take part in that date's resolution.
+    const incoming: Record<string, LiturgicalDay<V>[]> = {};
+
     Object.keys(builtData.datesIndex).forEach((dateStr) => {
       // Order the LiturgicalDays objects, following the precedence rules defined in the UNLY #49.
       const dates: LiturgicalDay<V>[] = builtData.datesIndex[dateStr]
@@ -269,167 +308,23 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
           if (item) acc.push(item);
           return acc;
         }, [])
-        .sort(
-          (
-            {
-              precedence: firstPrecedence,
-              allowSimilarRankItems: firstAllowSimilarRankItems,
-              isOptional: firstIsOptional,
-            },
-            { precedence: nextPrecedence, allowSimilarRankItems: nextAllowSimilarRankItems, isOptional: nextIsOptional }
-          ) => {
-            if (firstIsOptional === nextIsOptional) {
-              if (firstAllowSimilarRankItems === nextAllowSimilarRankItems) {
-                const type1 = precedenceIndex(firstPrecedence);
-                const type2 = precedenceIndex(nextPrecedence);
-                if (type1 < type2) return -1;
-                if (type1 > type2) return 1;
-                return 0;
-              }
+        .concat(incoming[dateStr] ?? [])
+        .sort(byPrecedence);
 
-              // Sort definitions marked as allowing similar rank items
-              return firstAllowSimilarRankItems ? -1 : 1;
-            }
-            // Sort definitions marked as optional to the end of the list
-            return firstIsOptional ? 1 : -1;
-          }
-        );
+      const { onDate, transfers } = this.#config.rubrics.resolveOccurrences({ date: dateStr, days: dates });
+      finalData[dateStr] = [...onDate];
 
-      // Exception the Thursday within the Holy Week, this day contain 2 liturgical days, i.e.:
-      //
-      // - The weekday of Holy Thursday and the season of Lent is finishing just before the
-      //   mass of the Lord’s Supper memorial.
-      //   UNLY #28. The forty days of Lent run from Ash Wednesday up to but excluding the Mass of
-      //   the Lord’s Supper exclusive.
-      //
-      // - The Paschal Triduum starts from the mass of the Lord’s Supper memorial.
-      //   UNLY #19. The Paschal Triduum of the Passion and Resurrection of the Lord begins with the
-      //   evening Mass of the Lord’s Supper, has its centre in the Easter Vigil, and closes with
-      //   Vespers (Evening Prayer) of the Sunday of the Resurrection.
-      //
-      // These 2 liturgical day entities needs to be separated, because they do not have the same
-      // metadata: different liturgical colors, seasons, rank, precedence...
-      // The mass (Chrismal Mass on Holy Thursday, and the Mass the Lord’s Supper the evening), as
-      // well as the liturgy of the hours are also different.
-      let thursdayOfTheLordsSupper: LiturgicalDay<V> | undefined;
-      if (dates[0].id === 'thursday_of_the_lords_supper') {
-        thursdayOfTheLordsSupper = dates.shift();
+      for (const { date, day } of transfers ?? []) {
+        if (date <= dateStr) {
+          throw new Error(`Transfers must move forward: "${day.id}" from ${dateStr} to ${date}.`);
+        }
+        // A date outside the generated range is not part of this calendar.
+        if (!builtData.datesIndex[date]) continue;
+        // Rebuild onto the destination. A Proper of Time definition keeps the weekday
+        // and season coordinates it was appointed to; the landing date may differ.
+        const dest = getUtcDateFromString(date);
+        (incoming[date] ??= []).push(this.#liturgicalDay(day.definition, dest, builtData, true));
       }
-
-      // - The first item in the array correspond to the Liturgical Day that take precedence.
-      // - When multiple LiturgicalDay objects are output the same day, it means that all other
-      //   object after the first LiturgicalDay object in the array are optionals.
-      //
-      // UNLY #14:
-      // Memorials are either obligatory or optional; their observance is integrated into the celebration
-      // of the occurring weekday in accordance with the norms set forth in the General Instruction of the Roman
-      // Missal and of the Liturgy of the Hours.
-      // Obligatory Memorials which fall on weekdays of Lent may only be celebrated as Optional
-      // Memorials.
-      // If several Optional Memorials are inscribed in the Calendar on the same day, only one may be
-      // celebrated, the others being omitted.
-      const defaultLiturgicalDay = dates[0];
-
-      let optionalMemorials: LiturgicalDay<V>[] = [];
-
-      // If the current day is:
-      //
-      // - a privileged weekday (UNLY #59 9):
-      //     - a weekdays of Advent from December 17 up to and including December 24;
-      //     - a days within the Octave of Christmas;
-      //     - a weekdays of Lent (except Ash Wednesday and all weekdays of the Holy Week, UNLY #16 a).
-      //
-      // - a weekday (UNLY #59 13).
-      //
-      // [1] Output Optional Memorials, which, however, may be celebrated, in the special manner
-      //     described in the General Instruction of the Roman Missal (see below, GIRM #355)
-      //     and of the Liturgy of the Hours, even on the days listed in UNLY #59 9.
-      //
-      // [2] If the current day is a privileged weekday (UNLY #59 9),
-      //       todo: set a "massIsCelebrated: false" flag on available memorial LiturgicalDay objects.
-      //     According to the GIRM #355 (see below), the mass of the optional memorials are not celebrated.
-      //     However the memorial can be commemorate, and the Collect may be taken.
-      //
-      // On Optional Memorials: (GIRM #355)
-      // a. On the weekdays of Advent from 17 December to 24 December, on days within
-      //    the Octave of the Nativity of the Lord, and on the weekdays of Lent, except Ash
-      //    Wednesday and during Holy Week, the Mass texts for the current liturgical day
-      //    are used; but the Collect may be taken from a Memorial which happens to be
-      //    inscribed in the General Calendar for that day, except on Ash Wednesday and
-      //    during Holy Week. On weekdays of Easter Time, Memorials of Saints may rightly
-      //    be celebrated in full.
-      // b. On weekdays of Advent before 17 December, on weekdays of Christmas Time
-      //    from 2 January, and on weekdays of Easter Time, one of the following may be
-      //    chosen: either the Mass of the weekday, or the Mass of the Saint or of one of the
-      //    Saints whose Memorial is observed, or the Mass of any Saint inscribed in the
-      //    Martyrology for that day.
-      // c. On weekdays in Ordinary Time, there may be chosen either the Mass of the
-      //    weekday, or the Mass of an Optional Memorial which happens to occur on that
-      //    day, or the Mass of any Saint inscribed in the Martyrology for that day, or a Mass
-      //    for Various Needs, or a Votive Mass.
-      if (
-        (defaultLiturgicalDay.precedence === Precedences.PrivilegedWeekday_9 ||
-          defaultLiturgicalDay.precedence === Precedences.Weekday_13) &&
-        !defaultLiturgicalDay.periods.includes(Period.HolyWeek)
-      ) {
-        optionalMemorials = optionalMemorials.concat(
-          dates
-            .slice(1)
-            .filter(
-              (d) =>
-                [
-                  Precedences.GeneralMemorial_10,
-                  Precedences.ProperMemorial_SecondPatron_11a,
-                  Precedences.ProperMemorial_11b,
-                  Precedences.OptionalMemorial_12,
-                ].some((p) => p === d.precedence) || d.isOptional
-            )
-            .map((d) => (d.isOptional = true) && d)
-        );
-      }
-
-      // If the default liturgical day is marked as allowing similar rank types (allowSimilarRankItems: true),
-      // keep the next liturgical(s) day(s) from the list that have also this option enabled,
-      // and finally the one that have the same rank type.
-      // Note: all sibling items are already sorted by precedence (higher first),
-      // so the next items have always the same or a lower precedence type.
-      // e.g. The memorial of the Immaculate heart of Mary, that can falls the same day of another memorial.
-      if (defaultLiturgicalDay.allowSimilarRankItems && dates.length > 1) {
-        const checkNextItems = (d: LiturgicalDay<V>): boolean =>
-          d.rank === defaultLiturgicalDay.rank &&
-          d.precedence !== Precedences.OptionalMemorial_12 &&
-          !optionalMemorials.map((om) => om.id).includes(d.id);
-
-        const nextAllowingSimilarItems = dates.slice(1).filter((d) => d.allowSimilarRankItems && checkNextItems(d));
-        optionalMemorials = [...optionalMemorials, ...nextAllowingSimilarItems];
-
-        const nextItem = dates.slice(1).find((d) => !d.allowSimilarRankItems && checkNextItems(d));
-        if (nextItem) optionalMemorials.push(nextItem);
-      }
-
-      // Also keep liturgical days marked as optional,
-      // and that have a similar or higher precedence type than the default liturgical day.
-      // e.g. The dedication of consecrated Churches is an optional solemnity.
-      if (dates.length > 1) {
-        const optionalDayIds = optionalMemorials.map((d) => d.id);
-        const defaultPrecedenceIndex = precedenceIndex(defaultLiturgicalDay.precedence);
-        optionalMemorials = optionalMemorials.concat(
-          dates
-            .slice(1)
-            .filter(
-              (d) =>
-                d.isOptional &&
-                precedenceIndex(d.precedence) >= defaultPrecedenceIndex &&
-                !optionalDayIds.includes(d.id)
-            )
-        );
-      }
-
-      finalData[dateStr] = [
-        defaultLiturgicalDay,
-        ...optionalMemorials,
-        ...(thursdayOfTheLordsSupper ? [thursdayOfTheLordsSupper] : []),
-      ];
     });
 
     if (this.#config?.outputOptions?.calculateProperties) {

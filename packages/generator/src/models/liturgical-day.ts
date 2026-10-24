@@ -134,7 +134,9 @@ export class LiturgicalDay<V extends Vocabulary = Vocabulary> implements BaseLit
     this.i18nDef = def.i18nDef;
     this.seasons = baseData?.seasons ?? def.seasons;
 
-    this.periods = baseData?.periods ?? def.periods;
+    // Copy so a date-derived period is not written back onto the definition.
+    // A transfer rebuilds the day and would otherwise prepend that period again.
+    this.periods = [...(baseData?.periods ?? def.periods)];
 
     // Some periods cannot be read off the definition, only off where the date landed
     // in the year being generated. Which those are is the rite's business.

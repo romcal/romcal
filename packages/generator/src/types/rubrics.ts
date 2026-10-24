@@ -1,4 +1,7 @@
+import { LiturgicalDay } from '../models/liturgical-day';
+
 import { DatesProvider } from './dates';
+import { LiturgicalSources } from './liturgical-source';
 import { Vocabulary } from './vocabulary';
 
 /**
@@ -60,6 +63,44 @@ export interface SeasonRules<V extends Vocabulary = Vocabulary> {
 }
 
 /**
+ * Same-date celebrations already ordered by the rite's precedence list (optional last,
+ * similar-rank bias preserved by the calendar before the policy runs).
+ */
+export interface OccurrenceInput<V extends Vocabulary = Vocabulary> {
+  readonly date: string;
+  readonly days: readonly LiturgicalDay<V>[];
+}
+
+/**
+ * A day moved onto another date (e.g. 1962 forward transfer).
+ *
+ * `date` must be later than the date being resolved; the calendar throws otherwise.
+ * A target outside the generated range is dropped.
+ *
+ * The engine rebuilds `day` onto `date` before the destination is resolved, so the
+ * policy there sees that date and its calendar metadata (weekday, season, periods).
+ */
+export interface OccurrenceTransfer<V extends Vocabulary = Vocabulary> {
+  readonly date: string;
+  readonly day: LiturgicalDay<V>;
+}
+
+/**
+ * What the rite keeps when several celebrations land on one date.
+ *
+ * Cross-date outcomes travel as `transfers`. The engine rebuilds a transferred day
+ * onto its destination date, then that day joins the celebrations there before the
+ * date is resolved, so the same policy decides whether it wins, stays beside the
+ * winner, or moves on again.
+ */
+export interface OccurrenceOutcome<V extends Vocabulary = Vocabulary> {
+  /** Days kept on this date, winner first. */
+  readonly onDate: readonly LiturgicalDay<V>[];
+  /** Forward (or other) transfers; omit or leave empty when none. */
+  readonly transfers?: readonly OccurrenceTransfer<V>[];
+}
+
+/**
  * The rules of precedence a rite is celebrated under.
  *
  * The engine knows that some days outrank others and that a date can carry more than
@@ -73,6 +114,14 @@ export interface SeasonRules<V extends Vocabulary = Vocabulary> {
  * policy returns, not by reaching into the calendar.
  */
 export interface Rubrics<V extends Vocabulary = Vocabulary> {
+  /**
+   * The document(s) these rubrics implement.
+   *
+   * Prefer one `LiturgicalSource`; use an array when the object rests on more than one
+   * text.
+   */
+  readonly source: LiturgicalSources;
+
   /**
    * The precedence values this rite uses, most important first.
    *
@@ -95,6 +144,13 @@ export interface Rubrics<V extends Vocabulary = Vocabulary> {
 
   /** How the year is divided, and how a day is numbered within its season. */
   readonly seasons: SeasonRules<V>;
+
+  /**
+   * What to keep on a date when several celebrations occur, and what to transfer.
+   *
+   * Required: the engine has no default drop policy of its own.
+   */
+  readonly resolveOccurrences: (input: OccurrenceInput<V>) => OccurrenceOutcome<V>;
 
   /**
    * Periods to add to a day of the Proper of Time that can only be told from the
