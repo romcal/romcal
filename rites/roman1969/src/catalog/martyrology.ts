@@ -6048,6 +6048,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Our Lord Jesus Christ, King of the Universe',
       titles: [],
     },
+    our_lord_jesus_christ_the_black_nazarene: {
+      name: 'Our Lord Jesus Christ, the Black Nazarene',
+    },
     our_lord_jesus_christ_the_eternal_high_priest: {
       name: 'Our Lord Jesus Christ, the Eternal High Priest',
     },
