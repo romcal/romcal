@@ -1,9 +1,25 @@
-import { PatronTitle, Precedences, Inputs } from '@internal/generator';
+import { PatronTitle, ProperCycles, Precedences, Inputs, ParticularConfig } from '@internal/generator';
 
 import { CalendarDef } from '../../../calendar-def';
 
 export class Philippines extends CalendarDef {
+  // src: https://gcatholic.org/calendar/2026/PH-en
+  particularConfig: ParticularConfig = {
+    epiphanyOnSunday: true,
+    ascensionOnSunday: true,
+    corpusChristiOnSunday: true,
+  };
+
   inputs: Inputs = {
+    our_lord_jesus_christ_the_black_nazarene: {
+      // src:
+      // - https://dominusest.ph/post/updates-in-the-philippine-liturgical-calendar (38th National Meeting of
+      //   Diocesan Directors of Liturgy, effective 1 December 2024)
+      // - https://gcatholic.org/calendar/2026/PH-en
+      precedence: Precedences.ProperFeast_8f,
+      dateDef: { month: 1, date: 9 },
+    },
+
     holy_child_of_cebu: {
       precedence: Precedences.ProperFeast_8f,
       // Third Sunday of January: Santo Niño (Holy Child Jesus)
@@ -16,31 +32,16 @@ export class Philippines extends CalendarDef {
       martyrology: ['peter_baptist_blasquez_martyr', 'paul_miki_martyr', 'companions_martyrs'],
     },
 
-    pedro_calungsod_martyr: {
-      precedence: Precedences.ProperMemorial_11b,
-      dateDef: { month: 4, date: 2 },
-      // When 2 April occurs with a Sunday of Lent or the Holy Week
-      // or the Octave of Easter, the celebration is transferred
-      // to the Saturday before Palm Sunday.
-      dateExceptions: [
-        {
-          ifIsBetween: {
-            from: { dateFn: 'palmSunday' },
-            to: { dateFn: 'divineMercySunday' },
-            inclusive: true,
-          },
-          setDate: { dateFn: 'palmSunday', subtractDay: 1 },
-        },
-        {
-          ifIsDayOfWeek: 0,
-          setDate: { dateFn: 'palmSunday', subtractDay: 1 },
-        },
-      ],
-    },
-
     isidore_the_farmer: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 5, date: 15 },
+    },
+
+    our_lord_jesus_christ_the_eternal_high_priest: {
+      // src: https://gcatholic.org/calendar/2026/PH-en
+      precedence: Precedences.ProperFeast_8f,
+      dateDef: { dateFn: 'pentecostSunday', addDay: 4 },
+      properCycle: ProperCycles.ProperOfTime,
     },
 
     roch_of_montpellier: {
@@ -71,7 +72,20 @@ export class Philippines extends CalendarDef {
     },
 
     lawrence_ruiz_and_companions_martyrs: {
-      precedence: Precedences.ProperMemorial_11b,
+      // src:
+      // - https://dominusest.ph/post/updates-in-the-philippine-liturgical-calendar (38th National Meeting of
+      //   Diocesan Directors of Liturgy, effective 1 December 2024)
+      // - https://gcatholic.org/calendar/2026/PH-en
+      precedence: Precedences.ProperFeast_8f,
+    },
+
+    pedro_calungsod_martyr: {
+      // src:
+      // - https://dominusest.ph/post/updates-in-the-philippine-liturgical-calendar (38th National Meeting of
+      //   Diocesan Directors of Liturgy, effective 1 December 2024)
+      // - https://gcatholic.org/calendar/2026/PH-en
+      precedence: Precedences.ProperFeast_8f,
+      dateDef: { month: 10, date: 21 },
     },
 
     immaculate_conception_of_the_blessed_virgin_mary: {
