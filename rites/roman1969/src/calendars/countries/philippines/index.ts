@@ -11,7 +11,7 @@ export class Philippines extends CalendarDef {
   };
 
   inputs: Inputs = {
-    our_lord_jesus_christ_the_black_nazarene: {
+    our_lord_jesus_christ_senor_jesus_nazareno: {
       // src:
       // - https://dominusest.ph/post/updates-in-the-philippine-liturgical-calendar (38th National Meeting of
       //   Diocesan Directors of Liturgy, effective 1 December 2024)
