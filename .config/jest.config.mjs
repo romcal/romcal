@@ -14,7 +14,7 @@ export default {
   modulePathIgnorePatterns: [],
   testRegex: '((\\.|/)(test|spec))\\.(ts|js)x?$',
   coverageDirectory: 'coverage',
-  collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}', 'build/**/*.{ts,tsx,js,jsx}', '!**/types/**/*.ts', '!**/index.ts'],
+  collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}', '!**/types/**/*.ts', '!**/index.ts'],
   setupFilesAfterEnv: ['jest-extended/all'],
   coverageReporters: ['clover', 'json', 'lcov', ['text', { skipFull: true }]],
   coveragePathIgnorePatterns: ['/particular-calendars/'],
