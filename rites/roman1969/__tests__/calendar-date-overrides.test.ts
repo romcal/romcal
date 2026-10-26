@@ -514,6 +514,14 @@ describe('Testing national calendar overrides', () => {
       expect(mhnojParis?.date).toMatch(/-01-04$/);
     });
 
+    test('"denis_of_paris_bishop" is a principal-patron solemnity on October 9 in the Archdiocese of Paris', () => {
+      const denis = franceParisDates.find((d) => d.id === 'denis_of_paris_bishop');
+      expect(denis).toBeTruthy();
+      expect(denis?.date).toMatch(/-10-09$/);
+      expect(denis?.rank).toBe(Ranks.Solemnity);
+      expect(denis?.precedence).toBe(Precedences.ProperSolemnity_PrincipalPatron_4a);
+    });
+
     test.each([
       ['Créteil', France_Creteil_Fr],
       ['Nanterre', France_Nanterre_Fr],
