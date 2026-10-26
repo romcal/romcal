@@ -148,8 +148,9 @@ export class France_Paris extends CalendarDef {
       precedence: Precedences.ProperFeast_8f,
     },
 
+    // src: https://dioceseparis.fr/saint-denys.html
     denis_of_paris_bishop: {
-      precedence: Precedences.ProperFeast_PrincipalPatronOfADiocese_8a,
+      precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
       customLocaleId: 'denis_of_paris_bishop_patron_of_the_archdiocese_of_paris',
       dateDef: { month: 10, date: 9 },
       titles: [Title.Martyr, Title.FirstBishop, PatronTitle.PatronOfTheDiocese],
