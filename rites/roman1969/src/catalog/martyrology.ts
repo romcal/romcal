@@ -2336,7 +2336,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     eoghan_of_ardstraw_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
-      name: 'Eoghan',
+      name: 'Eugene',
       titles: [Title.Bishop],
     },
     ephrem_the_syrian_deacon: {
@@ -2589,7 +2589,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     finnian_of_clonard_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
-      name: 'Finian',
+      name: 'Finnian',
       titles: [Title.Bishop],
     },
     fintan_of_clonenagh_abbot: {
@@ -5810,7 +5810,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
     },
     oliver_plunket_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
-      name: 'Oliver Plunket',
+      name: 'Oliver Plunkett',
       titles: [Title.Bishop, Title.Martyr],
     },
     // src: mr_fr_2021_ed3
