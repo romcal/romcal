@@ -2334,6 +2334,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       hideTitles: true,
       count: 'many',
     },
+    // src: https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
     eoghan_of_ardstraw_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Eugene',
@@ -2587,6 +2588,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfDeath: 553,
     },
+    // src: https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
     finnian_of_clonard_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Finnian',
@@ -5808,6 +5810,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Olga',
     },
+    // src: https://www.vatican.va/content/paul-vi/en/homilies/1975/documents/hf_p-vi_hom_19751012.html
     oliver_plunket_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Oliver Plunkett',
