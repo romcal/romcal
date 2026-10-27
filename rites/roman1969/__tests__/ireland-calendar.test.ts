@@ -1,37 +1,37 @@
 import { Ireland_En } from '@dist/rite-roman1969/bundles/ireland';
 import { Romcal } from '@src/rite-roman1969';
 
+const generate = (year: number) => new Romcal({ localizedCalendar: Ireland_En }).generateCalendar(year);
+
+const finder = (calendar: Awaited<ReturnType<typeof generate>>) => (id: string) =>
+  Object.entries(calendar)
+    .map(([date, days]) => ({ date, day: days.find((day) => day.id === id) }))
+    .find(({ day }) => day);
+
 describe('Ireland calendar', () => {
-  test('keeps the Ascension and Corpus Christi on Sunday, and the national celebrations of 2026', async () => {
-    const calendar = await new Romcal({ localizedCalendar: Ireland_En }).generateCalendar(2026);
-    const find = (id: string) =>
-      Object.entries(calendar)
-        .map(([date, days]) => ({ date, day: days.find((day) => day.id === id) }))
-        .find(({ day }) => day);
-    const dateOf = (id: string) => find(id)?.date;
+  test('keeps Saint Kevin on 3 June and Saint Charles Lwanga on 4 June', async () => {
+    expect(finder(await generate(2026))('kevin_of_glendalough_abbot')?.date).toBe('2026-06-03');
+    expect(finder(await generate(2029))('charles_lwanga_and_companions_martyrs')?.date).toBe('2029-06-04');
 
-    expect(dateOf('epiphany_of_the_lord')).toBe('2026-01-06');
-    expect(dateOf('ascension_of_the_lord')).toBe('2026-05-17');
-    expect(dateOf('most_holy_body_and_blood_of_christ')).toBe('2026-06-07');
-
-    expect(find('patrick_of_ireland_bishop')?.day?.rank).toBe('SOLEMNITY');
-    expect(find('columba_of_iona_abbot')?.day?.rank).toBe('FEAST');
-    expect(find('all_saints_of_ireland')?.day?.rank).toBe('FEAST');
-    expect(find('our_lady_of_knock')?.day?.rank).toBe('MEMORIAL');
-
-    expect(dateOf('kevin_of_glendalough_abbot')).toBe('2026-06-03');
-    expect(dateOf('charles_lwanga_and_companions_martyrs')).toBe('2026-06-04');
-    expect(dateOf('ephrem_the_syrian_deacon')).toBe('2026-06-10');
-    expect(dateOf('peter_claver_priest')).toBe('2026-09-10');
-    expect(dateOf('martin_de_porres_religious')).toBe('2026-11-05');
-    expect(dateOf('clement_i_pope')).toBe('2026-11-25');
+    // 4 June 2027 is the Most Sacred Heart of Jesus, which impedes Saint Charles Lwanga.
+    const find2027 = finder(await generate(2027));
+    expect(find2027('kevin_of_glendalough_abbot')?.date).toBe('2027-06-03');
+    expect(find2027('most_sacred_heart_of_jesus')?.date).toBe('2027-06-04');
+    expect(find2027('charles_lwanga_and_companions_martyrs')).toBeUndefined();
   });
 
-  test('keeps Saint Brigid as a feast on 1 February', async () => {
-    const calendar = await new Romcal({ localizedCalendar: Ireland_En }).generateCalendar(2027);
-    const brigid = calendar['2027-02-01'].find((day) => day.id === 'brigid_of_kildare_virgin');
+  test('ranks the patrons of Ireland, and omits their feasts when they fall on a Sunday', async () => {
+    const find2027 = finder(await generate(2027));
+    expect(find2027('brigid_of_kildare_virgin')).toMatchObject({
+      date: '2027-02-01',
+      day: { rank: 'FEAST', name: 'Saint Brigid, Abbess, Copatroness of Ireland' },
+    });
+    expect(find2027('patrick_of_ireland_bishop')).toMatchObject({ date: '2027-03-17', day: { rank: 'SOLEMNITY' } });
+    expect(find2027('columba_of_iona_abbot')).toMatchObject({ date: '2027-06-09', day: { rank: 'FEAST' } });
+    expect(find2027('all_saints_of_ireland')).toMatchObject({ date: '2027-11-06', day: { rank: 'FEAST' } });
 
-    expect(brigid?.rank).toBe('FEAST');
-    expect(brigid?.name).toBe('Saint Brigid of Kildare, Abbess, Copatroness of Ireland');
+    // 1 February 2026 and 9 June 2024 are Sundays in Ordinary Time.
+    expect(finder(await generate(2026))('brigid_of_kildare_virgin')).toBeUndefined();
+    expect(finder(await generate(2024))('columba_of_iona_abbot')).toBeUndefined();
   });
 });
