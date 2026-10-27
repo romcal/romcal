@@ -3,13 +3,11 @@ import { Locale } from '@internal/generator';
 export const locale: Locale = {
   id: 'en-ie',
 
-  // src:
-  // - https://gcatholic.org/calendar/2026/IE-en
-  // - https://gcatholic.org/calendar/2027/IE-en
+  // src: National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007),
+  // https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
   names: {
-    aidan_of_lindisfarne_bishop: 'Saint Aidan of Lindisfarne, Bishop',
-    david_of_wales_bishop: 'Saint David of Mynyw, Bishop',
-    gall_of_switzerland_abbot: 'Saint Gall, Abbot',
-    virgilius_of_salzburg_bishop: 'Saint Vergilius of Salzburg, Bishop',
+    columban_of_luxeuil_abbot: 'Saint Columban, Abbot and Missionary', // TODO: This property should be removed after one can add titles within celebration definions.
+    virgilius_of_salzburg_bishop: 'Saint Fergal, Bishop and Missionary',
+    willibrord_of_utrecht_bishop: 'Saint Willibrord, Bishop and Missionary', // TODO: This property should be removed after one can add titles within celebration definions.
   },
 };
