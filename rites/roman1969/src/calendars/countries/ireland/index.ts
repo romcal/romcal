@@ -1,10 +1,19 @@
-import { PatronTitle, Title, Precedences, Inputs } from '@internal/generator';
+import { PatronTitle, Precedences, Inputs, ParticularConfig } from '@internal/generator';
 
 import { CalendarDef } from '../../../calendar-def';
 import { Europe } from '../../regions/europe';
 
 export class Ireland extends CalendarDef {
   ParentCalendars = [Europe];
+
+  // src:
+  // - https://gcatholic.org/calendar/2026/IE-en
+  // - https://gcatholic.org/calendar/2027/IE-en
+  particularConfig: ParticularConfig = {
+    epiphanyOnSunday: false,
+    ascensionOnSunday: true,
+    corpusChristiOnSunday: true,
+  };
 
   inputs: Inputs = {
     munchin_of_limerick_bishop: {
@@ -131,6 +140,11 @@ export class Ireland extends CalendarDef {
       dateDef: { month: 6, date: 3 },
     },
 
+    charles_lwanga_and_companions_martyrs: {
+      // src: https://gcatholic.org/calendar/2026/IE-en
+      dateDef: { month: 6, date: 4 },
+    },
+
     jarlath_of_tuam_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 6 },
@@ -145,7 +159,12 @@ export class Ireland extends CalendarDef {
       customLocaleId: 'columba_of_iona_abbot_copatron_of_ireland',
       precedence: Precedences.ProperFeast_PrincipalPatronOfARegion_8c,
       dateDef: { month: 6, date: 9 },
-      titles: { append: [Title.Missionary, PatronTitle.CopatronOfIreland] },
+      titles: { append: [PatronTitle.CopatronOfIreland] },
+    },
+
+    ephrem_the_syrian_deacon: {
+      // src: https://gcatholic.org/calendar/2026/IE-en
+      dateDef: { month: 6, date: 10 },
     },
 
     davnet_of_sliabh_beagh_virgin: {
@@ -204,7 +223,8 @@ export class Ireland extends CalendarDef {
     },
 
     our_lady_of_knock: {
-      precedence: Precedences.ProperFeast_8f,
+      // src: https://gcatholic.org/calendar/2026/IE-en
+      precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 8, date: 17 },
     },
 
@@ -231,6 +251,11 @@ export class Ireland extends CalendarDef {
     ciaran_of_clonmacnoise_abbot: {
       precedence: Precedences.ProperMemorial_11b,
       dateDef: { month: 9, date: 9 },
+    },
+
+    peter_claver_priest: {
+      // src: https://gcatholic.org/calendar/2026/IE-en
+      dateDef: { month: 9, date: 10 },
     },
 
     ailbe_of_emly_bishop: {
@@ -278,6 +303,11 @@ export class Ireland extends CalendarDef {
       dateDef: { month: 11, date: 3 },
     },
 
+    martin_de_porres_religious: {
+      // src: https://gcatholic.org/calendar/2026/IE-en
+      dateDef: { month: 11, date: 5 },
+    },
+
     all_saints_of_ireland: {
       precedence: Precedences.ProperFeast_8f,
       dateDef: { month: 11, date: 6 },
@@ -298,6 +328,11 @@ export class Ireland extends CalendarDef {
       dateDef: { month: 11, date: 23 },
     },
 
+    clement_i_pope: {
+      // src: https://gcatholic.org/calendar/2026/IE-en
+      dateDef: { month: 11, date: 25 },
+    },
+
     colman_of_cloyne_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 11, date: 25 },
@@ -306,7 +341,6 @@ export class Ireland extends CalendarDef {
     virgilius_of_salzburg_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 11, date: 27 },
-      titles: { append: [Title.Missionary] },
     },
 
     finnian_of_clonard_bishop: {
