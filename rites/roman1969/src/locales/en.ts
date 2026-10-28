@@ -86,7 +86,7 @@ export const locale: Locale = {
     all_holy_bishops_of_the_diocese_of_cahors: 'All Holy Bishops of the Diocese of Cahors',
     all_holy_bishops_of_the_diocese_of_mende: 'All Holy Bishops of the Diocese of Mende',
     all_saints: 'All Saints',
-    all_saints_of_ireland: 'All the Saints of Ireland', // src: https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
+    all_saints_of_ireland: 'All Saints of Ireland',
     all_saints_of_the_archdiocese_of_lille: 'All Saints of the Archdiocese of Lille',
     all_saints_of_the_archdiocese_of_lyon: 'All Saints of the Archdiocese of Lyon',
     all_saints_of_the_archdiocese_of_paris: 'All Saints of the Archdiocese of Paris',
@@ -260,7 +260,7 @@ export const locale: Locale = {
     bridget_of_sweden_religious: 'Saint Bridget, Religious',
     bridget_of_sweden_religious_copatroness_of_europe: 'Saint Bridget, Religious, Copatroness of Europe',
     brigid_of_kildare_virgin: 'Saint Brigid, Abbess',
-    brigid_of_kildare_virgin_copatroness_of_ireland: 'Saint Brigid, Abbess, Copatroness of Ireland', // src: https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
+    brigid_of_kildare_virgin_copatroness_of_ireland: 'Saint Brigid, Virgin, Copatroness of Ireland',
     bronislava_of_poland_virgin: 'Blessed Bronislava, Virgin',
     bronislaw_markiewicz_priest: 'Blessed Bronisław Markiewicz, Priest',
     bruno_of_cologne_priest: 'Saint Bruno, Priest',
@@ -491,7 +491,7 @@ export const locale: Locale = {
     enda_of_aran_abbot: 'Saint Enda, Abbot',
     english_martyrs: 'English Martyrs',
     enimie_of_gevaudan_virgin: 'Saint Énimie of Gévaudan, Virgin',
-    eoghan_of_ardstraw_bishop: 'Saint Eugene, Bishop', // src: https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
+    eoghan_of_ardstraw_bishop: 'Saint Eoghan, Bishop',
     ephrem_the_syrian_deacon: 'Saint Ephrem, Deacon and Doctor of the Church',
     epiphany_of_the_lord: 'The Epiphany of the Lord',
     epipodius_of_lyon_and_alexander_of_lyon_martyrs: 'Saints Epipodius and Alexander, Martyrs',
@@ -529,7 +529,7 @@ export const locale: Locale = {
     fidelis_of_sigmaringen_priest: 'Saint Fidelis of Sigmaringen, Priest and Martyr',
     finbarr_of_cork_bishop: 'Saint Finbarr, Bishop',
     finding_of_the_holy_cross: 'Finding of the Holy Cross',
-    finnian_of_clonard_bishop: 'Saint Finnian, Bishop', // src: https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
+    finnian_of_clonard_bishop: 'Saint Finian, Bishop',
     fintan_of_clonenagh_abbot: 'Saint Fintan, Abbot',
     firmin_of_amiens_bishop: 'Saint Firmin, Bishop and Martyr',
     firmin_of_mende_bishop: 'Saint Firmin of Mende, Bishop',
@@ -716,7 +716,7 @@ export const locale: Locale = {
     irenaeus_of_lyon_bishop_patron_of_the_archdiocese_of_lyon_and_companions_martyrs:
       'Saints Irenaeus, Bishop and Doctor of the Church, Patron of the Archdiocese of Lyon, and Companions, Martyrs',
     irene_of_macedonia: 'Saint Irene',
-    irish_martyrs: 'The Irish Martyrs', // src: https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
+    irish_martyrs: 'Irish Martyrs',
     irmina_of_oeren_abbess: 'Saint Irmina of Oeren, Abbess',
     isabelle_of_france_virgin: 'Blessed Isabelle of France, Virgin',
     isidore_of_seville_bishop: 'Saint Isidore, Bishop and Doctor of the Church',
@@ -1111,7 +1111,7 @@ export const locale: Locale = {
     olaf_ii_of_norway_martyr: 'Saint Olaf II, Martyr',
     oleksiy_zarytskyi_priest: 'Blessed Oleksiy Zarytskyi, Priest and Martyr',
     olga_of_kiev: 'Saint Olga',
-    oliver_plunket_bishop: 'Saint Oliver Plunkett, Bishop and Martyr', // src: https://www.vatican.va/content/paul-vi/en/homilies/1975/documents/hf_p-vi_hom_19751012.html
+    oliver_plunket_bishop: 'Saint Oliver Plunket, Bishop and Martyr',
     optatus_of_milevis_bishop: 'Saint Optatus, Bishop',
     orens_of_auch_bishop: 'Saint Orens of Auch, Bishop',
     ortaire_of_landelles_abbot: 'Saint Ortaire, Abbot',
