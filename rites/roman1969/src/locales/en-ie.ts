@@ -12,7 +12,7 @@ export const locale: Locale = {
     eoghan_of_ardstraw_bishop: 'Saint Eugene, Bishop',
     finnian_of_clonard_bishop: 'Saint Finnian, Bishop',
     irish_martyrs: 'The Irish Martyrs',
-    // src: https://www.vatican.va/content/paul-vi/en/homilies/1975/documents/hf_p-vi_hom_19751012.html
+    // src: National Proper for Ireland, p. 31; canonization homily of Paul VI, https://www.vatican.va/content/paul-vi/en/homilies/1975/documents/hf_p-vi_hom_19751012.html
     oliver_plunket_bishop: 'Saint Oliver Plunkett, Bishop and Martyr',
     virgilius_of_salzburg_bishop: 'Saint Fergal, Bishop and Missionary',
     willibrord_of_utrecht_bishop: 'Saint Willibrord, Bishop and Missionary', // TODO: This property should be removed after one can add titles within celebration definions.
