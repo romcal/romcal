@@ -5808,9 +5808,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       canonizationLevel: CanonizationLevels.Saint,
       name: 'Olga',
     },
+    // src:
+    // - National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007), p. 31, https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
+    // - Canonization homily of Paul VI, 12 October 1975, https://www.vatican.va/content/paul-vi/en/homilies/1975/documents/hf_p-vi_hom_19751012.html
     oliver_plunket_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
-      name: 'Oliver Plunket',
+      name: 'Oliver Plunkett',
       titles: [Title.Bishop, Title.Martyr],
     },
     // src: mr_fr_2021_ed3
