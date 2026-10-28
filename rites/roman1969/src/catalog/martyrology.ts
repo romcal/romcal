@@ -2334,10 +2334,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       hideTitles: true,
       count: 'many',
     },
-    // src: https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
     eoghan_of_ardstraw_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
-      name: 'Eugene',
+      name: 'Eoghan',
       titles: [Title.Bishop],
     },
     ephrem_the_syrian_deacon: {
@@ -2588,10 +2587,9 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       titles: [Title.Bishop],
       dateOfDeath: 553,
     },
-    // src: https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
     finnian_of_clonard_bishop: {
       canonizationLevel: CanonizationLevels.Saint,
-      name: 'Finnian',
+      name: 'Finian',
       titles: [Title.Bishop],
     },
     fintan_of_clonenagh_abbot: {
