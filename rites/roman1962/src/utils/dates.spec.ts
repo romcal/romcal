@@ -111,7 +111,7 @@ describe('The Sunday series', () => {
     expect(iso(sundaysAfterEpiphany(2019)[4])).toBe('2019-02-10');
   });
 
-  test('the count stays between one and six', () => {
+  test('under Gregorian Easter the count stays between one and six', () => {
     for (const year of [2019, 2024, 2025, 2038]) {
       expect(sundaysAfterEpiphany(year).length).toBeGreaterThanOrEqual(1);
       expect(sundaysAfterEpiphany(year).length).toBeLessThanOrEqual(6);
@@ -137,7 +137,7 @@ describe('The Sunday series', () => {
     expect(sundaysAfterPentecost(2038)).toHaveLength(23);
   });
 
-  test('the count stays within the range the Missal provides for', () => {
+  test('under Gregorian Easter the count stays within the Missal range', () => {
     for (let year = 1970; year <= 2070; year += 1) {
       expect(sundaysAfterPentecost(year).length).toBeGreaterThanOrEqual(23);
       expect(sundaysAfterPentecost(year).length).toBeLessThanOrEqual(28);
@@ -191,5 +191,25 @@ describe('The Julian computation', () => {
     expect(iso(septuagesimaSunday(2024, 'julian'))).toBe('2024-03-03');
     expect(iso(ascension(2024, 'julian'))).toBe('2024-06-13');
     expect(iso(septuagesimaSunday(2024, 'gregorian'))).toBe('2024-01-28');
+  });
+
+  test('Julian Easter 2024 lengthens the Epiphany series and shortens Pentecost', () => {
+    // Septuagesima falls on 3 March, so eight Sundays fit after Epiphany.
+    expect(sundaysAfterEpiphany(2024, 'julian')).toHaveLength(8);
+    expect(isoAll(sundaysAfterEpiphany(2024, 'julian'))).toEqual([
+      '2024-01-07',
+      '2024-01-14',
+      '2024-01-21',
+      '2024-01-28',
+      '2024-02-04',
+      '2024-02-11',
+      '2024-02-18',
+      '2024-02-25',
+    ]);
+    // Trinity is 30 June; Advent opens 1 December → twenty-two Sundays (below the
+    // Gregorian floor of twenty-three).
+    expect(sundaysAfterPentecost(2024, 'julian')).toHaveLength(22);
+    expect(iso(sundaysAfterPentecost(2024, 'julian')[0])).toBe('2024-06-30');
+    expect(iso(sundaysAfterPentecost(2024, 'julian').at(-1)!)).toBe('2024-11-24');
   });
 });

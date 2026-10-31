@@ -110,9 +110,10 @@ export const christTheKingSunday = (year: number): Date => {
 /**
  * The Sundays after Epiphany, from the one following 6 January up to Septuagesima.
  *
- * Between one and six, depending on the date of Easter. The ones crowded out are not
- * simply lost: their propers are resumed after Pentecost, which is a matter for the
- * temporale rather than for a date function.
+ * Under Gregorian Easter the count is between one and six. Julian Easter can push
+ * Septuagesima later and yield a longer series (eight in 2024). The ones crowded out
+ * under Gregorian reckoning are not simply lost: their propers are resumed after
+ * Pentecost, which is a matter for the temporale rather than for a date function.
  */
 export const sundaysAfterEpiphany = (year: number, easterCalculationType?: Easter): Date[] => {
   const epiphanyDate = epiphany(year);
@@ -133,9 +134,10 @@ export const sundaysAfterEpiphany = (year: number, easterCalculationType?: Easte
 /**
  * The Sundays after Pentecost, from Trinity Sunday to the last before Advent.
  *
- * Twenty-three to twenty-eight, counting Trinity Sunday as the first, as the 1962
- * Missal numbers them. The low end needs the latest possible Easter: 25 April, as in
- * 2038.
+ * Under Gregorian Easter the count is twenty-three to twenty-eight, counting Trinity
+ * Sunday as the first, as the 1962 Missal numbers them. The low end needs the latest
+ * possible Gregorian Easter: 25 April, as in 2038. Julian Easter can fall below that
+ * floor (twenty-two in 2024).
  */
 export const sundaysAfterPentecost = (year: number, easterCalculationType?: Easter): Date[] => {
   const limit = firstSundayOfAdvent(year);

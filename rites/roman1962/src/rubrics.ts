@@ -21,39 +21,50 @@ import { Roman1962Vocabulary } from './vocabulary';
  */
 
 const RANK_BY_PRECEDENCE: Record<Precedence1962, Rank1962> = {
-  [Precedences1962.Triduum_1962_1]: Ranks1962.ClassI,
-  [Precedences1962.PrivilegedSunday_1962_2]: Ranks1962.ClassI,
+  [Precedences1962.PrivilegedFeastWithOctave_1962_1]: Ranks1962.ClassI,
+  [Precedences1962.Triduum_1962_2]: Ranks1962.ClassI,
   [Precedences1962.LordFeast_1962_3]: Ranks1962.ClassI,
-  [Precedences1962.FirstClassSunday_1962_4]: Ranks1962.ClassI,
-  [Precedences1962.FirstClassFeast_1962_5]: Ranks1962.ClassI,
-  [Precedences1962.FirstClassFeria_1962_6]: Ranks1962.ClassI,
-  [Precedences1962.FirstClassOctaveDay_1962_7]: Ranks1962.ClassI,
+  [Precedences1962.PrivilegedMaryFeast_1962_4]: Ranks1962.ClassI,
+  [Precedences1962.ChristmasVigilOrOctaveDay_1962_5]: Ranks1962.ClassI,
+  [Precedences1962.FirstClassSunday_1962_6]: Ranks1962.ClassI,
+  [Precedences1962.FirstClassFeria_1962_7]: Ranks1962.ClassI,
   [Precedences1962.AllSouls_1962_8]: Ranks1962.ClassI,
-  [Precedences1962.FirstClassVigil_1962_9]: Ranks1962.ClassI,
-  [Precedences1962.SecondClassLordFeast_1962_10]: Ranks1962.ClassII,
-  [Precedences1962.SecondClassSunday_1962_11]: Ranks1962.ClassII,
-  [Precedences1962.SecondClassFeast_1962_12]: Ranks1962.ClassII,
-  [Precedences1962.SecondClassFeria_1962_13]: Ranks1962.ClassII,
-  [Precedences1962.SecondClassOctaveDay_1962_14]: Ranks1962.ClassII,
-  [Precedences1962.ThirdClassFeast_1962_15]: Ranks1962.ClassIII,
-  [Precedences1962.ThirdClassFeria_1962_16]: Ranks1962.ClassIII,
-  [Precedences1962.ThirdClassVigil_1962_17]: Ranks1962.ClassIII,
-  [Precedences1962.FourthClassFeria_1962_18]: Ranks1962.ClassIV,
-  [Precedences1962.PrivilegedCommemoration_1962_19]: Ranks1962.Commemoration,
-  [Precedences1962.OrdinaryCommemoration_1962_20]: Ranks1962.Commemoration,
+  [Precedences1962.PentecostVigil_1962_9]: Ranks1962.ClassI,
+  [Precedences1962.FirstClassOctaveDay_1962_10]: Ranks1962.ClassI,
+  [Precedences1962.UniversalFirstClassFeast_1962_11]: Ranks1962.ClassI,
+  [Precedences1962.ProperFirstClassFeast_1962_12]: Ranks1962.ClassI,
+  [Precedences1962.IndultFirstClassFeast_1962_13]: Ranks1962.ClassI,
+  [Precedences1962.SecondClassLordFeast_1962_14]: Ranks1962.ClassII,
+  [Precedences1962.SecondClassSunday_1962_15]: Ranks1962.ClassII,
+  [Precedences1962.UniversalSecondClassFeast_1962_16]: Ranks1962.ClassII,
+  [Precedences1962.ChristmasOctaveDay_1962_17]: Ranks1962.ClassII,
+  [Precedences1962.SecondClassFeria_1962_18]: Ranks1962.ClassII,
+  [Precedences1962.ProperSecondClassFeast_1962_19]: Ranks1962.ClassII,
+  [Precedences1962.IndultSecondClassFeast_1962_20]: Ranks1962.ClassII,
+  [Precedences1962.SecondClassVigil_1962_21]: Ranks1962.ClassII,
+  [Precedences1962.LentenFeria_1962_22]: Ranks1962.ClassIII,
+  [Precedences1962.ParticularThirdClassFeast_1962_23]: Ranks1962.ClassIII,
+  [Precedences1962.UniversalThirdClassFeast_1962_24]: Ranks1962.ClassIII,
+  [Precedences1962.AdventFeria_1962_25]: Ranks1962.ClassIII,
+  [Precedences1962.ThirdClassVigil_1962_26]: Ranks1962.ClassIII,
+  [Precedences1962.SaturdayOfficeBVM_1962_27]: Ranks1962.ClassIV,
+  [Precedences1962.FourthClassFeria_1962_28]: Ranks1962.ClassIV,
+  [Precedences1962.PrivilegedCommemoration_1962_29]: Ranks1962.Commemoration,
+  [Precedences1962.OrdinaryCommemoration_1962_30]: Ranks1962.Commemoration,
 };
 
 /**
  * Where a day falls in its season, under the 1962 numbering.
  *
- * Simpler than 1969, because every season here begins on a Sunday and is counted
- * straight through from it: the Sundays after Epiphany and after Pentecost are
- * numbered from the first of their series, and nothing resumes later in the year.
+ * `weekOfSeason` is the chronological week counted from `startOfSeason` (Sunday-bounded
+ * weeks via the same ceil formula 1969 uses), not the Missal's Sunday-series ordinal.
+ * When Time after Epiphany starts on 14 January, the second Sunday after Epiphany is
+ * week 1 if that Sunday is 14 January itself (2024), and week 2 if it falls later in
+ * the first partial week (2025). Lent alone shifts by −1 so Ash Wednesday–Saturday sit
+ * in week 0 and the first Sunday of Lent opens week I.
  *
- * The one irregular season is Lent, which begins on Ash Wednesday. The four days from
- * Ash Wednesday to the Saturday following belong to no week of Lent, and the first
- * Sunday of Lent opens week I, so the count runs one behind — the same shift 1969
- * inherited from these rubrics.
+ * Seasons that begin on a Sunday (Septuagesima, Time after Pentecost, …) therefore
+ * match the Missal's Sunday count; seasons that begin mid-week do not.
  */
 const numbering = ({
   date,
