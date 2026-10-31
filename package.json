@@ -74,11 +74,11 @@
     "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "dependencies": {
-    "i18next": "^26.4.3"
+    "i18next": "^26.5.7"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.29.9",
-    "@commitlint/cli": "^21.2.3",
+    "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.0.2",
     "@commitlint/types": "^21.0.1",
     "@stylistic/eslint-plugin": "^5.5.0",
@@ -88,7 +88,7 @@
     "eslint-plugin-jest": "^29.16.11",
     "eslint-plugin-jsonc": "^3.4.2",
     "eslint-plugin-markdownlint": "^1.0.0",
-    "eslint-plugin-perfectionist": "^5.12.1",
+    "eslint-plugin-perfectionist": "^5.13.0",
     "eslint-plugin-unused-imports": "^4.4.1",
     "eslint-plugin-yml": "^3.9.0",
     "globals": "^17.13.0",

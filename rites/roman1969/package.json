@@ -29,7 +29,7 @@
     "@internal/easter": "file:../../packages/easter",
     "@internal/generator": "file:../../packages/generator",
     "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
-    "i18next": "^26.4.3",
+    "i18next": "^26.5.7",
     "ts-deepmerge": "^8.0.0"
   },
   "devDependencies": {
