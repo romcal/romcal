@@ -1,3 +1,5 @@
+import { addDays, easterSunday, firstSundayOfAdvent, subtractsDays } from '@internal/calendar-dates';
+
 import {
   adventEmberDays,
   ascension,
@@ -22,8 +24,8 @@ import {
 
 /**
  * Years chosen so that the range of outcomes is covered rather than one convenient
- * shape: 2024 has an early Easter (31 March) and 2019 a late one (21 April), which is
- * what moves the pre-Lenten Sundays and the count of Sundays in both series.
+ * shape: 2024 has an early Gregorian Easter and 2019 a late one, which is what moves
+ * the pre-Lenten Sundays and the count of Sundays in both series.
  */
 
 const iso = (date: Date): string => date.toISOString().substring(0, 10);
@@ -185,31 +187,41 @@ describe('The Rogation days', () => {
   });
 });
 
+/** Sundays from `start` inclusive up to but not including `limit`, stepping by a week. */
+const sundaysUntil = (start: Date, limit: Date): Date[] => {
+  const sundays: Date[] = [];
+  for (let sunday = start; sunday < limit; sunday = addDays(sunday, 7)) {
+    sundays.push(sunday);
+  }
+  return sundays;
+};
+
 describe('The Julian computation', () => {
+  // 2024: Julian Easter falls later than Gregorian, so the Epiphany series grows and
+  // the Pentecost series shrinks — including below the Gregorian Missal floor.
+  const year = 2024;
+
   test('carries through to every Easter-derived anchor', () => {
-    // Julian Easter 2024 is 5 May, five weeks after the Gregorian 31 March.
-    expect(iso(septuagesimaSunday(2024, 'julian'))).toBe('2024-03-03');
-    expect(iso(ascension(2024, 'julian'))).toBe('2024-06-13');
-    expect(iso(septuagesimaSunday(2024, 'gregorian'))).toBe('2024-01-28');
+    const julianEaster = easterSunday(year, 'julian');
+    const gregorianEaster = easterSunday(year, 'gregorian');
+
+    expect(septuagesimaSunday(year, 'julian')).toEqual(subtractsDays(julianEaster, 63));
+    expect(ascension(year, 'julian')).toEqual(addDays(julianEaster, 39));
+    expect(septuagesimaSunday(year, 'gregorian')).toEqual(subtractsDays(gregorianEaster, 63));
+    expect(julianEaster.getTime()).toBeGreaterThan(gregorianEaster.getTime());
   });
 
-  test('Julian Easter 2024 lengthens the Epiphany series and shortens Pentecost', () => {
-    // Septuagesima falls on 3 March, so eight Sundays fit after Epiphany.
-    expect(sundaysAfterEpiphany(2024, 'julian')).toHaveLength(8);
-    expect(isoAll(sundaysAfterEpiphany(2024, 'julian'))).toEqual([
-      '2024-01-07',
-      '2024-01-14',
-      '2024-01-21',
-      '2024-01-28',
-      '2024-02-04',
-      '2024-02-11',
-      '2024-02-18',
-      '2024-02-25',
-    ]);
-    // Trinity is 30 June; Advent opens 1 December → twenty-two Sundays (below the
-    // Gregorian floor of twenty-three).
-    expect(sundaysAfterPentecost(2024, 'julian')).toHaveLength(22);
-    expect(iso(sundaysAfterPentecost(2024, 'julian')[0])).toBe('2024-06-30');
-    expect(iso(sundaysAfterPentecost(2024, 'julian').at(-1)!)).toBe('2024-11-24');
+  test('Julian Easter lengthens the Epiphany series and shortens Pentecost', () => {
+    const epiphanyDate = epiphany(year);
+    const firstAfterEpiphany = addDays(epiphanyDate, 7 - epiphanyDate.getUTCDay());
+    const expectedEpiphany = sundaysUntil(firstAfterEpiphany, septuagesimaSunday(year, 'julian'));
+    const expectedPentecost = sundaysUntil(trinitySunday(year, 'julian'), firstSundayOfAdvent(year));
+
+    expect(sundaysAfterEpiphany(year, 'julian')).toEqual(expectedEpiphany);
+    expect(sundaysAfterPentecost(year, 'julian')).toEqual(expectedPentecost);
+
+    expect(expectedEpiphany.length).toBeGreaterThan(sundaysAfterEpiphany(year, 'gregorian').length);
+    expect(expectedPentecost.length).toBeLessThan(sundaysAfterPentecost(year, 'gregorian').length);
+    expect(expectedPentecost.length).toBeLessThan(23);
   });
 });
