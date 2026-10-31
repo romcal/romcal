@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@internal/calendar-dates": "file:../calendar-dates",
-    "i18next": "^26.4.0",
+    "i18next": "^26.5.7",
     "ts-deepmerge": "^8.0.0"
   }
 }
