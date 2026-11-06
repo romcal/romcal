@@ -2465,6 +2465,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Eulogius',
       titles: [Title.Deacon, Title.Martyr],
     },
+    // src: National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007), https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf#page=38
+    eunan_of_iona_abbot: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Eunan',
+      titles: [Title.Abbot],
+    },
     eusebius_of_esztergom_priest: {
       canonizationLevel: CanonizationLevels.Blessed,
       name: 'Eusebius of Esztergom',
@@ -2544,6 +2550,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Felicity',
       titles: [Title.Martyr],
       dateOfDeath: 203,
+    },
+    // src: National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007), https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf#page=34
+    felim_of_kilmore_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Felim',
+      titles: [Title.Bishop],
     },
     ferdinand_iii_of_castile: {
       canonizationLevel: CanonizationLevels.Saint,
@@ -5654,6 +5666,12 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       dateOfDeath: 800,
       dateOfDeathIsApproximative: true,
     },
+    // src: National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007), https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf#page=34
+    nathy_of_achonry_bishop: {
+      canonizationLevel: CanonizationLevels.Saint,
+      name: 'Nathy',
+      titles: [Title.Bishop],
+    },
     nativity_of_john_the_baptist: {
       name: 'The Nativity of Saint John the Baptist',
     },
@@ -5809,7 +5827,7 @@ export const Martyrology: { catalog: MartyrologyCatalog } = {
       name: 'Olga',
     },
     // src:
-    // - National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007), p. 31, https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
+    // - National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007), p. 31, https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf#page=32
     // - Canonization homily of Paul VI, 12 October 1975, https://www.vatican.va/content/paul-vi/en/homilies/1975/documents/hf_p-vi_hom_19751012.html
     oliver_plunket_bishop: {
       canonizationLevel: CanonizationLevels.Saint,

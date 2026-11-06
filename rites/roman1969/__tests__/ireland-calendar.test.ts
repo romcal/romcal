@@ -40,4 +40,24 @@ describe('Ireland calendar', () => {
     expect(nameOf('oliver_plunket_bishop')).toBe('Saint Oliver Plunkett, Bishop and Martyr');
     expect(nameOf('virgilius_of_salzburg_bishop')).toBe('Saint Fergal, Bishop and Missionary');
   });
+
+  // Saints Nathy and Felim (9 August) and Saint Eunan (23 September) are optional memorials in the National Proper.
+  // In Ireland they are always impeded by the feast of Saint Teresa Benedicta of the Cross, Copatroness of Europe, or a
+  // Sunday, and by the memorial of Saint Pius of Pietrelcina, so they only appear in the definitions.
+  test('defines the optional memorials of the National Proper that are always impeded', async () => {
+    const definitions = await new Romcal({ localizedCalendar: Ireland_En }).getAllDefinitions();
+
+    expect(definitions.nathy_of_achonry_bishop).toMatchObject({
+      name: 'Saint Nathy, Bishop',
+      precedence: 'OPTIONAL_MEMORIAL_12',
+    });
+    expect(definitions.felim_of_kilmore_bishop).toMatchObject({
+      name: 'Saint Felim, Bishop',
+      precedence: 'OPTIONAL_MEMORIAL_12',
+    });
+    expect(definitions.eunan_of_iona_abbot).toMatchObject({
+      name: 'Saint Eunan, Abbot',
+      precedence: 'OPTIONAL_MEMORIAL_12',
+    });
+  });
 });
