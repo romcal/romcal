@@ -220,6 +220,10 @@ describe('The Julian computation', () => {
     expect(sundaysAfterEpiphany(year, 'julian')).toEqual(expectedEpiphany);
     expect(sundaysAfterPentecost(year, 'julian')).toEqual(expectedPentecost);
 
+    // Fixed reference lengths for Julian Easter in 2024 (also implied by the anchors above).
+    expect(expectedEpiphany).toHaveLength(8);
+    expect(expectedPentecost).toHaveLength(22);
+
     expect(expectedEpiphany.length).toBeGreaterThan(sundaysAfterEpiphany(year, 'gregorian').length);
     expect(expectedPentecost.length).toBeLessThan(sundaysAfterPentecost(year, 'gregorian').length);
     expect(expectedPentecost.length).toBeLessThan(23);

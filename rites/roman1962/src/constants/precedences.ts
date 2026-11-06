@@ -8,7 +8,7 @@
  *
  * The shape differs from 1969 in two ways that matter. Ferias and Sundays are ranked
  * by class alongside feasts rather than in a separate track, so a II class feast
- * really does outrank a III class Sunday. And a day that loses is not always lost:
+ * really does outrank a III class feria. And a day that loses is not always lost:
  * the classes below carry commemoration and transfer rules, which the occurrence
  * policy applies, not this list.
  */
