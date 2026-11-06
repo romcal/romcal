@@ -131,6 +131,12 @@ export class Ireland extends CalendarDef {
       dateDef: { month: 6, date: 3 },
     },
 
+    charles_lwanga_and_companions_martyrs: {
+      // src: National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007),
+      // https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
+      dateDef: { month: 6, date: 4 },
+    },
+
     jarlath_of_tuam_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 6, date: 6 },
