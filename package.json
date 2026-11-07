@@ -74,7 +74,7 @@
     "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "dependencies": {
-    "i18next": "^26.5.7"
+    "i18next": "^26.5.12"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.29.9",
@@ -100,7 +100,7 @@
     "sort-package-json": "^4.1.0",
     "tsx": "^4.23.15",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.71.1"
+    "typescript-eslint": "^8.72.1"
   },
   "engines": {
     "node": ">=18.0.0"
