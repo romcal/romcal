@@ -29,13 +29,13 @@
     "@internal/easter": "file:../../packages/easter",
     "@internal/generator": "file:../../packages/generator",
     "@internal/lunar-new-year": "file:../../packages/lunar-new-year",
-    "i18next": "^26.5.7",
+    "i18next": "^26.5.12",
     "ts-deepmerge": "^8.0.0"
   },
   "devDependencies": {
     "@internal/builder": "file:../../packages/builder",
     "@types/jest": "^30.0.0",
-    "@types/node": "~26.6.5",
+    "@types/node": "~26.6.6",
     "esbuild-jest": "~0.5.0"
   }
 }
