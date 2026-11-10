@@ -42,22 +42,20 @@ describe('Ireland calendar', () => {
   });
 
   // Saints Nathy and Felim (9 August) and Saint Eunan (23 September) are optional memorials in the National Proper.
-  // In Ireland they are always impeded by the feast of Saint Teresa Benedicta of the Cross, Copatroness of Europe, or a
-  // Sunday, and by the memorial of Saint Pius of Pietrelcina, so they only appear in the definitions.
-  test('defines the optional memorials of the National Proper that are always impeded', async () => {
-    const definitions = await new Romcal({ localizedCalendar: Ireland_En }).getAllDefinitions();
+  // In Ireland a higher celebration always takes their day: the feast of Saint Teresa Benedicta of the Cross,
+  // Copatroness of Europe, or a Sunday on 9 August, and the memorial of Saint Pius of Pietrelcina or a Sunday on
+  // 23 September. 9 August 2026 and 23 September 2029 are Sundays.
+  test('gives the days of Saints Nathy, Felim and Eunan to the higher celebrations', async () => {
+    for (let year = 2026; year <= 2035; year++) {
+      const calendar = await generate(year);
+      const idsOn = (monthDay: string) => calendar[`${year}-${monthDay}`].map((day) => day.id);
 
-    expect(definitions.nathy_of_achonry_bishop).toMatchObject({
-      name: 'Saint Nathy, Bishop',
-      precedence: 'OPTIONAL_MEMORIAL_12',
-    });
-    expect(definitions.felim_of_kilmore_bishop).toMatchObject({
-      name: 'Saint Felim, Bishop',
-      precedence: 'OPTIONAL_MEMORIAL_12',
-    });
-    expect(definitions.eunan_of_iona_abbot).toMatchObject({
-      name: 'Saint Eunan, Abbot',
-      precedence: 'OPTIONAL_MEMORIAL_12',
-    });
+      expect(['teresa_benedicta_of_the_cross_stein_virgin', 'ordinary_time_19_sunday']).toContain(idsOn('08-09')[0]);
+      expect(idsOn('08-09')).not.toContain('nathy_of_achonry_bishop');
+      expect(idsOn('08-09')).not.toContain('felim_of_kilmore_bishop');
+
+      expect(['pius_francesco_forgione_priest', 'ordinary_time_25_sunday']).toContain(idsOn('09-23')[0]);
+      expect(idsOn('09-23')).not.toContain('eunan_of_iona_abbot');
+    }
   });
 });
