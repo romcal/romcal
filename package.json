@@ -74,10 +74,10 @@
     "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "dependencies": {
-    "i18next": "^26.5.12"
+    "i18next": "^26.7.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.29.9",
+    "@babel/eslint-parser": "^7.29.13",
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.0.2",
     "@commitlint/types": "^21.0.1",
@@ -90,13 +90,13 @@
     "eslint-plugin-markdownlint": "^1.0.0",
     "eslint-plugin-perfectionist": "^5.13.0",
     "eslint-plugin-unused-imports": "^4.4.1",
-    "eslint-plugin-yml": "^3.9.0",
+    "eslint-plugin-yml": "^3.10.0",
     "globals": "^17.13.0",
     "husky": "^9.1.7",
     "jest": "^30.5.2",
     "jest-extended": "^7.0.0",
     "lint-staged": "^17.6.0",
-    "rimraf": "^6.1.3",
+    "rimraf": "^6.1.4",
     "sort-package-json": "^4.1.0",
     "tsx": "^4.23.15",
     "typescript": "~5.9.3",
