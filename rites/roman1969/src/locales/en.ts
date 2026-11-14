@@ -510,6 +510,7 @@ export const locale: Locale = {
       'Saints Eulalia and Julia of Merida, Virgins and Martyrs, Patronesses of the Diocese of Perpignan-Elne',
     eulalia_of_merida_virgin: 'Saint Eulalia of Merida, Virgin and Martyr',
     eulogius_of_cordoba_bishop: 'Saint Eulogius of Córdoba, Bishop',
+    eunan_of_iona_abbot: 'Saint Eunan, Abbot',
     eusebius_of_esztergom_priest: 'Blessed Eusebius of Esztergom, Priest',
     eusebius_of_vercelli_bishop: 'Saint Eusebius of Vercelli, Bishop',
     everard_of_friuli: 'Saint Everard of Friuli',
@@ -523,6 +524,7 @@ export const locale: Locale = {
     fachtna_of_rosscarbery_bishop: 'Saint Fachtna, Bishop',
     faith_of_agen_virgin: 'Saint Faith of Agen, Virgin and Martyr',
     faustina_kowalska_virgin: 'Saint Faustina Kowalska, Virgin',
+    felim_of_kilmore_bishop: 'Saint Felim, Bishop',
     ferdinand_iii_of_castile: 'Saint Ferdinand III of Castile',
     ferreolus_of_uzes_bishop: 'Saint Ferreolus of Uzès, Bishop', // src: mr_fr_1984_ed1_nimes
     fiacre_of_breuil_monk: 'Saint Fiacre, Monk',
@@ -1073,6 +1075,7 @@ export const locale: Locale = {
     muredach_of_killala_bishop: 'Saint Muredach, Bishop',
     mutien_marie_wiaux_religious: 'Saint Mutien-Marie Wiaux, Religious',
     namphaise_of_cahors_hermit: 'Saint Namphaise of Cahors, Hermit',
+    nathy_of_achonry_bishop: 'Saint Nathy, Bishop',
     nativity_of_john_the_baptist: 'The Nativity of Saint John the Baptist',
     nativity_of_john_the_baptist_principal_patron_of_the_diocese_of_perpignan_elne:
       'The Nativity of Saint John the Baptist, Principal Patron of the Diocese of Perpignan-Elne',

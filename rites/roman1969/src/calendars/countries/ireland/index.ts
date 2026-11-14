@@ -133,7 +133,7 @@ export class Ireland extends CalendarDef {
 
     charles_lwanga_and_companions_martyrs: {
       // src: National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007),
-      // https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf
+      // https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf#page=27
       dateDef: { month: 6, date: 4 },
     },
 
@@ -189,6 +189,20 @@ export class Ireland extends CalendarDef {
       dateDef: { month: 7, date: 24 },
     },
 
+    nathy_of_achonry_bishop: {
+      // src: National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007),
+      // https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf#page=34
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 8, date: 9 },
+    },
+
+    felim_of_kilmore_bishop: {
+      // src: National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007),
+      // https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf#page=34
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 8, date: 9 },
+    },
+
     muredach_of_killala_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 8, date: 12 },
@@ -242,6 +256,13 @@ export class Ireland extends CalendarDef {
     ailbe_of_emly_bishop: {
       precedence: Precedences.OptionalMemorial_12,
       dateDef: { month: 9, date: 12 },
+    },
+
+    eunan_of_iona_abbot: {
+      // src: National Proper for Ireland (Prot. N. 816/07/L, 10 July 2007),
+      // https://www.catholicbishops.ie/wp-content/uploads/2024/09/National-Proper-for-Ireland-web.pdf#page=38
+      precedence: Precedences.OptionalMemorial_12,
+      dateDef: { month: 9, date: 23 },
     },
 
     finbarr_of_cork_bishop: {
