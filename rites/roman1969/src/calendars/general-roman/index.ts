@@ -286,6 +286,10 @@ export class GeneralRoman extends CalendarDef {
     },
 
     // src: mr_la_2008_ed3
+    // On a Sunday of Lent, St Joseph is transferred to the following Monday (UNLY no. 5). In Holy Week, it is
+    // anticipated to the Saturday before Palm Sunday, as the Congregation for Divine Worship ruled for 2008
+    // (Notitiae 42 (2008), as relayed by the Liturgy Office of England and Wales:
+    // https://www.liturgyoffice.org/Calendar/Info/Ordo2008.pdf).
     joseph_spouse_of_mary: {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { month: 3, date: 19 },
@@ -313,6 +317,11 @@ export class GeneralRoman extends CalendarDef {
     },
 
     // src: mr_la_2008_ed3
+    // UNLY no. 60, as in the Missale Romanum, editio typica tertia (2002): "Sollemnitas vero Annuntiationis
+    // Domini, quotiescumque occurrit aliquo die Hebdomadae sanctae, semper ad feriam II post dominicam II Paschae
+    // erit transferenda." English text: https://www.liturgyoffice.org/Calendar/Info/GNLY.pdf. The Easter Octave
+    // is included, as in 2008 (Notitiae 42 (2008): https://www.liturgyoffice.org/Calendar/Info/Ordo2008.pdf).
+    // On a Sunday of Lent, the Annunciation is transferred to the following Monday (UNLY no. 5).
     annunciation_of_the_lord: {
       precedence: Precedences.GeneralSolemnity_3,
       dateDef: { month: 3, date: 25 },

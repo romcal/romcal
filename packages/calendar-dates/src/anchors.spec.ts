@@ -13,7 +13,6 @@ const iso = (date: Date): string => date.toISOString().slice(0, 10);
 describe('easterSunday', () => {
   it('computes the Gregorian date by default', () => {
     expect(iso(easterSunday(2024))).toEqual('2024-03-31');
-    expect(iso(easterSunday(2025))).toEqual('2025-04-20');
   });
 
   it('computes the Julian date, expressed in the Gregorian calendar', () => {

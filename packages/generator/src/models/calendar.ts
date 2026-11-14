@@ -4,8 +4,10 @@ import { BaseCalendar, ByIds, DatesIndex, LiturgicalBuiltData, LiturgicalCalenda
 import { Id } from '../types/common';
 import { DatesProvider } from '../types/dates';
 import { RomcalCalendarMetadata } from '../types/liturgical-day';
+import { OccurrenceTransfer } from '../types/rubrics';
 import { Vocabulary } from '../types/vocabulary';
 import { getUtcDateFromString, isValidDate } from '../utils/dates';
+import { compareByPrecedence } from '../utils/precedences';
 
 import { RomcalConfig } from './config';
 import { LiturgicalDay } from './liturgical-day';
@@ -274,32 +276,24 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     const builtData = this.#buildDatesData();
 
     // Priority is position in the rite's precedence list, not a property of the value.
-    const { precedences } = this.#config.rubrics;
-    const precedenceIndex = (precedence: string): number => precedences.indexOf(precedence);
+    const byPrecedence = compareByPrecedence<V>(this.#config.rubrics.precedences, {
+      precedenceFirst: this.#config.rubrics.precedenceFirst,
+    });
 
-    const byPrecedence = (first: LiturgicalDay<V>, next: LiturgicalDay<V>): number => {
-      if (first.isOptional === next.isOptional) {
-        if (first.allowSimilarRankItems === next.allowSimilarRankItems) {
-          const type1 = precedenceIndex(first.precedence);
-          const type2 = precedenceIndex(next.precedence);
-          if (type1 < type2) return -1;
-          if (type1 > type2) return 1;
-          return 0;
-        }
+    const dates = Object.keys(builtData.datesIndex);
 
-        // Sort definitions marked as allowing similar rank items
-        return first.allowSimilarRankItems ? -1 : 1;
-      }
-      // Sort definitions marked as optional to the end of the list
-      return first.isOptional ? 1 : -1;
-    };
+    // Transfers sent by each date. A transferred day takes part in the resolution of its destination.
+    const sent: Record<string, OccurrenceTransfer<V>[]> = {};
 
-    // Days transferred onto a date not yet resolved; they take part in that date's resolution.
-    const incoming: Record<string, LiturgicalDay<V>[]> = {};
+    // A day can only be transferred as many times as there are dates: more means that the rite
+    // keeps sending it back and forth.
+    // A transferred day is rebuilt on each destination, so the count follows its definition.
+    const transferCounts = new Map<LiturgicalDayDef<V>, number>();
 
-    Object.keys(builtData.datesIndex).forEach((dateStr) => {
-      // Order the LiturgicalDays objects, following the precedence rules defined in the UNLY #49.
-      const dates: LiturgicalDay<V>[] = builtData.datesIndex[dateStr]
+    // The celebrations of a date not resolved yet, the days transferred onto it included,
+    // ordered following the precedence rules defined in the UNLY #49.
+    const daysOf = (dateStr: string): LiturgicalDay<V>[] =>
+      builtData.datesIndex[dateStr]
         .reduce<LiturgicalDay<V>[]>((acc, id) => {
           // Look up for the right LiturgicalDay item, according to its date.
           // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
@@ -308,23 +302,47 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
           if (item) acc.push(item);
           return acc;
         }, [])
-        .concat(incoming[dateStr] ?? [])
+        .concat(
+          Object.values(sent)
+            .flat()
+            .filter((transfer) => transfer.date === dateStr)
+            .map((transfer) => transfer.day)
+        )
         .sort(byPrecedence);
 
-      const { onDate, transfers } = this.#config.rubrics.resolveOccurrences({ date: dateStr, days: dates });
+    // The celebration that holds a date at this point of the resolution.
+    const dayOn = (dateStr: string): LiturgicalDay<V> | undefined =>
+      builtData.datesIndex[dateStr] ? (finalData[dateStr] ?? daysOf(dateStr))[0] : undefined;
+
+    // Resolve a date, and return the dates already resolved that received a transferred day: they are resolved again.
+    const resolve = (dateStr: string): string[] => {
+      const { onDate, transfers = [] } = this.#config.rubrics.resolveOccurrences({
+        date: dateStr,
+        days: daysOf(dateStr),
+        dayOn,
+      });
       finalData[dateStr] = [...onDate];
 
-      for (const { date, day } of transfers ?? []) {
-        if (date <= dateStr) {
-          throw new Error(`Transfers must move forward: "${day.id}" from ${dateStr} to ${date}.`);
-        }
+      sent[dateStr] = transfers.filter(({ date, day }) => {
+        if (date === dateStr) throw new Error(`Transfers must move to another date: "${day.id}" on ${dateStr}.`);
+        const count = (transferCounts.get(day.definition) ?? 0) + 1;
+        transferCounts.set(day.definition, count);
+        if (count > dates.length) throw new Error(`The transfers of "${day.id}" do not settle.`);
         // A date outside the generated range is not part of this calendar.
-        if (!builtData.datesIndex[date]) continue;
+        return builtData.datesIndex[date] !== undefined;
+      }).map(({ date, day }) => ({
+        date,
         // Rebuild onto the destination. A Proper of Time definition keeps the weekday
         // and season coordinates it was appointed to; the landing date may differ.
-        const dest = getUtcDateFromString(date);
-        (incoming[date] ??= []).push(this.#liturgicalDay(day.definition, dest, builtData, true));
-      }
+        day: this.#liturgicalDay(day.definition, getUtcDateFromString(date), builtData, true),
+      }));
+
+      return sent[dateStr].map(({ date }) => date).filter((date) => finalData[date] !== undefined);
+    };
+
+    dates.forEach((dateStr) => {
+      const queue = [dateStr];
+      for (let i = 0; i < queue.length; i += 1) queue.push(...resolve(queue[i]));
     });
 
     if (this.#config?.outputOptions?.calculateProperties) {
