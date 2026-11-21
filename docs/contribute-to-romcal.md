@@ -130,6 +130,16 @@ Tests live where they test:
 - Each behaviour is tested in one place: the Easter and Lunar New Year arithmetic in their packages, the methods of `Unly1969Rubrics` in `unly-1969-rubrics.test.ts`, and the behaviour of a generated calendar in the file of its topic.
 - The tests of `rites/roman1969` import the built calendar bundles, so run `npm run build` before running them.
 
+The Easter dates that the tests of `packages/easter` check against sit in `packages/easter/src/fixtures/easter-dates.fixture.ts` (200 years, 1900 to 2099, Gregorian and Julian). Do not edit that file: it is generated from the table `easter-dates.json` beside it, which is vendored unchanged from [christianpure/bible-data](https://github.com/christianpure/bible-data/tree/main/easter-dates) (CC0). To regenerate it, run from the repository root:
+
+```bash
+npx tsx packages/builder/src/cli.ts easter-fixture \
+  --input packages/easter/src/fixtures/easter-dates.json \
+  --output packages/easter/src/fixtures/easter-dates.fixture.ts
+```
+
+A test of `packages/builder` fails if the committed fixture differs from a fresh generation.
+
 ## Coverage Reporting
 
 A coverage report is generated for every core branch build and published to [gh-pages](<>).
