@@ -19,9 +19,8 @@ import { Vocabulary } from '../types/vocabulary';
  *   by the Ordo of Toulouse on 13 June, is sorted before the general memorial of
  *   Saint Anthony of Padua, which may be celebrated instead.
  *
- * With `precedenceFirst` false, the order is the one the engine had before the 1969 rubrics
- * were fixed: a day allowing similar rank items is sorted before the others whatever its precedence.
- * The 1969 rite sets it to true; the 1962 rite keeps false.
+ * With `precedenceFirst` false, a day allowing similar rank items is sorted before the others whatever
+ * its precedence, as the engine did before the option existed. The 1969 and 1962 rites both set it to true.
  *
  * @param precedences The precedence values of the rite, most important first.
  * @param options.precedenceFirst Compare the precedences of days of different ranks before `allowSimilarRankItems`.

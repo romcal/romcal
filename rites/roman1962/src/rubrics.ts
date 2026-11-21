@@ -105,8 +105,9 @@ export const Rubricae1960Rubrics: Rubrics<Roman1962Vocabulary> = {
     primaryLocus: '§91',
   },
   precedences: PRECEDENCES_1962,
-  // Keeps the order the engine had before the 1969 rules (UNLY nos. 59 and 60) were applied; a revision of its own.
-  precedenceFirst: false,
+  // The days are ordered by their place in the table of Rubricae §91 (Tabula Dierum Liturgicorum) alone: the class
+  // of a day decides before anything else.
+  precedenceFirst: true,
   rankOf: (precedence) => RANK_BY_PRECEDENCE[precedence],
   resolveOccurrences,
   seasons: {

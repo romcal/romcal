@@ -170,8 +170,8 @@ export interface Rubrics<V extends Vocabulary = Vocabulary> {
    * still comes first. When false, a day allowing similar rank items is sorted first whatever its
    * precedence, as the engine did before this option existed.
    *
-   * Required, like the table of precedences it qualifies: each revision states it. 1969 sets it to true,
-   * 1962 to false until its own rubrics say otherwise.
+   * Required, like the table of precedences it qualifies: each revision states it. 1969 (UNLY nos. 59 and 60)
+   * and 1962 (Rubricae 1960, §91) both set it to true.
    */
   readonly precedenceFirst: boolean;
 

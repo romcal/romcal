@@ -179,7 +179,7 @@ describe('The occurrence policy of 1962', () => {
     expect(resolveOccurrences({ date: '2024-03-19', days: [], dayOn })).toEqual({ onDate: [], transfers: [] });
   });
 
-  test('keeps the order of precedence the engine had before the 1969 rules', () => {
-    expect(Rubricae1960Rubrics.precedenceFirst).toBe(false);
+  test('orders the days by their place in the table of §91 before anything else', () => {
+    expect(Rubricae1960Rubrics.precedenceFirst).toBe(true);
   });
 });
