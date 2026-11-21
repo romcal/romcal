@@ -127,7 +127,7 @@ Tests live where they test:
 - A test of a module sits beside it as `<module>.spec.ts` (in `packages/*` and in `rites/roman1962/src`).
 - A test of the generated calendars of the Roman Rite sits in `rites/roman1969/__tests__/` as `<topic>.test.ts`, one file per topic: a rule (for example `holy-week-precedence.test.ts`), a calendar (for example `belgium-calendar.test.ts`) or the API (for example `calendar-builder.test.ts`).
 - Helpers shared by these tests sit in `rites/roman1969/__tests__/helpers/`; their names do not end in `.test.ts` or `.spec.ts`, so Jest does not run them as tests.
-- Each behaviour is tested in one place: the Easter and Lunar New Year arithmetic in their packages, the methods of `Unly1969Rubrics` in `unly-1969-rubrics.test.ts`, and the behaviour of a generated calendar in the file of its topic.
+- A behaviour is tested where it lives: the Easter and Lunar New Year arithmetic in their packages (every year of the fixture), the methods of `Unly1969Rubrics` in `unly-1969-rubrics.test.ts`, and the behaviour of a generated calendar in the file of its topic. The spot-tests of `dates.test.ts` stay beside them, because each shows one rule in action.
 - The tests of `rites/roman1969` import the built calendar bundles, so run `npm run build` before running them.
 
 The Easter dates that the tests of `packages/easter` check against sit in `packages/easter/src/fixtures/easter-dates.fixture.ts` (200 years, 1900 to 2099, Gregorian and Julian). Do not edit that file: it is generated from the table `easter-dates.json` beside it, which is vendored unchanged from [christianpure/bible-data](https://github.com/christianpure/bible-data/tree/main/easter-dates) (CC0). To regenerate it, run from the repository root:
