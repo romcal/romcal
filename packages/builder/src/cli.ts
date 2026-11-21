@@ -2,6 +2,7 @@ import { runBuild } from './commands/build';
 import { RomcalBundler } from './commands/bundle';
 import { runCheck } from './commands/check';
 import { runDoc } from './commands/doc';
+import { runEasterFixture } from './commands/easter-fixture';
 import { runPublish } from './commands/publish';
 import { runTrust } from './commands/trust';
 import { parseArgs, resolveOptions } from './options';
@@ -15,6 +16,7 @@ Commands:
   bundle    Emit calendar bundles only
   check     Run the data checks over a rite's calendars
   doc       Regenerate the calendar plugin table
+  easter-fixture  Generate the Easter fixture of the tests (--input, --output; acts on no rite)
   publish   Publish the rite and its calendar bundles
   trust     Report or configure trusted publishing
 
@@ -40,6 +42,12 @@ const main = async (): Promise<void> => {
   if (parsed.flags.help === true || !parsed.command) {
     log.info(USAGE);
     process.exit(parsed.command ? 0 : 1);
+  }
+
+  // The only command that acts on no rite.
+  if (parsed.command === 'easter-fixture') {
+    runEasterFixture(parsed.flags, log);
+    return;
   }
 
   const options = await resolveOptions(parsed);
