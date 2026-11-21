@@ -299,7 +299,13 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
           // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
           // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical year 2012, which starts on 27 November 2011 and ends 1 December 2012.
           const item = builtData.byIds[id].find((d) => d.date === dateStr);
-          if (item) acc.push(item);
+          if (item) {
+            // A rite may mark a day as optional while it resolves a date (a memorial under a weekday). A date is
+            // resolved again when it receives a transferred day, and the days are shared with the previous
+            // resolution: start each one from its definition, or a memorial stays optional under a solemnity.
+            item.isOptional = item.definition.isOptional;
+            acc.push(item);
+          }
           return acc;
         }, [])
         .concat(
