@@ -344,7 +344,7 @@ export const locale: Locale = {
     columba_of_iona_abbot_copatron_of_ireland: 'Saint Columba, Abbot and Missionary, Copatron of Ireland',
     columban_of_luxeuil_abbot: 'Saint Columban, Abbot',
     comgall_of_bangor_abbot: 'Saint Comgall, Abbot',
-    commemoration_of_all_the_faithful_departed: 'The Commemoration of All the Faithful Departed (All Soul’s Day)',
+    commemoration_of_all_the_faithful_departed: 'The Commemoration of All the Faithful Departed (All Souls’ Day)',
     conleth_of_kildare_bishop: 'Saint Conleth, Bishop',
     conrad_of_constance_and_gebhard_of_constance_bishops: 'Saints Conrad and Gebhard of Constance, Bishops',
     conrad_of_parzham_religious: 'Saint Conrad of Parzham, Religious',
