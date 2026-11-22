@@ -515,7 +515,7 @@ describe('Testing the Elevated Memorial option', () => {
     expect(memorials[0].id).toBe('hedwig_of_silesia_religious');
   });
 
-  describe('Lunar New Year dateFn resolution (2028)', () => {
+  describe('Lunar New Year dateFn resolution (UTC offset of the calendar)', () => {
     const makeTestBundle = (utcOffset: number): RomcalBundleObject => ({
       ...GeneralRoman_En,
       calendarName: 'test_lunar_new_year',
@@ -524,7 +524,9 @@ describe('Testing the Elevated Memorial option', () => {
         lunar_new_year_test: [
           {
             dateDef: { dateFn: 'lunarNewYear', dateArgs: [utcOffset] },
-            precedence: 'PROPER_FEAST_8F',
+            // A solemnity, so that the Presentation of the Lord (2 February 2030) and a Sunday (3 February 2030)
+            // do not take the date away from the celebration.
+            precedence: 'GENERAL_SOLEMNITY_3',
             commonsDef: 'None',
             fromCalendarId: 'test_lunar_new_year',
           },
@@ -539,23 +541,19 @@ describe('Testing the Elevated Memorial option', () => {
       },
     });
 
-    test('UTC+7 resolves to January 26', async () => {
-      const calendar = await new Romcal({ localizedCalendar: makeTestBundle(7) }).generateCalendar(2028);
-      const entry = calendar['2028-01-26'].find((d) => d.id === 'lunar_new_year_test');
-      expect(entry).toBeDefined();
-      expect(entry!.name).toBe('Lunar New Year Test');
-    });
-
-    test('UTC+8 resolves to January 26', async () => {
-      const calendar = await new Romcal({ localizedCalendar: makeTestBundle(8) }).generateCalendar(2028);
-      const entry = calendar['2028-01-26'].find((d) => d.id === 'lunar_new_year_test');
-      expect(entry).toBeDefined();
-      expect(entry!.name).toBe('Lunar New Year Test');
-    });
-
-    test('UTC+9 resolves to January 27', async () => {
-      const calendar = await new Romcal({ localizedCalendar: makeTestBundle(9) }).generateCalendar(2028);
-      const entry = calendar['2028-01-27'].find((d) => d.id === 'lunar_new_year_test');
+    // The offset of the calendar must reach the Lunar New Year computation when the calendar is generated. 2028
+    // separates UTC+9 from UTC+7 and UTC+8, and 2030 separates UTC+7 from UTC+8 and UTC+9, so that an offset that
+    // is ignored or replaced by another one cannot give the expected date for every row.
+    test.each([
+      [2028, 7, '2028-01-26'],
+      [2028, 8, '2028-01-26'],
+      [2028, 9, '2028-01-27'],
+      [2030, 7, '2030-02-02'],
+      [2030, 8, '2030-02-03'],
+      [2030, 9, '2030-02-03'],
+    ])('a celebration of Lunar New Year in %i with the UTC+%i offset is placed on %s', async (year, utcOffset, date) => {
+      const calendar = await new Romcal({ localizedCalendar: makeTestBundle(utcOffset) }).generateCalendar(year);
+      const entry = calendar[date].find((d) => d.id === 'lunar_new_year_test');
       expect(entry).toBeDefined();
       expect(entry!.name).toBe('Lunar New Year Test');
     });
