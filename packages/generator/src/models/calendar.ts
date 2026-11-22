@@ -320,8 +320,11 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     const dayOn = (dateStr: string): LiturgicalDay<V> | undefined =>
       builtData.datesIndex[dateStr] ? (finalData[dateStr] ?? daysOf(dateStr))[0] : undefined;
 
-    // Resolve a date, and return the dates already resolved that received a transferred day: they are resolved again.
+    // Resolve a date, and return the dates already resolved that received a transferred day, or that held one this
+    // date sent before: they are resolved again, so that a day sent elsewhere by this resolution is not left on its
+    // former destination as well.
     const resolve = (dateStr: string): string[] => {
+      const formerDestinations = (sent[dateStr] ?? []).map(({ date }) => date);
       const { onDate, transfers = [] } = this.#config.rubrics.resolveOccurrences({
         date: dateStr,
         days: daysOf(dateStr),
@@ -343,7 +346,8 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
         day: this.#liturgicalDay(day.definition, getUtcDateFromString(date), builtData, true),
       }));
 
-      return sent[dateStr].map(({ date }) => date).filter((date) => finalData[date] !== undefined);
+      const destinations = new Set([...formerDestinations, ...sent[dateStr].map(({ date }) => date)]);
+      return [...destinations].filter((date) => finalData[date] !== undefined);
     };
 
     dates.forEach((dateStr) => {
