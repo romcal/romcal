@@ -12,7 +12,9 @@ The new architecture helped to introduce new features without performance and co
 
 #### Fixed
 
-- A memorial, or a day allowing similar rank items, no longer takes precedence over a day of a higher rank (UNLY nos. 59 and 60); between two days of the same rank, the one allowing similar rank items still comes first.
+- A memorial, or a day allowing similar rank items, no longer takes precedence over a day of a higher rank (UNLY nos. 59 and 60); between two days of the same memorial rank, the one allowing similar rank items still comes first. The flag has no effect on a feast, whose order with a feast of the Lord and a Sunday was circular, so that the winner depended on the order of the definitions: a rite lists the ranks concerned in `similarRankItemRanks`.
+- A date that receives a transferred day no longer keeps an optional memorial that the weekday had kept before (St Etheldreda with St John the Baptist in England, 23 June 2022), and a solemnity sent elsewhere when a date is resolved again is no longer left on its former destination as well.
+- The solemnity of the patron of England (St George) and of Poland (St Adalbert), moved to the Monday after Divine Mercy Sunday when 23 April is in Holy Week or the Octave of Easter, goes to the next available day when a feast holds that Monday (Tuesday 30 April 2019, Tuesday 26 April 2022).
 - The weekdays of Holy Week have their own precedence, above the feasts and memorials (UNLY no. 59, 2).
 - A solemnity impeded by a day that takes precedence over it is transferred to the closest day not listed in nos. 1–8 of the table of liturgical days, before or after its date (UNLY no. 60), instead of being omitted.
 - A solemnity occurring on a Sunday of Advent, Lent or Easter is transferred to the following Monday (UNLY no. 5).
