@@ -359,6 +359,44 @@ describe('Unly1969Rubrics', () => {
     });
   });
 
+  test('resolveOccurrences does not keep twice a similar-rank day that is already kept as optional', () => {
+    const weekday = day({
+      id: 'weekday_a',
+      date: '2020-06-02',
+      precedence: Precedences.Weekday_13,
+      rank: Ranks.Weekday,
+      allowSimilarRankItems: true,
+    });
+    const optionalWeekday = day({
+      id: 'weekday_b',
+      date: '2020-06-02',
+      precedence: Precedences.Weekday_13,
+      rank: Ranks.Weekday,
+      allowSimilarRankItems: true,
+      isOptional: true,
+    });
+
+    const { onDate } = Unly1969Rubrics.resolveOccurrences({
+      date: '2020-06-02',
+      days: [weekday, optionalWeekday],
+      dayOn: () => undefined,
+    });
+
+    expect(onDate.map((d) => d.id)).toEqual(['weekday_a', 'weekday_b']);
+  });
+
+  test('periodsOf gives no period to the second Sunday after Christmas on or before Mary, Mother of God', () => {
+    const at = (iso: string): Date => new Date(`${iso}T00:00:00Z`);
+    const input = {
+      date: at('2021-01-01'),
+      dates: { epiphany: () => at('2021-01-06'), maryMotherOfGod: () => at('2021-01-01') },
+      id: 'second_sunday_after_christmas',
+      seasons: [],
+    };
+
+    expect(Unly1969Rubrics.periodsOf?.(input as never)).toEqual([]);
+  });
+
   test('is the rubrics object on the registered 1969 rite vocabulary', () => {
     // Compile-time lock: Unly1969Rubrics is Rubrics<Roman1969Vocabulary>.
     const _: Roman1969Vocabulary['precedence'] = Unly1969Rubrics.precedences[0];
