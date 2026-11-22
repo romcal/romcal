@@ -278,6 +278,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     // Priority is position in the rite's precedence list, not a property of the value.
     const byPrecedence = compareByPrecedence<V>(this.#config.rubrics.precedences, {
       precedenceFirst: this.#config.rubrics.precedenceFirst,
+      similarRankItemRanks: this.#config.rubrics.similarRankItemRanks,
     });
 
     const dates = Object.keys(builtData.datesIndex);

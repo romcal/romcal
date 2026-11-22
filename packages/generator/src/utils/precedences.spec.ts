@@ -5,17 +5,23 @@ import { compareByPrecedence } from './precedences';
 
 const precedences = [
   Precedences.GeneralSolemnity_3,
+  Precedences.GeneralLordFeast_5,
+  Precedences.UnprivilegedSunday_6,
+  Precedences.ProperFeast_8f,
   Precedences.GeneralMemorial_10,
   Precedences.ProperMemorial_11b,
   Precedences.Weekday_13,
 ];
-const compare = compareByPrecedence(precedences, { precedenceFirst: true });
+const compare = compareByPrecedence(precedences, { precedenceFirst: true, similarRankItemRanks: ['MEMORIAL'] });
 const legacy = compareByPrecedence(precedences, { precedenceFirst: false });
 
 const ranks: Record<string, string> = {
+  [Precedences.GeneralLordFeast_5]: 'FEAST',
   [Precedences.GeneralMemorial_10]: 'MEMORIAL',
   [Precedences.GeneralSolemnity_3]: 'SOLEMNITY',
+  [Precedences.ProperFeast_8f]: 'FEAST',
   [Precedences.ProperMemorial_11b]: 'MEMORIAL',
+  [Precedences.UnprivilegedSunday_6]: 'SUNDAY',
   [Precedences.Weekday_13]: 'WEEKDAY',
 };
 
@@ -63,6 +69,27 @@ describe('compareByPrecedence', () => {
     const general = day(Precedences.GeneralMemorial_10, false, true);
     expect(compare(general, proper)).toBe(-1);
     expect(compare(proper, general)).toBe(1);
+  });
+
+  describe('a flagged day of a rank that is not one of the similarRankItemRanks', () => {
+    const lord = day(Precedences.GeneralLordFeast_5);
+    const sunday = day(Precedences.UnprivilegedSunday_6);
+    const proper = day(Precedences.ProperFeast_8f, false, true);
+
+    test('is not sorted before a feast of the Lord that outranks a Sunday that outranks it (no cycle)', () => {
+      expect(compare(lord, sunday)).toBe(-1);
+      expect(compare(sunday, proper)).toBe(-1);
+      expect(compare(lord, proper)).toBe(-1);
+      expect(compare(proper, lord)).toBe(1);
+    });
+
+    test.each([
+      ['the feast of the Lord first', [lord, sunday, proper]],
+      ['the proper feast first', [proper, sunday, lord]],
+      ['the Sunday first', [sunday, proper, lord]],
+    ])('is sorted last whatever the order of the definitions: %s', (_name, days) => {
+      expect([...days].sort(compare)).toEqual([lord, sunday, proper]);
+    });
   });
 
   test('keeps the order of days of the same precedence', () => {

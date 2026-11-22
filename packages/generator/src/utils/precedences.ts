@@ -22,19 +22,30 @@ import { Vocabulary } from '../types/vocabulary';
  * With `precedenceFirst` false, a day allowing similar rank items is sorted before the others whatever
  * its precedence, as the engine did before the option existed. The 1969 and 1962 rites both set it to true.
  *
+ * With `precedenceFirst` true, the flag only reorders the days of one of the `similarRankItemRanks` (the memorials of
+ * 1969): the days of such a rank are one block of the table, so moving one ahead of its peers cannot put it before
+ * a day of another rank that the table places before its peers. For any other rank the flag has no effect, as it
+ * would make the order circular: a feast of the Lord (no. 5) outranks a Sunday (no. 6), which outranks a proper
+ * feast (no. 8) that, flagged, would come before the feast of the Lord.
+ *
  * @param precedences The precedence values of the rite, most important first.
  * @param options.precedenceFirst Compare the precedences of days of different ranks before `allowSimilarRankItems`.
+ * @param options.similarRankItemRanks The ranks whose days can allow similar rank items, when `precedenceFirst`.
  */
 export const compareByPrecedence =
   <V extends Vocabulary = Vocabulary>(
     precedences: readonly V['precedence'][],
-    { precedenceFirst }: { precedenceFirst: boolean }
+    {
+      precedenceFirst,
+      similarRankItemRanks = [],
+    }: { precedenceFirst: boolean; similarRankItemRanks?: readonly V['rank'][] }
   ) =>
     (first: LiturgicalDay<V>, next: LiturgicalDay<V>): number => {
       if (first.isOptional !== next.isOptional) return first.isOptional ? 1 : -1;
 
       const similar = first.allowSimilarRankItems !== next.allowSimilarRankItems;
-      if (similar && (!precedenceFirst || first.rank === next.rank)) return first.allowSimilarRankItems ? -1 : 1;
+      const reordered = !precedenceFirst || (first.rank === next.rank && similarRankItemRanks.includes(first.rank));
+      if (similar && reordered) return first.allowSimilarRankItems ? -1 : 1;
 
       const type1 = precedences.indexOf(first.precedence);
       const type2 = precedences.indexOf(next.precedence);

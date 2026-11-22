@@ -176,6 +176,14 @@ export interface Rubrics<V extends Vocabulary = Vocabulary> {
   readonly precedenceFirst: boolean;
 
   /**
+   * With `precedenceFirst`, the ranks whose days can allow similar rank items: between two days of the same one of
+   * these ranks (the memorials of 1969), the day allowing them comes first. For any other rank the flag has no
+   * effect, because it would order a proper feast before a feast of the Lord that outranks a Sunday that outranks
+   * that proper feast. Defaults to none.
+   */
+  readonly similarRankItemRanks?: readonly V['rank'][];
+
+  /**
    * What to keep on a date when several celebrations occur, and what to transfer.
    *
    * Required: the engine has no default drop policy of its own.

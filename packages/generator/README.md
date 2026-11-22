@@ -45,10 +45,15 @@ days that lose, is the rite's `Rubrics` object:
 
 - `precedences` lists the precedence values most important first; the engine compares
   two days by their position in it;
-- `precedenceFirst` says how that list is read. When true (1969), two days of different
-  ranks are compared by precedence, and a day allowing similar rank items comes first
-  only against a day of the same rank. When false (1962), a day allowing similar rank
-  items comes first whatever its precedence, as the engine did before the option existed;
+- `precedenceFirst` says how that list is read. When true (1969 and 1962), two days of
+  different ranks are compared by precedence, and a day allowing similar rank items comes
+  first only against a day of the same rank listed in `similarRankItemRanks`. When false,
+  a day allowing similar rank items comes first whatever its precedence, as the engine
+  did before the option existed;
+- `similarRankItemRanks` (optional, none by default) lists the ranks whose days can allow
+  similar rank items: the memorials of 1969. For any other rank the flag has no effect,
+  because it would make the order circular (a proper feast, flagged, before a feast of the
+  Lord that outranks a Sunday that outranks that proper feast);
 - `resolveOccurrences` receives the days of one date, already sorted, and returns the
   days kept on it (`onDate`, winner first) and the days it moves to other dates
   (`transfers`).

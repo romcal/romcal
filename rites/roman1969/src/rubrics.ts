@@ -531,6 +531,8 @@ export const Unly1969Rubrics: Rubrics<Roman1969Vocabulary> = {
   precedences: PRECEDENCES,
   // UNLY no. 59: a memorial never takes precedence over a day of a higher category.
   precedenceFirst: true,
+  // Only the memorials allow similar rank items (the proper memorial of Saint Aventin on 13 June).
+  similarRankItemRanks: [Ranks.Memorial, Ranks.OptionalMemorial],
   rankOf,
   resolveOccurrences,
   seasons: {
