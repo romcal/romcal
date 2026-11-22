@@ -8,9 +8,13 @@ const { Precedences, Ranks } = Romcal;
 
 const day = (
   partial: Pick<LiturgicalDay, 'id' | 'date' | 'precedence' | 'rank'> &
-    Partial<Pick<LiturgicalDay, 'periods' | 'isOptional' | 'allowSimilarRankItems' | 'titles'>>
+    Partial<
+      Pick<LiturgicalDay, 'periods' | 'isOptional' | 'allowSimilarRankItems' | 'titles' | 'dateDef' | 'dateExceptions'>
+    >
 ): LiturgicalDay =>
   ({
+    dateDef: {},
+    dateExceptions: [],
     periods: [],
     isOptional: false,
     allowSimilarRankItems: false,
@@ -116,6 +120,95 @@ describe('Unly1969Rubrics', () => {
 
       expect(onDate).toEqual([octaveDay]);
       expect(transfers).toEqual([{ date: '2020-04-23', day: impeded }]);
+    });
+
+    describe('a solemnity that a date exception moved onto the date', () => {
+      // St George in England: 23 April moved to the Monday after Divine Mercy Sunday (here 22 April).
+      const george = (extra: Record<string, unknown> = {}): LiturgicalDay =>
+        day({
+          id: 'george',
+          date,
+          dateDef: { month: 4, date: 23 },
+          dateExceptions: [{}],
+          precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
+          rank: Ranks.Solemnity,
+          ...extra,
+        } as Parameters<typeof day>[0]);
+      const feast = day({ id: 'feast', date, precedence: Precedences.GeneralFeast_7, rank: Ranks.Feast });
+
+      test('goes to the next available day when the date holds a feast', () => {
+        const moved = george();
+        const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({ date, days: [moved, feast], dayOn: free });
+
+        expect(onDate).toEqual([feast]);
+        expect(transfers).toEqual([{ date: '2020-04-23', day: moved }]);
+      });
+
+      test('never goes to a day before the date', () => {
+        const moved = george();
+        const { transfers } = Unly1969Rubrics.resolveOccurrences({
+          date,
+          days: [moved, feast],
+          dayOn: around({ 1: octaveDay, [-1]: weekday }),
+        });
+
+        expect(transfers?.[0].date).toBe('2020-04-24');
+      });
+
+      test('is omitted when no day after the date is available', () => {
+        const { onDate, transfers } = Unly1969Rubrics.resolveOccurrences({
+          date,
+          days: [george(), feast],
+          dayOn: (other) => (other > date ? undefined : weekday),
+        });
+
+        expect(onDate).toEqual([feast]);
+        expect(transfers).toEqual([]);
+      });
+
+      test('is kept over a Sunday, which a solemnity can replace', () => {
+        const sunday = day({ id: 'sunday', date, precedence: Precedences.UnprivilegedSunday_6, rank: Ranks.Sunday });
+        const moved = george();
+
+        expect(Unly1969Rubrics.resolveOccurrences({ date, days: [moved, sunday], dayOn: free }).onDate[0]).toBe(moved);
+      });
+
+      test('is kept over a solemnity of a lower precedence (St Joseph over St Patrick in Ireland)', () => {
+        const lower = day({
+          id: 'lower',
+          date,
+          precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
+          rank: Ranks.Solemnity,
+        });
+        const moved = george({ precedence: Precedences.GeneralSolemnity_3 });
+
+        expect(Unly1969Rubrics.resolveOccurrences({ date, days: [moved, lower], dayOn: free }).onDate[0]).toBe(moved);
+      });
+
+      test('is kept over a day that a date exception moved there too', () => {
+        const another = george({ id: 'another', precedence: Precedences.GeneralFeast_7, rank: Ranks.Feast });
+        const moved = george();
+
+        expect(Unly1969Rubrics.resolveOccurrences({ date, days: [moved, another], dayOn: free }).onDate[0]).toBe(moved);
+      });
+
+      test('is kept on its own date, where no exception moved it', () => {
+        const unmoved = george({ date: '2020-04-23', id: 'unmoved' });
+        const holder = day({ id: 'holder', date: '2020-04-23', precedence: Precedences.GeneralFeast_7, rank: Ranks.Feast });
+
+        expect(
+          Unly1969Rubrics.resolveOccurrences({ date: '2020-04-23', days: [unmoved, holder], dayOn: free }).onDate[0]
+        ).toBe(unmoved);
+      });
+
+      test.each([
+        ['has no exception', { dateExceptions: [] }],
+        ['is defined by a function of the year, not by a month and a date', { dateDef: { dateFn: 'palmSunday' } }],
+      ])('is kept where the day %s', (_name, extra) => {
+        const kept = george(extra);
+
+        expect(Unly1969Rubrics.resolveOccurrences({ date, days: [kept, feast], dayOn: free }).onDate[0]).toBe(kept);
+      });
     });
 
     test('the following day is preferred to the previous one at the same distance', () => {

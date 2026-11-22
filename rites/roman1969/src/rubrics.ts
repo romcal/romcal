@@ -139,6 +139,16 @@ const isSundayTransferringToMonday = (day: LiturgicalDay<Roman1969Vocabulary>): 
   day.id !== 'palm_sunday_of_the_passion_of_the_lord';
 
 /**
+ * Whether a date exception of a day moved it away from the date of its definition (month and date), as for St George
+ * in England, which goes to the Monday after Divine Mercy Sunday when 23 April is in Holy Week or the Octave of Easter.
+ */
+const isMovedByDateException = (day: LiturgicalDay<Roman1969Vocabulary>): boolean => {
+  const { date, month } = day.dateDef;
+  if (day.dateExceptions.length === 0 || typeof month !== 'number' || typeof date !== 'number') return false;
+  return day.date.slice(5, 10) !== `${String(month).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+};
+
+/**
  * The closest day to a date not listed in nos. 1-8 of the table of precedence, before or after it.
  *
  * UNLY #60 does not say which side is preferred between two days at the same distance: the library prefers
@@ -346,6 +356,20 @@ const resolveOccurrences = ({
   let dates = keepOverSunday(settled.days);
   const { transfers } = settled;
 
+  // A solemnity that a date exception moved onto this date (the patron of England or Poland, on the Monday after
+  // Divine Mercy Sunday) is not kept over a feast, which is listed in nos. 1-8 of the table: it goes to the next
+  // available day, as the Liturgy Office explains for 2019 and the Ordo for 2022.
+  const yielding = dates.filter(
+    (day) =>
+      day.rank === Ranks.Solemnity &&
+      !day.isOptional &&
+      isMovedByDateException(day) &&
+      // Only a feast rules it out: a Sunday of Ordinary Time does not (Peter and Paul in Brazil replace it), nor does a
+      // solemnity of a lower precedence (St Joseph keeps the Saturday before Palm Sunday over St Patrick in Ireland).
+      dates.some((other) => other !== day && !isMovedByDateException(other) && other.rank === Ranks.Feast)
+  );
+  dates = dates.filter((day) => !yielding.includes(day));
+
   // Exception the Thursday within the Holy Week, this day contain 2 liturgical days, i.e.:
   //
   // - The weekday of Holy Thursday and the season of Lent is finishing just before the
@@ -409,6 +433,14 @@ const resolveOccurrences = ({
     const target = closestAvailableDate(date, dayOn, taken, afterOnly);
     // No day of the generated range is available: the solemnity is omitted from this calendar, as the
     // generator drops a day transferred outside of its range.
+    if (target === undefined) return;
+    taken.add(target);
+    transfers.push({ date: target, day });
+  });
+
+  // UNLY no. 5 and no. 60 give nothing more than the following days: the days before the date are not searched.
+  yielding.forEach((day) => {
+    const target = closestAvailableDate(date, dayOn, taken, true);
     if (target === undefined) return;
     taken.add(target);
     transfers.push({ date: target, day });
