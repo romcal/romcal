@@ -1,4 +1,4 @@
-import { PatronTitle } from '@internal/generator';
+import { PatronTitle, Period, Season } from '@internal/generator';
 import { LiturgicalDay, Romcal } from '@src/rite-roman1969';
 
 import { Unly1969Rubrics } from '../src/rubrics';
@@ -395,6 +395,36 @@ describe('Unly1969Rubrics', () => {
     };
 
     expect(Unly1969Rubrics.periodsOf?.(input as never)).toEqual([]);
+  });
+
+  test('periodsOf places the second Sunday after Christmas from the Epiphany once the date reaches it', () => {
+    const at = (iso: string): Date => new Date(`${iso}T00:00:00Z`);
+    const input = {
+      date: at('2021-01-06'),
+      dates: { epiphany: () => at('2021-01-06'), maryMotherOfGod: () => at('2021-01-01') },
+      id: 'second_sunday_after_christmas',
+      seasons: [],
+    };
+
+    expect(Unly1969Rubrics.periodsOf?.(input as never)).toEqual([Period.DaysFromEpiphany]);
+  });
+
+  test('numbering gives no week to late Ordinary Time that has no end of season', () => {
+    const at = (iso: string): Date => new Date(`${iso}T00:00:00Z`);
+    const input = {
+      date: at('2021-06-01'),
+      dates: { maryMotherOfTheChurch: () => at('2021-05-24') },
+      declaredDayOfSeason: 100,
+      declaredWeekOfSeason: undefined,
+      endOfSeason: undefined,
+      seasons: [Season.OrdinaryTime],
+      startOfSeason: at('2021-01-11'),
+    };
+
+    const result = Unly1969Rubrics.seasons.numbering?.(input as never);
+
+    expect(result?.dayOfSeason).toBe(4);
+    expect(result?.weekOfSeason).toBeNaN();
   });
 
   test('is the rubrics object on the registered 1969 rite vocabulary', () => {
