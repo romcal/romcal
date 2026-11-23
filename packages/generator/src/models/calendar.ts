@@ -45,17 +45,12 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
   }
 
   /**
-   * Build calendar metadata
+   * Build the calendar metadata of a Proper of Time day, the only kind that has none to inherit.
    * @param def
    * @param date
-   * @param baseData
+   * @param onTransfer The day was moved onto `date`: its declared coordinates no longer apply.
    */
-  #buildCalendarMetadata(
-    def: LiturgicalDayDef<V>,
-    date: Date,
-    baseData: LiturgicalDay<V> | null,
-    onTransfer = false
-  ): RomcalCalendarMetadata<V> {
+  #buildCalendarMetadata(def: LiturgicalDayDef<V>, date: Date, onTransfer = false): RomcalCalendarMetadata<V> {
     const seasonRules = this.#config.rubrics.seasons;
     let currentYear = this.#liturgicalDayConfig.year;
 
@@ -84,29 +79,23 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     const { dayOfSeason, weekOfSeason } = seasonRules.numbering({
       date,
       dates: this.#liturgicalDayConfig.dates,
-      declaredDayOfSeason: onTransfer
-        ? undefined
-        : baseData?.calendar.dayOfSeason ?? def.calendarMetadata.dayOfSeason,
-      declaredWeekOfSeason: onTransfer
-        ? undefined
-        : baseData?.calendar.weekOfSeason ?? def.calendarMetadata.weekOfSeason,
+      declaredDayOfSeason: onTransfer ? undefined : def.calendarMetadata.dayOfSeason,
+      declaredWeekOfSeason: onTransfer ? undefined : def.calendarMetadata.weekOfSeason,
       endOfSeason,
-      seasons: baseData?.seasons ?? def.seasons,
+      seasons: def.seasons,
       startOfSeason,
     });
 
     return {
       weekOfSeason,
       dayOfSeason,
-      dayOfWeek: onTransfer
-        ? date.getUTCDay()
-        : baseData?.calendar.dayOfWeek ?? def.calendarMetadata.dayOfWeek ?? date.getUTCDay(),
+      dayOfWeek: onTransfer ? date.getUTCDay() : def.calendarMetadata.dayOfWeek ?? date.getUTCDay(),
       nthDayOfWeekInMonth: Math.ceil(date.getUTCDate() / 7),
       startOfSeason: startOfSeason ? startOfSeason.toISOString().substr(0, 10) : '',
       endOfSeason: endOfSeason ? endOfSeason.toISOString().substr(0, 10) : '',
       startOfLiturgicalYear: boundary(startOfSeasonsDic, seasonRules.firstSeason).toISOString().substr(0, 10),
       endOfLiturgicalYear: boundary(endOfSeasonsDic, seasonRules.lastSeason).toISOString().substr(0, 10),
-      seasons: baseData?.seasons ?? def.seasons,
+      seasons: def.seasons,
     };
   }
 
@@ -145,15 +134,13 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
       // Two LiturgicalDay objects with the same ID can occur within the same liturgical
       // year, for example Saint Andrew Apostle (30 November 2011 and 30 November 2012)
       // in liturgical year 2012.
-      baseData =
-        builtData.byIds[builtData.datesIndex[dateStr][0]].find((d) => d.date === dateStr) || null;
+      // Premise: a date only enters the index through a Proper of Time day, and its first id is that day's, so the
+      // day is always found. A sanctoral day on a date the index lacks never reaches this point.
+      baseData = builtData.byIds[builtData.datesIndex[dateStr][0]].find((d) => d.date === dateStr) as LiturgicalDay<V>;
     }
 
-    const calendar: RomcalCalendarMetadata<V> = isFromProperOfTime
-      ? this.#buildCalendarMetadata(def, date, baseData, onTransfer)
-      // TODO: refactor this to avoid the non-null assertion
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      : baseData!.calendar;
+    const calendar: RomcalCalendarMetadata<V> =
+      baseData?.calendar ?? this.#buildCalendarMetadata(def, date, onTransfer);
 
     /**
      * For Memorial and Feast celebrations only, the weekday property is added
@@ -261,7 +248,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     if (!date || !isValidDate(date)) return null;
 
     // Try to compute the calendar metadata with the data we have (without the whole year background)
-    const calendar = this.#buildCalendarMetadata(def, date, null);
+    const calendar = this.#buildCalendarMetadata(def, date);
 
     // Return the LiturgicalDay object
     return new LiturgicalDay<V>(def, date, this.#liturgicalDayConfig, calendar, null, null);
@@ -295,20 +282,18 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
     // ordered following the precedence rules defined in the UNLY #49.
     const daysOf = (dateStr: string): LiturgicalDay<V>[] =>
       builtData.datesIndex[dateStr]
-        .reduce<LiturgicalDay<V>[]>((acc, id) => {
+        .map((id) => {
           // Look up for the right LiturgicalDay item, according to its date.
           // Note: Two LiturgicalDay objects with the same ID can occur within the same liturgical year,
           // for example, Saint Andrew Apostle (30 November 2011 and 30 November 2012), in liturgical year 2012, which starts on 27 November 2011 and ends 1 December 2012.
-          const item = builtData.byIds[id].find((d) => d.date === dateStr);
-          if (item) {
-            // A rite may mark a day as optional while it resolves a date (a memorial under a weekday). A date is
-            // resolved again when it receives a transferred day, and the days are shared with the previous
-            // resolution: start each one from its definition, or a memorial stays optional under a solemnity.
-            item.isOptional = item.definition.isOptional;
-            acc.push(item);
-          }
-          return acc;
-        }, [])
+          // Premise: an id is only indexed on a date when a day of that id was built for it, so it is always found.
+          const item = builtData.byIds[id].find((d) => d.date === dateStr) as LiturgicalDay<V>;
+          // A rite may mark a day as optional while it resolves a date (a memorial under a weekday). A date is
+          // resolved again when it receives a transferred day, and the days are shared with the previous
+          // resolution: start each one from its definition, or a memorial stays optional under a solemnity.
+          item.isOptional = item.definition.isOptional;
+          return item;
+        })
         .concat(
           Object.values(sent)
             .flat()
@@ -356,7 +341,7 @@ export class Calendar<V extends Vocabulary = Vocabulary> implements BaseCalendar
       for (let i = 0; i < queue.length; i += 1) queue.push(...resolve(queue[i]));
     });
 
-    if (this.#config?.outputOptions?.calculateProperties) {
+    if (this.#config.outputOptions.calculateProperties) {
       const calculatedData: LiturgicalCalendar<V> = {};
       // run toJson on each liturgical day and set it on the map
       Object.keys(finalData).forEach((dateStr) => {
