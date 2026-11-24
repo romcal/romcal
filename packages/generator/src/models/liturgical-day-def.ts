@@ -138,9 +138,10 @@ export class LiturgicalDayDef<V extends Vocabulary = Vocabulary> implements Base
 
     this.dateExceptions = safeWrapArray(input.dateExceptions) ?? (previousDef ? previousDef.dateExceptions : []);
 
+    // `concat` always returns an array, so no fallback is needed after it.
     this.alternativeTransferDateDefs = isLiturgicalDayProperOfTimeInput(input)
       ? []
-      : ([] as FullDateDefinition[]).concat(input.alternativeTransferDateDefs || []) || [];
+      : ([] as FullDateDefinition[]).concat(input.alternativeTransferDateDefs || []);
 
     if (input.precedence) {
       this.precedence = input.precedence;
@@ -333,8 +334,9 @@ export class LiturgicalDayDef<V extends Vocabulary = Vocabulary> implements Base
 
     // Combine `titles` from the main date definition, if provided.
     if (input.titles) {
-      martyrology.forEach((m, i) => {
-        if (input.titles) m.titles = this.#combineTitles(input.titles, martyrology[i].id, previousDef);
+      // `input.titles` is truthy here, and `forEach` cannot change that, so it needs no re-check inside.
+      martyrology.forEach((m) => {
+        m.titles = this.#combineTitles(input.titles as TitlesDef, m.id, previousDef);
       });
       if (martyrology.length === 0) {
         throw new Error(
@@ -353,20 +355,19 @@ export class LiturgicalDayDef<V extends Vocabulary = Vocabulary> implements Base
    * @param previousDef
    */
   #combineTitles(titlesDef: TitlesDef, martyrologyId: Id, previousDef?: LiturgicalDayDef<V>): RomcalTitles {
-    const titleObj: RomcalTitles =
-      typeof titlesDef === 'object'
-        ? [
-            // Use a [...new Set(array)] to remove duplicates in the array
-            ...new Set([
-              ...((titlesDef as CompoundTitle).prepend ?? []),
-              ...(previousDef?.martyrology.find((m) => m.id === martyrologyId)?.titles ??
-                this.#config.martyrologyCatalog[martyrologyId].titles ??
-                []),
-              ...((titlesDef as CompoundTitle).append ?? []),
-            ]),
-          ]
-        : [];
-    return Array.isArray(titlesDef) ? titlesDef : titleObj;
+    // `TitlesDef` is either an array or a `CompoundTitle` object, so anything that is not an array is an object.
+    if (Array.isArray(titlesDef)) return titlesDef;
+
+    return [
+      // Use a [...new Set(array)] to remove duplicates in the array
+      ...new Set([
+        ...((titlesDef as CompoundTitle).prepend ?? []),
+        ...(previousDef?.martyrology.find((m) => m.id === martyrologyId)?.titles ??
+          this.#config.martyrologyCatalog[martyrologyId].titles ??
+          []),
+        ...((titlesDef as CompoundTitle).append ?? []),
+      ]),
+    ];
   }
 
   /**
@@ -429,10 +430,9 @@ export class LiturgicalDayDef<V extends Vocabulary = Vocabulary> implements Base
       // titles
       ...(JSON.stringify(dayA.titles) !== JSON.stringify(dayB.titles) ? { titles: dayA.titles } : {}),
 
-      // martyrology
-      ...(JSON.stringify(dayA.martyrology) !== JSON.stringify(dayB.martyrology)
-        ? { martyrology: dayA.martyrology.map((m) => m.id) }
-        : {}),
+      // `martyrology` is not compared: a definition that extends another inherits its martyrology array by
+      // reference (see `#retrieveMartyrologyData`), so `dayA.martyrology === dayB.martyrology` whenever a
+      // diff is computed, and the two can never differ.
 
       // cycles.properCycle
       ...(dayA.cycles.properCycle !== dayB.cycles.properCycle

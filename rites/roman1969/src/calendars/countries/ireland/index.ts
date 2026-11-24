@@ -69,11 +69,54 @@ export class Ireland extends CalendarDef {
       dateDef: { month: 3, date: 11 },
     },
 
+    // When 17 March falls in Holy Week (2008 is the only such year between 1990 and 2100), St Patrick is kept on the
+    // Saturday before Palm Sunday, as the Irish bishops decided in 2008 (statement of the Irish Catholic Bishops'
+    // Conference, March 2008: https://www.catholicbishops.ie/?p=3528).
     patrick_of_ireland_bishop: {
       customLocaleId: 'patrick_of_ireland_bishop_patron_of_ireland',
       precedence: Precedences.ProperSolemnity_PrincipalPatron_4a,
+      dateExceptions: [
+        {
+          ifIsBetween: {
+            from: { dateFn: 'palmSunday' },
+            to: { dateFn: 'holySaturday' },
+            inclusive: true,
+          },
+          setDate: { dateFn: 'palmSunday', subtractDay: 1 },
+        },
+      ],
       isHolyDayOfObligation: true,
       titles: { append: [PatronTitle.PatronOfIreland] },
+    },
+
+    // The statement of the Irish bishops is silent on St Joseph, so the general norms apply: the solemnity of
+    // St Joseph, impeded by that of St Patrick on the Saturday before Palm Sunday, is anticipated to the closest
+    // day not listed in nos. 1-8 of the table of liturgical days, the Friday (UNLY no. 60). The date exceptions of
+    // the general calendar are restated, as a calendar replaces them. St Patrick is in Holy Week exactly when
+    // 19 March falls between the Tuesday of Holy Week and the Second Sunday of Easter; when 19 March is Palm
+    // Sunday or the Monday of Holy Week, St Patrick is not moved and the general exception applies. Every
+    // exception whose condition matches the original date applies, and the last one wins, so the narrower
+    // one comes last.
+    joseph_spouse_of_mary: {
+      dateExceptions: [
+        { ifIsDayOfWeek: 0, setDate: { addDay: 1 } },
+        {
+          ifIsBetween: {
+            from: { dateFn: 'palmSunday' },
+            to: { dateFn: 'divineMercySunday' },
+            inclusive: true,
+          },
+          setDate: { dateFn: 'palmSunday', subtractDay: 1 },
+        },
+        {
+          ifIsBetween: {
+            from: { dateFn: 'palmSunday', addDay: 2 },
+            to: { dateFn: 'divineMercySunday' },
+            inclusive: true,
+          },
+          setDate: { dateFn: 'palmSunday', subtractDay: 2 },
+        },
+      ],
     },
 
     enda_of_aran_abbot: {

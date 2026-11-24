@@ -54,7 +54,9 @@ export const unCapitalize = (string: string): string =>
  * @param localeId
  */
 export const sanitizeLocaleId = (localeId: string): string => {
-  if (localeId?.length >= 5) {
+  // Premise: `localeId` is always a string (its declared type); a null or undefined value would throw on
+  // `toLowerCase()` below whether or not it was guarded here, so no optional chaining is needed.
+  if (localeId.length >= 5) {
     return `${localeId.substring(0, 2).toLowerCase()}-${localeId.substring(3, 5).toUpperCase()}`;
   }
   return localeId.toLowerCase();

@@ -12,11 +12,13 @@ export enum Colors {
 }
 
 /**
- * A dynamically generated constant consisting of all the enum keys in [[LITURGICAL_COLORS]]
+ * A dynamically generated constant consisting of all the enum values in [[Colors]], such as `'RED'`.
+ *
+ * It lists the values, not the keys (`'Red'`), because `Color` is typed as their upper-case form and
+ * `isColor` matches against it. String enums have no reverse mapping, so the values are exactly the
+ * seven declared colours.
  */
-export const COLORS = Object.keys(Colors).filter(
-  (key) => typeof Colors[key as keyof typeof Colors] === 'string'
-) as Uppercase<keyof typeof Colors>[];
+export const COLORS = Object.values(Colors) as Uppercase<keyof typeof Colors>[];
 
 export type Color = (typeof COLORS)[number];
 

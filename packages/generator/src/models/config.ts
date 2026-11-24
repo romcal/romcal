@@ -237,7 +237,8 @@ export class RomcalConfig<V extends Vocabulary = Vocabulary> implements IRomcalC
     // Update the config by checking if a particularConfig is present in all CalendarDef objects.
     this.calendarsDef.map((cal) => cal.updateConfig(config));
 
-    this.outputOptions = this.#input?.outputOptions ?? { calculateProperties: false };
+    // `#input` is always an object (set at the top of the constructor), so it needs no optional chaining.
+    this.outputOptions = this.#input.outputOptions ?? { calculateProperties: false };
   }
 
   /**

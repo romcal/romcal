@@ -79,8 +79,9 @@ export class CyclesMetadata<V extends Vocabulary = Vocabulary> implements BaseCy
     // for Christmas Time. This is due the fact that the first day of the season
     // (December 25) does not always start on Sunday, unlike other seasons.
     const weekIndex = (calendar.weekOfSeason % 4) - 1;
+    // `calendar` is a required constructor argument (never nullish), so no optional chaining is needed here.
     const useChristmasPsalterWeek = Boolean(
-      calendar?.seasons.includes(Season.ChristmasTime) ? new Date(`${year}-12-25T00:00:00.000Z`).getUTCDay() : 0
+      calendar.seasons.includes(Season.ChristmasTime) ? new Date(`${year}-12-25T00:00:00.000Z`).getUTCDay() : 0
     );
     const psalterWeek = PSALTER_WEEKS[useChristmasPsalterWeek ? (2 + calendar.weekOfSeason) % 4 : (weekIndex + 4) % 4];
 

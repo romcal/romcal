@@ -623,7 +623,8 @@ export type LiturgyDayDiff<V extends Vocabulary = Vocabulary> = Pick<LiturgicalD
 
 /**
  * Check if the provided object is a [LiturgicalDayProperOfTimeInput] object
+ * `typeof null` is `'object'` and `hasOwnProperty.call(null, …)` throws, so `null` is excluded first.
  * @param maybeObj
  */
 export const isLiturgicalDayProperOfTimeInput = (maybeObj: unknown): maybeObj is LiturgicalDayProperOfTimeInput =>
-  typeof maybeObj === 'object' && Object.prototype.hasOwnProperty.call(maybeObj, 'periods');
+  typeof maybeObj === 'object' && maybeObj !== null && Object.prototype.hasOwnProperty.call(maybeObj, 'periods');

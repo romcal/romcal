@@ -8996,7 +8996,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -9054,7 +9054,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -9112,7 +9112,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -9170,7 +9170,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 1`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -45366,7 +45366,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -45424,7 +45424,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -45482,7 +45482,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -45540,7 +45540,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 2`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -84236,7 +84236,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -84294,7 +84294,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -84352,7 +84352,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -84410,7 +84410,7 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -91102,43 +91102,37 @@ exports[`Testing calendar snapshots General Roman Calendar in gregorian year 3`]
         "weekOfSeason": 12,
       },
       "colors": [
-        "GREEN",
+        "WHITE",
       ],
-      "commonsDef": [],
+      "commonsDef": [
+        "None",
+      ],
       "cycles": CyclesMetadata {
-        "properCycle": "PROPER_OF_TIME",
+        "properCycle": "PROPER_OF_SAINTS",
         "psalterWeek": "WEEK_4",
         "sundayCycle": "YEAR_C",
         "weekdayCycle": "YEAR_2",
       },
       "date": "2022-06-23",
       "dateDef": {
-        "dateArgs": [
-          4,
-          12,
-        ],
-        "dateFn": "dateOfOrdinaryTime",
-        "yearOffset": 0,
+        "date": 24,
+        "month": 6,
       },
       "dateExceptions": [],
-      "fromCalendarId": "ProperOfTime",
+      "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
-        "seasons:ordinary_time.weekday",
-        {
-          "dow": 4,
-          "week": 12,
-        },
+        "names:nativity_of_john_the_baptist",
       ],
-      "id": "ordinary_time_12_thursday",
+      "id": "nativity_of_john_the_baptist",
       "isHolyDayOfObligation": false,
       "isOptional": false,
       "martyrology": [],
       "periods": [
         "LATE_ORDINARY_TIME",
       ],
-      "precedence": "WEEKDAY_13",
-      "rank": "WEEKDAY",
+      "precedence": "GENERAL_SOLEMNITY_3",
+      "rank": "SOLEMNITY",
       "seasons": [
         "ORDINARY_TIME",
       ],
@@ -123968,7 +123962,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -124026,7 +124020,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -124084,7 +124078,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -124142,7 +124136,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 1`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -160338,7 +160332,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -160396,7 +160390,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -160454,7 +160448,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -160512,7 +160506,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 2`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -199208,7 +199202,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -199266,7 +199260,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -199324,7 +199318,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -199382,7 +199376,7 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
         "HOLY_WEEK",
         "PRESENTATION_OF_THE_LORD_TO_HOLY_THURSDAY",
       ],
-      "precedence": "PRIVILEGED_WEEKDAY_9",
+      "precedence": "WEEKDAY_OF_HOLY_WEEK_2",
       "rank": "WEEKDAY",
       "seasons": [
         "LENT",
@@ -206074,43 +206068,37 @@ exports[`Testing calendar snapshots General Roman Calendar in liturgical year 3`
         "weekOfSeason": 12,
       },
       "colors": [
-        "GREEN",
+        "WHITE",
       ],
-      "commonsDef": [],
+      "commonsDef": [
+        "None",
+      ],
       "cycles": CyclesMetadata {
-        "properCycle": "PROPER_OF_TIME",
+        "properCycle": "PROPER_OF_SAINTS",
         "psalterWeek": "WEEK_4",
         "sundayCycle": "YEAR_C",
         "weekdayCycle": "YEAR_2",
       },
       "date": "2022-06-23",
       "dateDef": {
-        "dateArgs": [
-          4,
-          12,
-        ],
-        "dateFn": "dateOfOrdinaryTime",
-        "yearOffset": 0,
+        "date": 24,
+        "month": 6,
       },
       "dateExceptions": [],
-      "fromCalendarId": "ProperOfTime",
+      "fromCalendarId": "general_roman",
       "fromExtendedCalendars": [],
       "i18nDef": [
-        "seasons:ordinary_time.weekday",
-        {
-          "dow": 4,
-          "week": 12,
-        },
+        "names:nativity_of_john_the_baptist",
       ],
-      "id": "ordinary_time_12_thursday",
+      "id": "nativity_of_john_the_baptist",
       "isHolyDayOfObligation": false,
       "isOptional": false,
       "martyrology": [],
       "periods": [
         "LATE_ORDINARY_TIME",
       ],
-      "precedence": "WEEKDAY_13",
-      "rank": "WEEKDAY",
+      "precedence": "GENERAL_SOLEMNITY_3",
+      "rank": "SOLEMNITY",
       "seasons": [
         "ORDINARY_TIME",
       ],

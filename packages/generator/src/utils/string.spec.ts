@@ -1,4 +1,12 @@
-import { sanitizeLocaleId, toPackageName, toScreamingSnakeCase } from './string';
+import {
+  capitalize,
+  sanitizeLocaleId,
+  toCamelCase,
+  toPackageName,
+  toPascalCase,
+  toScreamingSnakeCase,
+  unCapitalize,
+} from './string';
 
 describe('string.ts', () => {
   describe('toScreamingSnakeCase', () => {
@@ -44,6 +52,39 @@ describe('string.ts', () => {
   describe('toPackageName', () => {
     it('formats multiword calendar namespaces and jurisdiction names', () => {
       expect(toPackageName('WesternSahara_ApostolicPrefecture')).toBe('western-sahara.apostolic-prefecture');
+    });
+
+    it('adds the package scope and prefix when asked to', () => {
+      expect(toPackageName('Slovakia', true)).toBe('@romcal/calendar.slovakia');
+    });
+  });
+
+  describe('toCamelCase', () => {
+    it('joins words separated by hyphens, underscores and spaces', () => {
+      expect(toCamelCase('SOME-random_string here')).toBe('someRandomStringHere');
+    });
+  });
+
+  describe('capitalize', () => {
+    it('raises the first character only', () => {
+      expect(capitalize('some string')).toBe('Some string');
+      expect(capitalize('')).toBe('');
+    });
+  });
+
+  describe('toPascalCase', () => {
+    it('joins words and raises the first character', () => {
+      expect(toPascalCase('some-random_string here')).toBe('SomeRandomStringHere');
+    });
+  });
+
+  describe('unCapitalize', () => {
+    it('lowers the first character and the letters after an underscore', () => {
+      expect(unCapitalize('Western_APOSTOLIC')).toBe('western_apostolic');
+    });
+
+    it('lowers only the first character of a plain word', () => {
+      expect(unCapitalize('SomeString')).toBe('someString');
     });
   });
 });
