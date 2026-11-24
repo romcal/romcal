@@ -217,7 +217,7 @@ export class Dates<V extends Vocabulary = Vocabulary> {
     return (this.#allDatesInOctaveOfChristmas[year] = rangeOfDays(
       this.christmas(year),
       addDays(this.christmas(year), 6)
-    ).concat(this.maryMotherOfGod(year)));
+    ).concat(this.maryMotherOfGod(year + 1))); // The octave day is 1 January of the year after Christmas.
   };
 
   #allDatesInOctaveOfChristmas: Record<string, Date[]> = {};
