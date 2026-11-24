@@ -50,9 +50,9 @@ export class LiturgicalDayConfig<V extends Vocabulary = Vocabulary> implements B
   /**
    * Lookup the date of a LiturgicalDayDef object, from a defined year scope
    * @param dateDef
-   * @param yearOffset
+   * @param yearOffset - Always supplied: its only callers are in `buildDate`, which defaults it to 0.
    */
-  #dateLookup(dateDef: DateDef | DateDefExtended, yearOffset = 0): Date | null {
+  #dateLookup(dateDef: DateDef | DateDefExtended, yearOffset: number): Date | null {
     let date: Date | null = null;
     const year = this.year + (dateDef.yearOffset ?? 0) + yearOffset;
 
@@ -124,8 +124,10 @@ export class LiturgicalDayConfig<V extends Vocabulary = Vocabulary> implements B
       if (isBareDayOffset) {
         if (isInteger(dateDefExtended.addDay)) {
           updatedDate = addDays(date, dateDefExtended.addDay);
-        } else if (isInteger(dateDefExtended.subtractDay)) {
-          updatedDate = subtractsDays(date, dateDefExtended.subtractDay);
+        } else {
+          // `isBareDayOffset` holds only when `addDay` or `subtractDay` is an integer,
+          // and `addDay` is not, so `subtractDay` is.
+          updatedDate = subtractsDays(date, dateDefExtended.subtractDay as number);
         }
       } else {
         updatedDate = this.#dateLookup(dateDefExtended, yearOffset);
